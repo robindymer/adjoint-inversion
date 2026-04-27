@@ -3,8 +3,8 @@ clear all;
 addSubpaths;
 order = 8;
 inversionPars = {'a'};
-initialGuessScaling = 1.1;
-deltaParExps = [-5:-1:-8,-8.3,-8.5:-0.5:-9.5,-10:-1:-12];
+initialGuessScaling = 1.1; % 10 % off from truth
+deltaParExps = [-5:-1:-8,-8.3,-8.5:-0.5:-9.5,-10:-1:-12]; % Finite difference step sizes in powers of 10
 
 parset = @pars.rsFriction2DFractalFaultVerification;
 parSetOpts.inversionParameters = inversionPars;
