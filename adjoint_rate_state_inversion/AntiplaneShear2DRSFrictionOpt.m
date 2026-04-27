@@ -29,6 +29,15 @@ properties
     %Data recorded during LATEST adjoint simulation
     adjointFaultVariables	    
     adjointTimeIntegrationData
+
+    % Directional second-order (incremental) data, computed by finite differences
+    secondOrderForwardReceiverRecordings
+    secondOrderForwardFaultVariables
+    secondOrderForwardTimeIntegrationData
+    secondOrderAdjointFaultVariables
+    secondOrderAdjointTimeIntegrationData
+    secondOrderDirection
+    secondOrderEpsilon
     
     pars			%Current parameters.
     T 				%Final time
@@ -178,6 +187,13 @@ methods
         
         obj.forwardTimeIntegrationData = obj.timeIntegrationStruct();
         obj.adjointTimeIntegrationData = obj.timeIntegrationStruct();
+        obj.secondOrderForwardReceiverRecordings = [];
+        obj.secondOrderForwardFaultVariables = obj.faultVariablesStruct();
+        obj.secondOrderForwardTimeIntegrationData = obj.timeIntegrationStruct();
+        obj.secondOrderAdjointFaultVariables = obj.faultVariablesStruct();
+        obj.secondOrderAdjointTimeIntegrationData = obj.timeIntegrationStruct();
+        obj.secondOrderDirection = struct;
+        obj.secondOrderEpsilon = [];
 
         obj.domain = domain;
         obj.m = m;
@@ -246,6 +262,160 @@ methods
         [~, faultData, timeData] = obj.runSimulation(discr, opts, [], plotFlag, saveOpts, progressBar);
         obj.adjointFaultVariables = faultData;
         obj.adjointTimeIntegrationData = timeData;
+    end
+
+    function runSecondOrderForward(obj, plotFlag, T, saveOpts, progressBar)
+        default_arg('plotFlag', false);
+        default_arg('T', obj.T);
+        default_arg('saveOpts', []);
+        default_arg('progressBar', false);
+
+        if isempty(fieldnames(obj.secondOrderDirection)) || isempty(obj.secondOrderEpsilon)
+            error('Second-order direction is not set. Call setSecondOrderDirection first.');
+        end
+
+        eps2 = obj.secondOrderEpsilon;
+        parsBase = obj.pars;
+
+        % Base trajectory
+        obj.updateForwardDiscr(parsBase);
+        obj.runForward(plotFlag, T, saveOpts, progressBar);
+        recBase = obj.forwardReceiverRecordings;
+        faultBase = obj.forwardFaultVariables;
+        timeBase = obj.forwardTimeIntegrationData;
+        HtBase = obj.Ht;
+
+        % Perturbed trajectory p + eps * dp
+        parsPlus = obj.addDirectionToPars(parsBase, obj.secondOrderDirection, eps2);
+        obj.setParameters(parsPlus);
+        obj.updateForwardDiscr(parsPlus);
+        obj.runForward(plotFlag, T, saveOpts, progressBar);
+        recPlus = obj.forwardReceiverRecordings;
+        faultPlus = obj.forwardFaultVariables;
+
+        % Directional derivative approximation
+        obj.secondOrderForwardReceiverRecordings = (recPlus - recBase)/eps2;
+        obj.secondOrderForwardFaultVariables.V = (faultPlus.V - faultBase.V)/eps2;
+        obj.secondOrderForwardFaultVariables.Psi = (faultPlus.Psi - faultBase.Psi)/eps2;
+        obj.secondOrderForwardTimeIntegrationData = timeBase;
+
+        % Restore base state
+        obj.setParameters(parsBase);
+        obj.updateForwardDiscr(parsBase);
+        obj.forwardReceiverRecordings = recBase;
+        obj.forwardFaultVariables = faultBase;
+        obj.forwardTimeIntegrationData = timeBase;
+        obj.Ht = HtBase;
+    end
+
+    function runSecondOrderAdjoint(obj, plotFlag, T, saveOpts, progressBar)
+        default_arg('plotFlag', false);
+        default_arg('T', obj.T);
+        default_arg('saveOpts', []);
+        default_arg('progressBar', false);
+
+        if isempty(fieldnames(obj.secondOrderDirection)) || isempty(obj.secondOrderEpsilon)
+            error('Second-order direction is not set. Call setSecondOrderDirection first.');
+        end
+
+        eps2 = obj.secondOrderEpsilon;
+        parsBase = obj.pars;
+
+        % Base forward+adjoint trajectory
+        obj.updateForwardDiscr(parsBase);
+        obj.runForward(plotFlag, T, saveOpts, progressBar);
+        recBase = obj.forwardReceiverRecordings;
+        faultFwdBase = obj.forwardFaultVariables;
+        timeFwdBase = obj.forwardTimeIntegrationData;
+        HtBase = obj.Ht;
+        obj.updateAdjointDiscr();
+        obj.runAdjoint(plotFlag, T, saveOpts, progressBar);
+        faultAdjBase = obj.adjointFaultVariables;
+        timeAdjBase = obj.adjointTimeIntegrationData;
+
+        % Perturbed forward+adjoint trajectory p + eps * dp
+        parsPlus = obj.addDirectionToPars(parsBase, obj.secondOrderDirection, eps2);
+        obj.setParameters(parsPlus);
+        obj.updateForwardDiscr(parsPlus);
+        obj.runForward(plotFlag, T, saveOpts, progressBar);
+        obj.updateAdjointDiscr();
+        obj.runAdjoint(plotFlag, T, saveOpts, progressBar);
+        faultAdjPlus = obj.adjointFaultVariables;
+
+        % Directional derivative approximation
+        obj.secondOrderAdjointFaultVariables.V = (faultAdjPlus.V - faultAdjBase.V)/eps2;
+        obj.secondOrderAdjointFaultVariables.Psi = (faultAdjPlus.Psi - faultAdjBase.Psi)/eps2;
+        obj.secondOrderAdjointTimeIntegrationData = timeAdjBase;
+
+        % Restore base state and consistent discretizations
+        obj.setParameters(parsBase);
+        obj.updateForwardDiscr(parsBase);
+        obj.forwardReceiverRecordings = recBase;
+        obj.forwardFaultVariables = faultFwdBase;
+        obj.forwardTimeIntegrationData = timeFwdBase;
+        obj.Ht = HtBase;
+        obj.updateAdjointDiscr();
+        obj.adjointFaultVariables = faultAdjBase;
+        obj.adjointTimeIntegrationData = timeAdjBase;
+    end
+
+    function setSecondOrderDirection(obj, direction, epsilon)
+        default_arg('epsilon', 1e-6);
+        obj.secondOrderDirection = obj.normalizeDirectionStruct(direction);
+        obj.secondOrderEpsilon = epsilon;
+    end
+
+    function hv = computeHessianVector(obj, direction, epsilon, plotFlag, progressBar)
+        default_arg('epsilon', 1e-6);
+        default_arg('plotFlag', false);
+        default_arg('progressBar', false);
+
+        directionNative = obj.normalizeDirectionStruct(direction);
+        obj.setSecondOrderDirection(directionNative, epsilon);
+
+        parsBase = obj.pars;
+
+        % Base gradient g(p)
+        gBase = obj.computeGradient(plotFlag, progressBar);
+
+        % Perturbed gradient g(p + eps*dp)
+        parsPlus = obj.addDirectionToPars(parsBase, directionNative, epsilon);
+        obj.setParameters(parsPlus);
+        obj.updateForwardDiscr(parsPlus);
+        gPlus = obj.computeGradient(plotFlag, progressBar);
+
+        % Directional derivative of the gradient
+        hv = struct;
+        for i = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{i};
+            hv.(parName) = (gPlus.(parName) - gBase.(parName))/epsilon;
+        end
+
+        % Cache second-order trajectories for diagnostics
+        obj.setParameters(parsBase);
+        obj.updateForwardDiscr(parsBase);
+        obj.runSecondOrderForward(false, obj.T, [], progressBar);
+        obj.runSecondOrderAdjoint(false, obj.T, [], progressBar);
+
+        % Restore optimization state at base point
+        obj.setParameters(parsBase);
+        obj.updateForwardDiscr(parsBase);
+    end
+
+    function [epsList, relErr] = validateHessianVectorFD(obj, direction, epsList, progressBar)
+        default_arg('epsList', 10.^(-3:-1:-7));
+        default_arg('progressBar', false);
+
+        directionNative = obj.normalizeDirectionStruct(direction);
+        hvRef = obj.computeHessianVector(directionNative, min(epsList)/10, false, progressBar);
+        hvRefVec = obj.gradientNativeToVector(hvRef);
+        relErr = zeros(size(epsList));
+
+        for i = 1:numel(epsList)
+            hvFD = obj.computeHessianVector(directionNative, epsList(i), false, progressBar);
+            hvFDVec = obj.gradientNativeToVector(hvFD);
+            relErr(i) = norm(hvFDVec - hvRefVec)/(norm(hvRefVec) + eps);
+        end
     end
     
     
@@ -975,6 +1145,36 @@ methods
     
     function plotGradient(obj, grad)
         warning('Not implemented');
+    end
+
+    function directionNative = normalizeDirectionStruct(obj, direction)
+        if isnumeric(direction)
+            directionNative = obj.parametersVectorToNative(direction(:));
+        elseif isstruct(direction)
+            directionNative = direction;
+        else
+            error('Direction must be a vector or a struct in native parameter format.');
+        end
+
+        for i = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{i};
+            if ~isfield(directionNative, parName)
+                error('Direction is missing inversion parameter %s.', parName);
+            end
+            p = obj.pars.(parName);
+            dp = directionNative.(parName);
+            if ~isequal(size(p), size(dp))
+                error('Direction size mismatch for parameter %s.', parName);
+            end
+        end
+    end
+
+    function parsOut = addDirectionToPars(obj, parsIn, direction, alpha)
+        parsOut = parsIn;
+        for i = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{i};
+            parsOut.(parName) = parsIn.(parName) + alpha*direction.(parName);
+        end
     end
 
     function obj = setSyntheticReceiverData(obj, data, timeIntegrationData)
