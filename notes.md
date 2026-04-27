@@ -13,5 +13,8 @@ computeGradient() -> runForward() -> updateAdjointDiscr() -> runAdjoint() -> gra
 computeGradientFD(deltaG) -> updateForwardDiscr() -> runForward() -> computeMisfit()
 compareGradients() and gradientNorm() turn those two results into the relative error used in the plot.
 
+## Next
+Upgrade from FD second-order to fully analytic second-order FP/AP by generating and wiring second derivative friction functions and replacing the FD increments inside runSecondOrderForward/runSecondOrderAdjoint.
+
 ## Funderingar
 * Vad är det för interpolation som görs? "Fewer grid points used for inversion parameters. Use SBP-preserving interpolation"
