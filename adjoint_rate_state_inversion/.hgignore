@@ -1,0 +1,21 @@
+syntax: glob
+.DS_Store
+figures/*.fig
+figures/*.png
+figures/*.eps
+*.avi
+*.mov
++pars/marmousi2*.mat
+badAdj*.mat
+goodAdj*.mat
+goodFwd*.mat
+badFwd*.mat
+elAc*.mat
+Cmap*.mat
+ElSeafloor*.mat
+AcBott*.mat
+AcSurf*.mat
+marmousiSnapshots/*
+marmousiSpaceTime/*
+*.asv
+mat/*

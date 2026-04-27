@@ -1,0 +1,4 @@
+syntax: glob
+*.mat
+*.mexmaci64
+*.mexa64

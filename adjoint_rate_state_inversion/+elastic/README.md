@@ -1,0 +1,2 @@
+# Elastic operators
+This package uses the sbplib repository (hg clone ssh://hg@bitbucket.org/sbpteam/sbplib) to discretize various systems of equations that involve linear elasticity. The code and its documentation are continuously developed.

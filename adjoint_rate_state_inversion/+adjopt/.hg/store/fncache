@@ -1,0 +1,10 @@
+data/README.md.i
+data/optimize.m.i
+data/vectorGradient.m.i
+data/goldenSection.m.i
+data/optimize_lbfgs.m.i
+data/runFDConvergence.m.i
+data/AdjointOptimization.m.i
+data/calcStepLengthJon.m.i
+data/compareWithFD.m.i
+data/optimizeMaterial.m.i
