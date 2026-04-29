@@ -276,6 +276,7 @@ methods
 
         eps2 = obj.secondOrderEpsilon;
         parsBase = obj.pars;
+        disp("eps2 = " + num2str(eps2));
 
         % Base trajectory
         obj.updateForwardDiscr(parsBase);
@@ -416,6 +417,99 @@ methods
             hvFDVec = obj.gradientNativeToVector(hvFD);
             relErr(i) = norm(hvFDVec - hvRefVec)/(norm(hvRefVec) + eps);
         end
+    end
+
+    % =====================================================================
+    % ANALYTIC SECOND-ORDER METHODS (BOILERPLATE)
+    % =====================================================================
+
+    function hv = computeHessianVectorAnalytic(obj, direction)
+        directionNative = obj.normalizeDirectionStruct(direction);
+        
+        % 1. Run Base Trajectories (Forward & Adjoint)
+        obj.runForward(false, obj.T, [], false);
+        obj.updateAdjointDiscr();
+        obj.runAdjoint(false, obj.T, [], false);
+        
+        pars = obj.forwardDiscr.friction.rsParams;
+        V = obj.forwardFaultVariables.V;
+        Psi = obj.forwardFaultVariables.Psi;
+        V_adj = fliplr(obj.adjointFaultVariables.V);
+        Psi_adj = fliplr(obj.adjointFaultVariables.Psi);
+        
+        % 2. Solve Linearized Forward Problem for Delta V and Delta Psi
+        [dV, dPsi] = obj.runLinearizedForward(directionNative);
+        
+        % 3. Assemble the analytic Hessian-Vector Product
+        hv = struct;
+        for i = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{i};
+            eps_p = directionNative.(parName); % perturbation delta p
+            
+            % TODO: Define these function handles in your friction properties
+            % F_pp = obj.F_pp{i}(V, Psi, pars...); 
+            % G_pp = obj.G_pp{i}(V, Psi, pars...);
+            % F_pV = obj.F_pV{i}(V, Psi, pars...);
+            % F_pPsi = obj.F_pPsi{i}(V, Psi, pars...);
+            % G_pV = obj.G_pV{i}(V, Psi, pars...);
+            % G_pPsi = obj.G_pPsi{i}(V, Psi, pars...);
+            % F_p = obj.F_p{i}(V, Psi, pars...);
+            % G_p = obj.G_p{i}(V, Psi, pars...);
+            
+            % Placeholder arrays (zeros) to represent evaluated dependencies
+            F_pp = zeros(size(V)); G_pp = zeros(size(V));
+            F_pV = zeros(size(V)); F_pPsi = zeros(size(V));
+            G_pV = zeros(size(V)); G_pPsi = zeros(size(V));
+            F_p = zeros(size(V));  G_p = zeros(size(V));
+            
+            % Linearized adjoint variables (if you fully implemented runLinearizedAdjoint)
+            % dV_adj_rev = fliplr(dV_adj);
+            % dPsi_adj_rev = fliplr(dPsi_adj);
+            dV_adj_rev = zeros(size(V));    % placeholder
+            dPsi_adj_rev = zeros(size(V));  % placeholder
+            
+            % Term 1: Second derivative w.r.t parameter squared
+            term1 = V_adj .* F_pp .* eps_p + Psi_adj .* G_pp .* eps_p;
+            
+            % Term 2 & 3: Coupling with Adjoint Variations
+            term2 = dV_adj_rev .* F_p + dPsi_adj_rev .* G_p;
+            
+            % Term 4 & 5: Mixed second derivatives with State Variations
+            term3 = V_adj .* (F_pV .* dV + F_pPsi .* dPsi);
+            term4 = Psi_adj .* (G_pV .* dV + G_pPsi .* dPsi);
+            
+            % Assemble the exact spatial-temporal integral
+            total_integrand = term1 + term2 + term3 + term4;
+            
+            hv.(parName) = -(obj.H_b * obj.If2c * total_integrand) * obj.Ht;
+        end
+    end
+
+    function [dV, dPsi] = runLinearizedForward(obj, directionNative)
+        % BOILERPLATE: Integrate the Second-Order Forward Problem
+        % Delta F_j = (dF/dV)*dV + (dF/dPsi)*dPsi + (dF/dp)*eps_p
+        % Delta G_j = (dG/dV)*dV + (dG/dPsi)*dPsi + (dG/dp)*eps_p
+        
+        % In practice, you must construct a specialized timestepper 
+        % that applies Delta F as the boundary traction and Delta G as the 
+        % state evolution, utilizing the base trajectory matrices.
+        
+        [nf, nSteps] = size(obj.forwardFaultVariables.V);
+        dV = zeros(nf, nSteps);
+        dPsi = zeros(nf, nSteps);
+        
+        % TODO: Provide linearized time-stepping loop here
+    end
+
+    function [dV_adj, dPsi_adj] = runLinearizedAdjoint(obj, directionNative, dV, dPsi)
+        % BOILERPLATE: Integrate the Second-Order Adjoint Problem
+        % Driven by Delta Q_adj = sum Delta \dot{u} delta(x - x_r)
+        
+        [nf, nSteps] = size(obj.adjointFaultVariables.V);
+        dV_adj = zeros(nf, nSteps);
+        dPsi_adj = zeros(nf, nSteps);
+        
+        % TODO: Provide linearized adjoint time-stepping loop here
     end
     
     
