@@ -10,7 +10,7 @@ parset = @pars.rsFrictionOffFaultTransport;
 
 % Get synthetic data
 % TODO: Add option for loading data from mat files
-data_opt = AntiplaneShearRSFrictionOpt(parset_true, [], order);
+data_opt = AntiplaneShearRSFrictionOptHessian(parset_true, [], order);
 data_opt.runForward(true);
 syntheticData = {data_opt.forwardReceiverRecordings,data_opt.forwardTimeIntegrationData};
 
@@ -21,7 +21,7 @@ syntheticData = {data_opt.forwardReceiverRecordings,data_opt.forwardTimeIntegrat
 % RK4 checks if tol is met at each step, and if not, reduces the time step and tries again.
 function [delta_grad, grad_adj, grad_fd] = compare_gradients(parset, order, syntheticData, misfitType)
     parset.misfitType = misfitType;
-    adj_opt = AntiplaneShearRSFrictionOpt(parset, [], order);
+    adj_opt = AntiplaneShearRSFrictionOptHessian(parset, [], order);
     adj_opt.setSyntheticReceiverData(syntheticData{:});
     grad_adj = adj_opt.computeGradient();
     if adj_opt.tsOpts.forwardMethod.adaptive
