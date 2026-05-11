@@ -16,5 +16,12 @@ compareGradients() and gradientNorm() turn those two results into the relative e
 ## Next
 Upgrade from FD second-order to fully analytic second-order FP/AP by generating and wiring second derivative friction functions and replacing the FD increments inside runSecondOrderForward/runSecondOrderAdjoint.
 
+* Update the second order discr objects!!
+
+## Other nice files
+* rsFrictionFunctions.m - has derivatives of functions
+* AntiplaneShearRSFrictionFwdDiscr.m - forward discretization
+* rsFrictionOffFailtTransport.m - param file
+
 ## Funderingar
 * Vad är det för interpolation som görs? "Fewer grid points used for inversion parameters. Use SBP-preserving interpolation"

@@ -7,6 +7,7 @@ properties
     % Sources
     adjointReceiverRecordings 	%Recorded during LATEST adjoint simulation (at forward source coords).
     %Stored with FORWARD time convention, like everything else.
+    secondOrderAdjointRecieverRecordings
     
     % Receivers
     receiverData 				%True data, recorded by "seismometers"
@@ -16,6 +17,8 @@ properties
     % Discretizations
     forwardDiscr
     adjointDiscr
+    secondOrderForwardDiscr
+    secondOrderAdjointDiscr
     
     % Time stepping options
     tsOpts
@@ -27,6 +30,10 @@ properties
     %Data recorded during LATEST adjoint simulation
     adjointFaultVariables	    
     adjointTimeIntegrationData
+
+    %Data recorded during LATEST second order forward simulation
+    secondOrderForwardFaultVariables
+    secondOrderForwardTimeIntegrationData
     
     pars			%Current parameters.
     T 				%Final time
@@ -39,6 +46,7 @@ properties
     k
     
     inversionPars
+    eps_pertubation % Parameter pertubation, required for hessian vector computation
     
 end
 
@@ -56,6 +64,7 @@ methods
         material = pars.material;
         bc = pars.bc;
         friction = pars.friction;
+        % TODO: Second order sorce and receivers? Probably not
         sources = pars.sources;
         receivers = pars.receivers;
         initialconditions = pars.initialconditions;
@@ -64,7 +73,7 @@ methods
         tsOpts = pars.tsOpts;
         T = pars.T;
         
-        
+        % TODO: second order discr objects needs to be implemented
         % Create forward discretization object
         forwardDiscr = elastic.AntiplaneShearRSFrictionFwdDiscr(opset, m, xlims, order, material, bc, friction, sources, initialconditions);
         % Initialize adjoint discretization object. Does not set any friction/receiver data.
@@ -72,7 +81,10 @@ methods
 
         pars.a = pars.friction.params.a;
         pars.b = pars.friction.params.b;
+
+        obj.eps_pertubation = 0.1; % TODO: remove hardcoding, use pars instead
         
+        % TODO: Update for second order (all below)
         % Set instance variables
         obj.dim = 1;
         obj.forwardDiscr = forwardDiscr;
@@ -519,6 +531,7 @@ methods
     end
     
     % TODO: Consider splitting into 2 functions dep on if data is interpolated.
+    % Update adjoint sources, friction functions
     function updateAdjointDiscr(obj)
         % TODO: Based on obj.inversionPars, select which parameters to update
         discr = obj.adjointDiscr;
@@ -627,6 +640,48 @@ methods
             discr.setStateEvolution();
         end
     end
+
+    function updateSecondOrderForwardDiscr(obj)
+        % TODO: Based on obj.inversionPars, select which parameters to update
+        discr = obj.secondOrderForwardDiscr;
+
+        % Update parameter values
+        a = obj.pars.a;
+        b = obj.pars.b;
+        discr.friction.params.a = a;
+        discr.friction.params.b = b;
+        
+        %% 
+        % Update adjoint friction functions with data from forward solve
+        %
+
+
+        % Forward solve data
+        V = obj.forwardFaultVariables.V;
+        Psi = obj.forwardFaultVariables.Psi;
+
+        % Compute coefficients needed for adjoint friction functions
+        F_V = discr.friction.funs.tau_V(V, Psi, a);
+        F_Psi = discr.friction.funs.tau_Psi(V, Psi, a);
+        G_V = discr.friction.funs.g_V(V, Psi, a, b);
+        G_Psi = discr.friction.funs.g_Psi(V, Psi, a, b);
+        F_a = discr.friction.funs.tau_a(V, Psi, a);
+
+        % For now, we skip interp_data
+        if interp_data
+            error("Interpalation not yet implemented for hessian vector calculations.")
+        else
+            % Update fault data and functions
+            discr.friction.data.tau_V = fliplr(F_V);
+            discr.friction.data.g_V = fliplr(G_V);
+            discr.friction.data.g_Psi = fliplr(G_Psi);
+            discr.friction.data.tau_Psi = fliplr(F_Psi);
+            discr.friction.data.tau_a = fliplr(F_a);
+
+            discr.setFaultTraction();
+            discr.setStateEvolution();
+        end
+    end
     
     function R = integrateResidual(obj, r)
         % Utilize the same time stepper settings as used by the scheme
@@ -657,6 +712,18 @@ methods
         obj.updateAdjointDiscr();
         obj.runAdjoint(true);
         grad = obj.gradientFormula();
+    end
+
+    function hessianVector = computeHessianVector(obj)
+        obj.runForward(true);
+        obj.updateAdjointDiscr();
+        obj.runAdjoint(true);
+        obj.updateSecondOrderForwardDiscr();
+        obj.runSecondOrderForward(true);
+        obj.updateSecondOrderAdjointDiscr();
+        obj.runSecondOrderAdjoint();
+
+        hessianVector = obj.hessianVectorFormula();
     end
     
     function grad = gradientFormula(obj)

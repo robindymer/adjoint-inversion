@@ -4,7 +4,7 @@ order = 4;
 %parset = @pars.rsFrictionErickson;
 %parset = @pars.rsFrictionLinear;
 %parset = @pars.rsFrictionTimeDepNonlinear;
-parset = @pars.rsFrictionOffFaultTransport;
+parset = @pars.rsFrictionOffFaultTransportHessian;
 
 [parset, parset_true] = parset(); % Specify misfit later.
 
