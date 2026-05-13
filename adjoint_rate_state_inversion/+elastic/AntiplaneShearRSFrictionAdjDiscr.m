@@ -290,6 +290,7 @@ methods
             E = obj.E;
             F = 0;
             for i = 1:ns
+                % Note data instead of function
                 data_i = source_data{i};
                 if iscolumn(data_i)
                     data_i = transpose(data_i);

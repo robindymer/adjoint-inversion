@@ -130,9 +130,9 @@ function [parameters, trueParameters] = rsFrictionOffFaultTransportHessian(opts)
     secondOrderReceivers.data = [];
 
     tsOpts.forwardMethod.order = 3;
-    tsOpts.forwardMethod.adaptive = true;
+    tsOpts.forwardMethod.adaptive = false;
     tsOpts.forwardMethod.rtol = 1e-6; 
-    tsOpts.forwardMethod.reportRetry = true;
+    tsOpts.forwardMethod.reportRetry = false;
 
     tsOpts.adjointMethod.order = 3;
     tsOpts.adjointMethod.adaptive = false;

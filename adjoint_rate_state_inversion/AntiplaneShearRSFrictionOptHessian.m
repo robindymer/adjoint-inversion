@@ -7,7 +7,8 @@ properties
     % Sources
     adjointReceiverRecordings 	%Recorded during LATEST adjoint simulation (at forward source coords).
     %Stored with FORWARD time convention, like everything else.
-    secondOrderAdjointRecieverRecordings
+    secondOrderAdjointReceiverRecordings
+    secondOrderForwardReceiverRecordings
     
     % Receivers
     receiverData 				%True data, recorded by "seismometers"
@@ -34,6 +35,10 @@ properties
     %Data recorded during LATEST second order forward simulation
     secondOrderForwardFaultVariables
     secondOrderForwardTimeIntegrationData
+
+    %Data recorded during LATEST second order forward simulation
+    secondOrderAdjointFaultVariables
+    secondOrderAdjointTimeIntegrationData
     
     pars			%Current parameters.
     T 				%Final time
@@ -82,6 +87,7 @@ methods
         disp(interp_data)
         % Same thing here, do not set friction and second order source / reciever data
         secondOrderForwardDiscr = elastic.AntiplaneShearRSFrictionSecondOrderFwdDiscr(opset, m, xlims, order, material, bc, friction, secondOrderSources, interp_data);
+        % TODO: Needs to be updated
         secondOrderAdjointDiscr = elastic.AntiplaneShearRSFrictionSecondOrderAdjDiscr(opset, m, xlims, order, material, bc, friction, secondOrderReceivers, interp_data);
 
         pars.a = pars.friction.params.a;
@@ -195,6 +201,48 @@ methods
         obj.adjointReceiverRecordings = receiverData;
         obj.adjointFaultVariables = faultData;
         obj.adjointTimeIntegrationData = timeData;
+    end
+
+
+    function runSecondOrderForward(obj, plotFlag, T, saveOpts, progressBar)
+        default_arg('plotFlag', false);
+        default_arg('T', obj.T);
+        default_arg('saveOpts', []);
+        default_arg('progressBar', []);
+        
+        discr = obj.secondOrderForwardDiscr;
+        % Receiver dirac deltas for measuring misfit
+        % TODO: Needs update?
+        receiverDeltas = obj.forwardDiscr.dirac_deltas;
+        
+        % Time stepping options
+        adjTsOpts.method = obj.tsOpts.adjointMethod;
+        adjTsOpts.T = T;
+        if obj.adjointDiscr.interpolate_data
+            adjTsOpts.cont_time = true;
+        else
+            adjTsOpts.cont_time = false;
+        end
+
+        if adjTsOpts.method.adaptive 
+            assert(obj.adjointDiscr.interpolate_data, 'Interpolate data must be set to true.');
+            adjTsOpts.k = obj.tsOpts.k;
+            [receiverData, faultData, timeData] = obj.runSimulationAdaptive(discr, adjTsOpts,...
+            receiverDeltas, plotFlag, saveOpts, progressBar);
+        else  % Time integrate using a standard RK method, but with time steps taken from forward problem
+            adjTsOpts.k = fliplr(obj.forwardTimeIntegrationData.k); % Reverse timestep vector
+            [receiverData, faultData, timeData] = obj.runSimulation(discr, adjTsOpts,...
+            receiverDeltas, plotFlag, saveOpts, progressBar);
+        end
+        
+        % TBD: Is this needed?									
+        nReceivers = numel(receiverDeltas);
+        for i = 1:nReceivers
+            receiverData{i} = rot90(receiverData{i});
+        end
+        obj.secondOrderForwardReceiverRecordings = receiverData;
+        obj.secondOrderForwardFaultVariables = faultData;
+        obj.secondOrderForwardTimeIntegrationData = timeData;
     end
     
     
@@ -678,17 +726,132 @@ methods
         G_V = discr.friction.funs.g_V(V, Psi, a, b);
         G_Psi = discr.friction.funs.g_Psi(V, Psi, a, b);
         F_a = discr.friction.funs.tau_a(V, Psi, a);
+        G_a = discr.friction.funs.g_a(V, Psi, a, b);
 
         % For now, we skip interp_data
+        % if interp_data
+        %     error("Interpalation not yet implemented for hessian vector calculations.")
+        % else
+        % Update fault data and functions
+        discr.friction.data.tau_V = fliplr(F_V);
+        discr.friction.data.g_V = fliplr(G_V);
+        discr.friction.data.g_Psi = fliplr(G_Psi);
+        discr.friction.data.tau_Psi = fliplr(F_Psi);
+        discr.friction.data.tau_a = fliplr(F_a);
+        discr.friction.data.g_a = fliplr(G_a);
+
+        discr.setFaultTraction();
+        discr.setStateEvolution();
+    end
+
+    function updateSecondOrderAdjointDiscr(obj)
+        % TODO: Based on obj.inversionPars, select which parameters to update
+        discr = obj.secondOrderAdjointDiscr;
+
+        % Update parameter values
+        a = obj.pars.a;
+        b = obj.pars.b;
+        discr.friction.params.a = a;
+        discr.friction.params.b = b;
+        
+        %% 
+        % Update adjoint sources with misfit residual
+        %
+
+        % Make sure that the adjoint sources are the receivers with the correct data
+        % TODO: Double check that this is the valid approach,
+        % i.e. using same data but changing approx to second order
+        data = obj.receiverData;
+        % approx = obj.forwardReceiverRecordings;
+        approx = obj.secondOrderForwardReceiverRecordings;
+        nReceivers = numel(discr.dirac_deltas);
+        interp_data = discr.interpolate_data;
+        
+        % Solve for negative adjoint velocity potential by reversing sign of forcing
+        misfit_residual = cell(nReceivers, obj.dim);
+                
+        T_fwd = obj.forwardTimeIntegrationData.T;
+        nStages = obj.forwardTimeIntegrationData.nStages;
+
+        % if interp_data
+        %     % Remove stages from data for interpolation
+        %     t_fwd = obj.removeStagedData(T_fwd,nStages);
+        %     for i = 1:nReceivers
+        %         residual = approx{i} - data{i}(T_fwd); % Residual in receiver measurements including substages
+        %         switch obj.misfitType
+        %         case 'displacement'
+        %             R_data = obj.removeStagedData(obj.integrateResidual(residual),nStages);
+        %             R_pp = spline(t_fwd, R_data);
+        %             R = @(t) ppval(R_pp, t);
+        %             res_data_i = @(t) -R(obj.T-t);
+        %         case 'velocity'
+        %             r_data = obj.removeStagedData(residual,nStages);
+        %             r_pp = spline(t_fwd, r_data);
+        %             r = @(t) ppval(r_pp, t);
+        %             res_data_i = @(t) r(obj.T-t); % Reverse in time
+        %         otherwise
+        %             error('misfit %s not implemented', obj.misfitType);
+        %         end
+        %         misfit_residual{i} = res_data_i;
+        %     end
+        % else
+        for i = 1:nReceivers
+            residual = approx{i} - data{i}(T_fwd); % Residual in receiver measurements including substages
+            switch obj.misfitType
+            case 'displacement'
+                R = obj.integrateResidual(residual);
+                res_data_i = -R; % Minus sign due to how the forcing enters the PDE
+            case 'velocity'
+                res_data_i = residual;
+            otherwise
+                error('misfit %s not implemented', obj.misfitType);
+            end
+            misfit_residual{i} = fliplr(res_data_i); % Reverse in time
+        end
+        % end
+
+        %% 
+        % Update adjoint friction functions with data from forward solve
+        %
+
+
+        % Forward solve data
+        V = obj.forwardFaultVariables.V;
+        Psi = obj.forwardFaultVariables.Psi;
+        % Second order forward solve data
+        % ...
+
+        % Compute coefficients needed for adjoint friction functions
+        F_V = discr.friction.funs.tau_V(V, Psi, a);
+        F_Psi = discr.friction.funs.tau_Psi(V, Psi, a);
+        G_V = discr.friction.funs.g_V(V, Psi, a, b);
+        G_Psi = discr.friction.funs.g_Psi(V, Psi, a, b);
+
         if interp_data
-            error("Interpalation not yet implemented for hessian vector calculations.")
+            % Update source data and functions
+            discr.sources.funs = misfit_residual; % Source data is now a function handle
+            discr.setInterpPointSources();
+            
+            % Update fault data and functions
+            % Need to remove stages for the interpolation.
+            discr.friction.data.tau_V = obj.removeStagedData(F_V, nStages);
+            discr.friction.data.tau_Psi = obj.removeStagedData(F_Psi, nStages);
+            discr.friction.data.g_V = obj.removeStagedData(G_V, nStages);
+            discr.friction.data.g_Psi = obj.removeStagedData(G_Psi, nStages);
+            discr.friction.data.t = obj.T-obj.removeStagedData(T_fwd,nStages); % Reverse in time
+
+            discr.setInterpFaultTraction();
+            discr.setInterpStateEvolution();
         else
+            % Update source data and functions
+            discr.sources.data = misfit_residual;
+            discr.setPointSources();
+
             % Update fault data and functions
             discr.friction.data.tau_V = fliplr(F_V);
             discr.friction.data.g_V = fliplr(G_V);
             discr.friction.data.g_Psi = fliplr(G_Psi);
             discr.friction.data.tau_Psi = fliplr(F_Psi);
-            discr.friction.data.tau_a = fliplr(F_a);
 
             discr.setFaultTraction();
             discr.setStateEvolution();
