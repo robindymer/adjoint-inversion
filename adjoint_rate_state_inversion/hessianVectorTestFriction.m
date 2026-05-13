@@ -21,19 +21,22 @@ syntheticData = {data_opt.forwardReceiverRecordings,data_opt.forwardTimeIntegrat
 % RK4 checks if tol is met at each step, and if not, reduces the time step and tries again.
 function [delta_grad, grad_adj, grad_fd] = compare_gradients(parset, order, syntheticData, misfitType)
     parset.misfitType = misfitType;
+    % TODO: Find better name than adj_opt
     adj_opt = AntiplaneShearRSFrictionOptHessian(parset, [], order);
     adj_opt.setSyntheticReceiverData(syntheticData{:});
-    grad_adj = adj_opt.computeGradient();
-    if adj_opt.tsOpts.forwardMethod.adaptive
-        adj_opt.tsOpts.forwardMethod.adaptive = false;
-        adj_opt.tsOpts.k = adj_opt.forwardTimeIntegrationData.k;
-    end
-    grad_fd = adj_opt.computeGradientFD(1e-6);
 
-    delta_grad = abs(grad_adj-grad_fd)./(abs(grad_adj));
-    fprintf('%s misfit:\n',misfitType);
-    fprintf('Grad Adj: %e, \t Grad FD: %e\n',full(grad_adj), grad_fd);
-    fprintf('Pointwise relative error: %e\n',delta_grad);
-    fprintf('Gradient norm absolute error: %e\n', adj_opt.gradientNorm(grad_adj-grad_fd));
-    fprintf('Gradient norm relative error: %e\n', adj_opt.gradientNorm(grad_adj-grad_fd)/adj_opt.gradientNorm(grad_adj));
+    hessianVector = adj_opt.computeHessianVector();
+    % grad_adj = adj_opt.computeGradient();
+    % if adj_opt.tsOpts.forwardMethod.adaptive
+    %     adj_opt.tsOpts.forwardMethod.adaptive = false;
+    %     adj_opt.tsOpts.k = adj_opt.forwardTimeIntegrationData.k;
+    % end
+    % grad_fd = adj_opt.computeGradientFD(1e-6);
+
+    % delta_grad = abs(grad_adj-grad_fd)./(abs(grad_adj));
+    % fprintf('%s misfit:\n',misfitType);
+    % fprintf('Grad Adj: %e, \t Grad FD: %e\n',full(grad_adj), grad_fd);
+    % fprintf('Pointwise relative error: %e\n',delta_grad);
+    % fprintf('Gradient norm absolute error: %e\n', adj_opt.gradientNorm(grad_adj-grad_fd));
+    % fprintf('Gradient norm relative error: %e\n', adj_opt.gradientNorm(grad_adj-grad_fd)/adj_opt.gradientNorm(grad_adj));
 end

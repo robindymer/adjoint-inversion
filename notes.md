@@ -17,6 +17,7 @@ compareGradients() and gradientNorm() turn those two results into the relative e
 Upgrade from FD second-order to fully analytic second-order FP/AP by generating and wiring second derivative friction functions and replacing the FD increments inside runSecondOrderForward/runSecondOrderAdjoint.
 
 * Update the second order discr objects!!
+* Martin: Do misfit type velocity
 
 ## Other nice files
 * rsFrictionFunctions.m - has derivatives of functions

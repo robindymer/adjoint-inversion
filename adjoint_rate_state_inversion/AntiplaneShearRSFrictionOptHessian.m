@@ -64,44 +64,56 @@ methods
         material = pars.material;
         bc = pars.bc;
         friction = pars.friction;
-        % TODO: Second order sorce and receivers? Probably not
         sources = pars.sources;
         receivers = pars.receivers;
+        secondOrderSources = pars.secondOrderSources;
+        secondOrderReceivers = pars.secondOrderReceivers;
         initialconditions = pars.initialconditions;
-        interp_data = pars.interpolate_data;
+        interp_data = pars.interpolate_data; % TODO: ???????? Maybe not necessary right now
         
         tsOpts = pars.tsOpts;
         T = pars.T;
         
-        % TODO: second order discr objects needs to be implemented
         % Create forward discretization object
         forwardDiscr = elastic.AntiplaneShearRSFrictionFwdDiscr(opset, m, xlims, order, material, bc, friction, sources, initialconditions);
+        disp(initialconditions)
         % Initialize adjoint discretization object. Does not set any friction/receiver data.
         adjointDiscr = elastic.AntiplaneShearRSFrictionAdjDiscr(opset, m, xlims, order, material, bc, friction, receivers, interp_data);
+        disp(interp_data)
+        % Same thing here, do not set friction and second order source / reciever data
+        secondOrderForwardDiscr = elastic.AntiplaneShearRSFrictionSecondOrderFwdDiscr(opset, m, xlims, order, material, bc, friction, secondOrderSources, interp_data);
+        secondOrderAdjointDiscr = elastic.AntiplaneShearRSFrictionSecondOrderAdjDiscr(opset, m, xlims, order, material, bc, friction, secondOrderReceivers, interp_data);
 
         pars.a = pars.friction.params.a;
         pars.b = pars.friction.params.b;
 
-        obj.eps_pertubation = 0.1; % TODO: remove hardcoding, use pars instead
+        obj.eps_pertubation = pars.friction.params.eps_a; % TODO: remove hardcoding, use pars instead
         
-        % TODO: Update for second order (all below)
         % Set instance variables
         obj.dim = 1;
         obj.forwardDiscr = forwardDiscr;
         obj.adjointDiscr = adjointDiscr; % Note: Must be updated with data prior to calling runAdjoint
+        obj.secondOrderForwardDiscr = secondOrderForwardDiscr;
+        obj.secondOrderAdjointDiscr = secondOrderAdjointDiscr;
         
         obj.tsOpts = tsOpts;
         
         obj.forwardReceiverRecordings = [];
         obj.adjointReceiverRecordings = [];
+        obj.secondOrderForwardReceiverRecordings = [];
+        obj.secondOrderAdjointReceiverRecordings = [];
         obj.receiverData = [];
         obj.misfitType = pars.misfitType;
         
         obj.forwardFaultVariables = obj.faultVariablesStruct();
         obj.adjointFaultVariables = obj.faultVariablesStruct();
+        obj.secondOrderForwardFaultVariables = obj.faultVariablesStruct();
+        obj.secondOrderAdjointFaultVariables = obj.faultVariablesStruct();
         
         obj.forwardTimeIntegrationData = obj.timeIntegrationStruct();
         obj.adjointTimeIntegrationData = obj.timeIntegrationStruct();
+        obj.secondOrderForwardTimeIntegrationData = obj.timeIntegrationStruct();
+        obj.secondOrderAdjointTimeIntegrationData = obj.timeIntegrationStruct();
 
         
         obj.m = m;
@@ -715,15 +727,23 @@ methods
     end
 
     function hessianVector = computeHessianVector(obj)
+        disp("Run forward...")
         obj.runForward(true);
+        disp("Run forward complete. Update adjoint discr...")
         obj.updateAdjointDiscr();
+        disp("Update adjoint discr complete. Run adjoint...")
         obj.runAdjoint(true);
+        disp("Run adjoint complete. Update second order forward discr...")
         obj.updateSecondOrderForwardDiscr();
+        disp("Update second order forward discr complete. Run second order forward...")
         obj.runSecondOrderForward(true);
+        disp("Run second order forward complete. Update second order adjoint discr...")
         obj.updateSecondOrderAdjointDiscr();
+        disp("Update second order adjoint discr complete. Run second order adjoint...")
         obj.runSecondOrderAdjoint();
-
+        disp("Run second order adjoint complete. Compute hessian vector...")
         hessianVector = obj.hessianVectorFormula();
+        disp("Hessian vector computation complete.")
     end
     
     function grad = gradientFormula(obj)

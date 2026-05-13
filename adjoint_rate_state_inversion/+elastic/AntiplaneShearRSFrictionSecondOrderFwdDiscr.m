@@ -8,12 +8,12 @@ classdef AntiplaneShearRSFrictionSecondOrderFwdDiscr < noname.Discretization
 % for velocity potential u, and state variable Psi, where
 % S is a dirac delta source term, and g a state evolution law.
 properties
-    name   = "AntiplaneShearRSFrictionSecondOrderFwdDiscr"
+    name         = "AntiplaneShearRSFrictionSecondOrderFwdDiscr"
     description  = 'Discretizes the 1D wave equation for antiplane shear with a rate- and state friction interface. Solves for displacement u, velocity v and state variable Psi'
     order                % Order of accuracy
     grid                 % Grid
     material             % Material parameters
-    ic_method            % String: 'erickson2022' or 'standard'
+    interpolate_data     % Flag specifying whether data should be interpolated
     
     % Discretization matrix. Formulate 1st-order in time system
     % v = u_t
@@ -24,37 +24,34 @@ properties
     %      0      0     0];  
     % F = [0; 1/rho(S + SAT); g]^T
     % w_t = D*w + F(w)
-    D
+    D 
 
     % Quadratures & norms
     H  % Spatial quadature of the SBP operator
 
     % Component operators for first-order in time system
-    % E.u*w = u, Eu'*u = [u; 0; 0]; 
-    % E.v*w = v, Ev'*v = [0; v; 0];
-    % E.Psi*w = Psi, EPsi'*Psi = [0; 0; Psi];
+    % Eu*w = u, Eu'*u = [u; 0; 0]; 
+    % Ev*w = v, Ev'*v = [0; v; 0];
+    % EPsi*w = Psi, EPsi'*Psi = [0; 0; Psi];
     E
 
     % Initial conditions
     w0 % w0 = [u0; v0; Psi0]
         
-    % Boundary functions and operators
-    boundary_data_fun % Boundary data forcing
-
     % Friction and operators
     friction             % Struct holding parameters and friction functions/data
     e_fault              % Fault restriciton operator
     penalty_fault        % Fault data penalty operator
     fault_traction       % Fault traction forcing
     state_evo            % State evolution forcing
-    V_star
-    tau_l_fun
     eta
+    tau_l_fun
+    V_star
 
     % Sources
     sources         % Struct holding parameters source functions/data
-    S               % Continuous source term
     dirac_deltas    % dirac delta functions
+    S
 
 end
 
@@ -75,23 +72,19 @@ methods
     %                               empty for homogeneous data. Otherwise function data(t,u,ut).
     %   friction   --       struct for friction
     %       friction.fault_fun      -- function @(t,V,Psi)
+    %       friction.fault_data     -- data.ut data for all time levels to be multiplied by velocity ut
+    %                               -- data.Psi data for all time levels to be multiplied by velocity state variable Psi
     %       friction.state_evo_fun  -- function @(Psi,ut)
+    %       friction.state_evo_data -- data.Psi data for all time levels to be multiplied by state variable Psi
+    %                               -- data.ut data for all time levels to be multiplied by velocity ut
     %   sources    --      struct for point sources
     %       sources.x           -- array with source positions
     %       sources.source_fun  -- cell array with source functions @(t)
+    %       sources.data        -- data for all time levels.
     %
-    %   initialcondition    --      struct for initial conditions.
-    %       initialcondition.u    -- function @(x,y) for potential condition
-    %       initialcondition.ut   -- function @(x,y) for velocity condition
-    %
-    %   bc_method           --      string for numerical method used to impose boundary conditions
-    %                                'standard' or 'erickson2022'
-    %
-    %   ic_method           --      string for numerical method used to impose nonlinear interface condition
-    %                                'standard' or 'erickson2022'
 
     function obj = AntiplaneShearRSFrictionSecondOrderFwdDiscr(opset, m, lims, order, material, bc, friction,...
-                                                    sources, initialcondition)
+                                                    sources, interpolate_data)
         
         % ---- Default values --------------
         default_arg('opset',@sbp.D2Variable);
@@ -118,7 +111,9 @@ methods
          
         default_arg('sources',[]);
         default_arg('initialcondition',[]);
-    
+        
+        default_arg('interpolate_data', false);
+        
         domain = elastic.AntiplaneShearRSFrictionDomain(lims,{'-','+'});
         
         % Get grid and multiblock diff op
@@ -132,19 +127,12 @@ methods
         scheme_params = {scheme_params_m, scheme_params_p};
 
         mbDiffOp = multiblock.DiffOp(@scheme.Laplace1dVariable, mbGrid, order, scheme_params);
-        
+
         % Spatial operators
-        [D, E, bc_struct, ic_struct] = elastic.discrs.antiplaneshear.discrOps1D(domain, mbGrid, mbDiffOp, material, bc, friction.method);
+        [D, E, ~, ic_struct] = elastic.discrs.antiplaneshear.discrOps1D(domain, mbGrid, mbDiffOp, material, bc, friction.method);
         
         % Sources
         dirac_deltas = elastic.discrs.antiplaneshear.diracDelta1D(sources, mbGrid, mbDiffOp, order);
-        
-        % ---- Boundary data -----
-        if ~isempty(bc_struct.boundary_data_fun)
-            boundary_data_fun = @(t, U) F(t, U) + E.v'*obj.boundary_data_fun(t, E.u*U, E.v*U);
-        else
-            boundary_data_fun = [];
-        end
         
         % ---- Fault interface -----
         switch friction.method
@@ -157,34 +145,24 @@ methods
             Wm = ic_struct.Wm;
             Wp = ic_struct.Wp;
             eta = Zp.*Zm./(Zp + Zm);
-            if isfield(friction.funs, 'tau_L')
-                tau_l_fun = @(t,U) (Zp.*(Wm*U) - Zm.*(Wp*U)) ./ (Zp + Zm) - friction.funs.tau_L(t);
-            else
-                tau_l_fun = @(t,U) (Zp.*(Wm*U) - Zm.*(Wp*U)) ./ (Zp + Zm);
-            end
+            tau_l_fun = @(U) (Zp.*(Wm*U) - Zm.*(Wp*U)) ./ (Zp + Zm);
         end
 
-         % ---- Initial conditions -----
-         [n, ns, nsip, nsim] = elastic.discrs.antiplaneshear.nunknowns(domain, mbGrid, mbDiffOp, bc.method, friction.method);
-         if isempty(initialcondition)
-             u0 = zeros(n,1);
-             v0 = zeros(n,1);
-             Psi0 = 0;
-         else
-             u0 = multiblock.evalOn(mbGrid,initialcondition.u);
-             v0 = multiblock.evalOn(mbGrid,initialcondition.v);
-             Psi0 = initialcondition.Psi;
-         end
-         us0 = zeros(ns,1);
-         usim0 = zeros(nsim,1);
-         usip0 = zeros(nsip,1);
- 
-         w0 = [u0; v0; Psi0; us0; usim0; usip0];
+        % ---- Initial conditions -----
+        [n, ns, nsip, nsim] = elastic.discrs.antiplaneshear.nunknowns(domain, mbGrid, mbDiffOp, bc.method, friction.method);
+        u0 = zeros(n,1);
+        v0 = zeros(n,1);
+        Psi0 = 0;
+        us0 = zeros(ns,1);
+        usim0 = zeros(nsim,1);
+        usip0 = zeros(nsip,1);
+        w0 = [u0; v0; Psi0; us0; usim0; usip0];
 
         % ---- Set properties -----
         obj.grid = mbGrid;
         obj.order = order;
         obj.material = material;
+        obj.interpolate_data = interpolate_data;
         
         % Operators for full domain
         obj.D = D;
@@ -193,26 +171,17 @@ methods
 
         % Initial condition
         obj.w0 = w0;
-        
-        % Outer boundary
-        obj.boundary_data_fun = boundary_data_fun;
-        
+                
         % Friction properties
         obj.friction = friction;
         obj.e_fault = ic_struct.e;
         obj.penalty_fault = ic_struct.penalty;
-        obj.tau_l_fun = tau_l_fun;
         obj.eta = eta;
+        obj.tau_l_fun = tau_l_fun;
         
         % Point sources
         obj.sources = sources;
         obj.dirac_deltas = dirac_deltas;
-
-        % Set fault interface, state evolution and point source
-        % forcing properties here to avoid partial initialization.
-        obj = obj.setFaultTraction();
-        obj = obj.setStateEvolution();
-        obj = obj.setPointSources();
     end
     
     % Prints some info about the discretisation
@@ -229,73 +198,142 @@ methods
     function V = fault_jump(obj, v)
         V = diff(obj.e_fault'*v);
     end
-
+    
+    % TODO: At some point in future, fix interp stuff
     function obj = setFaultTraction(obj)
+        F_V = obj.friction.data.tau_V;
+        F_Psi = obj.friction.data.tau_Psi;
+        F_a = obj.friction.data.tau_a;
+        eps_a = obj.friction.params.eps_a;
+       
         switch obj.friction.method
         case 'standard'
-            penalty = obj.E.v'*obj.penalty_fault;
-            F = obj.friction.funs.tau;
-            a = obj.friction.params.a;
-            E = obj.E;
-            obj.fault_traction = @(t, U) penalty*[ F(t, obj.fault_jump(E.v*U), E.Psi*U, a); ...
-                                                  -F(t, obj.fault_jump(E.v*U), E.Psi*U, a)];
+            % E = obj.E;
+            % penalty = E.v'*obj.penalty_fault;
+            % obj.fault_traction = @(i_t, U) penalty*[ F_V(i_t)*obj.fault_jump(E.v*U) + G_V(i_t)*E.Psi*U; ...
+            %                                         -F_V(i_t)*obj.fault_jump(E.v*U) - G_V(i_t)*E.Psi*U];
+            error("Standard fault BC method currently not supported.")
         case 'erickson2022'
+            E = obj.E; % boundary restriction operator e_\Gamma^T
             penalty = obj.penalty_fault;
-            F = obj.friction.funs.tau;
-            Finv = obj.friction.funs.tauinv;
-            a = obj.friction.params.a;
-            E = obj.E;
-            eta = obj.eta;
-
-            %--- Setup nonlinear function that needs to be solved for V* ----
-            nonlin_solve_fun = @(t, V, tau_l, Psi) eta*V + F(t, V, Psi, a) + tau_l;
-            % Bracket for rootfinding
-            bracket = @(t, tau_l, Psi) (tau_l >=0 )*[-Finv(t, tau_l, Psi, a), 0] + (tau_l < 0)* [0, -Finv(t, tau_l, Psi, a)];
-            % Function that computes V* given tau_l and Psi (via nonlinear solve). 
-            V_star_from_tau_l = @(t, tau_l, Psi) elastic.helpers.vectorBisection(@(V) nonlin_solve_fun(t, V, tau_l, Psi), bracket(t, tau_l, Psi), 1e-13);
-            obj.V_star = @(t, U) V_star_from_tau_l(t, obj.tau_l_fun(t, U), E.Psi*U);
+            eta = obj.eta; % kappa
+            % Function that computes V* given tau_l and Psi
+            V_star_from_tau_l = @(i_t, tau_l, Psi) -1./((eta + F_V(i_t))).*(tau_l + F_Psi(i_t).*Psi + F_a .* eps_a);
+            obj.V_star = @(i_t, U) V_star_from_tau_l(i_t, obj.tau_l_fun(U), E.Psi*U);
             % Fault traction function
-            if isfield(obj.friction.funs, 'tau_L')
-                obj.fault_traction = @(t, U) -penalty*(F(t, obj.V_star(t, U), E.Psi*U, a) - obj.friction.funs.tau_L(t));
-            else 
-                obj.fault_traction = @(t, U) -penalty*F(t, obj.V_star(t, U), E.Psi*U, a);
-            end
-        end
-    end
-        
-    function obj = setStateEvolution(obj)
-        G = obj.friction.funs.g;
-        a = obj.friction.params.a;
-        b = obj.friction.params.b;
-        E = obj.E;
-        switch obj.friction.method
-        case 'standard'
-            obj.state_evo = @(t, U) E.Psi'*G(obj.fault_jump(E.v*U), E.Psi*U, a, b);
-        case 'erickson2022'
-            obj.state_evo = @(t, U) E.Psi'*G(obj.V_star(t, U), E.Psi*U, a, b);
+            obj.fault_traction = @(i_t, U) -penalty*(F_V(i_t)*obj.V_star(i_t, U) + F_Psi(i_t)*E.Psi*U + F_a * eps_a);
         end
     end
     
+    % function obj = setInterpFaultTraction(obj)
+    %     E = obj.E;
+    %     F_V = obj.friction.data.F_V;
+    %     G_V = obj.friction.data.g_V;
+    %     t = obj.friction.data.t;
+        
+    %     F_V_pp = spline(t, F_V);
+    %     G_V_pp = spline(t, G_V);
+        
+    %     switch obj.friction.method
+    %     case 'standard'
+    %         penalty = E.v'*obj.penalty_fault;
+    %         obj.fault_traction = @(t, U) standard_fault_traction(t, obj.fault_jump(E.v*U), E.Psi*U, F_V_pp, G_V_pp, penalty);
+    %     case 'erickson2022'
+    %         penalty = obj.penalty_fault;
+    %         eta = obj.eta;
+    %         % Function that computes V* given tau_l and Psi
+    %         V_star_from_tau_l = @(t, tau_l, Psi) -1./((eta + ppval(F_V_pp,t))) .* (tau_l + ppval(G_V_pp,t).*Psi);
+    %         obj.V_star = @(t, U) V_star_from_tau_l(t, obj.tau_l_fun(U), E.Psi*U);
+    %         % Fault traction function
+    %         obj.fault_traction = @(t, U) -penalty*(ppval(F_V_pp, t)*obj.V_star(t, U) + ppval(G_V_pp, t)*E.Psi*U);
+    %     end
+
+    %     % Helper function for constructing the standard data
+    %     function r = standard_fault_traction(t, V_adj, Psi_adj, F_V_pp, G_V_pp, penalty)
+    %         val = ppval(F_V_pp, t)*V_adj + ppval(G_V_pp, t)*Psi_adj;
+    %         r = penalty*[val; -val];
+    %     end
+    % end
+    
+    function obj = setStateEvolution(obj)
+        E = obj.E;
+        % F_Psi = obj.friction.data.tau_Psi;
+        G_Psi = obj.friction.data.g_Psi;
+        G_V = obj.friction.data.g_V;
+        G_a = obj.friction.data.g_a;
+        eps_a = obj.friction.params.eps_a;
+        
+        switch obj.friction.method
+        case 'standard'
+            % obj.state_evo = @(i_t, U) E.Psi'*(G_Psi(i_t)*E.Psi*U + F_Psi(i_t)*obj.fault_jump(E.v*U));
+            error("Standard fault BC method currently not supported.")
+        case 'erickson2022'
+            % obj.state_evo = @(i_t, U) E.Psi'*(G_Psi(i_t)*E.Psi*U + F_Psi(i_t)*obj.V_star(i_t, U));
+            obj.state_evo = @(i_t, U) E.Psi'*(G_Psi(i_t)*E.Psi*U + G_V(i_t)*obj.V_star(i_t, U) + G_a*eps_a);
+        end
+    end
+    
+    % function obj = setInterpStateEvolution(obj)
+    %     F_Psi = obj.friction.data.tau_Psi;
+    %     G_Psi = obj.friction.data.g_Psi;
+    %     t = obj.friction.data.t;
+        
+    %     F_Psi_pp = spline(t, F_Psi);
+    %     G_Psi_pp = spline(t, G_Psi);
+
+    %     switch obj.friction.method
+    %     case 'standard'
+    %         obj.state_evo = @(t, U) E.Psi'*(ppval(G_Psi_pp, t)*E.Psi*U + ppval(F_Psi_pp, t)*obj.fault_jump(E.v*U));
+    %     case 'erickson2022'
+    %         obj.state_evo = @(t, U) E.Psi'*(ppval(G_Psi_pp, t)*E.Psi*U + F_Psi(i_t)*obj.V_star(t, U));
+    %     end
+    % end
+
     function obj = setPointSources(obj)
         if isempty(obj.sources)
             F = [];
         else
-            source_funs = obj.sources.funs;
+            source_data = obj.sources.data;
             deltas = obj.dirac_deltas;
             ns = numel(deltas);
             rho = multiblock.evalOn(obj.grid,obj.material.rho);
             Rho_inv = spdiag(1./rho);
             E = obj.E;
-            F = @(t) 0;
+            F = 0;
             for i = 1:ns
-                F_i = source_funs{i};
-                F = @(t) F(t) + Rho_inv*F_i(t)*deltas{i};
+                data_i = source_data{i};
+                if iscolumn(data_i)
+                    data_i = transpose(data_i);
+                end
+                F = F + E.v'*Rho_inv*kron(data_i, deltas{i});
             end
-            F = @(t) E.v'*F(t);
+            F = @(i_t) F(:,i_t);
         end
         obj.S = F;
     end
-            
+    
+    % TODO: Move interpolation of data inside this function from outside similar to
+    % how fault and state is handled.
+    % function obj = setInterpPointSources(obj)
+    %     if isempty(obj.sources)
+    %         F = [];
+    %     else
+    %         source_funs = obj.sources.funs;
+    %         deltas = obj.dirac_deltas;
+    %         ns = numel(deltas);
+    %         rho = multiblock.evalOn(obj.grid,obj.material.rho);
+    %         Rho_inv = spdiag(1./rho);
+    %         E = obj.E;
+    %         F = @(t) 0;
+    %         for i = 1:ns
+    %             F_i = source_funs{i};
+    %             F = @(t) F(t) + Rho_inv*F_i(t)*deltas{i};
+    %         end
+    %         F = @(t) E.v'*F(t);
+    %     end
+    %     obj.S = F;
+    % end
+        
     % Assembles the forcing terms to a single function F(t, U)
     function F = assembleForcing(obj)
         F = [];
@@ -309,14 +347,6 @@ methods
                 F = @(t, U) F(t, U) + obj.fault_traction(t, U);
             else
                 F = obj.fault_traction;
-            end
-        end
-        % BC
-        if ~isempty(obj.boundary_data_fun)
-            if ~isempty(F)
-                F = @(t, U) F(t, U) + obj.boundary_data_fun(t, U);
-            else
-                F = obj.boundary_data_fun(t, U);
             end
         end
         % State evolution
@@ -374,21 +404,30 @@ methods
         if ~isempty(time_align)
             [k, N] = alignedTimestep(k, time_align);
         end
+        
         F = obj.assembleForcing();
         
         if method.adaptive
+            assert(obj.interpolate_data, 'interpolate_data == true required for adaptive timestepping')
             default_error_check = @(vNew, vStar) norm(vNew - vStar,inf);
             default_field(method,'errorCheckCallback',default_error_check);
             default_field(method,'reportRetry',false);
             if ~isempty(F)
-                F = @(t,w) obj.D*w + F(t,w);
+                rhs = @(t,w) obj.D*w + F(t,w);
             else
-                F = @(t,w) obj.D*w;
+                rhs = @(t,w) obj.D*w;
             end
-            ts = time.EmbeddedRungeKutta(F, k, t, obj.w0, method.order, method.rtol, method.errorCheckCallback, [], method.reportRetry);
+            ts = time.EmbeddedRungeKutta(rhs, k, t, obj.w0, method.order, method.rtol, method.errorCheckCallback, [], method.reportRetry);
         else
+            if obj.interpolate_data
+                F_cont = F;
+                F_discr = [];
+            else
+                F_cont = [];
+                F_discr = F;
+            end
             ts = time.ExplicitRungeKuttaDiscreteData(...
-            obj.D, F, [], k, t, obj.w0, method.order);
+            obj.D, F_cont, F_discr, k, t, obj.w0, method.order);
         end
     end
     

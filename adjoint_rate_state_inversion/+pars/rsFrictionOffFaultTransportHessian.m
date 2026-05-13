@@ -28,12 +28,14 @@ function [parameters, trueParameters] = rsFrictionOffFaultTransportHessian(opts)
     
     % Sources
     sources = [];
+    secondOrderSources = [];
     
     % Friction parameters
     a_true = 0.01; % Used for generating data
     a_init = 0.008; % Initial parameter
 
     a = a_init;
+    eps_a = 0.01; % pertubation on a
     b = 0.02;
     f0 = 0.6;
     V0 = 1e-6;
@@ -76,6 +78,7 @@ function [parameters, trueParameters] = rsFrictionOffFaultTransportHessian(opts)
     friction.params.dtau = dtau;
     friction.params.A = A;
     friction.params.T_E = T_E;
+    friction.params.eps_a = eps_a;
     
     friction.method = opts.ic_method;
     
@@ -119,6 +122,13 @@ function [parameters, trueParameters] = rsFrictionOffFaultTransportHessian(opts)
     receivers.source_fun = [];
     receivers.data = [];
 
+    % TODO: Necessary? What does this represent?
+    secondOrderReceivers = struct;
+    secondOrderReceivers.x = [-0.1];
+    secondOrderReceivers.blockIds = [1];
+    secondOrderReceivers.source_fun = [];
+    secondOrderReceivers.data = [];
+
     tsOpts.forwardMethod.order = 3;
     tsOpts.forwardMethod.adaptive = true;
     tsOpts.forwardMethod.rtol = 1e-6; 
@@ -130,9 +140,14 @@ function [parameters, trueParameters] = rsFrictionOffFaultTransportHessian(opts)
     tsOpts.adjointMethod.reportRetry = false;
 
     tsOpts.secondOrderForwardMethod.order = 3;
-    tsOpts.secondOrderForwardMethod.adaptive = true;
+    tsOpts.secondOrderForwardMethod.adaptive = false;
     tsOpts.secondOrderForwardMethod.rtol = 1e-6; 
-    tsOpts.secondOrderForwardMethod.reportRetry = true;
+    tsOpts.secondOrderForwardMethod.reportRetry = false;
+
+    tsOpts.secondOrderAdjointMethod.order = 3;
+    tsOpts.secondOrderAdjointMethod.adaptive = false;
+    tsOpts.secondOrderAdjointMethod.rtol = 1e-6; 
+    tsOpts.secondOrderAdjointMethod.reportRetry = false;
 
     %tsOpts.k = 5e-7;
     tsOpts.k = [];
@@ -149,7 +164,9 @@ function [parameters, trueParameters] = rsFrictionOffFaultTransportHessian(opts)
     parameters.bc = bc;
     parameters.friction = friction;
     parameters.sources = sources;
+    parameters.secondOrderSources = secondOrderSources;
     parameters.receivers = receivers;
+    parameters.secondOrderReceivers = secondOrderReceivers;
     parameters.initialconditions = initialconditions;
     parameters.misfitType = opts.misfitType;
     parameters.interpolate_data = interp_data;
