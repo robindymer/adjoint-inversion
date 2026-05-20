@@ -762,6 +762,7 @@ methods
         % TODO: Double check that this is the valid approach,
         % i.e. using same data but changing approx to second order
         data = obj.receiverData;
+        % TODO: Figure this out. Code runs with approx = obj.forwardReceiverRecording, but not with current line
         % approx = obj.forwardReceiverRecordings;
         approx = obj.secondOrderForwardReceiverRecordings;
         nReceivers = numel(discr.dirac_deltas);
@@ -815,11 +816,15 @@ methods
         %
 
 
-        % Forward solve data
+        % Forward solve data, these come into the functions
         V = obj.forwardFaultVariables.V;
         Psi = obj.forwardFaultVariables.Psi;
-        % Second order forward solve data
-        % ...
+        % Adjoint solve data, these are past "raw"
+        V_dagger = obj.adjointFaultVariables.V;
+        Psi_dagger = obj.adjointFaultVariables.Psi;
+        % Second order forward solve data, these are past "raw"
+        delta_V = obj.secondOrderForwardFaultVariables.V;
+        delta_Psi = obj.secondOrderForwardFaultVariables.Psi;
 
         % Compute coefficients needed for adjoint friction functions
         F_V = discr.friction.funs.tau_V(V, Psi, a);
@@ -827,35 +832,61 @@ methods
         G_V = discr.friction.funs.g_V(V, Psi, a, b);
         G_Psi = discr.friction.funs.g_Psi(V, Psi, a, b);
 
-        if interp_data
-            % Update source data and functions
-            discr.sources.funs = misfit_residual; % Source data is now a function handle
-            discr.setInterpPointSources();
+        F_V_V = discr.friction.funs.tau_V_V(V, Psi, a);
+        F_V_Psi = discr.friction.funs.tau_V_Psi(V, Psi, a);
+        F_V_a = discr.friction.funs.tau_V_a(V, Psi, a);
+        F_Psi_Psi = discr.friction.funs.tau_Psi_Psi(V, Psi, a);
+        F_Psi_a = discr.friction.funs.tau_Psi_a(V, Psi, a);
+        G_V_Psi = discr.friction.funs.g_V_Psi(V, Psi, a, b);
+        G_V_V = discr.friction.funs.g_V_V(V, Psi, a, b);
+        G_V_a = discr.friction.funs.g_V_a(V, Psi, a, b);
+        G_Psi_Psi = discr.friction.funs.g_Psi_Psi(V, Psi, a, b);
+        G_Psi_a = discr.friction.funs.g_Psi_a(V, Psi, a, b);
+
+        % if interp_data
+        %     % Update source data and functions
+        %     discr.sources.funs = misfit_residual; % Source data is now a function handle
+        %     discr.setInterpPointSources();
             
-            % Update fault data and functions
-            % Need to remove stages for the interpolation.
-            discr.friction.data.tau_V = obj.removeStagedData(F_V, nStages);
-            discr.friction.data.tau_Psi = obj.removeStagedData(F_Psi, nStages);
-            discr.friction.data.g_V = obj.removeStagedData(G_V, nStages);
-            discr.friction.data.g_Psi = obj.removeStagedData(G_Psi, nStages);
-            discr.friction.data.t = obj.T-obj.removeStagedData(T_fwd,nStages); % Reverse in time
+        %     % Update fault data and functions
+        %     % Need to remove stages for the interpolation.
+        %     discr.friction.data.tau_V = obj.removeStagedData(F_V, nStages);
+        %     discr.friction.data.tau_Psi = obj.removeStagedData(F_Psi, nStages);
+        %     discr.friction.data.g_V = obj.removeStagedData(G_V, nStages);
+        %     discr.friction.data.g_Psi = obj.removeStagedData(G_Psi, nStages);
+        %     discr.friction.data.t = obj.T-obj.removeStagedData(T_fwd,nStages); % Reverse in time
 
-            discr.setInterpFaultTraction();
-            discr.setInterpStateEvolution();
-        else
-            % Update source data and functions
-            discr.sources.data = misfit_residual;
-            discr.setPointSources();
+        %     discr.setInterpFaultTraction();
+        %     discr.setInterpStateEvolution();
+        % else
+        % Update source data and functions
+        discr.sources.data = misfit_residual;
+        discr.setPointSources();
 
-            % Update fault data and functions
-            discr.friction.data.tau_V = fliplr(F_V);
-            discr.friction.data.g_V = fliplr(G_V);
-            discr.friction.data.g_Psi = fliplr(G_Psi);
-            discr.friction.data.tau_Psi = fliplr(F_Psi);
+        % Update fault data and functions
+        discr.friction.data.tau_V = fliplr(F_V);
+        discr.friction.data.g_V = fliplr(G_V);
+        discr.friction.data.g_Psi = fliplr(G_Psi);
+        discr.friction.data.tau_Psi = fliplr(F_Psi);
+        discr.friction.data.tau_V_V = fliplr(F_V_V);
+        discr.friction.data.tau_V_Psi = fliplr(F_V_Psi);
+        discr.friction.data.tau_V_a = fliplr(F_V_a);
+        discr.friction.data.tau_Psi_Psi = fliplr(F_Psi_Psi);
+        discr.friction.data.tau_Psi_a = fliplr(F_Psi_a);
+        discr.friction.data.g_V_Psi = fliplr(G_V_Psi);
+        discr.friction.data.g_V_V = fliplr(G_V_V);
+        discr.friction.data.g_V_a = fliplr(G_V_a);
+        discr.friction.data.g_Psi_Psi = fliplr(G_Psi_Psi);
+        discr.friction.data.g_Psi_a = fliplr(G_Psi_a);
 
-            discr.setFaultTraction();
-            discr.setStateEvolution();
-        end
+        discr.friction.data.V_dagger = fliplr(V_dagger);
+        discr.friction.data.Psi_dagger = fliplr(Psi_dagger);
+        discr.friction.data.delta_V = fliplr(delta_V);
+        discr.friction.data.delta_Psi = fliplr(delta_Psi);
+
+        discr.setFaultTraction();
+        discr.setStateEvolution();
+        % end
     end
     
     function R = integrateResidual(obj, r)
