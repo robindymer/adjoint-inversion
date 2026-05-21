@@ -1015,6 +1015,63 @@ methods
         end
         grad = -(V_adj.*F_a + Psi_adj.*G_a)*obj.Ht;
     end
+
+    function hessVec = hessianVectorFormula(obj)
+        % Friction parameters
+        a = obj.pars.a;
+        b = obj.pars.b;
+        % Ensure that parameters across optimization and discretizations are 
+        % the same.
+        assert((a == obj.forwardDiscr.friction.params.a) && (a == obj.adjointDiscr.friction.params.a));
+        assert((b == obj.forwardDiscr.friction.params.b) && (b == obj.adjointDiscr.friction.params.b));
+
+        % Forward variables
+        V = obj.forwardFaultVariables.V;
+        Psi = obj.forwardFaultVariables.Psi;
+        % All else
+        V_dagger = obj.adjointFaultVariables.V;
+        Psi_dagger = obj.adjointFaultVariables.Psi;
+        delta_V_dagger = obj.secondOrderAdjointFaultVariables.V;
+        delta_Psi_dagger = obj.secondOrderAdjointFaultVariables.Psi;
+        delta_V = obj.secondOrderForwardFaultVariables.V;
+        delta_Psi = obj.secondOrderForwardFaultVariables.Psi;
+        F_a = obj.forwardDiscr.friction.funs.tau_a(V, Psi, a);
+        G_a = obj.forwardDiscr.friction.funs.g_a(V, Psi, a, b);
+        F_a_a = obj.forwardDiscr.friction.funs.tau_a_a(V, Psi, a);
+        G_a_a = obj.forwardDiscr.friction.funs.g_a_a(V, Psi, a, b);
+        F_V_a = obj.forwardDiscr.friction.funs.tau_V_a(V, Psi, a);
+        F_Psi_a = obj.forwardDiscr.friction.funs.tau_Psi_a(V, Psi, a);
+        G_V_a = obj.forwardDiscr.friction.funs.g_V_a(V, Psi, a, b);
+        G_Psi_a = obj.forwardDiscr.friction.funs.g_Psi_a(V, Psi, a, b);
+
+        eps_a = obj.eps_pertubation;
+        
+        % if obj.adjointDiscr.interpolate_data
+        %     % Remove stage data 
+        %     nStages = obj.adjointTimeIntegrationData.nStages;
+        %     t_adj = obj.removeStagedData(obj.adjointTimeIntegrationData.T, nStages); 
+        %     V_adj = obj.removeStagedData(obj.adjointFaultVariables.V, nStages);
+        %     Psi_adj = obj.removeStagedData(obj.adjointFaultVariables.Psi, nStages);
+            
+        %     % Construct interpolants and evaluate in forward stage times
+        %     V_adj = -ppval(spline(obj.T-t_adj,V_adj), obj.forwardTimeIntegrationData.T);
+        %     Psi_adj = ppval(spline(obj.T-t_adj,Psi_adj), obj.forwardTimeIntegrationData.T);
+        % else
+        % Reverse adjoint variables in time for the integration  
+        % V_adj = fliplr(obj.adjointFaultVariables.V);
+        % Psi_adj = fliplr(obj.adjointFaultVariables.Psi);
+        V_dagger = fliplr(V_dagger);
+        Psi_dagger = fliplr(Psi_dagger);
+        delta_V_dagger = fliplr(delta_V_dagger);
+        delta_Psi_dagger = fliplr(delta_Psi_dagger);
+
+        % end
+        % grad = -(V_adj.*F_a + Psi_adj.*G_a)*obj.Ht;
+        hessVec = -(V_dagger .* F_a_a .* eps_a + Psi_dagger .* G_a_a .* eps_a ...
+                    + delta_V_dagger .* F_a + delta_Psi_dagger .* G_a ...
+                    + V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi) ...
+                    + Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht;
+    end
     
     function grad = computeGradientFD(obj, deltaG)
         % TODO: Construct the appropriate gradient formula

@@ -22,6 +22,7 @@ function funs = rsFrictionFunctions(friction_law, state_law, params)
         tau_V_a = diff(tau_V, 'a') + 0*V;
         tau_Psi_Psi = diff(tau_Psi, 'Psi') + 0*V;
         tau_Psi_a = diff(tau_Psi, 'a') + 0*V;
+        tau_a_a = diff(tau_a, 'a') + 0*V;
 
         f       = matlabFunction(f,'Vars',{V,Psi,a,V0,sigma0});
         tau     = matlabFunction(tau,'Vars',{V,Psi,a,V0,sigma0});
@@ -33,6 +34,7 @@ function funs = rsFrictionFunctions(friction_law, state_law, params)
         tau_V_a = matlabFunction(tau_V_a, 'Vars',{V,Psi,a,V0,sigma0});
         tau_Psi_Psi = matlabFunction(tau_Psi_Psi, 'Vars',{V,Psi,a,V0,sigma0});
         tau_Psi_a = matlabFunction(tau_Psi_a, 'Vars',{V,Psi,a,V0,sigma0});
+        tau_a_a = matlabFunction(tau_a_a, 'Vars',{V,Psi,a,V0,sigma0});
         clear a V V0 Psi sigma0;
 
         sigma0 = params.sigma0;
@@ -48,6 +50,7 @@ function funs = rsFrictionFunctions(friction_law, state_law, params)
         funs.tau_V_a   = @(V, Psi, a) tau_V_a(V, Psi, a, V0, sigma0);
         funs.tau_Psi_Psi = @(V, Psi, a) tau_Psi_Psi(V, Psi, a, V0, sigma0);
         funs.tau_Psi_a = @(V, Psi, a) tau_Psi_a(V, Psi, a, V0, sigma0);
+        funs.tau_a_a = @(V, Psi, a) tau_a_a(V, Psi, a, V0, sigma0);
         funs.F = @elastic.friction.asinh;
 
         % Specific for Erickson2022 interface treatment
@@ -83,6 +86,7 @@ function funs = rsFrictionFunctions(friction_law, state_law, params)
         g_V_a = diff(g_V, 'a') + 0*V;
         g_Psi_Psi = diff(g_Psi, 'Psi') + 0*V;
         g_Psi_a = diff(g_Psi, 'a') + 0*V;
+        g_a_a = diff(g_a, 'a') + 0*V;
 
         g     = matlabFunction(g,'Vars',{V, Psi, a, b, f0, V0, D_c});
         g_V   = matlabFunction(g_V,'Vars',{V, Psi, a, b, f0, V0, D_c});
@@ -94,6 +98,7 @@ function funs = rsFrictionFunctions(friction_law, state_law, params)
         g_V_a = matlabFunction(g_V_a, 'Vars',{V, Psi, a, b, f0, V0, D_c});
         g_Psi_Psi = matlabFunction(g_Psi_Psi, 'Vars',{V, Psi, a, b, f0, V0, D_c});
         g_Psi_a = matlabFunction(g_Psi_a, 'Vars',{V, Psi, a, b, f0, V0, D_c});
+        g_a_a = matlabFunction(g_a_a, 'Vars',{V, Psi, a, b, f0, V0, D_c});
         
         clear V Psi a b f0 V0 D_c;
 
@@ -111,6 +116,7 @@ function funs = rsFrictionFunctions(friction_law, state_law, params)
         funs.g_V_a = @(V,Psi,a,b) g_V_a(V, Psi, a, b, f0, V0, D_c);
         funs.g_Psi_Psi = @(V,Psi,a,b) g_Psi_Psi(V, Psi, a, b, f0, V0, D_c);
         funs.g_Psi_a = @(V,Psi,a,b) g_Psi_a(V, Psi, a, b, f0, V0, D_c);
+        funs.g_a_a = @(V,Psi,a,b) g_a_a(V, Psi, a, b, f0, V0, D_c);
         funs.G = g;
     case 'linear'
         funs.g       = @(V,Psi,a,b) a*V - b*Psi;

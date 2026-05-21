@@ -15,17 +15,18 @@ data_opt.runForward(true);
 syntheticData = {data_opt.forwardReceiverRecordings,data_opt.forwardTimeIntegrationData};
 
 %[delta_grad_disp, grad_adj_disp, grad_fd_disp] = compare_gradients(parset, order, syntheticData, 'displacement');
-[delta_grad_vel, grad_adj_vel, grad_fd_vel]    = compare_gradients(parset, order, syntheticData, 'velocity');
+[delta_grad_vel, grad_adj_vel, grad_fd_vel]    = compare_hessians(parset, order, syntheticData, 'velocity');
 
 % Prints "Failed try" - this is due to adaptive time stepping, 
 % RK4 checks if tol is met at each step, and if not, reduces the time step and tries again.
-function [delta_grad, grad_adj, grad_fd] = compare_gradients(parset, order, syntheticData, misfitType)
+function [delta_grad, grad_adj, grad_fd] = compare_hessians(parset, order, syntheticData, misfitType)
     parset.misfitType = misfitType;
     % TODO: Find better name than adj_opt
     adj_opt = AntiplaneShearRSFrictionOptHessian(parset, [], order);
     adj_opt.setSyntheticReceiverData(syntheticData{:});
 
     hessianVector = adj_opt.computeHessianVector();
+    disp(hessianVector);
     % grad_adj = adj_opt.computeGradient();
     % if adj_opt.tsOpts.forwardMethod.adaptive
     %     adj_opt.tsOpts.forwardMethod.adaptive = false;
