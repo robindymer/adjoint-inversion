@@ -212,37 +212,36 @@ methods
         
         discr = obj.secondOrderForwardDiscr;
         % Receiver dirac deltas for measuring misfit
-        % TODO: Needs update?
-        receiverDeltas = obj.forwardDiscr.dirac_deltas;
+        receiverDeltas = obj.secondOrderAdjointDiscr.dirac_deltas;
         
         % Time stepping options
-        adjTsOpts.method = obj.tsOpts.adjointMethod;
-        adjTsOpts.T = T;
-        if obj.adjointDiscr.interpolate_data
-            adjTsOpts.cont_time = true;
+        fwdTsOpts.method = obj.tsOpts.forwardMethod;
+        fwdTsOpts.T = T;
+        if obj.secondOrderForwardDiscr.interpolate_data
+            fwdTsOpts.cont_time = true;
         else
-            adjTsOpts.cont_time = false;
+            fwdTsOpts.cont_time = false;
         end
 
-        if adjTsOpts.method.adaptive 
-            assert(obj.adjointDiscr.interpolate_data, 'Interpolate data must be set to true.');
-            adjTsOpts.k = obj.tsOpts.k;
-            [receiverData, faultData, timeData] = obj.runSimulationAdaptive(discr, adjTsOpts,...
+        if fwdTsOpts.method.adaptive
+            assert(obj.secondOrderForwardDiscr.interpolate_data, 'Interpolate data must be set to true.');
+            fwdTsOpts.k = obj.tsOpts.k;
+            [receiverData, faultData, timeData] = obj.runSimulationAdaptive(discr, fwdTsOpts,...
             receiverDeltas, plotFlag, saveOpts, progressBar);
-        else  % Time integrate using a standard RK method, but with time steps taken from forward problem
-            adjTsOpts.k = fliplr(obj.forwardTimeIntegrationData.k); % Reverse timestep vector
-            [receiverData, faultData, timeData] = obj.runSimulation(discr, adjTsOpts,...
+        else
+            % Time integrate using a standard RK method, but with time steps taken from forward problem
+            fwdTsOpts.k = obj.forwardTimeIntegrationData.k;
+            [receiverData, faultData, timeData] = obj.runSimulation(discr, fwdTsOpts,...
             receiverDeltas, plotFlag, saveOpts, progressBar);
         end
         
-        % TBD: Is this needed?									
-        nReceivers = numel(receiverDeltas);
-        for i = 1:nReceivers
-            receiverData{i} = rot90(receiverData{i});
-        end
         obj.secondOrderForwardReceiverRecordings = receiverData;
         obj.secondOrderForwardFaultVariables = faultData;
         obj.secondOrderForwardTimeIntegrationData = timeData;
+        obj.Ht = timeData.Ht;
+        if ~iscolumn(obj.Ht)
+            obj.Ht = transpose(obj.Ht);
+        end
     end
     
     
@@ -764,7 +763,9 @@ methods
         data = obj.receiverData;
         % TODO: Figure this out. Code runs with approx = obj.forwardReceiverRecording, but not with current line
         % approx = obj.forwardReceiverRecordings;
+        % disp(approx)
         approx = obj.secondOrderForwardReceiverRecordings;
+        % disp(approx)
         nReceivers = numel(discr.dirac_deltas);
         interp_data = discr.interpolate_data;
         
