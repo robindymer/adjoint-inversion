@@ -27,6 +27,8 @@ function [delta_grad, grad_adj, grad_fd] = compare_hessians(parset, order, synth
 
     hessianVector = adj_opt.computeHessianVector();
     disp(hessianVector);
+    hessianVector_fd = adj_opt.computeHessianVectorFD(1e-6);
+    disp(hessianVector_fd);
     % grad_adj = adj_opt.computeGradient();
     % if adj_opt.tsOpts.forwardMethod.adaptive
     %     adj_opt.tsOpts.forwardMethod.adaptive = false;

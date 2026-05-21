@@ -1091,6 +1091,23 @@ methods
         dM_dg = (M-M0)/deltaG;
         grad = dM_dg;
     end
+
+    function hessVec = computeHessianVectorFD(obj, deltaG)
+        % Compute gradient with current parameter
+        pars = obj.pars;
+        obj.updateForwardDiscr(pars);
+        obj.runForward();
+        grad0 = obj.computeGradient();
+        
+        % Update paramter by a step deltaG
+        pars.a = pars.a + deltaG;
+        obj.updateForwardDiscr(pars);
+        obj.runForward();
+        % Have to comment out 'assert' bit from gradient function for this to run
+        grad = obj.computeGradient();
+        dGrad_dg = (grad-grad0)/deltaG;
+        hessVec = dGrad_dg;
+    end
     
     function M = computeMisfit(obj)
         data = obj.receiverData;
