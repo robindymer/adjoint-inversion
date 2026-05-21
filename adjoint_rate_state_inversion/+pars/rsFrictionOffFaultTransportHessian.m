@@ -35,7 +35,7 @@ function [parameters, trueParameters] = rsFrictionOffFaultTransportHessian(opts)
     a_init = 0.008; % Initial parameter
 
     a = a_init;
-    eps_a = 0.01; % pertubation on a
+    eps_a = 1e-6; % pertubation on a
     b = 0.02;
     f0 = 0.6;
     V0 = 1e-6;
