@@ -243,7 +243,46 @@ methods
             obj.Ht = transpose(obj.Ht);
         end
     end
-    
+
+    function runSecondOrderAdjoint(obj, plotFlag, T, saveOpts, progressBar)
+        default_arg('plotFlag', false);
+        default_arg('T', obj.T);
+        default_arg('saveOpts', []);
+        default_arg('progressBar', []);
+        
+        discr = obj.secondOrderAdjointDiscr;
+        % Receiver dirac deltas for measuring misfit
+        receiverDeltas = obj.secondOrderForwardDiscr.dirac_deltas;
+        
+        % Time stepping options
+        adjTsOpts.method = obj.tsOpts.adjointMethod;
+        adjTsOpts.T = T;
+        if obj.secondOrderAdjointDiscr.interpolate_data
+            adjTsOpts.cont_time = true;
+        else
+            adjTsOpts.cont_time = false;
+        end
+
+        if adjTsOpts.method.adaptive 
+            assert(obj.secondOrderAdjointDiscr.interpolate_data, 'Interpolate data must be set to true.');
+            adjTsOpts.k = obj.tsOpts.k;
+            [receiverData, faultData, timeData] = obj.runSimulationAdaptive(discr, adjTsOpts,...
+            receiverDeltas, plotFlag, saveOpts, progressBar);
+        else  % Time integrate using a standard RK method, but with time steps taken from forward problem
+            adjTsOpts.k = fliplr(obj.secondOrderForwardTimeIntegrationData.k); % Reverse timestep vector
+            [receiverData, faultData, timeData] = obj.runSimulation(discr, adjTsOpts,...
+            receiverDeltas, plotFlag, saveOpts, progressBar);
+        end
+        
+        % TBD: Is this needed?									
+        nReceivers = numel(receiverDeltas);
+        for i = 1:nReceivers
+            receiverData{i} = rot90(receiverData{i});
+        end
+        obj.secondOrderAdjointReceiverRecordings = receiverData;
+        obj.secondOrderAdjointFaultVariables = faultData;
+        obj.secondOrderAdjointTimeIntegrationData = timeData;
+    end
     
     function [receiverRecordings, faultData, timeData] = runSimulation(obj, discr, tsOpts,...
         receiverDeltas, plotFlag, saveOpts, progressBar)
@@ -732,12 +771,12 @@ methods
         %     error("Interpalation not yet implemented for hessian vector calculations.")
         % else
         % Update fault data and functions
-        discr.friction.data.tau_V = fliplr(F_V);
-        discr.friction.data.g_V = fliplr(G_V);
-        discr.friction.data.g_Psi = fliplr(G_Psi);
-        discr.friction.data.tau_Psi = fliplr(F_Psi);
-        discr.friction.data.tau_a = fliplr(F_a);
-        discr.friction.data.g_a = fliplr(G_a);
+        discr.friction.data.tau_V = F_V;
+        discr.friction.data.g_V = G_V;
+        discr.friction.data.g_Psi = G_Psi;
+        discr.friction.data.tau_Psi = F_Psi;
+        discr.friction.data.tau_a = F_a;
+        discr.friction.data.g_a = G_a;
 
         discr.setFaultTraction();
         discr.setStateEvolution();

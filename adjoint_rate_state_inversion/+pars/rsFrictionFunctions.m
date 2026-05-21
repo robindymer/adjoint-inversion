@@ -12,15 +12,16 @@ function funs = rsFrictionFunctions(friction_law, state_law, params)
         syms V Psi a V0 sigma0;
         f = sigma0*a*asinh(abs(V)*exp(Psi/a)/(2*V0));
         tau =  sigma0*a*asinh(V*exp(Psi/a)/(2*V0));
-        tau_V = diff(tau,'V');
-        tau_Psi = diff(tau,'Psi');
-        tau_a = diff(tau,'a');
+        % 0*V instead of padding
+        tau_V = diff(tau,'V') + 0*V;
+        tau_Psi = diff(tau,'Psi') + 0*V;
+        tau_a = diff(tau,'a') + 0*V;
         % Second order
-        tau_V_V = diff(tau_V, 'V');
-        tau_V_Psi = diff(tau_V, 'Psi');
-        tau_V_a = diff(tau_V, 'a');
-        tau_Psi_Psi = diff(tau_Psi, 'Psi');
-        tau_Psi_a = diff(tau_Psi, 'a');
+        tau_V_V = diff(tau_V, 'V') + 0*V;
+        tau_V_Psi = diff(tau_V, 'Psi') + 0*V;
+        tau_V_a = diff(tau_V, 'a') + 0*V;
+        tau_Psi_Psi = diff(tau_Psi, 'Psi') + 0*V;
+        tau_Psi_a = diff(tau_Psi, 'a') + 0*V;
 
         f       = matlabFunction(f,'Vars',{V,Psi,a,V0,sigma0});
         tau     = matlabFunction(tau,'Vars',{V,Psi,a,V0,sigma0});
@@ -71,16 +72,17 @@ function funs = rsFrictionFunctions(friction_law, state_law, params)
     case 'aging'
         syms V Psi a b f0 V0 D_c;
         g = (b*V0/D_c)*(exp((f0-Psi)/b) - abs(V)/V0);
-        g_V = diff(g,'V');
-        g_Psi = diff(g,'Psi');
-        g_a = diff(g,'a');
-        g_b = diff(g,'b');
+        % 0*V instead of padding
+        g_V = diff(g,'V') + 0*V;
+        g_Psi = diff(g,'Psi') + 0*V;
+        g_a = diff(g,'a') + 0*V;
+        g_b = diff(g,'b') + 0*V;
         % Second order
-        g_V_Psi = diff(g_V, 'Psi');
-        g_V_V = diff(g_V, 'V');
-        g_V_a = diff(g_V, 'a');
-        g_Psi_Psi = diff(g_Psi, 'Psi');
-        g_Psi_a = diff(g_Psi, 'a');
+        g_V_Psi = diff(g_V, 'Psi') + 0*V;
+        g_V_V = diff(g_V, 'V') + 0*V;
+        g_V_a = diff(g_V, 'a') + 0*V;
+        g_Psi_Psi = diff(g_Psi, 'Psi') + 0*V;
+        g_Psi_a = diff(g_Psi, 'a') + 0*V;
 
         g     = matlabFunction(g,'Vars',{V, Psi, a, b, f0, V0, D_c});
         g_V   = matlabFunction(g_V,'Vars',{V, Psi, a, b, f0, V0, D_c});
