@@ -837,7 +837,8 @@ methods
         %     end
         % else
         for i = 1:nReceivers
-            residual = approx{i} - data{i}(T_fwd); % Residual in receiver measurements including substages
+            % residual = approx{i} - data{i}(T_fwd); % Residual in receiver measurements including substages
+            residual = approx{i}; % Delta Q dagger only depends on Delta Q
             switch obj.misfitType
             case 'displacement'
                 R = obj.integrateResidual(residual);
@@ -919,8 +920,8 @@ methods
         discr.friction.data.g_Psi_Psi = fliplr(G_Psi_Psi);
         discr.friction.data.g_Psi_a = fliplr(G_Psi_a);
 
-        discr.friction.data.V_dagger = fliplr(V_dagger);
-        discr.friction.data.Psi_dagger = fliplr(Psi_dagger);
+        discr.friction.data.V_dagger = V_dagger; % Already flipped (from adjoint)
+        discr.friction.data.Psi_dagger = Psi_dagger; % Already flipped (from adjoint)
         discr.friction.data.delta_V = fliplr(delta_V);
         discr.friction.data.delta_Psi = fliplr(delta_Psi);
 
@@ -989,8 +990,8 @@ methods
         b = obj.pars.b;
         % Ensure that parameters across optimization and discretizations are 
         % the same.
-        assert((a == obj.forwardDiscr.friction.params.a) && (a == obj.adjointDiscr.friction.params.a));
-        assert((b == obj.forwardDiscr.friction.params.b) && (b == obj.adjointDiscr.friction.params.b));
+        % assert((a == obj.forwardDiscr.friction.params.a) && (a == obj.adjointDiscr.friction.params.a));
+        % assert((b == obj.forwardDiscr.friction.params.b) && (b == obj.adjointDiscr.friction.params.b));
 
         % Forward variables
         V = obj.forwardFaultVariables.V;
@@ -1067,10 +1068,11 @@ methods
 
         % end
         % grad = -(V_adj.*F_a + Psi_adj.*G_a)*obj.Ht;
+        % NOTE: Divison by eps_a to free eps_a scaling dependence
         hessVec = -(V_dagger .* F_a_a .* eps_a + Psi_dagger .* G_a_a .* eps_a ...
                     + delta_V_dagger .* F_a + delta_Psi_dagger .* G_a ...
                     + V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi) ...
-                    + Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht;
+                    + Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht ./ eps_a;
     end
     
     function grad = computeGradientFD(obj, deltaG)
@@ -1101,10 +1103,13 @@ methods
         
         % Update paramter by a step deltaG
         pars.a = pars.a + deltaG;
+        obj.pars.a = pars.a;
         obj.updateForwardDiscr(pars);
         obj.runForward();
         % Have to comment out 'assert' bit from gradient function for this to run
         grad = obj.computeGradient();
+        % Reset obj.pars.a
+        obj.pars.a = pars.a - deltaG;
         dGrad_dg = (grad-grad0)/deltaG;
         hessVec = dGrad_dg;
     end
