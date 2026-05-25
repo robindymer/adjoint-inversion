@@ -29,11 +29,15 @@ function [delta_grad, grad_adj, grad_fd] = compare_hessians(parset, order, synth
     disp(hessianVector);
     hessianVector_fd = adj_opt.computeHessianVectorFD(1e-6);
     disp(hessianVector_fd);
-    % grad_adj = adj_opt.computeGradient();
-    % if adj_opt.tsOpts.forwardMethod.adaptive
-    %     adj_opt.tsOpts.forwardMethod.adaptive = false;
-    %     adj_opt.tsOpts.k = adj_opt.forwardTimeIntegrationData.k;
-    % end
+    % Dummy assigning
+    delta_grad = 0;
+    grad_adj = 0;
+    grad_fd = 0;
+    grad_adj = adj_opt.computeGradient();
+    if adj_opt.tsOpts.forwardMethod.adaptive
+        adj_opt.tsOpts.forwardMethod.adaptive = false;
+        adj_opt.tsOpts.k = adj_opt.forwardTimeIntegrationData.k;
+    end
     % grad_fd = adj_opt.computeGradientFD(1e-6);
 
     % delta_grad = abs(grad_adj-grad_fd)./(abs(grad_adj));

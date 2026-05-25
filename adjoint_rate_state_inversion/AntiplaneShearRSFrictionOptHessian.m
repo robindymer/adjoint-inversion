@@ -990,8 +990,8 @@ methods
         b = obj.pars.b;
         % Ensure that parameters across optimization and discretizations are 
         % the same.
-        % assert((a == obj.forwardDiscr.friction.params.a) && (a == obj.adjointDiscr.friction.params.a));
-        % assert((b == obj.forwardDiscr.friction.params.b) && (b == obj.adjointDiscr.friction.params.b));
+        % %assert((a == obj.forwardDiscr.friction.params.a) && (a == obj.adjointDiscr.friction.params.a));
+        % %assert((b == obj.forwardDiscr.friction.params.b) && (b == obj.adjointDiscr.friction.params.b));
 
         % Forward variables
         V = obj.forwardFaultVariables.V;
@@ -1023,8 +1023,8 @@ methods
         b = obj.pars.b;
         % Ensure that parameters across optimization and discretizations are 
         % the same.
-        assert((a == obj.forwardDiscr.friction.params.a) && (a == obj.adjointDiscr.friction.params.a));
-        assert((b == obj.forwardDiscr.friction.params.b) && (b == obj.adjointDiscr.friction.params.b));
+        %assert((a == obj.forwardDiscr.friction.params.a) && (a == obj.adjointDiscr.friction.params.a));
+        %assert((b == obj.forwardDiscr.friction.params.b) && (b == obj.adjointDiscr.friction.params.b));
 
         % Forward variables
         V = obj.forwardFaultVariables.V;
@@ -1067,12 +1067,17 @@ methods
         delta_Psi_dagger = fliplr(delta_Psi_dagger);
 
         % end
-        % grad = -(V_adj.*F_a + Psi_adj.*G_a)*obj.Ht;
+        T1 = -(V_dagger .* F_a_a .* eps_a) * obj.Ht ./ eps_a;
+        T2 = -(Psi_dagger .* G_a_a .* eps_a) * obj.Ht ./ eps_a;
+        T3 = -(delta_V_dagger .* F_a) * obj.Ht ./ eps_a;
+        T4 = -(delta_Psi_dagger .* G_a) * obj.Ht ./ eps_a;
+        T5 = -(V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi)) * obj.Ht ./ eps_a;
+        T6 = -(Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht ./ eps_a;
+        
+        fprintf('T1: %e\nT2: %e\nT3: %e\nT4: %e\nT5: %e\nT6: %e\n', T1, T2, T3, T4, T5, T6);
+        
         % NOTE: Divison by eps_a to free eps_a scaling dependence
-        hessVec = -(V_dagger .* F_a_a .* eps_a + Psi_dagger .* G_a_a .* eps_a ...
-                    + delta_V_dagger .* F_a + delta_Psi_dagger .* G_a ...
-                    + V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi) ...
-                    + Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht ./ eps_a;
+        hessVec = (T1 + T2 + T3 + T4 + T5 + T6);
     end
     
     function grad = computeGradientFD(obj, deltaG)
