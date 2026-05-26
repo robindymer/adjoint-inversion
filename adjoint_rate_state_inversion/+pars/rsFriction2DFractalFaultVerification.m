@@ -68,6 +68,7 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultVerification(opt
     % sources.funs - cell array with function handles for time dependent part of sources
     %                ex: sources.funs = {@(t) f1(t), @(t) f2(t), ...}
     sources = [];
+    secondOrderSources = [];
 
     %% Receivers
     % receivers.x - cell array with coordinate vectors for receiver positions
@@ -86,6 +87,8 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultVerification(opt
         boundaries.inner.x = [-7, 7];
     end
     receivers = pars.placeReceivers(boundaries,opts.receiverSpacing);
+    % TODO: Probably unnecessary copy of receivers struct
+    secondOrderReceivers = pars.placeReceivers(boundaries,opts.receiverSpacing);
     
     % receivers = struct;
     % receivers.x = {};
@@ -240,7 +243,9 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultVerification(opt
     parameters.bc = bc;
     parameters.friction = friction;
     parameters.sources = sources;
+    parameters.secondOrderSources = secondOrderSources;
     parameters.receivers = receivers;
+    parameters.secondOrderReceivers = secondOrderReceivers;
     parameters.initialconditions = initialconditions;
     parameters.misfitType = opts.misfitType;
     parameters.tsOpts = tsOpts;

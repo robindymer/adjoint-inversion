@@ -7,7 +7,9 @@ properties
     % Sources
     adjointReceiverRecordings 	%Recorded during LATEST adjoint simulation (at forward source coords).
     %Stored with FORWARD time convention, like everything else.
-    
+    secondOrderAdjointReceiverRecordings
+    secondOrderForwardReceiverRecordings
+
     % Receivers
     receiverData 				%True data, recorded by "seismometers"
     forwardReceiverRecordings	%Recorded during LATEST forward simulation
@@ -18,6 +20,8 @@ properties
     % Discretizations
     forwardDiscr
     adjointDiscr
+    secondOrderForwardDiscr
+    secondOrderAdjointDiscr
     
     % Time stepping options
     tsOpts
@@ -29,6 +33,14 @@ properties
     %Data recorded during LATEST adjoint simulation
     adjointFaultVariables	    
     adjointTimeIntegrationData
+
+    %Data recorded during LATEST second order forward simulation
+    secondOrderForwardFaultVariables
+    secondOrderForwardTimeIntegrationData
+
+    %Data recorded during LATEST second order forward simulation
+    secondOrderAdjointFaultVariables
+    secondOrderAdjointTimeIntegrationData
     
     pars			%Current parameters.
     T 				%Final time
@@ -44,6 +56,7 @@ properties
     domain
     
     inversionPars
+    eps_pertubation % Parameter pertubation, required for hessian vector computation
     F_p
     G_p
 
@@ -73,6 +86,9 @@ methods
         friction = inputPars.friction;
         sources = inputPars.sources;
         receivers = inputPars.receivers;
+        % TODO: Maybe not necessary
+        secondOrderSources = inputPars.secondOrderSources;
+        secondOrderReceivers = inputPars.secondOrderReceivers;
         ic = inputPars.initialconditions;
         tsOpts = inputPars.tsOpts;
         T = inputPars.T;
@@ -83,6 +99,12 @@ methods
         forwardDiscr = elastic.AntiplaneShear2DRSFrictionFwdDiscr(opset, domain, m, order, material, bc, friction, sources, ic);
         % Initialize adjoint discretization object. Does not set any friction/receiver data.
         adjointDiscr = elastic.AntiplaneShear2DRSFrictionAdjDiscr(opset, domain, m, order, material, bc, friction, receivers);
+        % Same thing here, do not set friction and second order source / reciever data
+        secondOrderForwardDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderFwdDiscr(opset, domain, m, order, material, bc, friction, secondOrderSources);
+        secondOrderAdjointDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderAdjDiscr(opset, domain, m, order, material, bc, friction, secondOrderReceivers);
+
+        % Perhaps this is delta_p? No new eps_p needed?
+        obj.eps_pertubation = pars.friction.params.eps_p;
 
         bidm = domain.boundaryGroups.fault_minus;
 
@@ -118,6 +140,8 @@ methods
             forwardDiscr.setFaultTraction();
             forwardDiscr.setStateEvolution();
             adjointDiscr.friction.rsParams = interpParams;
+            secondOrderForwardDiscr.rsParams = interpParams;
+            secondOrderAdjointDiscr.rsParams = interpParams;
         else % No interpolation needed
             pars = forwardDiscr.friction.rsParams;
             
@@ -138,11 +162,15 @@ methods
         obj.dim = 2;
         obj.forwardDiscr = forwardDiscr;
         obj.adjointDiscr = adjointDiscr; % Note: Must be updated with data prior to calling runAdjoint
+        obj.secondOrderForwardDiscr = secondOrderForwardDiscr;
+        obj.secondOrderAdjointDiscr = secondOrderAdjointDiscr;
         
         obj.tsOpts = tsOpts;
         
         obj.forwardReceiverRecordings = [];
         obj.adjointReceiverRecordings = [];
+        obj.secondOrderForwardReceiverRecordings = [];
+        obj.secondOrderAdjointReceiverRecordings = [];
         obj.receiverData = [];
         obj.misfitType = misfitType;
 
@@ -175,9 +203,13 @@ methods
         
         obj.forwardFaultVariables = obj.faultVariablesStruct();
         obj.adjointFaultVariables = obj.faultVariablesStruct();
+        obj.secondOrderForwardFaultVariables = obj.faultVariablesStruct();
+        obj.secondOrderAdjointFaultVariables = obj.faultVariablesStruct();
         
         obj.forwardTimeIntegrationData = obj.timeIntegrationStruct();
         obj.adjointTimeIntegrationData = obj.timeIntegrationStruct();
+        obj.secondOrderForwardTimeIntegrationData = obj.timeIntegrationStruct();
+        obj.secondOrderAdjointTimeIntegrationData = obj.timeIntegrationStruct();
 
         obj.domain = domain;
         obj.m = m;
@@ -780,6 +812,43 @@ methods
         discr.setFaultTraction();
         discr.setStateEvolution();
     end
+
+    function updateSecondOrderForwardDiscr(obj)
+        discr = obj.secondOrderForwardDiscr;
+        % TODO: Really use from forwardDiscr?
+        pars = obj.forwardDiscr.friction.rsParams;
+
+        % Update parameter values
+        
+        discr.friction.rsParams = pars;
+
+        %% 
+        % Update adjoint friction functions with data from forward solve
+        %
+        % Forward solve data
+        V = obj.forwardFaultVariables.V;
+        Psi = obj.forwardFaultVariables.Psi;
+
+        % Compute coefficients needed for adjoint friction functions
+        
+        F_V = discr.friction.funs.F_V(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        F_Psi = discr.friction.funs.F_Psi(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        G_V = discr.friction.funs.G_V(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        G_Psi = discr.friction.funs.G_Psi(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        F_a = discr.friction.funs.F_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        G_a = discr.friction.funs.G_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+
+        % Update fault data and functions
+        discr.friction.data.F_V = F_V;
+        discr.friction.data.G_V = G_V;
+        discr.friction.data.G_Psi = G_Psi;
+        discr.friction.data.F_Psi = F_Psi;
+        discr.friction.data.F_a = F_a;
+        discr.friction.data.G_a = G_a;
+
+        discr.setFaultTraction();
+        discr.setStateEvolution();
+    end
     
     function R = integrateResidual(obj, r)
         % Utilize the same time stepper settings as used by the scheme
@@ -812,6 +881,28 @@ methods
         obj.updateAdjointDiscr();
         obj.runAdjoint(plotFlag, obj.T, [], progressBar);
         grad = obj.gradientFormula();
+    end
+
+    function hessianVector = computeHessianVector(obj, plotFlag, progressBar)
+        default_arg('plotFlag', false)
+        default_arg('progressBar', false)
+        disp("Run forward...")
+        obj.runForward(plotFlag, obj.T, [], progressBar);
+        disp("Run forward complete. Update adjoint discr...")
+        obj.updateAdjointDiscr();
+        disp("Update adjoint discr complete. Run adjoint...")
+        obj.runAdjoint(plotFlag, obj.T, [], progressBar);
+        disp("Run adjoint complete. Update second order forward discr...")
+        obj.updateSecondOrderForwardDiscr();
+        disp("Update second order forward discr complete. Run second order forward...")
+        obj.runSecondOrderForward(plotFlag, obj.T, [], progressBar);
+        disp("Run second order forward complete. Update second order adjoint discr...")
+        obj.updateSecondOrderAdjointDiscr();
+        disp("Update second order adjoint discr complete. Run second order adjoint...")
+        obj.runSecondOrderAdjoint(plotFlag, obj.T, [], progressBar);
+        disp("Run second order adjoint complete. Compute hessian vector...")
+        hessianVector = obj.hessianVectorFormula();
+        % grad = obj.gradientFormula();
     end
     
     function grad = gradientFormula(obj)

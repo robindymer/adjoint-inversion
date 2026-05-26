@@ -33,7 +33,7 @@ function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order,
     parset.misfitType = misfitType;
     adj_opt = AntiplaneShear2DRSFrictionOptHessian(parset, inversionPars, order);
     adj_opt.setSyntheticReceiverData(syntheticData{:});
-    hessVec = adj_opt.computeHessian(plotFlag, progressBar);
+    hessVec = adj_opt.computeHessianVector(plotFlag, progressBar);
 
     % Dummy
     delta_hessVec = 0;

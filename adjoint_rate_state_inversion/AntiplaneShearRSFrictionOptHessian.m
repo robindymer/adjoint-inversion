@@ -87,13 +87,12 @@ methods
         disp(interp_data)
         % Same thing here, do not set friction and second order source / reciever data
         secondOrderForwardDiscr = elastic.AntiplaneShearRSFrictionSecondOrderFwdDiscr(opset, m, xlims, order, material, bc, friction, secondOrderSources, interp_data);
-        % TODO: Needs to be updated
         secondOrderAdjointDiscr = elastic.AntiplaneShearRSFrictionSecondOrderAdjDiscr(opset, m, xlims, order, material, bc, friction, secondOrderReceivers, interp_data);
 
         pars.a = pars.friction.params.a;
         pars.b = pars.friction.params.b;
 
-        obj.eps_pertubation = pars.friction.params.eps_a; % TODO: remove hardcoding, use pars instead
+        obj.eps_pertubation = pars.friction.params.eps_a;
         
         % Set instance variables
         obj.dim = 1;
