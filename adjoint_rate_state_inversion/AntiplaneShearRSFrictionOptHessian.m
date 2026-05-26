@@ -962,7 +962,7 @@ methods
     end
 
     function hessianVector = computeHessianVector(obj)
-        plotSolutionsFlag = false; % Determines plotting for all runs
+        plotSolutionsFlag = true; % Determines plotting for all runs
 
         disp("Run forward...")
         obj.runForward(plotSolutionsFlag);
