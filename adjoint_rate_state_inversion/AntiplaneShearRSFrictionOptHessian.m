@@ -337,6 +337,17 @@ methods
             fh();
             r = discr.getTimeSnapshot(0);
             update(r);
+            
+            if ~isempty(saveOpts) && isfield(saveOpts, 'videoFilename') && ~isempty(saveOpts.videoFilename)
+                vidObj = VideoWriter(saveOpts.videoFilename);
+                vidObj.FrameRate = 1;
+                open(vidObj);
+                writeVideo(vidObj, getframe(gcf));
+            else
+                vidObj = [];
+            end
+        else
+            vidObj = [];
         end
         
         % Initialize progress bar
@@ -385,10 +396,14 @@ methods
                 fh();
                 update(discr.getTimeSnapshot(ts));
                 drawnow;
+                if ~isempty(vidObj)
+                    frame = getframe(gcf);
+                    writeVideo(vidObj, imresize(frame.cdata, [vidObj.Height, vidObj.Width]));
+                end
             end
             
             % Save solution if requested
-            if ~isempty(saveOpts) && (mod(i, saveOpts.frameSpacing) == 1)
+            if ~isempty(saveOpts) && isfield(saveOpts, 'frameSpacing') && (mod(i, saveOpts.frameSpacing) == 1)
                 [w, t] = ts.getV;
                 saveData.t = [saveData.t, t];
                 saveData.u = [saveData.u, discr.E.u*w];
@@ -402,9 +417,13 @@ methods
             s = util.replace_string(s,'');
         end
         
-        if ~isempty(saveOpts)
+        if ~isempty(saveOpts) && isfield(saveOpts, 'filename') && ~isempty(saveOpts.filename)
             saveData.grid = obj.forwardDiscr.grid;
             save(saveOpts.filename, 'saveData', '-v7.3','-nocompression');
+        end
+        
+        if plotFlag && ~isempty(vidObj)
+            close(vidObj);
         end
     end
     
@@ -450,6 +469,17 @@ methods
             fh();
             r = discr.getTimeSnapshot(0);
             update(r);
+            
+            if ~isempty(saveOpts) && isfield(saveOpts, 'videoFilename') && ~isempty(saveOpts.videoFilename)
+                vidObj = VideoWriter(saveOpts.videoFilename);
+                vidObj.FrameRate = 1;
+                open(vidObj);
+                writeVideo(vidObj, getframe(gcf));
+            else
+                vidObj = [];
+            end
+        else
+            vidObj = [];
         end
         
         % Initialize progress bar
@@ -524,10 +554,14 @@ methods
                 fh();
                 update(discr.getTimeSnapshot(ts));
                 drawnow;
+                if ~isempty(vidObj)
+                    frame = getframe(gcf);
+                    writeVideo(vidObj, imresize(frame.cdata, [vidObj.Height, vidObj.Width]));
+                end
             end
             
             % Save solution if requested
-            if ~isempty(saveOpts) && (mod(i, saveOpts.frameSpacing) == 1)
+            if ~isempty(saveOpts) && isfield(saveOpts, 'frameSpacing') && (mod(i, saveOpts.frameSpacing) == 1)
                 [w, t] = ts.getV;
                 saveData.t = [saveData.t, t];
                 saveData.u = [saveData.u, discr.E.u*w];
@@ -554,9 +588,13 @@ methods
             s = util.replace_string(s,'');
         end
         
-        if ~isempty(saveOpts)
+        if ~isempty(saveOpts) && isfield(saveOpts, 'filename') && ~isempty(saveOpts.filename)
             saveData.grid = obj.forwardDiscr.grid;
             save(saveOpts.filename, 'saveData', '-v7.3','-nocompression');
+        end
+        
+        if plotFlag && ~isempty(vidObj)
+            close(vidObj);
         end
     end
     
@@ -965,19 +1003,23 @@ methods
         plotSolutionsFlag = true; % Determines plotting for all runs
 
         disp("Run forward...")
-        obj.runForward(plotSolutionsFlag);
+        saveOpts = struct('videoFilename', 'assets/forward_run.avi');
+        obj.runForward(plotSolutionsFlag, obj.T, saveOpts);
         disp("Run forward complete. Update adjoint discr...")
         obj.updateAdjointDiscr();
         disp("Update adjoint discr complete. Run adjoint...")
-        obj.runAdjoint(plotSolutionsFlag);
+        saveOpts.videoFilename = 'assets/adjoint_run.avi';
+        obj.runAdjoint(plotSolutionsFlag, obj.T, saveOpts);
         disp("Run adjoint complete. Update second order forward discr...")
         obj.updateSecondOrderForwardDiscr();
         disp("Update second order forward discr complete. Run second order forward...")
-        obj.runSecondOrderForward(plotSolutionsFlag);
+        saveOpts.videoFilename = 'assets/second_order_forward_run.avi';
+        obj.runSecondOrderForward(plotSolutionsFlag, obj.T, saveOpts);
         disp("Run second order forward complete. Update second order adjoint discr...")
         obj.updateSecondOrderAdjointDiscr();
         disp("Update second order adjoint discr complete. Run second order adjoint...")
-        obj.runSecondOrderAdjoint(plotSolutionsFlag);
+        saveOpts.videoFilename = 'assets/second_order_adjoint_run.avi';
+        obj.runSecondOrderAdjoint(plotSolutionsFlag, obj.T, saveOpts);
         disp("Run second order adjoint complete. Compute hessian vector...")
         hessianVector = obj.hessianVectorFormula();
         disp("Hessian vector computation complete.")
