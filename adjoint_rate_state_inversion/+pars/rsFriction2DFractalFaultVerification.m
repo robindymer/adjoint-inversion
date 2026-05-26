@@ -1,5 +1,6 @@
 function [parameters, trueParameters] = rsFriction2DFractalFaultVerification(opts)
     default_arg('opts',struct);
+    default_field(opts, 'T', 6);
     default_field(opts,'m',101);
     default_field(opts,'m_p',11);
     default_field(opts,'k',0.005);
@@ -22,7 +23,7 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultVerification(opt
     m_p = opts.m_p;
 
     %% Domain
-    T = 6;  % Final time
+    T = opts.T;  % Final time
     xlims = [-10, 10];
     ylims = [-10, 10];
     domain = domains.FractalFault(xlims, ylims);
