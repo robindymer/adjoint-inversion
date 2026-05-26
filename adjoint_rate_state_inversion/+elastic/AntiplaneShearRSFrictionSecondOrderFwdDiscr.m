@@ -269,7 +269,7 @@ methods
             error("Standard fault BC method currently not supported.")
         case 'erickson2022'
             % obj.state_evo = @(i_t, U) E.Psi'*(G_Psi(i_t)*E.Psi*U + F_Psi(i_t)*obj.V_star(i_t, U));
-            obj.state_evo = @(i_t, U) E.Psi'*(G_Psi(i_t)*E.Psi*U + G_V(i_t)*obj.V_star(i_t, U) + G_a*eps_a);
+            obj.state_evo = @(i_t, U) E.Psi'*(G_Psi(i_t)*E.Psi*U + G_V(i_t)*obj.V_star(i_t, U) + G_a(i_t)*eps_a);
         end
     end
     

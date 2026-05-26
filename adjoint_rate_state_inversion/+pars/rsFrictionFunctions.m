@@ -74,6 +74,7 @@ function funs = rsFrictionFunctions(friction_law, state_law, params)
         funs.g_b     = @(V,Psi,a,b) 0*Psi;
     case 'aging'
         syms V Psi a b f0 V0 D_c;
+        % NOTE: NOT REAL AGING if a^2 is added (to make all Hessian terms nonzero)
         g = (b*V0/D_c)*(exp((f0-Psi)/b) - abs(V)/V0);
         % 0*V instead of padding
         g_V = diff(g,'V') + 0*V;
@@ -106,17 +107,17 @@ function funs = rsFrictionFunctions(friction_law, state_law, params)
         V0 = params.V0;
         D_c = params.D_c;
 
-        funs.g       = @(V,Psi,a,b) g(V, Psi, a, b, f0, V0, D_c);
-        funs.g_V     = @(V,Psi,a,b) g_V(V, Psi, a, b, f0, V0, D_c);
-        funs.g_Psi   = @(V,Psi,a,b) g_Psi(V, Psi, a, b, f0, V0, D_c);
-        funs.g_a     = @(V,Psi,a,b) g_a(V, Psi, a, b, f0, V0, D_c);
-        funs.g_b     = @(V,Psi,a,b) g_b(V, Psi, a, b, f0, V0, D_c);
-        funs.g_V_Psi = @(V,Psi,a,b) g_V_Psi(V, Psi, a, b, f0, V0, D_c);
-        funs.g_V_V = @(V,Psi,a,b) g_V_V(V, Psi, a, b, f0, V0, D_c);
-        funs.g_V_a = @(V,Psi,a,b) g_V_a(V, Psi, a, b, f0, V0, D_c);
-        funs.g_Psi_Psi = @(V,Psi,a,b) g_Psi_Psi(V, Psi, a, b, f0, V0, D_c);
-        funs.g_Psi_a = @(V,Psi,a,b) g_Psi_a(V, Psi, a, b, f0, V0, D_c);
-        funs.g_a_a = @(V,Psi,a,b) g_a_a(V, Psi, a, b, f0, V0, D_c);
+        funs.g       = @(V,Psi,a,b) g(V, Psi, a, b, f0, V0, D_c) + 0*V;
+        funs.g_V     = @(V,Psi,a,b) g_V(V, Psi, a, b, f0, V0, D_c) + 0*V;
+        funs.g_Psi   = @(V,Psi,a,b) g_Psi(V, Psi, a, b, f0, V0, D_c) + 0*V;
+        funs.g_a     = @(V,Psi,a,b) g_a(V, Psi, a, b, f0, V0, D_c) + 0*V;
+        funs.g_b     = @(V,Psi,a,b) g_b(V, Psi, a, b, f0, V0, D_c) + 0*V;
+        funs.g_V_Psi = @(V,Psi,a,b) g_V_Psi(V, Psi, a, b, f0, V0, D_c) + 0*V;
+        funs.g_V_V = @(V,Psi,a,b) g_V_V(V, Psi, a, b, f0, V0, D_c) + 0*V;
+        funs.g_V_a = @(V,Psi,a,b) g_V_a(V, Psi, a, b, f0, V0, D_c) + 0*V;
+        funs.g_Psi_Psi = @(V,Psi,a,b) g_Psi_Psi(V, Psi, a, b, f0, V0, D_c) + 0*V;
+        funs.g_Psi_a = @(V,Psi,a,b) g_Psi_a(V, Psi, a, b, f0, V0, D_c) + 0*V;
+        funs.g_a_a = @(V,Psi,a,b) g_a_a(V, Psi, a, b, f0, V0, D_c) + 0*V;
         funs.G = g;
     case 'linear'
         funs.g       = @(V,Psi,a,b) a*V - b*Psi;

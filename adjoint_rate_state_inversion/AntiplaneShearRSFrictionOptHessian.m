@@ -955,27 +955,29 @@ methods
     end
     
     function grad = computeGradient(obj)
-        obj.runForward(true);
+        obj.runForward(false);
         obj.updateAdjointDiscr();
-        obj.runAdjoint(true);
+        obj.runAdjoint(false);
         grad = obj.gradientFormula();
     end
 
     function hessianVector = computeHessianVector(obj)
+        plotSolutionsFlag = false; % Determines plotting for all runs
+
         disp("Run forward...")
-        obj.runForward(true);
+        obj.runForward(plotSolutionsFlag);
         disp("Run forward complete. Update adjoint discr...")
         obj.updateAdjointDiscr();
         disp("Update adjoint discr complete. Run adjoint...")
-        obj.runAdjoint(true);
+        obj.runAdjoint(plotSolutionsFlag);
         disp("Run adjoint complete. Update second order forward discr...")
         obj.updateSecondOrderForwardDiscr();
         disp("Update second order forward discr complete. Run second order forward...")
-        obj.runSecondOrderForward(true);
+        obj.runSecondOrderForward(plotSolutionsFlag);
         disp("Run second order forward complete. Update second order adjoint discr...")
         obj.updateSecondOrderAdjointDiscr();
         disp("Update second order adjoint discr complete. Run second order adjoint...")
-        obj.runSecondOrderAdjoint();
+        obj.runSecondOrderAdjoint(plotSolutionsFlag);
         disp("Run second order adjoint complete. Compute hessian vector...")
         hessianVector = obj.hessianVectorFormula();
         disp("Hessian vector computation complete.")
