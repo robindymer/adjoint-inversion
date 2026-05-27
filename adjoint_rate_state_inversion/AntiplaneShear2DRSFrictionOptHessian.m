@@ -282,36 +282,52 @@ methods
     end
 
     function runSecondOrderForward(obj, plotFlag, T, saveOpts, progressBar)
+        % default_arg('plotFlag', false);
+        % default_arg('T', obj.T);
+        % default_arg('saveOpts', []);
+        % default_arg('progressBar', []);
+        
+        % % TODO: Lots of unneccessary stuff here? Maybe this should be
+        % % more similar to runAdjoint. Try that.
+        % discr = obj.secondOrderForwardDiscr;
+        % % Matrix for measuring misfit
+        % Rec = obj.RecMat;
+        % % Time stepping options
+        % opts.method = obj.tsOpts.forwardMethod;
+        % opts.T = T;
+        % opts.k = obj.tsOpts.k;
+        % opts.cont_time = true;
+
+        % if opts.method.adaptive
+        %     [recData, faultData, timeData] = ...
+        %     obj.runSimulationAdaptive(discr, opts, Rec, plotFlag, saveOpts, progressBar);
+        % else
+        %     [recData, faultData, timeData] = ...
+        %     obj.runSimulation(discr, opts, Rec, plotFlag, saveOpts, progressBar);
+        % end
+        % obj.secondOrderForwardReceiverRecordings = recData;
+        % obj.secondOrderForwardFaultVariables = faultData;
+        % obj.secondOrderForwardTimeIntegrationData = timeData;
+        % obj.Ht = timeData.Ht;
+        % if ~iscolumn(obj.Ht)
+        %     obj.Ht = transpose(obj.Ht);
+        % end
         default_arg('plotFlag', false);
         default_arg('T', obj.T);
         default_arg('saveOpts', []);
         default_arg('progressBar', []);
         
-        % TODO: Lots of unneccessary stuff here? Maybe this should be
-        % more similar to runAdjoint. Try that.
-        discr = obj.secondOrderForwardDiscr;
-        % Matrix for measuring misfit
-        Rec = obj.RecMat;
+        discr = obj.secondOrderForwardDiscr;        
         % Time stepping options
         opts.method = obj.tsOpts.forwardMethod;
         opts.T = T;
-        opts.k = obj.tsOpts.k;
-        opts.cont_time = true;
-
-        if opts.method.adaptive
-            [recData, faultData, timeData] = ...
-            obj.runSimulationAdaptive(discr, opts, Rec, plotFlag, saveOpts, progressBar);
-        else
-            [recData, faultData, timeData] = ...
-            obj.runSimulation(discr, opts, Rec, plotFlag, saveOpts, progressBar);
-        end
-        obj.secondOrderForwardReceiverRecordings = recData;
+        opts.cont_time = false;
+        
+        % Time integrate using a standard RK method, but with time steps taken from forward problem
+        opts.k = obj.forwardTimeIntegrationData.k;
+        [~, faultData, timeData] = obj.runSimulation(discr, opts, [], plotFlag, saveOpts, progressBar);
         obj.secondOrderForwardFaultVariables = faultData;
         obj.secondOrderForwardTimeIntegrationData = timeData;
-        obj.Ht = timeData.Ht;
-        if ~iscolumn(obj.Ht)
-            obj.Ht = transpose(obj.Ht);
-        end
     end
     
     function [receiverRecordings, faultData, timeData] = runSimulation(obj, discr, tsOpts,...
@@ -880,6 +896,91 @@ methods
         discr.friction.data.F_Psi = F_Psi;
         discr.friction.data.F_p = F_p;
         discr.friction.data.G_p = G_p;
+
+        discr.setFaultTraction();
+        discr.setStateEvolution();
+    end
+
+    function updateSecondOrderAdjointDiscr(obj)
+        discr = obj.adjointDiscr;
+        pars = obj.forwardDiscr.friction.rsParams;
+
+        % Update parameter values
+        
+        discr.friction.rsParams = pars;
+        %% 
+        % Update adjoint sources with misfit residual
+        %
+
+        % Make sure that the adjoint sources are the receivers with the correct data
+        data = obj.receiverData;
+        approx = obj.forwardReceiverRecordings;
+        [nReceivers, ~] = size(approx);
+        
+        % Solve for negative adjoint velocity potential by reversing sign of forcing
+        misfit_residual = cell(nReceivers, 1);       
+        T_fwd = obj.forwardTimeIntegrationData.T;
+        filteredSignal = zeros(2,numel(T_fwd)/2);
+        % Compute receiver misfit from forward solve
+        for i = 1:nReceivers
+            approx_i = approx(i,:);
+            data_i = data{i}(T_fwd);
+
+            % Perform filtering if applicable
+            if ~isempty(obj.filterOpts)
+                if obj.filterOpts.filterResidual
+                    residual = approx_i - data_i;
+                    % First filtering
+                    filteredSignal(1,:) = (obj.filter*(residual(1:2:end-1)'))';
+                    filteredSignal(2,:) = (obj.filter*(residual(2:2:end)'))';
+                    % Adjoint filtering
+                    residual = obj.Ht'.*filteredSignal(:)';
+                    filteredSignal(1,:) = (obj.filterTransp*(residual(1:2:end-1)'))';
+                    filteredSignal(2,:) = (obj.filterTransp*(residual(2:2:end)'))';
+                    residual = (1./obj.Ht').*filteredSignal(:)';
+                else % Filter data only
+                    filteredSignal(1,:) = (obj.filter*(data_i(1:2:end-1)'))';
+                    filteredSignal(2,:) = (obj.filter*(data_i(2:2:end)'))';
+                    residual = approx_i - filteredSignal(:)';
+                end
+            else
+                residual = approx_i - data_i;
+            end
+            switch obj.misfitType
+            case 'displacement'
+                R = obj.integrateResidual(residual);
+                res_data_i = -R; % Minus sign due to how the forcing enters the PDE
+            case 'velocity'
+                res_data_i = residual;
+            otherwise
+                error('misfit %s not implemented', obj.misfitType);
+            end
+            
+            misfit_residual{i} = fliplr(res_data_i); % Reverse in time
+        end
+        %% 
+        % Update adjoint friction functions with data from forward solve
+        %
+        % Forward solve data
+        V = obj.forwardFaultVariables.V;
+        Psi = obj.forwardFaultVariables.Psi;
+
+        % Compute coefficients needed for adjoint friction functions
+        
+        F_V = discr.friction.funs.F_V(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        F_Psi = discr.friction.funs.F_Psi(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        G_V = discr.friction.funs.G_V(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        G_Psi = discr.friction.funs.G_Psi(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+
+        % Update source data and functions
+        discr.sources.data = misfit_residual;
+        discr.setPointSources();
+
+        % Update fault data and functions
+        discr.friction.data.F_V = fliplr(F_V);
+        discr.friction.data.G_V = fliplr(G_V);
+        discr.friction.data.G_Psi = fliplr(G_Psi);
+        discr.friction.data.F_Psi = fliplr(F_Psi);
 
         discr.setFaultTraction();
         discr.setStateEvolution();
