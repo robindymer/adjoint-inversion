@@ -865,7 +865,7 @@ methods
     function updateSecondOrderForwardDiscr(obj)
         discr = obj.secondOrderForwardDiscr;
         % TODO: Really use from forwardDiscr?
-        pars = obj.forwardDiscr.friction.rsParams;
+        pars = obj.secondOrderForwardDiscr.friction.rsParams;
 
         % Update parameter values
         
@@ -902,8 +902,8 @@ methods
     end
 
     function updateSecondOrderAdjointDiscr(obj)
-        discr = obj.adjointDiscr;
-        pars = obj.forwardDiscr.friction.rsParams;
+        discr = obj.secondOrderAdjointDiscr;
+        pars = obj.secondOrderAdjointDiscr.friction.rsParams;
 
         % Update parameter values
         
@@ -914,7 +914,7 @@ methods
 
         % Make sure that the adjoint sources are the receivers with the correct data
         data = obj.receiverData;
-        approx = obj.forwardReceiverRecordings;
+        approx = obj.secondOrderForwardReceiverRecordings;
         [nReceivers, ~] = size(approx);
         
         % Solve for negative adjoint velocity potential by reversing sign of forcing
@@ -964,6 +964,12 @@ methods
         % Forward solve data
         V = obj.forwardFaultVariables.V;
         Psi = obj.forwardFaultVariables.Psi;
+        % Adjoint solve data, these are past "raw"
+        V_dagger = obj.adjointFaultVariables.V;
+        Psi_dagger = obj.adjointFaultVariables.Psi;
+        % Second order forward solve data, these are past "raw"
+        delta_V = obj.secondOrderForwardFaultVariables.V;
+        delta_Psi = obj.secondOrderForwardFaultVariables.Psi;
 
         % Compute coefficients needed for adjoint friction functions
         
@@ -971,6 +977,17 @@ methods
         F_Psi = discr.friction.funs.F_Psi(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
         G_V = discr.friction.funs.G_V(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
         G_Psi = discr.friction.funs.G_Psi(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+
+        F_V_V = discr.friction.funs.F_V_V(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        F_V_Psi = discr.friction.funs.F_V_Psi(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        F_V_a = discr.friction.funs.F_V_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        F_Psi_Psi = discr.friction.funs.F_Psi_Psi(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        F_Psi_a = discr.friction.funs.F_Psi_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        G_V_Psi = discr.friction.funs.G_V_Psi(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        G_V_V = discr.friction.funs.G_V_V(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        G_V_a = discr.friction.funs.G_V_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        G_Psi_Psi = discr.friction.funs.G_Psi_Psi(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        G_Psi_a = discr.friction.funs.G_Psi_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
 
         % Update source data and functions
         discr.sources.data = misfit_residual;
@@ -981,6 +998,21 @@ methods
         discr.friction.data.G_V = fliplr(G_V);
         discr.friction.data.G_Psi = fliplr(G_Psi);
         discr.friction.data.F_Psi = fliplr(F_Psi);
+        discr.friction.data.F_V_V = fliplr(F_V_V);
+        discr.friction.data.F_V_Psi = fliplr(F_V_Psi);
+        discr.friction.data.F_V_a = fliplr(F_V_a);
+        discr.friction.data.F_Psi_Psi = fliplr(F_Psi_Psi);
+        discr.friction.data.F_Psi_a = fliplr(F_Psi_a);
+        discr.friction.data.G_V_Psi = fliplr(G_V_Psi);
+        discr.friction.data.G_V_V = fliplr(G_V_V);
+        discr.friction.data.G_V_a = fliplr(G_V_a);
+        discr.friction.data.G_Psi_Psi = fliplr(G_Psi_Psi);
+        discr.friction.data.G_Psi_a = fliplr(G_Psi_a);
+
+        discr.friction.data.V_dagger = V_dagger; % Already flipped (from adjoint)
+        discr.friction.data.Psi_dagger = Psi_dagger; % Already flipped (from adjoint)
+        discr.friction.data.delta_V = fliplr(delta_V);
+        discr.friction.data.delta_Psi = fliplr(delta_Psi);
 
         discr.setFaultTraction();
         discr.setStateEvolution();

@@ -22,6 +22,12 @@ F_V0 = diff(F,'V0');
 F_D_c = diff(F,'D_c');
 F_tau0 = diff(F,'tau0');
 
+F_V_V = diff(F_V,'V');
+F_V_Psi = diff(F_V,'Psi');
+F_V_a = diff(F_V,'a');
+F_Psi_Psi = diff(F_Psi,'Psi');
+F_Psi_a = diff(F_Psi,'a');
+
 matlabFunction(f,'File','friction_coeff','Vars',{V, Psi, a, sigma0, V0, tau0});
 matlabFunction(f_ss,'File','friction_coeff_steady_state','Vars',{V, a, b, f0, V0});
 matlabFunction(F,'File','F','Vars',{V, Psi, a, sigma0, V0, tau0});
@@ -34,6 +40,12 @@ matlabFunction(F_f0,'File','F_f0','Vars',{V, Psi, a, sigma0, V0, tau0});
 matlabFunction(F_V0,'File','F_V0','Vars',{V, Psi, a, sigma0, V0, tau0});
 matlabFunction(F_D_c,'File','F_D_c','Vars',{V, Psi, a, sigma0, V0, tau0});
 matlabFunction(F_tau0,'File','F_tau0','Vars',{V, Psi, a, sigma0, V0, tau0});
+
+matlabFunction(F_V_V,'File','F_V_V','Vars',{V, Psi, a, sigma0, V0, tau0});
+matlabFunction(F_V_Psi,'File','F_V_Psi','Vars',{V, Psi, a, sigma0, V0, tau0});
+matlabFunction(F_V_a,'File','F_V_a','Vars',{V, Psi, a, sigma0, V0, tau0});
+matlabFunction(F_Psi_Psi,'File','F_Psi_Psi','Vars',{V, Psi, a, sigma0, V0, tau0});
+matlabFunction(F_Psi_a,'File','F_Psi_a','Vars',{V, Psi, a, sigma0, V0, tau0});
 
 % Aging law
 switch state_evolution
@@ -54,6 +66,12 @@ G_V0 = diff(G,'V0');
 G_D_c = diff(G,'D_c');
 G_tau0 = diff(G,'tau0');
 
+G_V_Psi = diff(G_V,'V','Psi');
+G_V_V = diff(G_V,'V','V');
+G_V_a = diff(G_V,'V','a');
+G_Psi_Psi = diff(G_Psi,'Psi','Psi');
+G_Psi_a = diff(G_Psi,'Psi','a');
+
 matlabFunction(G,'File','G','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_V,'File','G_V','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_Psi,'File','G_Psi','Vars',{V, Psi, a, b, f0, V0, D_c});
@@ -64,4 +82,8 @@ matlabFunction(G_f0,'File','G_f0','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_V0,'File','G_V0','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_D_c,'File','G_D_c','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_tau0,'File','G_tau0','Vars',{V, Psi, a, b, f0, V0, D_c});
-
+matlabFunction(G_V_Psi,'File','G_V_Psi','Vars',{V, Psi, a, b, f0, V0, D_c});
+matlabFunction(G_V_V,'File','G_V_V','Vars',{V, Psi, a, b, f0, V0, D_c});
+matlabFunction(G_V_a,'File','G_V_a','Vars',{V, Psi, a, b, f0, V0, D_c});
+matlabFunction(G_Psi_Psi,'File','G_Psi_Psi','Vars',{V, Psi, a, b, f0, V0, D_c});
+matlabFunction(G_Psi_a,'File','G_Psi_a','Vars',{V, Psi, a, b, f0, V0, D_c});

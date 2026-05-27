@@ -162,6 +162,16 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultVerification(opt
     G = @elastic.friction.inversion.G;
     G_V = @elastic.friction.inversion.G_V;
     G_Psi = @elastic.friction.inversion.G_Psi;
+    F_V_V = @elastic.friction.inversion.F_V_V;
+    F_V_Psi = @elastic.friction.inversion.F_V_Psi;
+    F_V_a = @elastic.friction.inversion.F_V_a;
+    F_Psi_Psi = @elastic.friction.inversion.F_Psi_Psi;
+    F_Psi_a = @elastic.friction.inversion.F_Psi_a;
+    G_V_Psi = @elastic.friction.inversion.G_V_Psi;
+    G_V_V = @elastic.friction.inversion.G_V_V;
+    G_V_a = @elastic.friction.inversion.G_V_a;
+    G_Psi_Psi = @elastic.friction.inversion.G_Psi_Psi;
+    G_Psi_a = @elastic.friction.inversion.G_Psi_a;
     % Functions used to solve for characteristic variables
     % Note: Must match with F above! 
     % TODO: Should probably be generated together with above functions
@@ -193,6 +203,16 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultVerification(opt
     friction.funs.G = G;
     friction.funs.G_V = G_V;
     friction.funs.G_Psi = G_Psi;
+    friction.funs.F_V_V = F_V_V;
+    friction.funs.F_V_Psi = F_V_Psi;
+    friction.funs.F_V_a = F_V_a;
+    friction.funs.F_Psi_Psi = F_Psi_Psi;
+    friction.funs.F_Psi_a = F_Psi_a;
+    friction.funs.G_V_Psi = G_V_Psi;
+    friction.funs.G_V_V = G_V_V;
+    friction.funs.G_V_a = G_V_a;
+    friction.funs.G_Psi_Psi = G_Psi_Psi;
+    friction.funs.G_Psi_a = G_Psi_a;
     friction.funs.Finv = Finv;
     friction.funs.nonlin_solve_fun = nonlin_solve_fun;
     friction.funs.tau_L = tau_L;
