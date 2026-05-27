@@ -56,7 +56,7 @@ properties
     domain
     
     inversionPars
-    eps_pertubation % Parameter pertubation, required for hessian vector computation
+    delta_p % Parameter pertubation, required for hessian vector computation
     F_p
     G_p
 
@@ -81,6 +81,8 @@ methods
         domain = inputPars.domain;
         opset = inputPars.opset;
         m = inputPars.m;
+        % TODO: Same delta_p for gradient and hessian-vector computation approaches?
+        delta_p = inputPars.friction.rsParams.delta_p;
         material = inputPars.material;
         bc = inputPars.bc;
         friction = inputPars.friction;
@@ -100,11 +102,9 @@ methods
         % Initialize adjoint discretization object. Does not set any friction/receiver data.
         adjointDiscr = elastic.AntiplaneShear2DRSFrictionAdjDiscr(opset, domain, m, order, material, bc, friction, receivers);
         % Same thing here, do not set friction and second order source / reciever data
-        secondOrderForwardDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderFwdDiscr(opset, domain, m, order, material, bc, friction, secondOrderSources);
+        % TODO: Could not run with secondOrderSources here. Make sure doing it this way instead is okay...
+        secondOrderForwardDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderFwdDiscr(opset, domain, m, order, material, bc, friction, secondOrderReceivers);
         secondOrderAdjointDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderAdjDiscr(opset, domain, m, order, material, bc, friction, secondOrderReceivers);
-
-        % Perhaps this is delta_p? No new eps_p needed?
-        obj.eps_pertubation = pars.friction.params.eps_p;
 
         bidm = domain.boundaryGroups.fault_minus;
 
@@ -140,8 +140,8 @@ methods
             forwardDiscr.setFaultTraction();
             forwardDiscr.setStateEvolution();
             adjointDiscr.friction.rsParams = interpParams;
-            secondOrderForwardDiscr.rsParams = interpParams;
-            secondOrderAdjointDiscr.rsParams = interpParams;
+            secondOrderForwardDiscr.friction.rsParams = interpParams;
+            secondOrderAdjointDiscr.friction.rsParams = interpParams;
         else % No interpolation needed
             pars = forwardDiscr.friction.rsParams;
             
@@ -213,6 +213,7 @@ methods
 
         obj.domain = domain;
         obj.m = m;
+        obj.delta_p = delta_p;
         obj.order = order;
         obj.T = T;
         obj.pars = pars;
@@ -279,7 +280,39 @@ methods
         obj.adjointFaultVariables = faultData;
         obj.adjointTimeIntegrationData = timeData;
     end
-    
+
+    function runSecondOrderForward(obj, plotFlag, T, saveOpts, progressBar)
+        default_arg('plotFlag', false);
+        default_arg('T', obj.T);
+        default_arg('saveOpts', []);
+        default_arg('progressBar', []);
+        
+        % TODO: Lots of unneccessary stuff here? Maybe this should be
+        % more similar to runAdjoint. Try that.
+        discr = obj.secondOrderForwardDiscr;
+        % Matrix for measuring misfit
+        Rec = obj.RecMat;
+        % Time stepping options
+        opts.method = obj.tsOpts.forwardMethod;
+        opts.T = T;
+        opts.k = obj.tsOpts.k;
+        opts.cont_time = true;
+
+        if opts.method.adaptive
+            [recData, faultData, timeData] = ...
+            obj.runSimulationAdaptive(discr, opts, Rec, plotFlag, saveOpts, progressBar);
+        else
+            [recData, faultData, timeData] = ...
+            obj.runSimulation(discr, opts, Rec, plotFlag, saveOpts, progressBar);
+        end
+        obj.secondOrderForwardReceiverRecordings = recData;
+        obj.secondOrderForwardFaultVariables = faultData;
+        obj.secondOrderForwardTimeIntegrationData = timeData;
+        obj.Ht = timeData.Ht;
+        if ~iscolumn(obj.Ht)
+            obj.Ht = transpose(obj.Ht);
+        end
+    end
     
     function [receiverRecordings, faultData, timeData] = runSimulation(obj, discr, tsOpts,...
         Rec, plotFlag, saveOpts, progressBar)
@@ -835,16 +868,18 @@ methods
         F_Psi = discr.friction.funs.F_Psi(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
         G_V = discr.friction.funs.G_V(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
         G_Psi = discr.friction.funs.G_Psi(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
-        F_a = discr.friction.funs.F_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
-        G_a = discr.friction.funs.G_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        % These are calculated at the top of the file
+        % TODO: Fix hard-coded F_a, G_a assumption
+        F_p = obj.F_p{1}(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        G_p = obj.G_p{1}(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
 
         % Update fault data and functions
         discr.friction.data.F_V = F_V;
         discr.friction.data.G_V = G_V;
         discr.friction.data.G_Psi = G_Psi;
         discr.friction.data.F_Psi = F_Psi;
-        discr.friction.data.F_a = F_a;
-        discr.friction.data.G_a = G_a;
+        discr.friction.data.F_p = F_p;
+        discr.friction.data.G_p = G_p;
 
         discr.setFaultTraction();
         discr.setStateEvolution();

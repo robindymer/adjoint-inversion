@@ -181,6 +181,7 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultVerification(opt
     friction.rsParams.V0 = V0;
     friction.rsParams.D_c = D_c;
     friction.rsParams.tau0 = tau0;
+    friction.rsParams.delta_p = opts.delta_p;
 
     friction.loadingParams.Vinit = Vinit; 
     friction.loadingParams.A = A;

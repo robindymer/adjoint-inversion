@@ -13,6 +13,7 @@ parsetOpts.inversionParameters = inversionPars;
 parsetOpts.initialGuessScalings = initialGuessScaling;
 parsetOpts.T = T;
 parsetOpts.m = m;
+parsetOpts.delta_p = delta_p;
 [parset, parset_true] = parset(parsetOpts);
 
 plotFlag = true;
