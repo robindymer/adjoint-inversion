@@ -282,29 +282,52 @@ methods
     end
 
     function runSecondOrderForward(obj, plotFlag, T, saveOpts, progressBar)
+        default_arg('plotFlag', false);
+        default_arg('T', obj.T);
+        default_arg('saveOpts', []);
+        default_arg('progressBar', []);
+        
+        % more similar to runAdjoint. Try that.
+        discr = obj.secondOrderForwardDiscr;
+        % Matrix for measuring misfit
+        Rec = obj.RecMat;
+        % Time stepping options
+        opts.method = obj.tsOpts.forwardMethod;
+        opts.T = T;
+        opts.k = obj.tsOpts.k;
+        opts.cont_time = false;
+
+        if opts.method.adaptive
+            [recData, faultData, timeData] = ...
+            obj.runSimulationAdaptive(discr, opts, Rec, plotFlag, saveOpts, progressBar);
+        else
+            [recData, faultData, timeData] = ...
+            obj.runSimulation(discr, opts, Rec, plotFlag, saveOpts, progressBar);
+        end
+        obj.secondOrderForwardReceiverRecordings = recData;
+        obj.secondOrderForwardFaultVariables = faultData;
+        obj.secondOrderForwardTimeIntegrationData = timeData;
+        obj.Ht = timeData.Ht;
+        if ~iscolumn(obj.Ht)
+            obj.Ht = transpose(obj.Ht);
+        end
+        % TODO: This might be sufficient
         % default_arg('plotFlag', false);
         % default_arg('T', obj.T);
         % default_arg('saveOpts', []);
         % default_arg('progressBar', []);
         
-        % % TODO: Lots of unneccessary stuff here? Maybe this should be
-        % % more similar to runAdjoint. Try that.
-        % discr = obj.secondOrderForwardDiscr;
-        % % Matrix for measuring misfit
-        % Rec = obj.RecMat;
+        % discr = obj.secondOrderForwardDiscr;        
         % % Time stepping options
         % opts.method = obj.tsOpts.forwardMethod;
         % opts.T = T;
-        % opts.k = obj.tsOpts.k;
-        % opts.cont_time = true;
-
-        % if opts.method.adaptive
-        %     [recData, faultData, timeData] = ...
-        %     obj.runSimulationAdaptive(discr, opts, Rec, plotFlag, saveOpts, progressBar);
-        % else
-        %     [recData, faultData, timeData] = ...
+        % opts.cont_time = false;
+        % Rec = obj.RecMat;
+        
+        % % Time integrate using a standard RK method, but with time steps taken from forward problem
+        % opts.k = obj.forwardTimeIntegrationData.k;
+        % [recData, faultData, timeData] = ...
         %     obj.runSimulation(discr, opts, Rec, plotFlag, saveOpts, progressBar);
-        % end
         % obj.secondOrderForwardReceiverRecordings = recData;
         % obj.secondOrderForwardFaultVariables = faultData;
         % obj.secondOrderForwardTimeIntegrationData = timeData;
@@ -312,22 +335,6 @@ methods
         % if ~iscolumn(obj.Ht)
         %     obj.Ht = transpose(obj.Ht);
         % end
-        default_arg('plotFlag', false);
-        default_arg('T', obj.T);
-        default_arg('saveOpts', []);
-        default_arg('progressBar', []);
-        
-        discr = obj.secondOrderForwardDiscr;        
-        % Time stepping options
-        opts.method = obj.tsOpts.forwardMethod;
-        opts.T = T;
-        opts.cont_time = false;
-        
-        % Time integrate using a standard RK method, but with time steps taken from forward problem
-        opts.k = obj.forwardTimeIntegrationData.k;
-        [~, faultData, timeData] = obj.runSimulation(discr, opts, [], plotFlag, saveOpts, progressBar);
-        obj.secondOrderForwardFaultVariables = faultData;
-        obj.secondOrderForwardTimeIntegrationData = timeData;
     end
     
     function [receiverRecordings, faultData, timeData] = runSimulation(obj, discr, tsOpts,...
@@ -929,7 +936,7 @@ methods
             % Perform filtering if applicable
             if ~isempty(obj.filterOpts)
                 if obj.filterOpts.filterResidual
-                    residual = approx_i - data_i;
+                    residual = approx_i; % Delta Q dagger only depends on Delta Q
                     % First filtering
                     filteredSignal(1,:) = (obj.filter*(residual(1:2:end-1)'))';
                     filteredSignal(2,:) = (obj.filter*(residual(2:2:end)'))';
@@ -944,7 +951,7 @@ methods
                     residual = approx_i - filteredSignal(:)';
                 end
             else
-                residual = approx_i - data_i;
+                residual = approx_i; % Delta Q dagger only depends on Delta Q
             end
             switch obj.misfitType
             case 'displacement'
@@ -955,7 +962,6 @@ methods
             otherwise
                 error('misfit %s not implemented', obj.misfitType);
             end
-            
             misfit_residual{i} = fliplr(res_data_i); % Reverse in time
         end
         %% 
