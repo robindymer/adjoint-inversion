@@ -216,6 +216,20 @@ methods
         % Friction functions
         F_V = obj.friction.data.F_V;
         G_V = obj.friction.data.G_V;
+
+        F_V_V = obj.friction.data.F_V_V;
+        F_V_Psi = obj.friction.data.F_V_Psi;
+        F_V_a = obj.friction.data.F_V_a;
+        G_V_Psi = obj.friction.data.G_V_Psi;
+        G_V_V = obj.friction.data.G_V_V;
+        G_V_a = obj.friction.data.G_V_a;
+
+        delta_p = obj.friction.rsParams.delta_p;
+
+        V_dagger = obj.friction.data.V_dagger;
+        Psi_dagger = obj.friction.data.Psi_dagger;
+        delta_V = obj.friction.data.delta_V;
+        delta_Psi = obj.friction.data.delta_Psi;
         
         % Operators 
         penalty = obj.penalty_fault;
@@ -223,17 +237,41 @@ methods
         eta = obj.eta;
 
         % Function that computes V* given tau_l and Psi
-        V_star_from_tau_l = @(i_t, tau_l, Psi) -1./((eta + F_V(:,i_t))).*(tau_l + G_V(:,i_t).*Psi);
+        V_star_from_tau_l = @(i_t, tau_l, Psi) -1./((eta + F_V(:,i_t))).*(tau_l + G_V(:, i_t).*Psi ...
+            + F_V_Psi(:, i_t).*V_dagger(:, i_t).*delta_Psi(:, i_t) + G_V_Psi(:, i_t) .* Psi_dagger(:, i_t) .* delta_Psi(:, i_t) + F_V_V(:, i_t) .* V_dagger(:, i_t) .* delta_V(:, i_t) ...
+            + G_V_V(:, i_t) .* Psi_dagger(:, i_t) .* delta_V(:, i_t) + delta_p .* (G_V_a(:, i_t) .* Psi_dagger(:, i_t) + F_V_a(:, i_t) .* V_dagger(:, i_t)));
         obj.V_star = @(i_t, U) V_star_from_tau_l(i_t, obj.tau_l_fun(U), E.Psi*U);
         % Fault traction function
-        obj.fault_traction = @(i_t, U, Vs) penalty*(F_V(:,i_t).*Vs + G_V(:,i_t).*(E.Psi*U));
+        % TODO: Why no -penalty here as in 1D case?
+        obj.fault_traction = @(i_t, U, Vs) penalty*(F_V(:,i_t).*Vs + G_V(:,i_t).*(E.Psi*U) ...
+            + F_V_Psi(:, i_t).*V_dagger(:, i_t).*delta_Psi(:, i_t) + G_V_Psi(:, i_t) .* Psi_dagger(:, i_t) .* delta_Psi(:, i_t) + F_V_V(:, i_t) .* V_dagger(:, i_t) .* delta_V(:, i_t) ...
+            + G_V_V(:, i_t) .* Psi_dagger(:, i_t) .* delta_V(:, i_t) + delta_p .* (G_V_a(:, i_t) .* Psi_dagger(:, i_t) + F_V_a(:, i_t) .* V_dagger(:, i_t)));
     end
         
     function obj = setStateEvolution(obj)
         E = obj.E;
         F_Psi = obj.friction.data.F_Psi;
         G_Psi = obj.friction.data.G_Psi;
-        obj.state_evo = @(i_t, U, Vs) E.Psi'*(G_Psi(:,i_t).*(E.Psi*U) + F_Psi(:,i_t).*Vs);
+
+        F_V_Psi = obj.friction.data.F_V_Psi;
+        F_Psi_Psi = obj.friction.data.F_Psi_Psi;
+        F_Psi_a = obj.friction.data.F_Psi_a;
+        G_V_Psi = obj.friction.data.G_V_Psi;
+        G_Psi_Psi = obj.friction.data.G_Psi_Psi;
+        G_Psi_a = obj.friction.data.G_Psi_a;
+        % Fetch tau_dagger, delta_tau_dagger etc from friction.data?
+
+        delta_p = obj.friction.rsParams.delta_p;
+        % Note that Psi = delta_Psi_dagger and V(star) = delta_V_dagger
+        V_dagger = obj.friction.data.V_dagger;
+        Psi_dagger = obj.friction.data.Psi_dagger;
+        delta_V = obj.friction.data.delta_V;
+        delta_Psi = obj.friction.data.delta_Psi;
+
+        obj.state_evo = @(i_t, U, Vs) E.Psi'*(G_Psi(:,i_t).*(E.Psi*U) + F_Psi(:,i_t).*Vs ...
+            + (F_Psi_Psi(:, i_t) .* V_dagger(:, i_t) .* delta_Psi(:, i_t) + G_Psi_Psi(:, i_t) .* Psi_dagger(:, i_t) .* delta_Psi(:, i_t)) ...
+            + (F_V_Psi(:, i_t) .* V_dagger(:, i_t) .* delta_V(:, i_t) + G_V_Psi(:, i_t) .* Psi_dagger(:, i_t) .* delta_V(:, i_t)) ...
+            + delta_p .* (G_Psi_a(:, i_t) .* Psi_dagger(:, i_t) + F_Psi_a(:, i_t) .* V_dagger(:, i_t)));
     end
     
     function obj = setPointSources(obj)

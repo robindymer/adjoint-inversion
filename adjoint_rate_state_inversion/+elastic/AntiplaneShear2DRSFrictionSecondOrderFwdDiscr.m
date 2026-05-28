@@ -228,6 +228,7 @@ methods
         V_star_from_tau_l = @(i_t, tau_l, Psi) -1./((eta + F_V(:, i_t))).*(tau_l + F_Psi(:, i_t).*Psi + F_p(:, i_t) .* delta_p);
         obj.V_star = @(i_t, U) V_star_from_tau_l(i_t, obj.tau_l_fun(U), E.Psi*U);
         % Fault traction function
+        % TODO: Why no -penalty here?
         obj.fault_traction = @(i_t, U, Vs) penalty*(F_V(:, i_t).*Vs + F_Psi(:, i_t).*(E.Psi*U) + F_p(:, i_t) .* delta_p);
     end
         
