@@ -1151,12 +1151,13 @@ methods
         delta_Psi_dagger = fliplr(delta_Psi_dagger);
 
         % end
-        T1 = -(V_dagger .* F_a_a .* obj.delta_p) * obj.Ht ./ obj.delta_p;
-        T2 = -(Psi_dagger .* G_a_a .* obj.delta_p) * obj.Ht ./ obj.delta_p;
-        T3 = -(delta_V_dagger .* F_a) * obj.Ht ./ obj.delta_p;
-        T4 = -(delta_Psi_dagger .* G_a) * obj.Ht ./ obj.delta_p;
-        T5 = -(V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi)) * obj.Ht ./ obj.delta_p;
-        T6 = -(Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht ./ obj.delta_p;
+        % TODO: Strictly, should not scale by obj.delta_p
+        T1 = -obj.H_b*obj.If2c*(V_dagger .* F_a_a .* obj.delta_p) * obj.Ht ./ obj.delta_p;
+        T2 = -obj.H_b*obj.If2c*(Psi_dagger .* G_a_a .* obj.delta_p) * obj.Ht ./ obj.delta_p;
+        T3 = -obj.H_b*obj.If2c*(delta_V_dagger .* F_a) * obj.Ht ./ obj.delta_p;
+        T4 = -obj.H_b*obj.If2c*(delta_Psi_dagger .* G_a) * obj.Ht ./ obj.delta_p;
+        T5 = -obj.H_b*obj.If2c*(V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi)) * obj.Ht ./ obj.delta_p;
+        T6 = -obj.H_b*obj.If2c*(Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht ./ obj.delta_p;
         
         % fprintf('T1: %e\nT2: %e\nT3: %e\nT4: %e\nT5: %e\nT6: %e\n', T1, T2, T3, T4, T5, T6);
         
@@ -1184,9 +1185,11 @@ methods
         M0 = obj.computeMisfit();
         
         % Update each element in paramter vector by a step deltaG
+        % For each parameter we perturb...
         for j = 1:numel(obj.inversionPars)
             parName = obj.inversionPars{j};
             grad.(parName) = zeros(size(pars.(parName)));
+            % For each point on fault... (m_p in pars file)
             for i = 1:length(pars.(parName))
                 pars_tmp = pars;
                 pars_tmp.(parName)(i) = pars_tmp.(parName)(i) + deltaG;
@@ -1198,6 +1201,37 @@ methods
                 grad.(parName)(i) = dM_dg;
             end
         end
+    end
+
+    function hessVec = computeHessianVectorFD(obj, deltaG)
+        % Compute misfit with current parameter vector
+        pars_baseline = obj.pars;
+        obj.updateForwardDiscr(pars_baseline);
+        obj.runForward();
+        % grad0 = obj.computeGradientFD(deltaG);
+        grad0 = obj.computeGradient();
+
+        % Update each element in paramter vector by a step deltaG
+        for j = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{j};
+            hessVec.(parName) = zeros(size(pars_baseline.(parName)));
+            for i = 1:length(pars_baseline.(parName))
+                pars_tmp = pars_baseline;
+                pars_tmp.(parName)(i) = pars_tmp.(parName)(i) + deltaG;
+                obj.pars = pars_tmp;
+                obj.updateForwardDiscr(pars_tmp);
+                obj.runForward();
+                % TODO: Try shortcut of using computeGradient instead
+                % grad = obj.computeGradientFD(deltaG);
+                grad = obj.computeGradient();
+                dGrad_dg = (grad.(parName)(i)-grad0.(parName)(i))/deltaG;
+                hessVec.(parName)(i) = dGrad_dg;
+            end
+        end
+
+        % Clean up
+        obj.pars = pars_baseline;
+        obj.updateForwardDiscr(pars_baseline);
     end
     
     function M = computeMisfit(obj)

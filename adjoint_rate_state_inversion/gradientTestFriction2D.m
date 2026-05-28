@@ -3,8 +3,13 @@ clear all;
 order = 8;
 inversionPars = {'a'};
 initialGuessScaling = 1.1;
+% T = 1;
+% m = 51;
 
 parset = @pars.rsFriction2DFractalFaultVerification; delta_p = 1e-9;
+parsetOpts.delta_p = delta_p;
+% parsetOpts.T = T;
+% parsetOpts.m = m;
 
 parsetOpts.inversionParameters = inversionPars;
 parsetOpts.initialGuessScalings = initialGuessScaling;
