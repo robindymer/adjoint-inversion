@@ -22,11 +22,13 @@ F_V0 = diff(F,'V0');
 F_D_c = diff(F,'D_c');
 F_tau0 = diff(F,'tau0');
 
+% NOTE: No \partial_b since f does not depend on b
 F_V_V = diff(F_V,'V');
 F_V_Psi = diff(F_V,'Psi');
 F_V_a = diff(F_V,'a');
 F_Psi_Psi = diff(F_Psi,'Psi');
 F_Psi_a = diff(F_Psi,'a');
+F_a_a = diff(F_a, 'a');
 
 matlabFunction(f,'File','friction_coeff','Vars',{V, Psi, a, sigma0, V0, tau0});
 matlabFunction(f_ss,'File','friction_coeff_steady_state','Vars',{V, a, b, f0, V0});
@@ -46,6 +48,7 @@ matlabFunction(F_V_Psi,'File','F_V_Psi','Vars',{V, Psi, a, sigma0, V0, tau0});
 matlabFunction(F_V_a,'File','F_V_a','Vars',{V, Psi, a, sigma0, V0, tau0});
 matlabFunction(F_Psi_Psi,'File','F_Psi_Psi','Vars',{V, Psi, a, sigma0, V0, tau0});
 matlabFunction(F_Psi_a,'File','F_Psi_a','Vars',{V, Psi, a, sigma0, V0, tau0});
+matlabFunction(F_a_a,'File','F_a_a','Vars',{V, Psi, a, sigma0, V0, tau0});
 
 % Aging law
 switch state_evolution
@@ -71,6 +74,8 @@ G_V_V = diff(G_V,'V','V');
 G_V_a = diff(G_V,'V','a');
 G_Psi_Psi = diff(G_Psi,'Psi','Psi');
 G_Psi_a = diff(G_Psi,'Psi','a');
+G_a_a = diff(G_a, 'a');
+G_b_b = diff(G_b, 'b');
 
 matlabFunction(G,'File','G','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_V,'File','G_V','Vars',{V, Psi, a, b, f0, V0, D_c});
@@ -87,3 +92,5 @@ matlabFunction(G_V_V,'File','G_V_V','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_V_a,'File','G_V_a','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_Psi_Psi,'File','G_Psi_Psi','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_Psi_a,'File','G_Psi_a','Vars',{V, Psi, a, b, f0, V0, D_c});
+matlabFunction(G_a_a,'File','G_a_a','Vars',{V, Psi, a, b, f0, V0, D_c});
+matlabFunction(G_b_b,'File','G_b_b','Vars',{V, Psi, a, b, f0, V0, D_c});

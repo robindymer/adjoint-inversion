@@ -336,6 +336,25 @@ methods
         %     obj.Ht = transpose(obj.Ht);
         % end
     end
+
+    function runSecondOrderAdjoint(obj, plotFlag, T, saveOpts, progressBar)
+        default_arg('plotFlag', false);
+        default_arg('T', obj.T);
+        default_arg('saveOpts', []);
+        default_arg('progressBar', []);
+        
+        discr = obj.secondOrderAdjointDiscr;        
+        % Time stepping options
+        opts.method = obj.tsOpts.adjointMethod;
+        opts.T = T;
+        opts.cont_time = false;
+        
+        % Time integrate using a standard RK method, but with time steps taken from forward problem
+        opts.k = fliplr(obj.forwardTimeIntegrationData.k); % Reverse timestep vector
+        [~, faultData, timeData] = obj.runSimulation(discr, opts, [], plotFlag, saveOpts, progressBar);
+        obj.secondOrderAdjointFaultVariables = faultData;
+        obj.secondOrderAdjointTimeIntegrationData = timeData;
+    end
     
     function [receiverRecordings, faultData, timeData] = runSimulation(obj, discr, tsOpts,...
         Rec, plotFlag, saveOpts, progressBar)
@@ -1099,6 +1118,59 @@ methods
             G_p = obj.G_p{i}(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
             grad.(parName) = -(obj.H_b*obj.If2c*(V_adj.*F_p + Psi_adj.*G_p))*obj.Ht;
         end
+    end
+
+    function hessVec = hessianVectorFormula(obj)
+        obj.checkParameters();
+        pars = obj.forwardDiscr.friction.rsParams;
+
+        % Forward variables
+        V = obj.forwardFaultVariables.V;
+        Psi = obj.forwardFaultVariables.Psi;
+        % All else
+        V_dagger = obj.adjointFaultVariables.V;
+        Psi_dagger = obj.adjointFaultVariables.Psi;
+        delta_V_dagger = obj.secondOrderAdjointFaultVariables.V;
+        delta_Psi_dagger = obj.secondOrderAdjointFaultVariables.Psi;
+        delta_V = obj.secondOrderForwardFaultVariables.V;
+        delta_Psi = obj.secondOrderForwardFaultVariables.Psi;
+        % TODO: Fix hard-coded F_a, G_a assumption
+        F_a = obj.F_p{1}(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        G_a = obj.G_p{1}(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        F_a_a = obj.forwardDiscr.friction.funs.F_a_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        G_a_a = obj.forwardDiscr.friction.funs.G_a_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        F_V_a = obj.forwardDiscr.friction.funs.F_V_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        F_Psi_a = obj.forwardDiscr.friction.funs.F_Psi_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        G_V_a = obj.forwardDiscr.friction.funs.G_V_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        G_Psi_a = obj.forwardDiscr.friction.funs.G_Psi_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        
+        % Reverse adjoint variables in time for the integration
+        V_dagger = fliplr(V_dagger);
+        Psi_dagger = fliplr(Psi_dagger);
+        delta_V_dagger = fliplr(delta_V_dagger);
+        delta_Psi_dagger = fliplr(delta_Psi_dagger);
+
+        % end
+        T1 = -(V_dagger .* F_a_a .* obj.delta_p) * obj.Ht ./ obj.delta_p;
+        T2 = -(Psi_dagger .* G_a_a .* obj.delta_p) * obj.Ht ./ obj.delta_p;
+        T3 = -(delta_V_dagger .* F_a) * obj.Ht ./ obj.delta_p;
+        T4 = -(delta_Psi_dagger .* G_a) * obj.Ht ./ obj.delta_p;
+        T5 = -(V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi)) * obj.Ht ./ obj.delta_p;
+        T6 = -(Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht ./ obj.delta_p;
+        
+        % fprintf('T1: %e\nT2: %e\nT3: %e\nT4: %e\nT5: %e\nT6: %e\n', T1, T2, T3, T4, T5, T6);
+        
+        % NOTE: Divison by eps_a to free eps_a scaling dependence
+        hessVec = (T1 + T2 + T3 + T4 + T5 + T6);
+
+        % TODO: Should have something similar to this:
+        % grad = struct;
+        % for i = 1:numel(obj.inversionPars)
+        %     parName = obj.inversionPars{i};
+        %     F_p = obj.F_p{i}(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        %     G_p = obj.G_p{i}(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        %     grad.(parName) = -(obj.H_b*obj.If2c*(V_adj.*F_p + Psi_adj.*G_p))*obj.Ht;
+        % end
     end
     
     function grad = computeGradientFD(obj, deltaG)
