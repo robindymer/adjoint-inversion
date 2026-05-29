@@ -54,13 +54,15 @@ properties
     F_p
     G_p
     eps_pertubations % Parameter pertubation, required for hessian vector computation
+    supportedPars
     
 end
 
 methods
     
     function obj = AntiplaneShearRSFrictionOptHessian(pars, inversionPars, order, k)
-        default_arg('inversionPars', {'a'});
+        % Use convention that this represents H_ab, so first a pertubation and then b
+        default_arg('inversionPars', {'a', 'b'});
         default_arg('order', 4);
         default_arg('k', []);
         
@@ -143,6 +145,7 @@ methods
         obj.H = forwardDiscr.H;
         obj.Ht = [];
         obj.k = k;
+        obj.supportedPars = {'a', 'b'};
     end
     
     function runForward(obj, plotFlag, T, saveOpts, progressBar)
@@ -815,8 +818,9 @@ methods
         G_V = discr.friction.funs.g_V(V, Psi, a, b);
         G_Psi = discr.friction.funs.g_Psi(V, Psi, a, b);
         
-        F_a = discr.friction.funs.tau_a(V, Psi, a);
-        G_a = discr.friction.funs.g_a(V, Psi, a, b);
+        idx = strcmp(obj.supportedPars, obj.inversionPars{1}); 
+        F_p = obj.F_p{idx}(V, Psi, a);
+        G_p = obj.G_p{idx}(V, Psi, a, b);
 
         % For now, we skip interp_data
         % if interp_data
@@ -827,8 +831,8 @@ methods
         discr.friction.data.g_V = G_V;
         discr.friction.data.g_Psi = G_Psi;
         discr.friction.data.tau_Psi = F_Psi;
-        discr.friction.data.tau_a = F_a;
-        discr.friction.data.g_a = G_a;
+        discr.friction.data.tau_p = F_p;
+        discr.friction.data.g_p = G_p;
 
         discr.setFaultTraction();
         discr.setStateEvolution();
@@ -1056,8 +1060,9 @@ methods
         Psi = obj.forwardFaultVariables.Psi;
         % F_a = obj.F_p{1}(V, Psi, a, obj.forwardDiscr.friction.params.sigma0, obj.forwardDiscr.friction.params.V0, obj.forwardDiscr.friction.params.tau0);
         % G_a = obj.G_p{1}(V, Psi, a, b, obj.forwardDiscr.friction.params.f0, obj.forwardDiscr.friction.params.V0, obj.forwardDiscr.friction.params.D_c);
-        F_a = obj.F_p{1}(V, Psi, a);
-        G_a = obj.G_p{1}(V, Psi, a, b);
+        idx = strcmp(obj.supportedPars, obj.inversionPars{1}); 
+        F_p = obj.F_p{idx}(V, Psi, a);
+        G_p = obj.G_p{idx}(V, Psi, a, b);
         
         if obj.adjointDiscr.interpolate_data
             % Remove stage data 
@@ -1074,7 +1079,7 @@ methods
             V_adj = fliplr(obj.adjointFaultVariables.V);
             Psi_adj = fliplr(obj.adjointFaultVariables.Psi);
         end
-        grad = -(V_adj.*F_a + Psi_adj.*G_a)*obj.Ht;
+        grad = -(V_adj.*F_p + Psi_adj.*G_p)*obj.Ht;
     end
 
     function hessVec = hessianVectorFormula(obj)
@@ -1096,8 +1101,9 @@ methods
         delta_Psi_dagger = obj.secondOrderAdjointFaultVariables.Psi;
         delta_V = obj.secondOrderForwardFaultVariables.V;
         delta_Psi = obj.secondOrderForwardFaultVariables.Psi;
-        F_a = obj.F_p{1}(V, Psi, a);
-        G_a = obj.G_p{1}(V, Psi, a, b);
+        idx = strcmp(obj.supportedPars, obj.inversionPars{1}); 
+        F_p = obj.F_p{idx}(V, Psi, a);
+        G_p = obj.G_p{idx}(V, Psi, a, b);
         F_a_a = obj.forwardDiscr.friction.funs.tau_a_a(V, Psi, a);
         G_a_a = obj.forwardDiscr.friction.funs.g_a_a(V, Psi, a, b);
         F_V_a = obj.forwardDiscr.friction.funs.tau_V_a(V, Psi, a);
@@ -1133,8 +1139,8 @@ methods
         % end
         T1 = -(V_dagger .* F_a_a .* eps_p) * obj.Ht ./ eps_p;
         T2 = -(Psi_dagger .* G_a_a .* eps_p) * obj.Ht ./ eps_p;
-        T3 = -(delta_V_dagger .* F_a) * obj.Ht ./ eps_p;
-        T4 = -(delta_Psi_dagger .* G_a) * obj.Ht ./ eps_p;
+        T3 = -(delta_V_dagger .* F_p) * obj.Ht ./ eps_p;
+        T4 = -(delta_Psi_dagger .* G_p) * obj.Ht ./ eps_p;
         T5 = -(V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi)) * obj.Ht ./ eps_p;
         T6 = -(Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht ./ eps_p;
         

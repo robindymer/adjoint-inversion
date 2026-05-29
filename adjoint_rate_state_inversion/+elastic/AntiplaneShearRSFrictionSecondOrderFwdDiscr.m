@@ -203,8 +203,8 @@ methods
     function obj = setFaultTraction(obj)
         F_V = obj.friction.data.tau_V;
         F_Psi = obj.friction.data.tau_Psi;
-        F_a = obj.friction.data.tau_a;
-        eps_a = obj.friction.params.eps_a;
+        F_p = obj.friction.data.tau_p;
+        eps_p = obj.friction.params.eps_p;
        
         switch obj.friction.method
         case 'standard'
@@ -218,10 +218,10 @@ methods
             penalty = obj.penalty_fault;
             eta = obj.eta; % kappa
             % Function that computes V* given tau_l and Psi
-            V_star_from_tau_l = @(i_t, tau_l, Psi) -1./((eta + F_V(i_t))).*(tau_l + F_Psi(i_t).*Psi + F_a(i_t) .* eps_a);
+            V_star_from_tau_l = @(i_t, tau_l, Psi) -1./((eta + F_V(i_t))).*(tau_l + F_Psi(i_t).*Psi + F_p(i_t) .* eps_p);
             obj.V_star = @(i_t, U) V_star_from_tau_l(i_t, obj.tau_l_fun(U), E.Psi*U);
             % Fault traction function
-            obj.fault_traction = @(i_t, U) -penalty*(F_V(i_t)*obj.V_star(i_t, U) + F_Psi(i_t)*E.Psi*U + F_a(i_t) .* eps_a);
+            obj.fault_traction = @(i_t, U) -penalty*(F_V(i_t)*obj.V_star(i_t, U) + F_Psi(i_t)*E.Psi*U + F_p(i_t) .* eps_p);
         end
     end
     

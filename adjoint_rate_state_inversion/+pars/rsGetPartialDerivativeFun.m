@@ -4,7 +4,7 @@ function [F_p, G_p] = rsGetPartialDerivativeFun(funs, param)
             F_p = funs.tau_a;
             G_p = funs.g_a;
         case 'b'
-            F_p = funs.tau_b;
+            F_p = @(V,Psi,a) zeros(size(funs.tau_a(V,Psi,a))); % Hacky. F does not depend on b (four our friction law)
             G_p = funs.g_b;
         case 'sigma0'
             error('rsFrictionFunctions does not currently provide sigma0 partial derivatives.');
