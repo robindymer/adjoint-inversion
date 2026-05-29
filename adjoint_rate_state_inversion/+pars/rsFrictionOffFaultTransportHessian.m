@@ -36,6 +36,7 @@ function [parameters, trueParameters] = rsFrictionOffFaultTransportHessian(opts)
 
     a = a_init;
     eps_a = 1e-6; % pertubation on a
+    eps_b = 1e-6; % pertubation on b
     b = 0.02;
     f0 = 0.6;
     V0 = 1e-6;
@@ -79,6 +80,7 @@ function [parameters, trueParameters] = rsFrictionOffFaultTransportHessian(opts)
     friction.params.A = A;
     friction.params.T_E = T_E;
     friction.params.eps_a = eps_a;
+    friction.params.eps_b = eps_b;
     
     friction.method = opts.ic_method;
     

@@ -18,6 +18,8 @@ Upgrade from FD second-order to fully analytic second-order FP/AP by generating 
 
 * Martin: Do misfit type velocity
 * Check why no -penalty in 2D as in 1D
+* Kika på secondOrderReceivers istället för secondOrderSources
+* Kan vara så att vår computeHessianVectorFD inte beräknar samma sak som computeHessianVector (adjoint)
 
 ## Other nice files
 * rsFrictionFunctions.m - has derivatives of functions
