@@ -61,7 +61,7 @@ methods
     
     function obj = AntiplaneShearRSFrictionOptHessian(pars, inversionPars, order, k)
         % Use convention that this represents H_ab, so first a pertubation and then b
-        default_arg('inversionPars', {'a', 'a'});
+        default_arg('inversionPars', {'a', 'b'});
         default_arg('order', 4);
         default_arg('k', []);
         
@@ -621,23 +621,34 @@ methods
         obj.setParameters(newPars);
     end
     
-    
     % Overwrites inversion parameters in obj.pars by those specified in pars
     % pars -- parameters in native format
     function setParameters(obj, pars)
-        obj.pars.a = pars.a;
+        for i = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{i};
+            obj.pars.(parName) = pars.(parName);
+        end
     end
-    
     % Converts inversion parameters from native format to one column vector
     % parsNative -- parameters in native fomat
     function parsVec = parametersNativeToVector(obj, parsNative)
-        parsVec = parsNative.a;
+        nPars = numel(obj.inversionPars);
+        parsVec = zeros(nPars, 1);
+        for i = 1:nPars
+            parName = obj.inversionPars{i};
+            parsVec(i) = parsNative.(parName);
+        end
     end
-    
     % Converts vector of inversion parameters to the native format
     % parsVec: column vector of inversion parameters
     function parsNative = parametersVectorToNative(obj, parsVec)
-        parsNative.a = parsVec;
+        % Note: If there are other static parameters in obj.pars you want 
+        % to preserve, you might want to initialize parsNative = obj.pars 
+        parsNative = struct(); 
+        for i = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{i};
+            parsNative.(parName) = parsVec(i);
+        end
     end
     
     % Converts gradient from native format to one column vector
@@ -664,13 +675,12 @@ methods
     
     function updateForwardDiscr(obj, pars)
         default_arg('pars',obj.pars)
-        % TODO: Based on obj.inversionPars, select which parameters to update
-
-        a = pars.a;
-        b = pars.b;
-        % Update parameters in forward discr
-        obj.forwardDiscr.friction.params.a = a;
-        obj.forwardDiscr.friction.params.b = b;
+        
+        % Dynamically update only the active inversion parameters
+        for i = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{i};
+            obj.forwardDiscr.friction.params.(parName) = pars.(parName);
+        end
 
         % Update friction functions
         obj.forwardDiscr.setFaultTraction();
@@ -683,11 +693,15 @@ methods
         % TODO: Based on obj.inversionPars, select which parameters to update
         discr = obj.adjointDiscr;
 
-        % Update parameter values
+        % Dynamically sync the active inversion parameters with the discretization
+        for i = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{i};
+            discr.friction.params.(parName) = obj.pars.(parName);
+        end
+
+        % Extract local base-state parameters needed for the friction function handles below
         a = obj.pars.a;
         b = obj.pars.b;
-        discr.friction.params.a = a;
-        discr.friction.params.b = b;
         
         %% 
         % Update adjoint sources with misfit residual
@@ -792,11 +806,14 @@ methods
         % TODO: Based on obj.inversionPars, select which parameters to update
         discr = obj.secondOrderForwardDiscr;
 
-        % Update parameter values
+        % Dynamically sync the active inversion parameters with the discretization
+        for i = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{i};
+            discr.friction.params.(parName) = obj.pars.(parName);
+        end
+        % Extract local base-state parameters needed for the friction function handles below
         a = obj.pars.a;
         b = obj.pars.b;
-        discr.friction.params.a = a;
-        discr.friction.params.b = b;
         
         %% 
         % Update adjoint friction functions with data from forward solve
@@ -842,11 +859,14 @@ methods
         % TODO: Based on obj.inversionPars, select which parameters to update
         discr = obj.secondOrderAdjointDiscr;
 
-        % Update parameter values
+        % Dynamically sync the active inversion parameters with the discretization
+        for i = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{i};
+            discr.friction.params.(parName) = obj.pars.(parName);
+        end
+        % Extract local base-state parameters needed for the friction function handles below
         a = obj.pars.a;
         b = obj.pars.b;
-        discr.friction.params.a = a;
-        discr.friction.params.b = b;
         
         %% 
         % Update adjoint sources with misfit residual
@@ -1176,8 +1196,8 @@ methods
     end
     
     function grad = computeGradientFD(obj, deltaG)
-        % TODO: Construct the appropriate gradient formula
-        % based in obj.inversionPars
+        % Identify the specific parameter to compute the gradient for
+        p1Name = obj.inversionPars{1};
 
         % Compute misfit with current parameter
         pars = obj.pars;
@@ -1185,8 +1205,8 @@ methods
         obj.runForward();
         M0 = obj.computeMisfit();
         
-        % Update paramter by a step deltaG
-        pars.a = pars.a + deltaG;
+        % Update parameter by a step deltaG dynamically
+        pars.(p1Name) = pars.(p1Name) + deltaG;
         obj.updateForwardDiscr(pars);
         obj.runForward();
         M = obj.computeMisfit();
@@ -1195,6 +1215,8 @@ methods
     end
 
     function hessVec = computeHessianVectorFD(obj, deltaG)
+        p2Name = obj.inversionPars{2};
+
         % Compute gradient with current parameter
         pars = obj.pars;
         obj.updateForwardDiscr(pars);
@@ -1202,15 +1224,22 @@ methods
         grad0 = obj.computeGradient();
         
         % Update paramter by a step deltaG
-        pars.a = pars.a + deltaG;
-        obj.pars.a = pars.a;
+        % pars.a = pars.a + deltaG;
+        % obj.pars.a = pars.a;
+        pars.(p2Name) = pars.(p2Name) + deltaG;
+        obj.pars.(p2Name) = pars.(p2Name);
         obj.updateForwardDiscr(pars);
         obj.runForward();
         % Have to comment out 'assert' bit from gradient function for this to run
         grad = obj.computeGradient();
         % Reset obj.pars.a
-        obj.pars.a = pars.a - deltaG;
-        dGrad_dg = (grad-grad0)/deltaG;
+        % obj.pars.a = pars.a - deltaG;
+        % dGrad_dg = (grad-grad0)/deltaG;
+        % hessVec = dGrad_dg;
+
+        pars.(p2Name) = pars.(p2Name) - deltaG;
+        obj.pars.(p2Name) = pars.(p2Name);        
+        dGrad_dg = (grad - grad0) / deltaG;
         hessVec = dGrad_dg;
     end
     
@@ -1229,7 +1258,8 @@ methods
     
     % Useful for finding an approximate line search interval
     function relnorm = gradientNorm(obj, grad)
-        relnorm = norm(grad/obj.pars.a, inf);
+        parVals = obj.parametersNativeToVector(obj.pars);
+        relnorm = norm(grad ./ parVals, inf);
     end
     
     function [data_handle, model_handle] = plotReceiverSignals(obj, receiver, fontsize)
@@ -1257,9 +1287,10 @@ methods
         figure_handle = figure('Position',[0.1*scrsz(3) 0.05*scrsz(4) 0.65*scrsz(3) 0.8*scrsz(4)]);
         %--------------------
         parfig = subplot(3,1,1);
-        par_true = trueParset.a;
-        par = initialParset.a;
-        dpar = abs(par-par_true)./par_true;
+        par_true_vec = obj.parametersNativeToVector(trueParset);
+        par_vec = obj.parametersNativeToVector(initialParset);
+        % Compute the norm of the relative error across all active parameters
+        dpar = norm(abs(par_vec - par_true_vec) ./ par_true_vec);
         par_handle = plot(0, dpar, '-x', 'linewidth', 2, 'markersize', 8);
         xlabel('Iterations', 'fontsize', fontsize)
         ylabel('Relative error', 'fontsize', fontsize)
