@@ -128,7 +128,7 @@ methods
         [D, E, ~, ic_struct] = elastic.discrs.antiplaneshear.discrOps2D(domain, mbGrid, mbDiffOp, material, bc);
         
         % Sources
-        if strcmp(sources.x,'surface')
+        if ~isempty(sources) && ischar(sources.x) && strcmp(sources.x,'surface')
             surf = domain.boundaryGroups.surface;
             nSurfBlocks= length(surf);
             blockIds = [];

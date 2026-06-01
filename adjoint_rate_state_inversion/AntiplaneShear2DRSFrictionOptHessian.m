@@ -103,7 +103,7 @@ methods
         adjointDiscr = elastic.AntiplaneShear2DRSFrictionAdjDiscr(opset, domain, m, order, material, bc, friction, receivers);
         % Same thing here, do not set friction and second order source / reciever data
         % TODO: Could not run with secondOrderSources here. Make sure doing it this way instead is okay...
-        secondOrderForwardDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderFwdDiscr(opset, domain, m, order, material, bc, friction, secondOrderReceivers);
+        secondOrderForwardDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderFwdDiscr(opset, domain, m, order, material, bc, friction, secondOrderSources);
         secondOrderAdjointDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderAdjDiscr(opset, domain, m, order, material, bc, friction, secondOrderReceivers);
 
         bidm = domain.boundaryGroups.fault_minus;
@@ -891,7 +891,7 @@ methods
     function updateSecondOrderForwardDiscr(obj)
         discr = obj.secondOrderForwardDiscr;
         % TODO: Really use from forwardDiscr?
-        pars = obj.secondOrderForwardDiscr.friction.rsParams;
+        pars = obj.forwardDiscr.friction.rsParams;
 
         % Update parameter values
         
@@ -929,7 +929,7 @@ methods
 
     function updateSecondOrderAdjointDiscr(obj)
         discr = obj.secondOrderAdjointDiscr;
-        pars = obj.secondOrderAdjointDiscr.friction.rsParams;
+        pars = obj.forwardDiscr.friction.rsParams;
 
         % Update parameter values
         
@@ -1203,36 +1203,66 @@ methods
         end
     end
 
+    % Yields smaller L2-norm relative error parameter a by factor ~ 10
     function hessVec = computeHessianVectorFD(obj, deltaG)
         % Compute misfit with current parameter vector
         pars_baseline = obj.pars;
         obj.updateForwardDiscr(pars_baseline);
-        obj.runForward();
+        % obj.runForward();
         % grad0 = obj.computeGradientFD(deltaG);
         grad0 = obj.computeGradient();
 
-        % Update each element in paramter vector by a step deltaG
+        % Update parameter vector by a step deltaG
+        pars_tmp = pars_baseline;
         for j = 1:numel(obj.inversionPars)
             parName = obj.inversionPars{j};
-            hessVec.(parName) = zeros(size(pars_baseline.(parName)));
-            for i = 1:length(pars_baseline.(parName))
-                pars_tmp = pars_baseline;
-                pars_tmp.(parName)(i) = pars_tmp.(parName)(i) + deltaG;
-                obj.pars = pars_tmp;
-                obj.updateForwardDiscr(pars_tmp);
-                obj.runForward();
-                % TODO: Try shortcut of using computeGradient instead
-                % grad = obj.computeGradientFD(deltaG);
-                grad = obj.computeGradient();
-                dGrad_dg = (grad.(parName)(i)-grad0.(parName)(i))/deltaG;
-                hessVec.(parName)(i) = dGrad_dg;
-            end
+            pars_tmp.(parName) = pars_tmp.(parName) + deltaG;
+        end
+        
+        obj.pars = pars_tmp;
+        obj.updateForwardDiscr(pars_tmp);
+        obj.runForward();
+        grad = obj.computeGradient();
+        
+        for j = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{j};
+            hessVec.(parName) = (grad0.(parName) - grad.(parName))/deltaG;
         end
 
         % Clean up
         obj.pars = pars_baseline;
         obj.updateForwardDiscr(pars_baseline);
     end
+    % function hessVec = computeHessianVectorFD(obj, deltaG)
+    %     % Compute misfit with current parameter vector
+    %     pars_baseline = obj.pars;
+    %     obj.updateForwardDiscr(pars_baseline);
+    %     obj.runForward();
+    %     % grad0 = obj.computeGradientFD(deltaG);
+    %     grad0 = obj.computeGradient();
+
+    %     % Update each element in paramter vector by a step deltaG
+    %     for j = 1:numel(obj.inversionPars)
+    %         parName = obj.inversionPars{j};
+    %         hessVec.(parName) = zeros(size(pars_baseline.(parName)));
+    %         for i = 1:length(pars_baseline.(parName))
+    %             pars_tmp = pars_baseline;
+    %             pars_tmp.(parName)(i) = pars_tmp.(parName)(i) + deltaG;
+    %             obj.pars = pars_tmp;
+    %             obj.updateForwardDiscr(pars_tmp);
+    %             obj.runForward();
+    %             % TODO: Try shortcut of using computeGradient instead
+    %             % grad = obj.computeGradientFD(deltaG);
+    %             grad = obj.computeGradient();
+    %             dGrad_dg = (grad.(parName)(i)-grad0.(parName)(i))/deltaG;
+    %             hessVec.(parName)(i) = dGrad_dg;
+    %         end
+    %     end
+
+    %     % Clean up
+    %     obj.pars = pars_baseline;
+    %     obj.updateForwardDiscr(pars_baseline);
+    % end
     
     function M = computeMisfit(obj)
         data = obj.receiverData;
