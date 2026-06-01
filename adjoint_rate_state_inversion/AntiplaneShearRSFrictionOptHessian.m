@@ -51,8 +51,7 @@ properties
     k
     
     inversionPars
-    F_p
-    G_p
+
     eps_pertubations % Parameter pertubation, required for hessian vector computation
     supportedPars
     
@@ -62,7 +61,7 @@ methods
     
     function obj = AntiplaneShearRSFrictionOptHessian(pars, inversionPars, order, k)
         % Use convention that this represents H_ab, so first a pertubation and then b
-        default_arg('inversionPars', {'a', 'b'});
+        default_arg('inversionPars', {'a', 'a'});
         default_arg('order', 4);
         default_arg('k', []);
         
@@ -97,12 +96,8 @@ methods
         pars.b = pars.friction.params.b;
 
         obj.eps_pertubations = struct();
-        obj.F_p = cell(numel(inversionPars), 1);
-        obj.G_p = cell(numel(inversionPars), 1);
-        selectDerivativeFun = str2func('pars.rsGetPartialDerivativeFun');
         for i = 1:numel(inversionPars)
             parName = inversionPars{i};
-            [obj.F_p{i}, obj.G_p{i}] = selectDerivativeFun(friction.funs, parName);
 
             epsName = sprintf('eps_%s', parName);
             if isfield(pars.friction.params, epsName)
@@ -818,9 +813,14 @@ methods
         G_V = discr.friction.funs.g_V(V, Psi, a, b);
         G_Psi = discr.friction.funs.g_Psi(V, Psi, a, b);
         
-        idx = strcmp(obj.supportedPars, obj.inversionPars{1}); 
-        F_p = obj.F_p{idx}(V, Psi, a);
-        G_p = obj.G_p{idx}(V, Psi, a, b);
+        parName = obj.inversionPars{1};
+        tau_p_name = sprintf('tau_%s', parName);
+        g_p_name   = sprintf('g_%s', parName);
+        F_p = obj.forwardDiscr.friction.funs.(tau_p_name)(V, Psi, a);
+        G_p = obj.forwardDiscr.friction.funs.(g_p_name)(V, Psi, a, b);
+        discr.friction.params.eps_p = obj.eps_pertubations.(parName);
+        % These are defined in the param file rsFrictionOffFaultTransportHessian.m
+        % disp(discr.friction.params)
 
         % For now, we skip interp_data
         % if interp_data
@@ -929,16 +929,28 @@ methods
         G_V = discr.friction.funs.g_V(V, Psi, a, b);
         G_Psi = discr.friction.funs.g_Psi(V, Psi, a, b);
 
+        parName = obj.inversionPars{1};
+        tau_V_p_name   = sprintf('tau_V_%s', parName);
+        tau_Psi_p_name = sprintf('tau_Psi_%s', parName);
+        g_V_p_name     = sprintf('g_V_%s', parName);
+        g_Psi_p_name   = sprintf('g_Psi_%s', parName);
+        F_V_p   = obj.forwardDiscr.friction.funs.(tau_V_p_name)(V, Psi, a);
+        F_Psi_p = obj.forwardDiscr.friction.funs.(tau_Psi_p_name)(V, Psi, a);
+        G_V_p   = obj.forwardDiscr.friction.funs.(g_V_p_name)(V, Psi, a, b);
+        G_Psi_p = obj.forwardDiscr.friction.funs.(g_Psi_p_name)(V, Psi, a, b);
+        
+        discr.friction.params.eps_p = obj.eps_pertubations.(parName);
+
         F_V_V = discr.friction.funs.tau_V_V(V, Psi, a);
         F_V_Psi = discr.friction.funs.tau_V_Psi(V, Psi, a);
-        F_V_a = discr.friction.funs.tau_V_a(V, Psi, a);
+        % F_V_a = discr.friction.funs.tau_V_a(V, Psi, a);
         F_Psi_Psi = discr.friction.funs.tau_Psi_Psi(V, Psi, a);
-        F_Psi_a = discr.friction.funs.tau_Psi_a(V, Psi, a);
+        % F_Psi_a = discr.friction.funs.tau_Psi_a(V, Psi, a);
         G_V_Psi = discr.friction.funs.g_V_Psi(V, Psi, a, b);
         G_V_V = discr.friction.funs.g_V_V(V, Psi, a, b);
-        G_V_a = discr.friction.funs.g_V_a(V, Psi, a, b);
+        % G_V_a = discr.friction.funs.g_V_a(V, Psi, a, b);
         G_Psi_Psi = discr.friction.funs.g_Psi_Psi(V, Psi, a, b);
-        G_Psi_a = discr.friction.funs.g_Psi_a(V, Psi, a, b);
+        % G_Psi_a = discr.friction.funs.g_Psi_a(V, Psi, a, b);
 
         % if interp_data
         %     % Update source data and functions
@@ -967,14 +979,14 @@ methods
         discr.friction.data.tau_Psi = fliplr(F_Psi);
         discr.friction.data.tau_V_V = fliplr(F_V_V);
         discr.friction.data.tau_V_Psi = fliplr(F_V_Psi);
-        discr.friction.data.tau_V_a = fliplr(F_V_a);
+        discr.friction.data.tau_V_p = fliplr(F_V_p);
         discr.friction.data.tau_Psi_Psi = fliplr(F_Psi_Psi);
-        discr.friction.data.tau_Psi_a = fliplr(F_Psi_a);
+        discr.friction.data.tau_Psi_p = fliplr(F_Psi_p);
         discr.friction.data.g_V_Psi = fliplr(G_V_Psi);
         discr.friction.data.g_V_V = fliplr(G_V_V);
-        discr.friction.data.g_V_a = fliplr(G_V_a);
+        discr.friction.data.g_V_p = fliplr(G_V_p);
         discr.friction.data.g_Psi_Psi = fliplr(G_Psi_Psi);
-        discr.friction.data.g_Psi_a = fliplr(G_Psi_a);
+        discr.friction.data.g_Psi_p = fliplr(G_Psi_p);
 
         discr.friction.data.V_dagger = V_dagger; % Already flipped (from adjoint)
         discr.friction.data.Psi_dagger = Psi_dagger; % Already flipped (from adjoint)
@@ -1060,9 +1072,15 @@ methods
         Psi = obj.forwardFaultVariables.Psi;
         % F_a = obj.F_p{1}(V, Psi, a, obj.forwardDiscr.friction.params.sigma0, obj.forwardDiscr.friction.params.V0, obj.forwardDiscr.friction.params.tau0);
         % G_a = obj.G_p{1}(V, Psi, a, b, obj.forwardDiscr.friction.params.f0, obj.forwardDiscr.friction.params.V0, obj.forwardDiscr.friction.params.D_c);
-        idx = strcmp(obj.supportedPars, obj.inversionPars{1}); 
-        F_p = obj.F_p{idx}(V, Psi, a);
-        G_p = obj.G_p{idx}(V, Psi, a, b);
+        
+        % idx = strcmp(obj.supportedPars, obj.inversionPars{1}); 
+        % F_p = obj.F_p{idx}(V, Psi, a);
+        % G_p = obj.G_p{idx}(V, Psi, a, b);
+        parName = obj.inversionPars{1};
+        tau_p_name = sprintf('tau_%s', parName);
+        g_p_name   = sprintf('g_%s', parName);
+        F_p = obj.forwardDiscr.friction.funs.(tau_p_name)(V, Psi, a);
+        G_p = obj.forwardDiscr.friction.funs.(g_p_name)(V, Psi, a, b);
         
         if obj.adjointDiscr.interpolate_data
             % Remove stage data 
@@ -1101,21 +1119,28 @@ methods
         delta_Psi_dagger = obj.secondOrderAdjointFaultVariables.Psi;
         delta_V = obj.secondOrderForwardFaultVariables.V;
         delta_Psi = obj.secondOrderForwardFaultVariables.Psi;
-        idx = strcmp(obj.supportedPars, obj.inversionPars{1}); 
-        F_p = obj.F_p{idx}(V, Psi, a);
-        G_p = obj.G_p{idx}(V, Psi, a, b);
-        F_a_a = obj.forwardDiscr.friction.funs.tau_a_a(V, Psi, a);
-        G_a_a = obj.forwardDiscr.friction.funs.g_a_a(V, Psi, a, b);
-        F_V_a = obj.forwardDiscr.friction.funs.tau_V_a(V, Psi, a);
-        F_Psi_a = obj.forwardDiscr.friction.funs.tau_Psi_a(V, Psi, a);
-        G_V_a = obj.forwardDiscr.friction.funs.g_V_a(V, Psi, a, b);
-        G_Psi_a = obj.forwardDiscr.friction.funs.g_Psi_a(V, Psi, a, b);
 
-        parName = obj.inversionPars{1};
-        if ~isfield(obj.eps_pertubations, parName)
-            error('Missing epsilon perturbation for parameter %s.', parName);
-        end
-        eps_p = obj.eps_pertubations.(parName);
+        p1Name = obj.inversionPars{1}; 
+        p2Name = obj.inversionPars{2};
+
+        tau_p2_name     = sprintf('tau_%s', p2Name);
+        g_p2_name       = sprintf('g_%s', p2Name);
+        tau_p1_p2_name   = sprintf('tau_%s_%s', p1Name, p2Name);
+        g_p1_p2_name     = sprintf('g_%s_%s', p1Name, p2Name);
+        tau_V_p2_name   = sprintf('tau_V_%s', p2Name);
+        tau_Psi_p2_name = sprintf('tau_Psi_%s', p2Name);
+        g_V_p2_name     = sprintf('g_V_%s', p2Name);
+        g_Psi_p2_name   = sprintf('g_Psi_%s', p2Name);
+
+        F_p2     = obj.forwardDiscr.friction.funs.(tau_p2_name)(V, Psi, a);
+        G_p2     = obj.forwardDiscr.friction.funs.(g_p2_name)(V, Psi, a, b);
+        F_p1_p2   = obj.forwardDiscr.friction.funs.(tau_p1_p2_name)(V, Psi, a);
+        G_p1_p2   = obj.forwardDiscr.friction.funs.(g_p1_p2_name)(V, Psi, a, b);
+        F_V_p2   = obj.forwardDiscr.friction.funs.(tau_V_p2_name)(V, Psi, a);
+        F_Psi_p2 = obj.forwardDiscr.friction.funs.(tau_Psi_p2_name)(V, Psi, a);
+        G_V_p2   = obj.forwardDiscr.friction.funs.(g_V_p2_name)(V, Psi, a, b);
+        G_Psi_p2 = obj.forwardDiscr.friction.funs.(g_Psi_p2_name)(V, Psi, a, b);
+        eps_p2 = obj.eps_pertubations.(p2Name);
         
         % if obj.adjointDiscr.interpolate_data
         %     % Remove stage data 
@@ -1137,12 +1162,12 @@ methods
         delta_Psi_dagger = fliplr(delta_Psi_dagger);
 
         % end
-        T1 = -(V_dagger .* F_a_a .* eps_p) * obj.Ht ./ eps_p;
-        T2 = -(Psi_dagger .* G_a_a .* eps_p) * obj.Ht ./ eps_p;
-        T3 = -(delta_V_dagger .* F_p) * obj.Ht ./ eps_p;
-        T4 = -(delta_Psi_dagger .* G_p) * obj.Ht ./ eps_p;
-        T5 = -(V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi)) * obj.Ht ./ eps_p;
-        T6 = -(Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht ./ eps_p;
+        T1 = -(V_dagger .* F_p1_p2 .* eps_p2) * obj.Ht ./ eps_p2;
+        T2 = -(Psi_dagger .* G_p1_p2 .* eps_p2) * obj.Ht ./ eps_p2;
+        T3 = -(delta_V_dagger .* F_p2) * obj.Ht ./ eps_p2;
+        T4 = -(delta_Psi_dagger .* G_p2) * obj.Ht ./ eps_p2;
+        T5 = -(V_dagger .* (F_V_p2 .* delta_V + F_Psi_p2 .* delta_Psi)) * obj.Ht ./ eps_p2;
+        T6 = -(Psi_dagger .* (G_V_p2 .* delta_V + G_Psi_p2 .* delta_Psi)) * obj.Ht ./ eps_p2;
         
         fprintf('T1: %e\nT2: %e\nT3: %e\nT4: %e\nT5: %e\nT6: %e\n', T1, T2, T3, T4, T5, T6);
         

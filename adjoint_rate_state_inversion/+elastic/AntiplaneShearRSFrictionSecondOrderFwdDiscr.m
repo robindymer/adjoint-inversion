@@ -260,8 +260,8 @@ methods
         % F_Psi = obj.friction.data.tau_Psi;
         G_Psi = obj.friction.data.g_Psi;
         G_V = obj.friction.data.g_V;
-        G_a = obj.friction.data.g_a;
-        eps_a = obj.friction.params.eps_a;
+        G_p = obj.friction.data.g_p;
+        eps_p = obj.friction.params.eps_p;
         
         switch obj.friction.method
         case 'standard'
@@ -269,7 +269,7 @@ methods
             error("Standard fault BC method currently not supported.")
         case 'erickson2022'
             % obj.state_evo = @(i_t, U) E.Psi'*(G_Psi(i_t)*E.Psi*U + F_Psi(i_t)*obj.V_star(i_t, U));
-            obj.state_evo = @(i_t, U) E.Psi'*(G_Psi(i_t)*E.Psi*U + G_V(i_t)*obj.V_star(i_t, U) + G_a(i_t)*eps_a);
+            obj.state_evo = @(i_t, U) E.Psi'*(G_Psi(i_t)*E.Psi*U + G_V(i_t)*obj.V_star(i_t, U) + G_p(i_t)*eps_p);
         end
     end
     
