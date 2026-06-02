@@ -1233,6 +1233,8 @@ methods
         obj.pars = pars_baseline;
         obj.updateForwardDiscr(pars_baseline);
     end
+
+    % Code not generalized yet, so we only compute diagonal hessian entries
     % function hessVec = computeHessianVectorFD(obj, deltaG)
     %     % Compute misfit with current parameter vector
     %     pars_baseline = obj.pars;
@@ -1240,6 +1242,7 @@ methods
     %     obj.runForward();
     %     % grad0 = obj.computeGradientFD(deltaG);
     %     grad0 = obj.computeGradient();
+    %     grad0
 
     %     % Update each element in paramter vector by a step deltaG
     %     for j = 1:numel(obj.inversionPars)
@@ -1260,6 +1263,80 @@ methods
     %     end
 
     %     % Clean up
+    %     obj.pars = pars_baseline;
+    %     obj.updateForwardDiscr(pars_baseline);
+    % end
+    % function H = computeHessianFD(obj, deltaG)
+    %     % computeHessianFD Computes the full Hessian matrix using minimal 
+    %     % forward finite differences of the objective function (misfit).
+    %     % 
+    %     % Returns H as an N x N matrix corresponding to the flattened 
+    %     % parameter vector.
+
+    %     % Store baseline parameters and convert to a flat vector
+    %     pars_baseline = obj.pars;
+    %     p0 = obj.parametersNativeToVector(pars_baseline);
+    %     N = length(p0);
+
+    %     % Pre-allocate the Hessian matrix and first-order evaluation array
+    %     H = zeros(N, N);
+    %     F1 = zeros(N, 1);
+
+    %     % --- Step 0: The Base State ---
+    %     obj.updateForwardDiscr(pars_baseline);
+    %     obj.runForward();
+    %     F0 = obj.computeMisfit();
+
+    %     % --- Step 1: First-Order Perturbations ---
+    %     for i = 1:N
+    %         p_i = p0;
+    %         p_i(i) = p_i(i) + deltaG;
+            
+    %         % Convert back to native struct, update, and run
+    %         obj.pars = obj.parametersVectorToNative(p_i);
+    %         obj.updateForwardDiscr(obj.pars);
+    %         obj.runForward();
+            
+    %         F1(i) = obj.computeMisfit();
+    %     end
+
+    %     % --- Step 2: Diagonal Terms ---
+    %     for i = 1:N
+    %         p_ii = p0;
+    %         p_ii(i) = p_ii(i) + 2 * deltaG;
+            
+    %         obj.pars = obj.parametersVectorToNative(p_ii);
+    %         obj.updateForwardDiscr(obj.pars);
+    %         obj.runForward();
+            
+    %         F_ii = obj.computeMisfit();
+
+    %         % Compute diagonal curvature
+    %         H(i,i) = (F_ii - 2*F1(i) + F0) / (deltaG^2);
+    %     end
+
+    %     % --- Step 3: Off-Diagonal Terms and Symmetry ---
+    %     for i = 1:N
+    %         for j = (i+1):N
+    %             p_ij = p0;
+    %             p_ij(i) = p_ij(i) + deltaG;
+    %             p_ij(j) = p_ij(j) + deltaG;
+                
+    %             obj.pars = obj.parametersVectorToNative(p_ij);
+    %             obj.updateForwardDiscr(obj.pars);
+    %             obj.runForward();
+                
+    %             F_ij = obj.computeMisfit();
+
+    %             % Compute off-diagonal cross-derivative
+    %             H(i,j) = (F_ij - F1(i) - F1(j) + F0) / (deltaG^2);
+                
+    %             % Enforce symmetry across the diagonal
+    %             H(j,i) = H(i,j); 
+    %         end
+    %     end
+
+    %     % --- Clean up: Restore baseline parameters ---
     %     obj.pars = pars_baseline;
     %     obj.updateForwardDiscr(pars_baseline);
     % end

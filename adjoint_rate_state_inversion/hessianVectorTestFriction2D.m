@@ -7,7 +7,8 @@ initialGuessScaling = 1.1;
 T = 1;
 m = 51;
 
-parset = @pars.rsFriction2DFractalFaultVerification; delta_p = 1e-6;
+parset = @pars.rsFriction2DFractalFaultVerification; 
+delta_p = 1e-6;
 
 parsetOpts.inversionParameters = inversionPars;
 parsetOpts.initialGuessScalings = initialGuessScaling;
@@ -69,21 +70,21 @@ function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order,
     title(sprintf('Error using %s misfit', misfitType));
     hold off;
 
-    % Test different FD step sizes
-    fd_steps = logspace(-5, -10, 6); 
+    % % Test different FD step sizes
+    % fd_steps = logspace(-5, -10, 6); 
 
-    for step = fd_steps
-        tic
-        hessVec_fd = adj_opt.computeHessianVectorFD(step);
-        toc
+    % for step = fd_steps
+    %     tic
+    %     hessVec_fd = adj_opt.computeHessianVectorFD(step);
+    %     toc
         
-        delta_hessVec = adj_opt.compareGradients(hessVec, hessVec_fd); 
+    %     delta_hessVec = adj_opt.compareGradients(hessVec, hessVec_fd); 
         
-        fprintf('\n--- FD Step Size: %e ---\n', step);
-        for i = 1:numel(inversionPars)
-            parName = inversionPars{i};
-            rel_error = norm(delta_hessVec.(parName)) / norm(hessVec.(parName));
-            fprintf('Parameter %s relative error: %e\n', parName, rel_error);
-        end
-    end
+    %     fprintf('\n--- FD Step Size: %e ---\n', step);
+    %     for i = 1:numel(inversionPars)
+    %         parName = inversionPars{i};
+    %         rel_error = norm(delta_hessVec.(parName)) / norm(hessVec.(parName));
+    %         fprintf('Parameter %s relative error: %e\n', parName, rel_error);
+    %     end
+    % end
 end
