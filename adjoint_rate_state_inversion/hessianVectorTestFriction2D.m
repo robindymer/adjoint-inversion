@@ -4,20 +4,23 @@ addSubpaths;
 order = 8;
 inversionPars = {'a'};
 initialGuessScaling = 1.1;
-T = 1;
+T = 5;
 m = 51;
+m_p = 51;
 
 parset = @pars.rsFriction2DFractalFaultVerification; 
-delta_p = 1e-6;
+delta_p = 1e-9; % For FD (also second pertubation?)
 
 parsetOpts.inversionParameters = inversionPars;
 parsetOpts.initialGuessScalings = initialGuessScaling;
 parsetOpts.T = T;
 parsetOpts.m = m;
+parsetOpts.m_p = m_p;
+parsetOpts.k_idx = 10;
 parsetOpts.delta_p = delta_p;
 [parset, parset_true] = parset(parsetOpts);
 
-plotFlag = true;
+plotFlag = false;
 progressBar = true;
 
 % Get synthetic data
