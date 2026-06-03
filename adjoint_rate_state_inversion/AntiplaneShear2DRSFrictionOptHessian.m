@@ -1157,14 +1157,15 @@ methods
         delta_Psi_dagger = fliplr(delta_Psi_dagger);
 
         % end
-        % TODO: Strictly, should not scale by obj.delta_p
+        % TODO: Strictly, should not scale by obj.delta_p, but it is done for
+        % FD comparison.
         % ALSO, check validity of doing .* with eps_p
-        T1 = -obj.H_b*obj.If2c*(V_dagger .* F_a_a .* obj.eps_p) * obj.Ht ./ obj.delta_p;
-        T2 = -obj.H_b*obj.If2c*(Psi_dagger .* G_a_a .* obj.eps_p) * obj.Ht ./ obj.delta_p;
-        T3 = -obj.H_b*obj.If2c*(delta_V_dagger .* F_a) * obj.Ht ./ obj.delta_p;
-        T4 = -obj.H_b*obj.If2c*(delta_Psi_dagger .* G_a) * obj.Ht ./ obj.delta_p;
-        T5 = -obj.H_b*obj.If2c*(V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi)) * obj.Ht ./ obj.delta_p;
-        T6 = -obj.H_b*obj.If2c*(Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht ./ obj.delta_p;
+        T1 = -obj.H_b*obj.If2c*(V_dagger .* F_a_a .* obj.eps_p) * obj.Ht;
+        T2 = -obj.H_b*obj.If2c*(Psi_dagger .* G_a_a .* obj.eps_p) * obj.Ht;
+        T3 = -obj.H_b*obj.If2c*(delta_V_dagger .* F_a) * obj.Ht;
+        T4 = -obj.H_b*obj.If2c*(delta_Psi_dagger .* G_a) * obj.Ht;
+        T5 = -obj.H_b*obj.If2c*(V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi)) * obj.Ht;
+        T6 = -obj.H_b*obj.If2c*(Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht;
         
         % fprintf('T1: %e\nT2: %e\nT3: %e\nT4: %e\nT5: %e\nT6: %e\n', T1, T2, T3, T4, T5, T6);
         
@@ -1242,132 +1243,70 @@ methods
     % end
 
     % Code not generalized yet, so we only compute diagonal hessian entries
+    % function hessVec = computeHessianVectorFD(obj, deltaG)
+    %     % Compute misfit with current parameter vector
+    %     pars_baseline = obj.pars;
+    %     obj.updateForwardDiscr(pars_baseline);
+    %     obj.runForward();
+    %     grad0 = obj.computeGradient();
+    %     grad0_a = grad0.a;
+
+    %     % Update each element in paramter vector by a step deltaG
+    %     for j = 1:numel(obj.inversionPars)
+    %         parName = obj.inversionPars{j};
+    %         hessVec.(parName) = zeros(size(pars_baseline.(parName)));
+    %         for i = 1:length(pars_baseline.(parName))
+    %             pars_tmp = pars_baseline;
+    %             pars_tmp.(parName)(i) = pars_tmp.(parName)(i) + deltaG;
+    %             obj.pars = pars_tmp;
+    %             obj.updateForwardDiscr(pars_tmp);
+    %             obj.runForward();
+    %             % TODO: Try shortcut of using computeGradient instead
+    %             % grad = obj.computeGradientFD(deltaG);
+    %             grad = obj.computeGradient();
+    %             grad_a = grad.a;
+    %             dGrad_dg = (grad_a(i)-grad0_a(i))*obj.eps_p(i)/deltaG;
+    %             hessVec.(parName)(i) = dGrad_dg;
+    %         end
+    %     end
+
+    %     % Clean up
+    %     obj.pars = pars_baseline;
+    %     obj.updateForwardDiscr(pars_baseline);
+    % end
     function hessVec = computeHessianVectorFD(obj, deltaG)
-        % Compute misfit with current parameter vector
+        % 1. Compute baseline gradient
         pars_baseline = obj.pars;
         obj.updateForwardDiscr(pars_baseline);
         obj.runForward();
-        grad0 = obj.computeGradient();
-        grad0_a = grad0.a;
-
-        % Update each element in paramter vector by a step deltaG
+        grad0 = obj.computeGradient(); 
+        
+        % 2. Perturb the ENTIRE parameter field simultaneously 
+        % in the direction of the perturbation vector (eps_p)
+        pars_tmp = pars_baseline;
         for j = 1:numel(obj.inversionPars)
             parName = obj.inversionPars{j};
-            hessVec.(parName) = zeros(size(pars_baseline.(parName)));
-            for i = 1:length(pars_baseline.(parName))
-                pars_tmp = pars_baseline;
-                pars_tmp.(parName)(i) = pars_tmp.(parName)(i) + deltaG;
-                obj.pars = pars_tmp;
-                obj.updateForwardDiscr(pars_tmp);
-                obj.runForward();
-                % TODO: Try shortcut of using computeGradient instead
-                % grad = obj.computeGradientFD(deltaG);
-                grad = obj.computeGradient();
-                grad_a = grad.a;
-                dGrad_dg = (grad_a(i)-grad0_a(i))*obj.eps_p(i)/deltaG;
-                hessVec.(parName)(i) = dGrad_dg;
-            end
+            % p_new = p_old + h * v
+            pars_tmp.(parName) = pars_baseline.(parName) + deltaG * obj.eps_p; 
+        end
+        
+        % 3. Compute the perturbed gradient
+        obj.pars = pars_tmp;
+        obj.updateForwardDiscr(pars_tmp);
+        obj.runForward();
+        grad_pert = obj.computeGradient();
+        
+        % 4. Compute the full Hessian-vector product
+        for j = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{j};
+            % (g_pert - g_0) / h
+            hessVec.(parName) = (grad_pert.(parName) - grad0.(parName)) / deltaG;
         end
 
         % Clean up
         obj.pars = pars_baseline;
         obj.updateForwardDiscr(pars_baseline);
-        % % Update each element in paramter vector by a step deltaG
-        % for j = 1:numel(obj.inversionPars)
-        %     parName = obj.inversionPars{j};
-        %     hessVec.(parName) = zeros(size(pars_baseline.(parName)));
-        %     for i = 1:length(pars_baseline.(parName))
-        %         pars_tmp = pars_baseline;
-        %         pars_tmp.(parName)(i) = pars_tmp.(parName)(i) + deltaG;
-        %         obj.pars = pars_tmp;
-        %         obj.updateForwardDiscr(pars_tmp);
-        %         obj.runForward();
-        %         % TODO: Try shortcut of using computeGradient instead
-        %         % grad = obj.computeGradientFD(deltaG);
-        %         grad = obj.computeGradient();
-        %         dGrad_dg = (grad.(parName)(i)-grad0.(parName)(i))/deltaG;
-        %         hessVec.(parName)(i) = dGrad_dg;
-        %     end
-        % end
-
-        % % Clean up
-        % obj.pars = pars_baseline;
-        % obj.updateForwardDiscr(pars_baseline);
     end
-    % function H = computeHessianFD(obj, deltaG)
-    %     % computeHessianFD Computes the full Hessian matrix using minimal 
-    %     % forward finite differences of the objective function (misfit).
-    %     % 
-    %     % Returns H as an N x N matrix corresponding to the flattened 
-    %     % parameter vector.
-
-    %     % Store baseline parameters and convert to a flat vector
-    %     pars_baseline = obj.pars;
-    %     p0 = obj.parametersNativeToVector(pars_baseline);
-    %     N = length(p0);
-
-    %     % Pre-allocate the Hessian matrix and first-order evaluation array
-    %     H = zeros(N, N);
-    %     F1 = zeros(N, 1);
-
-    %     % --- Step 0: The Base State ---
-    %     obj.updateForwardDiscr(pars_baseline);
-    %     obj.runForward();
-    %     F0 = obj.computeMisfit();
-
-    %     % --- Step 1: First-Order Perturbations ---
-    %     for i = 1:N
-    %         p_i = p0;
-    %         p_i(i) = p_i(i) + deltaG;
-            
-    %         % Convert back to native struct, update, and run
-    %         obj.pars = obj.parametersVectorToNative(p_i);
-    %         obj.updateForwardDiscr(obj.pars);
-    %         obj.runForward();
-            
-    %         F1(i) = obj.computeMisfit();
-    %     end
-
-    %     % --- Step 2: Diagonal Terms ---
-    %     for i = 1:N
-    %         p_ii = p0;
-    %         p_ii(i) = p_ii(i) + 2 * deltaG;
-            
-    %         obj.pars = obj.parametersVectorToNative(p_ii);
-    %         obj.updateForwardDiscr(obj.pars);
-    %         obj.runForward();
-            
-    %         F_ii = obj.computeMisfit();
-
-    %         % Compute diagonal curvature
-    %         H(i,i) = (F_ii - 2*F1(i) + F0) / (deltaG^2);
-    %     end
-
-    %     % --- Step 3: Off-Diagonal Terms and Symmetry ---
-    %     for i = 1:N
-    %         for j = (i+1):N
-    %             p_ij = p0;
-    %             p_ij(i) = p_ij(i) + deltaG;
-    %             p_ij(j) = p_ij(j) + deltaG;
-                
-    %             obj.pars = obj.parametersVectorToNative(p_ij);
-    %             obj.updateForwardDiscr(obj.pars);
-    %             obj.runForward();
-                
-    %             F_ij = obj.computeMisfit();
-
-    %             % Compute off-diagonal cross-derivative
-    %             H(i,j) = (F_ij - F1(i) - F1(j) + F0) / (deltaG^2);
-                
-    %             % Enforce symmetry across the diagonal
-    %             H(j,i) = H(i,j); 
-    %         end
-    %     end
-
-    %     % --- Clean up: Restore baseline parameters ---
-    %     obj.pars = pars_baseline;
-    %     obj.updateForwardDiscr(pars_baseline);
-    % end
     
     function M = computeMisfit(obj)
         data = obj.receiverData;

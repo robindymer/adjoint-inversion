@@ -4,7 +4,7 @@ addSubpaths;
 order = 8;
 inversionPars = {'a'};
 initialGuessScaling = 1.1;
-T = 5;
+T = 6;
 m = 51;
 m_p = 51;
 
