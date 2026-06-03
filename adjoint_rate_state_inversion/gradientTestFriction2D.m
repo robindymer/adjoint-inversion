@@ -1,15 +1,18 @@
 
 clear all;
-order = 8;
+order = 6;
 inversionPars = {'a'};
 initialGuessScaling = 1.1;
-T = 1;
-m = 51;
+T = 4;
+m = 26;
+m_p = 26;
 
-parset = @pars.rsFriction2DFractalFaultVerification; delta_p = 1e-9;
+parset = @pars.rsFriction2DFractalFaultVerification; delta_p = 1e-4;
 parsetOpts.delta_p = delta_p;
 parsetOpts.T = T;
 parsetOpts.m = m;
+parsetOpts.m_p = m_p;
+parsetOpts.k_idx = 10;
 
 parsetOpts.inversionParameters = inversionPars;
 parsetOpts.initialGuessScalings = initialGuessScaling;
@@ -54,4 +57,18 @@ function [delta_grad, grad_adj, grad_fd] = compare_gradients(parset, order, synt
     legend(inversionPars{:});
     title(sprintf('Error using %s misfit', misfitType));
     hold off;
+
+    % Plot grad_fd and grad_adj for visual comparison
+    figure();
+    for i = 1:numel(inversionPars)
+        parName = inversionPars{i};
+        subplot(numel(inversionPars),1,i);
+        plot(grad_adj.(parName),'LineWidth',2);
+        hold on;
+        plot(grad_fd.(parName),'--','LineWidth',2);
+        xlabel('Fault index');
+        ylabel('Gradient');
+        legend('Adjoint Gradient','Finite Difference Gradient');
+        title(sprintf('Gradient comparison for parameter %s using %s misfit', parName, misfitType));
+    end
 end

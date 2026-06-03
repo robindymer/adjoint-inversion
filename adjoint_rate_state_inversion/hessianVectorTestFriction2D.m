@@ -1,22 +1,22 @@
 
 clear all;
 addSubpaths;
-order = 8;
+order = 6;
 inversionPars = {'a'};
 initialGuessScaling = 1.1;
-T = 6;
-m = 51;
-m_p = 51;
+T = 4;
+m = 26;
+m_p = 26;
 
 parset = @pars.rsFriction2DFractalFaultVerification; 
-delta_p = 1e-9; % For FD (also second pertubation?)
+delta_p = 1e-4; % For FD (also second pertubation?)
 
 parsetOpts.inversionParameters = inversionPars;
 parsetOpts.initialGuessScalings = initialGuessScaling;
 parsetOpts.T = T;
 parsetOpts.m = m;
 parsetOpts.m_p = m_p;
-parsetOpts.k_idx = 10;
+parsetOpts.k_idx = 17;
 parsetOpts.delta_p = delta_p;
 [parset, parset_true] = parset(parsetOpts);
 
@@ -42,7 +42,7 @@ function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order,
     toc
     
     tic
-    hessVec_fd = adj_opt.computeHessianVectorFD(1e-5);
+    hessVec_fd = adj_opt.computeHessianVectorFD(delta_p);
     toc
 
     % Trickery!
@@ -52,7 +52,9 @@ function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order,
         hessVec = hessVec_struct;
     end
 
-    delta_hessVec = adj_opt.compareGradients(hessVec,hessVec_fd);     
+    delta_hessVec = adj_opt.compareGradients(hessVec,hessVec_fd);
+    disp("Delta Hessian-Vector:")
+    delta_hessVec.a
     figure();
     fprintf('%s Misfit = %f\n',misfitType,adj_opt.computeMisfit());
     for i = 1:numel(inversionPars)
@@ -73,8 +75,23 @@ function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order,
     title(sprintf('Error using %s misfit', misfitType));
     hold off;
 
-    % % Test different FD step sizes
-    % fd_steps = logspace(-5, -10, 6); 
+    figure();
+    % Plot hessvec and hessVec_fd for visual comparison
+    for i = 1:numel(inversionPars)
+        parName = inversionPars{i};
+        subplot(numel(inversionPars),1,i);
+        plot(hessVec.(parName), 'b-', 'LineWidth', 2);
+        hold on;
+        plot(hessVec_fd.(parName), 'r--', 'LineWidth', 2);
+        legend('Adjoint Hessian-Vector', 'FD Hessian-Vector');
+        title(sprintf('Hessian-Vector for parameter %s', parName));
+        xlabel('Fault index');
+        ylabel('Hessian-Vector value');
+        hold off;
+    end
+
+    % Test different FD step sizes
+    % fd_steps = logspace(-2, -6, 7); 
 
     % for step = fd_steps
     %     tic
