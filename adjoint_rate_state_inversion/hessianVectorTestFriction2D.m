@@ -9,14 +9,14 @@ m = 26;
 m_p = 26;
 
 parset = @pars.rsFriction2DFractalFaultVerification; 
-delta_p = 1e-4; % For FD (also second pertubation?)
+delta_p = 1e-9; % For FD (also second pertubation?)
 
 parsetOpts.inversionParameters = inversionPars;
 parsetOpts.initialGuessScalings = initialGuessScaling;
 parsetOpts.T = T;
 parsetOpts.m = m;
 parsetOpts.m_p = m_p;
-parsetOpts.k_idx = 17;
+parsetOpts.k_idx = 10;
 parsetOpts.delta_p = delta_p;
 [parset, parset_true] = parset(parsetOpts);
 
@@ -90,13 +90,25 @@ function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order,
         hold off;
     end
 
-    % Test different FD step sizes
-    % fd_steps = logspace(-2, -6, 7); 
+    % % Test different FD step sizes
+    % fd_steps = logspace(-6, -10, 5);
+    % % First plot adjoint
+    % figure();
+    % hold on;
+    % for i = 1:numel(inversionPars)
+    %     parName = inversionPars{i};
+    %     plot(hessVec.(parName), 'b-', 'LineWidth', 2);
+    % end 
 
     % for step = fd_steps
     %     tic
     %     hessVec_fd = adj_opt.computeHessianVectorFD(step);
     %     toc
+    %     % Then plot FD
+    %     for i = 1:numel(inversionPars)
+    %         parName = inversionPars{i};
+    %         plot(hessVec_fd.(parName), 'LineWidth', 2);
+    %     end
         
     %     delta_hessVec = adj_opt.compareGradients(hessVec, hessVec_fd); 
         
@@ -107,4 +119,10 @@ function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order,
     %         fprintf('Parameter %s relative error: %e\n', parName, rel_error);
     %     end
     % end
+
+    % legend('Adjoint Hessian-Vector', arrayfun(@(s) sprintf('FD Hessian-Vector (step=%e)', s), fd_steps, 'UniformOutput', false));
+    % title(sprintf('Hessian-Vector for different FD step sizes using %s misfit', misfitType));
+    % xlabel('Fault index');
+    % ylabel('Hessian-Vector value');
+    % hold off;
 end

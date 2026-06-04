@@ -1191,6 +1191,7 @@ methods
         obj.updateForwardDiscr(pars);
         obj.runForward();
         M0 = obj.computeMisfit();
+        M0
         
         % Update each element in paramter vector by a step deltaG
         % For each parameter we perturb...
@@ -1218,6 +1219,7 @@ methods
         obj.updateForwardDiscr(pars_baseline);
         obj.runForward();
         grad0 = obj.computeGradient();
+        grad0.a
         grad0_a = grad0.a;
 
         % Update each element in paramter vector by a step deltaG
@@ -1235,7 +1237,7 @@ methods
                 grad = obj.computeGradient();
                 grad_a = grad.a;
                 dGrad_dg = (grad_a-grad0_a)'*obj.eps_p/deltaG;
-                hessVec.(parName)(i) = dGrad_dg;
+                hessVec.(parName)(i) = -10*dGrad_dg;
             end
         end
 
