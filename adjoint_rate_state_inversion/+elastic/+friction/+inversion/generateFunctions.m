@@ -69,11 +69,11 @@ G_V0 = diff(G,'V0');
 G_D_c = diff(G,'D_c');
 G_tau0 = diff(G,'tau0');
 
-G_V_Psi = diff(G_V,'V','Psi');
-G_V_V = diff(G_V,'V','V');
-G_V_a = diff(G_V,'V','a');
-G_Psi_Psi = diff(G_Psi,'Psi','Psi');
-G_Psi_a = diff(G_Psi,'Psi','a');
+G_V_Psi = diff(G_V,'Psi');
+G_V_V = diff(G_V,'V');
+G_V_a = diff(G_V,'a');
+G_Psi_Psi = diff(G_Psi,'Psi');
+G_Psi_a = diff(G_Psi,'a');
 G_a_a = diff(G_a, 'a');
 G_b_b = diff(G_b, 'b');
 

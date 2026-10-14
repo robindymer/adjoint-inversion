@@ -1237,7 +1237,7 @@ methods
                 grad = obj.computeGradient();
                 grad_a = grad.a;
                 dGrad_dg = (grad_a-grad0_a)'*obj.eps_p/deltaG;
-                hessVec.(parName)(i) = -10*dGrad_dg;
+                hessVec.(parName)(i) = dGrad_dg;
             end
         end
 
