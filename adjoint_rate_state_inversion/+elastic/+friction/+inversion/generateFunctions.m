@@ -22,13 +22,9 @@ F_V0 = diff(F,'V0');
 F_D_c = diff(F,'D_c');
 F_tau0 = diff(F,'tau0');
 
-% NOTE: No \partial_b since f does not depend on b
 F_V_V = diff(F_V,'V');
 F_V_Psi = diff(F_V,'Psi');
-F_V_a = diff(F_V,'a');
 F_Psi_Psi = diff(F_Psi,'Psi');
-F_Psi_a = diff(F_Psi,'a');
-F_a_a = diff(F_a, 'a');
 
 matlabFunction(f,'File','friction_coeff','Vars',{V, Psi, a, sigma0, V0, tau0});
 matlabFunction(f_ss,'File','friction_coeff_steady_state','Vars',{V, a, b, f0, V0});
@@ -45,10 +41,7 @@ matlabFunction(F_tau0,'File','F_tau0','Vars',{V, Psi, a, sigma0, V0, tau0});
 
 matlabFunction(F_V_V,'File','F_V_V','Vars',{V, Psi, a, sigma0, V0, tau0});
 matlabFunction(F_V_Psi,'File','F_V_Psi','Vars',{V, Psi, a, sigma0, V0, tau0});
-matlabFunction(F_V_a,'File','F_V_a','Vars',{V, Psi, a, sigma0, V0, tau0});
 matlabFunction(F_Psi_Psi,'File','F_Psi_Psi','Vars',{V, Psi, a, sigma0, V0, tau0});
-matlabFunction(F_Psi_a,'File','F_Psi_a','Vars',{V, Psi, a, sigma0, V0, tau0});
-matlabFunction(F_a_a,'File','F_a_a','Vars',{V, Psi, a, sigma0, V0, tau0});
 
 % Aging law
 switch state_evolution
@@ -71,11 +64,7 @@ G_tau0 = diff(G,'tau0');
 
 G_V_Psi = diff(G_V,'Psi');
 G_V_V = diff(G_V,'V');
-G_V_a = diff(G_V,'a');
 G_Psi_Psi = diff(G_Psi,'Psi');
-G_Psi_a = diff(G_Psi,'a');
-G_a_a = diff(G_a, 'a');
-G_b_b = diff(G_b, 'b');
 
 matlabFunction(G,'File','G','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_V,'File','G_V','Vars',{V, Psi, a, b, f0, V0, D_c});
@@ -89,8 +78,26 @@ matlabFunction(G_D_c,'File','G_D_c','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_tau0,'File','G_tau0','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_V_Psi,'File','G_V_Psi','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_V_V,'File','G_V_V','Vars',{V, Psi, a, b, f0, V0, D_c});
-matlabFunction(G_V_a,'File','G_V_a','Vars',{V, Psi, a, b, f0, V0, D_c});
 matlabFunction(G_Psi_Psi,'File','G_Psi_Psi','Vars',{V, Psi, a, b, f0, V0, D_c});
-matlabFunction(G_Psi_a,'File','G_Psi_a','Vars',{V, Psi, a, b, f0, V0, D_c});
-matlabFunction(G_a_a,'File','G_a_a','Vars',{V, Psi, a, b, f0, V0, D_c});
-matlabFunction(G_b_b,'File','G_b_b','Vars',{V, Psi, a, b, f0, V0, D_c});
+
+% Second derivatives involving the friction parameters, used for Hessian computations.
+% Generates F_V_<p>, F_Psi_<p>, G_V_<p>, G_Psi_<p> for each parameter p, and
+% F_<p>_<q>, G_<p>_<q> for each pair, named in the order of params below (e.g. F_a_b, not F_b_a).
+% See getSecondPartialDerivativeFuns.
+F_vars = {V, Psi, a, sigma0, V0, tau0};
+G_vars = {V, Psi, a, b, f0, V0, D_c};
+params = {sigma0, a, b, f0, V0, D_c, tau0};
+for i = 1:numel(params)
+    p = params{i};
+    p_name = char(p);
+    matlabFunction(diff(F_V,p),'File',['F_V_' p_name],'Vars',F_vars);
+    matlabFunction(diff(F_Psi,p),'File',['F_Psi_' p_name],'Vars',F_vars);
+    matlabFunction(diff(G_V,p),'File',['G_V_' p_name],'Vars',G_vars);
+    matlabFunction(diff(G_Psi,p),'File',['G_Psi_' p_name],'Vars',G_vars);
+    for j = i:numel(params)
+        q = params{j};
+        q_name = char(q);
+        matlabFunction(diff(diff(F,p),q),'File',sprintf('F_%s_%s',p_name,q_name),'Vars',F_vars);
+        matlabFunction(diff(diff(G,p),q),'File',sprintf('G_%s_%s',p_name,q_name),'Vars',G_vars);
+    end
+end

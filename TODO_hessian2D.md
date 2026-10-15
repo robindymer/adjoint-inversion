@@ -14,11 +14,13 @@ Differences between the 2D Hessian path (`AntiplaneShear2DRSFrictionOptHessian` 
 
 ## Hard-coded to parameter `a`
 
-- [ ] `updateSecondOrderForwardDiscr` and `hessianVectorFormula` use `F_p{1}`/`G_p{1}` and the explicit `F_a_a`, `G_a_a`, `F_V_a`, `F_Psi_a`, `G_V_a`, `G_Psi_a`. The gradient loops over `inversionPars` through `getPartialDerivativeFun`.
-- [ ] `AntiplaneShear2DRSFrictionSecondOrderAdjDiscr` has the `*_a` field names (`F_V_a`, `G_Psi_a`, …) built into its traction and state-evolution terms.
-- [ ] `hessianVectorFormula` returns a plain vector, not a struct over `inversionPars` (hence the "Trickery" in the test script).
-- [ ] `computeHessianVectorFD` hard-codes `grad.a` and `grad0.a` instead of `grad.(parName)`.
-- [ ] Only one parameter, so no mixed p₁ ≠ p₂ blocks: a single `eps_p` vector rather than one ∆p₁ per parameter, and nothing distinguishes p₁ from p₂.
+Done: ∆p₁ (`friction.eps_p`) can be a struct with one direction per inversion parameter, and the Hessian-vector product is returned as a struct over `inversionPars`. Verified against FD for `{'a'}` and for `{'a','b'}` with ∆p₁ in both.
+
+- [x] `updateSecondOrderForwardDiscr` and `hessianVectorFormula` use `F_p{1}`/`G_p{1}` and the explicit `F_a_a`, `G_a_a`, `F_V_a`, `F_Psi_a`, `G_V_a`, `G_Psi_a`. The gradient loops over `inversionPars` through `getPartialDerivativeFun`.
+- [x] `AntiplaneShear2DRSFrictionSecondOrderAdjDiscr` has the `*_a` field names (`F_V_a`, `G_Psi_a`, …) built into its traction and state-evolution terms.
+- [x] `hessianVectorFormula` returns a plain vector, not a struct over `inversionPars` (hence the "Trickery" in the test script).
+- [x] `computeHessianVectorFD` hard-codes `grad.a` and `grad0.a` instead of `grad.(parName)`.
+- [x] Only one parameter, so no mixed p₁ ≠ p₂ blocks: a single `eps_p` vector rather than one ∆p₁ per parameter, and nothing distinguishes p₁ from p₂.
 
 ## Correctness issue in an unused branch
 

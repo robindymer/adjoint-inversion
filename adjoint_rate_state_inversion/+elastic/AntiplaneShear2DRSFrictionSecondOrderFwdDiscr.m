@@ -216,8 +216,8 @@ methods
         % Friction functions
         F_V = obj.friction.data.F_V;
         F_Psi = obj.friction.data.F_Psi;
-        F_p = obj.friction.data.F_p;
-        eps_p = obj.friction.eps_p;
+        % Parameter forcing sum_p F_p*Delta p, for the perturbation direction Delta p
+        F_dp = obj.friction.data.F_dp;
 
         % Operators 
         penalty = obj.penalty_fault;
@@ -225,20 +225,20 @@ methods
         eta = obj.eta;
 
         % Function that computes V* given tau_l and Psi
-        V_star_from_tau_l = @(i_t, tau_l, Psi) -1./((eta + F_V(:, i_t))).*(tau_l + F_Psi(:, i_t).*Psi + F_p(:, i_t) .* eps_p);
+        V_star_from_tau_l = @(i_t, tau_l, Psi) -1./((eta + F_V(:, i_t))).*(tau_l + F_Psi(:, i_t).*Psi + F_dp(:, i_t));
         obj.V_star = @(i_t, U) V_star_from_tau_l(i_t, obj.tau_l_fun(U), E.Psi*U);
         % Fault traction function
         % TODO: Why no -penalty here?
-        obj.fault_traction = @(i_t, U, Vs) penalty*(F_V(:, i_t).*Vs + F_Psi(:, i_t).*(E.Psi*U) + F_p(:, i_t) .* eps_p);
+        obj.fault_traction = @(i_t, U, Vs) penalty*(F_V(:, i_t).*Vs + F_Psi(:, i_t).*(E.Psi*U) + F_dp(:, i_t));
     end
         
     function obj = setStateEvolution(obj)
         E = obj.E;
         G_Psi = obj.friction.data.G_Psi;
         G_V = obj.friction.data.G_V;
-        G_p = obj.friction.data.G_p;
-        eps_p = obj.friction.eps_p;
-        obj.state_evo = @(i_t, U, Vs) E.Psi'*(G_Psi(:, i_t).*(E.Psi*U) + G_V(:, i_t).*Vs + G_p(:, i_t) .* eps_p);
+        % Parameter forcing sum_p G_p*Delta p, for the perturbation direction Delta p
+        G_dp = obj.friction.data.G_dp;
+        obj.state_evo = @(i_t, U, Vs) E.Psi'*(G_Psi(:, i_t).*(E.Psi*U) + G_V(:, i_t).*Vs + G_dp(:, i_t));
     end
     
     function obj = setPointSources(obj)

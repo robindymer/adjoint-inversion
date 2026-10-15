@@ -57,10 +57,17 @@ properties
     
     inversionPars
     delta_p % Parameter pertubation, required for hessian vector computation
-    eps_p % Perturbation direction on the fine (fault) grid, Ic2f*eps_p_coarse
-    eps_p_coarse % Perturbation direction on the parameter grid
+    eps_p % Perturbation direction Delta p_1 on the fine (fault) grid, Ic2f*eps_p_coarse. Struct with one field per inversion parameter
+    eps_p_coarse % Perturbation direction Delta p_1 on the parameter grid. Struct with one field per inversion parameter
     F_p
     G_p
+    % Second derivatives for the Hessian. F_V_p{i} = d^2F/dVdp_i etc., F_p_q{i,j} = d^2F/dp_idp_j
+    F_V_p
+    F_Psi_p
+    G_V_p
+    G_Psi_p
+    F_p_q
+    G_p_q
 
     % Interpolation opts for lower dimensional representation
     If2c
@@ -149,19 +156,49 @@ methods
             Ic2f = speye(m);
         end
 
-        % TODO: Correct approach? Probably best to have m = m_p when debugging
-        frictionFine = inputPars.friction;
-        frictionFine.eps_p = Ic2f * friction.eps_p;
-
-        % Same thing here, do not set friction and second order source / reciever data
-        secondOrderForwardDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderFwdDiscr(opset, domain, m, order, material, bc, frictionFine, secondOrderSources);
-        secondOrderAdjointDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderAdjDiscr(opset, domain, m, order, material, bc, frictionFine, secondOrderReceivers);
-        
-        F_p = cell(numel(inversionPars), 1);
-        G_p = cell(numel(inversionPars), 1);
+        % Perturbation direction Delta p_1 on the parameter grid, one component per inversion parameter.
+        % friction.eps_p is either a struct with fields named by the inversion parameters
+        % (missing fields are zero), or a vector which is used for inversionPars{1}.
+        eps_p_coarse = struct;
+        eps_p = struct;
         for i = 1:numel(inversionPars)
             parName = inversionPars{i};
+            if isstruct(friction.eps_p)
+                if isfield(friction.eps_p, parName)
+                    eps_p_coarse.(parName) = friction.eps_p.(parName);
+                else
+                    eps_p_coarse.(parName) = zeros(size(pars.(parName)));
+                end
+            elseif i == 1
+                eps_p_coarse.(parName) = friction.eps_p;
+            else
+                eps_p_coarse.(parName) = zeros(size(pars.(parName)));
+            end
+            eps_p.(parName) = Ic2f*eps_p_coarse.(parName);
+        end
+
+        % Same thing here, do not set friction and second order source / reciever data
+        secondOrderForwardDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderFwdDiscr(opset, domain, m, order, material, bc, friction, secondOrderSources);
+        secondOrderAdjointDiscr = elastic.AntiplaneShear2DRSFrictionSecondOrderAdjDiscr(opset, domain, m, order, material, bc, friction, secondOrderReceivers);
+
+        nPars = numel(inversionPars);
+        F_p = cell(nPars, 1);
+        G_p = cell(nPars, 1);
+        F_V_p = cell(nPars, 1);
+        F_Psi_p = cell(nPars, 1);
+        G_V_p = cell(nPars, 1);
+        G_Psi_p = cell(nPars, 1);
+        F_p_q = cell(nPars, nPars);
+        G_p_q = cell(nPars, nPars);
+        for i = 1:nPars
+            parName = inversionPars{i};
             [F_p{i}, G_p{i}] = elastic.friction.inversion.getPartialDerivativeFun(parName);
+            [F_V_p{i}, F_Psi_p{i}, G_V_p{i}, G_Psi_p{i}] = ...
+                elastic.friction.inversion.getSecondPartialDerivativeFuns(parName, parName);
+            for j = 1:nPars
+                [~, ~, ~, ~, F_p_q{i,j}, G_p_q{i,j}] = ...
+                    elastic.friction.inversion.getSecondPartialDerivativeFuns(parName, inversionPars{j});
+            end
         end
         
         % Set instance variables
@@ -220,8 +257,8 @@ methods
         obj.domain = domain;
         obj.m = m;
         obj.delta_p = delta_p;
-        obj.eps_p = frictionFine.eps_p;
-        obj.eps_p_coarse = friction.eps_p;
+        obj.eps_p = eps_p;
+        obj.eps_p_coarse = eps_p_coarse;
         obj.order = order;
         obj.T = T;
         obj.pars = pars;
@@ -234,6 +271,12 @@ methods
         obj.k = k;
         obj.F_p = F_p;
         obj.G_p = G_p;
+        obj.F_V_p = F_V_p;
+        obj.F_Psi_p = F_Psi_p;
+        obj.G_V_p = G_V_p;
+        obj.G_Psi_p = G_Psi_p;
+        obj.F_p_q = F_p_q;
+        obj.G_p_q = G_p_q;
         obj.filterOpts = filterOpts;
         obj.filter = filt;
         obj.filterTransp = filtTransp;
@@ -918,18 +961,32 @@ methods
         F_Psi = discr.friction.funs.F_Psi(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
         G_V = discr.friction.funs.G_V(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
         G_Psi = discr.friction.funs.G_Psi(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
-        % These are calculated at the top of the file
-        % TODO: Fix hard-coded F_a, G_a assumption
-        F_p = obj.F_p{1}(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
-        G_p = obj.G_p{1}(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        % Parameter forcing sum_p F_p*Delta p and sum_p G_p*Delta p, for the perturbation direction Delta p_1
+        F_dp = zeros(size(V));
+        G_dp = zeros(size(V));
+        for i = 1:numel(obj.inversionPars)
+            dp = obj.eps_p.(obj.inversionPars{i});
+            F_dp = F_dp + obj.F_p{i}(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0) .* dp;
+            G_dp = G_dp + obj.G_p{i}(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c) .* dp;
+        end
+        % F_p = obj.F_p{1}(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        % G_p = obj.G_p{1}(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+
+        % % Update fault data and functions
+        % discr.friction.data.F_V = F_V;
+        % discr.friction.data.G_V = G_V;
+        % discr.friction.data.G_Psi = G_Psi;
+        % discr.friction.data.F_Psi = F_Psi;
+        % discr.friction.data.F_p = F_p;
+        % discr.friction.data.G_p = G_p;
 
         % Update fault data and functions
         discr.friction.data.F_V = F_V;
         discr.friction.data.G_V = G_V;
         discr.friction.data.G_Psi = G_Psi;
         discr.friction.data.F_Psi = F_Psi;
-        discr.friction.data.F_p = F_p;
-        discr.friction.data.G_p = G_p;
+        discr.friction.data.F_dp = F_dp;
+        discr.friction.data.G_dp = G_dp;
 
         discr.setFaultTraction();
         discr.setStateEvolution();
@@ -1013,14 +1070,23 @@ methods
 
         F_V_V = discr.friction.funs.F_V_V(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
         F_V_Psi = discr.friction.funs.F_V_Psi(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
-        F_V_a = discr.friction.funs.F_V_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
         F_Psi_Psi = discr.friction.funs.F_Psi_Psi(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
-        F_Psi_a = discr.friction.funs.F_Psi_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
         G_V_Psi = discr.friction.funs.G_V_Psi(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
         G_V_V = discr.friction.funs.G_V_V(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
-        G_V_a = discr.friction.funs.G_V_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
         G_Psi_Psi = discr.friction.funs.G_Psi_Psi(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
-        G_Psi_a = discr.friction.funs.G_Psi_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+
+        % Mixed derivatives contracted with the perturbation direction Delta p_1, e.g. sum_p F_V_p*Delta p
+        F_V_dp = zeros(size(V));
+        F_Psi_dp = zeros(size(V));
+        G_V_dp = zeros(size(V));
+        G_Psi_dp = zeros(size(V));
+        for i = 1:numel(obj.inversionPars)
+            dp = obj.eps_p.(obj.inversionPars{i});
+            F_V_dp = F_V_dp + obj.F_V_p{i}(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0) .* dp;
+            F_Psi_dp = F_Psi_dp + obj.F_Psi_p{i}(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0) .* dp;
+            G_V_dp = G_V_dp + obj.G_V_p{i}(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c) .* dp;
+            G_Psi_dp = G_Psi_dp + obj.G_Psi_p{i}(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c) .* dp;
+        end
 
         % Update source data and functions
         discr.sources.data = misfit_residual;
@@ -1033,14 +1099,14 @@ methods
         discr.friction.data.F_Psi = fliplr(F_Psi);
         discr.friction.data.F_V_V = fliplr(F_V_V);
         discr.friction.data.F_V_Psi = fliplr(F_V_Psi);
-        discr.friction.data.F_V_a = fliplr(F_V_a);
         discr.friction.data.F_Psi_Psi = fliplr(F_Psi_Psi);
-        discr.friction.data.F_Psi_a = fliplr(F_Psi_a);
         discr.friction.data.G_V_Psi = fliplr(G_V_Psi);
         discr.friction.data.G_V_V = fliplr(G_V_V);
-        discr.friction.data.G_V_a = fliplr(G_V_a);
         discr.friction.data.G_Psi_Psi = fliplr(G_Psi_Psi);
-        discr.friction.data.G_Psi_a = fliplr(G_Psi_a);
+        discr.friction.data.F_V_dp = fliplr(F_V_dp);
+        discr.friction.data.F_Psi_dp = fliplr(F_Psi_dp);
+        discr.friction.data.G_V_dp = fliplr(G_V_dp);
+        discr.friction.data.G_Psi_dp = fliplr(G_Psi_dp);
 
         discr.friction.data.V_dagger = V_dagger; % Already flipped (from adjoint)
         discr.friction.data.Psi_dagger = Psi_dagger; % Already flipped (from adjoint)
@@ -1142,46 +1208,35 @@ methods
         delta_Psi_dagger = obj.secondOrderAdjointFaultVariables.Psi;
         delta_V = obj.secondOrderForwardFaultVariables.V;
         delta_Psi = obj.secondOrderForwardFaultVariables.Psi;
-        % TODO: Fix hard-coded F_a, G_a assumption
-        F_a = obj.F_p{1}(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
-        G_a = obj.G_p{1}(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
-        F_a_a = obj.forwardDiscr.friction.funs.F_a_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
-        G_a_a = obj.forwardDiscr.friction.funs.G_a_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
-        F_V_a = obj.forwardDiscr.friction.funs.F_V_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
-        F_Psi_a = obj.forwardDiscr.friction.funs.F_Psi_a(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
-        G_V_a = obj.forwardDiscr.friction.funs.G_V_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
-        G_Psi_a = obj.forwardDiscr.friction.funs.G_Psi_a(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
-        
+
         % Reverse adjoint variables in time for the integration
         V_dagger = fliplr(V_dagger);
         Psi_dagger = fliplr(Psi_dagger);
         delta_V_dagger = fliplr(delta_V_dagger);
         delta_Psi_dagger = fliplr(delta_Psi_dagger);
 
-        % end
-        % TODO: Strictly, should not scale by obj.delta_p, but it is done for
-        % FD comparison.
-        % ALSO, check validity of doing .* with eps_p
-        T1 = -obj.H_b*obj.If2c*(V_dagger .* F_a_a .* obj.eps_p) * obj.Ht;
-        T2 = -obj.H_b*obj.If2c*(Psi_dagger .* G_a_a .* obj.eps_p) * obj.Ht;
-        T3 = -obj.H_b*obj.If2c*(delta_V_dagger .* F_a) * obj.Ht;
-        T4 = -obj.H_b*obj.If2c*(delta_Psi_dagger .* G_a) * obj.Ht;
-        T5 = -obj.H_b*obj.If2c*(V_dagger .* (F_V_a .* delta_V + F_Psi_a .* delta_Psi)) * obj.Ht;
-        T6 = -obj.H_b*obj.If2c*(Psi_dagger .* (G_V_a .* delta_V + G_Psi_a .* delta_Psi)) * obj.Ht;
-        
-        % fprintf('T1: %e\nT2: %e\nT3: %e\nT4: %e\nT5: %e\nT6: %e\n', T1, T2, T3, T4, T5, T6);
-        
-        % NOTE: Divison by eps_a to free eps_a scaling dependence
-        hessVec = (T1 + T2 + T3 + T4 + T5 + T6);
+        % Hessian applied to the perturbation direction Delta p_1 (obj.eps_p), read off
+        % for each inversion parameter p_2. Terms numbered as in eq. (10) of the notes.
+        Fe = @(f) f(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
+        Ge = @(g) g(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
+        hessVec = struct;
+        for j = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{j};
 
-        % TODO: Should have something similar to this:
-        % grad = struct;
-        % for i = 1:numel(obj.inversionPars)
-        %     parName = obj.inversionPars{i};
-        %     F_p = obj.F_p{i}(V, Psi, pars.a, pars.sigma0, pars.V0, pars.tau0);
-        %     G_p = obj.G_p{i}(V, Psi, pars.a, pars.b, pars.f0, pars.V0, pars.D_c);
-        %     grad.(parName) = -(obj.H_b*obj.If2c*(V_adj.*F_p + Psi_adj.*G_p))*obj.Ht;
-        % end
+            % T1 + T2: second parameter derivatives contracted with Delta p_1
+            T12 = zeros(size(V));
+            for i = 1:numel(obj.inversionPars)
+                dp = obj.eps_p.(obj.inversionPars{i});
+                T12 = T12 + (V_dagger .* Fe(obj.F_p_q{i,j}) + Psi_dagger .* Ge(obj.G_p_q{i,j})) .* dp;
+            end
+            % T3 + T4: second-order adjoint solution
+            T34 = delta_V_dagger .* Fe(obj.F_p{j}) + delta_Psi_dagger .* Ge(obj.G_p{j});
+            % T5 + T6: second-order forward solution
+            T56 = V_dagger .* (Fe(obj.F_V_p{j}) .* delta_V + Fe(obj.F_Psi_p{j}) .* delta_Psi) ...
+                + Psi_dagger .* (Ge(obj.G_V_p{j}) .* delta_V + Ge(obj.G_Psi_p{j}) .* delta_Psi);
+
+            hessVec.(parName) = -(obj.H_b*obj.If2c*(T12 + T34 + T56))*obj.Ht;
+        end
     end
     
     function grad = computeGradientFD(obj, deltaG)
@@ -1214,15 +1269,16 @@ methods
         end
     end
 
-    % Code not generalized yet, so we only compute diagonal hessian entries
+    % Forward difference of the adjoint gradient, contracted with the perturbation
+    % direction Delta p_1, for each parameter p_2 and grid point i:
+    % hessVec.(p_2)(i) = (grad(p + deltaG*e_i) - grad(p))'*Delta p_1/deltaG
     function hessVec = computeHessianVectorFD(obj, deltaG)
-        % Compute misfit with current parameter vector
+        % Compute gradient with current parameter vector
         pars_baseline = obj.pars;
         obj.updateForwardDiscr(pars_baseline);
         obj.runForward();
-        grad0 = obj.computeGradient();
-        grad0.a
-        grad0_a = grad0.a;
+        grad0 = obj.gradientNativeToVector(obj.computeGradient());
+        dp = obj.parametersNativeToVector(obj.eps_p_coarse);
 
         % Update each element in paramter vector by a step deltaG
         for j = 1:numel(obj.inversionPars)
@@ -1236,10 +1292,8 @@ methods
                 obj.runForward();
                 % TODO: Try shortcut of using computeGradient instead
                 % grad = obj.computeGradientFD(deltaG);
-                grad = obj.computeGradient();
-                grad_a = grad.a;
-                dGrad_dg = (grad_a-grad0_a)'*obj.eps_p_coarse/deltaG;
-                hessVec.(parName)(i) = dGrad_dg;
+                grad = obj.gradientNativeToVector(obj.computeGradient());
+                hessVec.(parName)(i) = (grad-grad0)'*dp/deltaG;
             end
         end
 

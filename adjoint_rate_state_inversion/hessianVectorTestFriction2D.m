@@ -47,16 +47,9 @@ function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order,
     hessVec_fd = adj_opt.computeHessianVectorFD(delta_p);
     toc
 
-    % Trickery!
-    hessVec_struct = struct();
-    if ~isstruct(hessVec)
-        hessVec_struct.a = hessVec;
-        hessVec = hessVec_struct;
-    end
-
     delta_hessVec = adj_opt.compareGradients(hessVec,hessVec_fd);
     disp("Delta Hessian-Vector:")
-    delta_hessVec.a
+    disp(delta_hessVec)
     figure();
     fprintf('%s Misfit = %f\n',misfitType,adj_opt.computeMisfit());
     for i = 1:numel(inversionPars)
