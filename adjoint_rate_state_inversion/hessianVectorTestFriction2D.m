@@ -16,7 +16,7 @@ parsetOpts.initialGuessScalings = initialGuessScaling;
 parsetOpts.T = T;
 parsetOpts.m = m;
 parsetOpts.m_p = m_p;
-parsetOpts.k_idx = 10;
+parsetOpts.k_idx = 17;
 parsetOpts.delta_p = delta_p;
 [parset, parset_true] = parset(parsetOpts);
 
@@ -90,39 +90,31 @@ function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order,
         hold off;
     end
 
-    % % Test different FD step sizes
-    % fd_steps = logspace(-6, -10, 5);
-    % % First plot adjoint
-    % figure();
-    % hold on;
-    % for i = 1:numel(inversionPars)
-    %     parName = inversionPars{i};
-    %     plot(hessVec.(parName), 'b-', 'LineWidth', 2);
-    % end 
+    % Relative error of the FD Hessian-vector product vs FD step size
+    % Test different FD step sizes
+    fd_steps = logspace(-4, -10, 7);
+    rel_err = zeros(numel(inversionPars), numel(fd_steps));
+    for j = 1:numel(fd_steps)
+        tic
+        hessVec_fd = adj_opt.computeHessianVectorFD(fd_steps(j));
+        toc
+        delta_hessVec = adj_opt.compareGradients(hessVec, hessVec_fd);
+        for i = 1:numel(inversionPars)
+            parName = inversionPars{i};
+            rel_err(i,j) = norm(delta_hessVec.(parName)) / norm(full(hessVec.(parName)));
+            fprintf('step %.1e, %s: relative error %e\n', fd_steps(j), parName, rel_err(i,j));
+        end
+    end
 
-    % for step = fd_steps
-    %     tic
-    %     hessVec_fd = adj_opt.computeHessianVectorFD(step);
-    %     toc
-    %     % Then plot FD
-    %     for i = 1:numel(inversionPars)
-    %         parName = inversionPars{i};
-    %         plot(hessVec_fd.(parName), 'LineWidth', 2);
-    %     end
-        
-    %     delta_hessVec = adj_opt.compareGradients(hessVec, hessVec_fd); 
-        
-    %     fprintf('\n--- FD Step Size: %e ---\n', step);
-    %     for i = 1:numel(inversionPars)
-    %         parName = inversionPars{i};
-    %         rel_error = norm(delta_hessVec.(parName)) / norm(hessVec.(parName));
-    %         fprintf('Parameter %s relative error: %e\n', parName, rel_error);
-    %     end
-    % end
-
-    % legend('Adjoint Hessian-Vector', arrayfun(@(s) sprintf('FD Hessian-Vector (step=%e)', s), fd_steps, 'UniformOutput', false));
-    % title(sprintf('Hessian-Vector for different FD step sizes using %s misfit', misfitType));
-    % xlabel('Fault index');
-    % ylabel('Hessian-Vector value');
-    % hold off;
+    figure();
+    loglog(fd_steps, rel_err, 'o-', 'LineWidth', 2);
+    hold on;
+    % First-order reference slope (forward difference), anchored at the largest step
+    loglog(fd_steps, rel_err(1,1)*fd_steps/fd_steps(1), 'k--', 'LineWidth', 1.5);
+    hold off;
+    grid on;
+    xlabel('FD step \delta_p');
+    ylabel('Relative error');
+    legend([inversionPars, {'O(\delta_p)'}], 'Location', 'best');
+    title(sprintf('Hessian-vector FD error vs step size (%s misfit)', misfitType));
 end
