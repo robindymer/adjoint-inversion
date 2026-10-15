@@ -57,7 +57,8 @@ properties
     
     inversionPars
     delta_p % Parameter pertubation, required for hessian vector computation
-    eps_p
+    eps_p % Perturbation direction on the fine (fault) grid, Ic2f*eps_p_coarse
+    eps_p_coarse % Perturbation direction on the parameter grid
     F_p
     G_p
 
@@ -137,8 +138,8 @@ methods
             forwardDiscr.setFaultTraction();
             forwardDiscr.setStateEvolution();
             adjointDiscr.friction.rsParams = interpParams;
-            secondOrderForwardDiscr.friction.rsParams = interpParams;
-            secondOrderAdjointDiscr.friction.rsParams = interpParams;
+            % secondOrderForwardDiscr.friction.rsParams = interpParams;
+            % secondOrderAdjointDiscr.friction.rsParams = interpParams;
         else % No interpolation needed
             pars = forwardDiscr.friction.rsParams;
             
@@ -220,6 +221,7 @@ methods
         obj.m = m;
         obj.delta_p = delta_p;
         obj.eps_p = frictionFine.eps_p;
+        obj.eps_p_coarse = friction.eps_p;
         obj.order = order;
         obj.T = T;
         obj.pars = pars;
@@ -1236,7 +1238,7 @@ methods
                 % grad = obj.computeGradientFD(deltaG);
                 grad = obj.computeGradient();
                 grad_a = grad.a;
-                dGrad_dg = (grad_a-grad0_a)'*obj.eps_p/deltaG;
+                dGrad_dg = (grad_a-grad0_a)'*obj.eps_p_coarse/deltaG;
                 hessVec.(parName)(i) = dGrad_dg;
             end
         end

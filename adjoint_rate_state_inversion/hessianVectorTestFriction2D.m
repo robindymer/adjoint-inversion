@@ -1,12 +1,13 @@
 
 clear all;
 addSubpaths;
-order = 6;
+order = 8;
 inversionPars = {'a'};
 initialGuessScaling = 1.1;
-T = 4;
-m = 26;
-m_p = 26;
+T = 5;
+% NOTE: can only use order=8 if m != m_p
+m = 51;
+m_p = 11;
 
 parset = @pars.rsFriction2DFractalFaultVerification; 
 delta_p = 1e-9; % For FD (also second pertubation?)
@@ -16,12 +17,13 @@ parsetOpts.initialGuessScalings = initialGuessScaling;
 parsetOpts.T = T;
 parsetOpts.m = m;
 parsetOpts.m_p = m_p;
-parsetOpts.k_idx = 17;
+parsetOpts.k_idx = 10;
 parsetOpts.delta_p = delta_p;
 [parset, parset_true] = parset(parsetOpts);
 
 plotFlag = false;
 progressBar = true;
+convergenceStudy = true;
 
 % Get synthetic data
 % TODO: Add option for loading data from mat files
@@ -30,9 +32,9 @@ data_opt.runForward(false,[],[], progressBar);
 syntheticData = {data_opt.forwardReceiverRecordings,data_opt.forwardTimeIntegrationData};
 
 % [delta_grad_disp, grad_adj_disp, grad_fd_disp] = compare_gradients(parset, order, syntheticData, 'displacement', inversionPars, delta_p, plotFlag, progressBar);
-[delta_hessVec, hessVec_vel, hessVec_fd_vel]    = compare_gradients(parset, order, syntheticData, 'velocity', inversionPars, delta_p, plotFlag, progressBar);
+[delta_hessVec, hessVec_vel, hessVec_fd_vel]    = compare_gradients(parset, order, syntheticData, 'velocity', inversionPars, delta_p, plotFlag, progressBar, convergenceStudy);
 
-function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order, syntheticData, misfitType, inversionPars, delta_p, plotFlag, progressBar)
+function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order, syntheticData, misfitType, inversionPars, delta_p, plotFlag, progressBar, convergenceStudy)
     parset.misfitType = misfitType;
     adj_opt = AntiplaneShear2DRSFrictionOptHessian(parset, inversionPars, order);
     adj_opt.setSyntheticReceiverData(syntheticData{:});
@@ -92,29 +94,31 @@ function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order,
 
     % Relative error of the FD Hessian-vector product vs FD step size
     % Test different FD step sizes
-    fd_steps = logspace(-4, -10, 7);
-    rel_err = zeros(numel(inversionPars), numel(fd_steps));
-    for j = 1:numel(fd_steps)
-        tic
-        hessVec_fd = adj_opt.computeHessianVectorFD(fd_steps(j));
-        toc
-        delta_hessVec = adj_opt.compareGradients(hessVec, hessVec_fd);
-        for i = 1:numel(inversionPars)
-            parName = inversionPars{i};
-            rel_err(i,j) = norm(delta_hessVec.(parName)) / norm(full(hessVec.(parName)));
-            fprintf('step %.1e, %s: relative error %e\n', fd_steps(j), parName, rel_err(i,j));
+    if convergenceStudy
+        fd_steps = logspace(-4, -10, 7);
+        rel_err = zeros(numel(inversionPars), numel(fd_steps));
+        for j = 1:numel(fd_steps)
+            tic
+            hessVec_fd = adj_opt.computeHessianVectorFD(fd_steps(j));
+            toc
+            delta_hessVec = adj_opt.compareGradients(hessVec, hessVec_fd);
+            for i = 1:numel(inversionPars)
+                parName = inversionPars{i};
+                rel_err(i,j) = norm(delta_hessVec.(parName)) / norm(full(hessVec.(parName)));
+                fprintf('step %.1e, %s: relative error %e\n', fd_steps(j), parName, rel_err(i,j));
+            end
         end
-    end
 
-    figure();
-    loglog(fd_steps, rel_err, 'o-', 'LineWidth', 2);
-    hold on;
-    % First-order reference slope (forward difference), anchored at the largest step
-    loglog(fd_steps, rel_err(1,1)*fd_steps/fd_steps(1), 'k--', 'LineWidth', 1.5);
-    hold off;
-    grid on;
-    xlabel('FD step \delta_p');
-    ylabel('Relative error');
-    legend([inversionPars, {'O(\delta_p)'}], 'Location', 'best');
-    title(sprintf('Hessian-vector FD error vs step size (%s misfit)', misfitType));
+        figure();
+        loglog(fd_steps, rel_err, 'o-', 'LineWidth', 2);
+        hold on;
+        % First-order reference slope (forward difference), anchored at the largest step
+        loglog(fd_steps, rel_err(1,1)*fd_steps/fd_steps(1), 'k--', 'LineWidth', 1.5);
+        hold off;
+        grid on;
+        xlabel('FD step \delta_p');
+        ylabel('Relative error');
+        legend([inversionPars, {'O(\delta_p)'}], 'Location', 'best');
+        title(sprintf('Hessian-vector FD error vs step size (%s misfit)', misfitType));
+    end
 end
