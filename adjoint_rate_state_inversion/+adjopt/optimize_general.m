@@ -86,7 +86,9 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         b = [];
         Aeq = [];
         beq = [];
-        lb = [];
+        % Rate-and-state parameters are positive. 
+        % Interior-point keeps iterates strictly inside the bounds.
+        lb = zeros(size(x0));
         ub = [];
         nonlcon = [];
 
@@ -130,7 +132,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         b = [];
         Aeq = [];
         beq = [];
-        lb = [];
+        lb = zeros(size(x0));
         ub = [];
         nonlcon = [];
 

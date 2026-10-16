@@ -6,7 +6,9 @@ scalingStudy = false;
 misfitType = 'velocity';
 optPars = {'a'}; % parameter to invert for
 val = 0.0135; % initial value
-[parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy);
+opt_routine_str = 'lbfgs';
+fprintf('RUNNING: %s\n', opt_routine_str);
+[parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, [], [], [], opt_routine_str);
 
 figure();
 x = linspace(-10,10,m_p); % Parameter grid

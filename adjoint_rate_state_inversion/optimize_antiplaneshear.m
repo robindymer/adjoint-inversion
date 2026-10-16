@@ -9,7 +9,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
     % lbfgs and bfgs are quasi-newton methods, CG is a conjugate gradient method
     % lbfgs usually better than bfgs for many unknowns, but require same information (gradient)
     % CG require gradient and hessian-vector product
-    default_arg('opt_routine_str','CG');
+    default_arg('opt_routine_str','lbfgs');
     order = 8;
     if strcmp(opt_routine_str, 'CG') % Requires Hessian-vector products
         optObj = @AntiplaneShear2DRSFrictionOptHessian;

@@ -59,6 +59,7 @@ properties
     delta_p % Parameter pertubation, required for hessian vector computation
     eps_p % Perturbation direction Delta p_1 on the fine (fault) grid, Ic2f*eps_p_coarse. Struct with one field per inversion parameter
     eps_p_coarse % Perturbation direction Delta p_1 on the parameter grid. Struct with one field per inversion parameter
+    firstOrderParsVec % Fault grid inversion parameters for which the stored forward and adjoint solutions are valid. Empty if invalid.
     F_p
     G_p
     % Second derivatives for the Hessian. F_V_p{i} = d^2F/dVdp_i etc., F_p_q{i,j} = d^2F/dp_idp_j
@@ -287,7 +288,8 @@ methods
         default_arg('T', obj.T);
         default_arg('saveOpts', []);
         default_arg('progressBar', []);
-        
+        obj.firstOrderParsVec = []; % Invalidate stored forward and adjoint solutions
+
         discr = obj.forwardDiscr;
         % Matrix for measuring misfit
         Rec = obj.RecMat;
@@ -1154,21 +1156,28 @@ methods
     function grad = computeGradient(obj, plotFlag, progressBar)
         default_arg('plotFlag', false)
         default_arg('progressBar', false)
+        obj.runFirstOrder(plotFlag, progressBar);
+        grad = obj.gradientFormula();
+    end
+
+    % Runs the forward and adjoint solves, and marks them as valid for the
+    % current parameters.
+    function runFirstOrder(obj, plotFlag, progressBar)
         obj.runForward(plotFlag, obj.T, [], progressBar);
         obj.updateAdjointDiscr();
         obj.runAdjoint(plotFlag, obj.T, [], progressBar);
-        grad = obj.gradientFormula();
+        obj.firstOrderParsVec = obj.parametersNativeToVector(obj.forwardDiscr.friction.rsParams);
     end
 
     function hessianVector = computeHessianVector(obj, plotFlag, progressBar)
         default_arg('plotFlag', false)
         default_arg('progressBar', false)
-        % disp("Run forward...")
-        obj.runForward(plotFlag, obj.T, [], progressBar);
-        % disp("Run forward complete. Update adjoint discr...")
-        obj.updateAdjointDiscr();
-        % disp("Update adjoint discr complete. Run adjoint...")
-        obj.runAdjoint(plotFlag, obj.T, [], progressBar);
+        % Reuse forward and adjoint solutions if computed for the current parameters,
+        % e.g. by computeGradient or a previous Hessian-vector product.
+        parsVec = obj.parametersNativeToVector(obj.forwardDiscr.friction.rsParams);
+        if ~isequal(obj.firstOrderParsVec, parsVec)
+            obj.runFirstOrder(plotFlag, progressBar);
+        end
         % disp("Run adjoint complete. Update second order forward discr...")
         obj.updateSecondOrderForwardDiscr();
         % disp("Update second order forward discr complete. Run second order forward...")
