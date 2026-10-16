@@ -1301,79 +1301,36 @@ methods
         obj.pars = pars_baseline;
         obj.updateForwardDiscr(pars_baseline);
     end
-    % function hessVec = computeHessianVectorFD(obj, deltaG)
-    %     % 1. Compute baseline gradient
-    %     pars_baseline = obj.pars;
-    %     obj.updateForwardDiscr(pars_baseline);
-    %     obj.runForward();
-    %     grad0 = obj.computeGradient(); 
-        
-    %     % 2. Perturb the ENTIRE parameter field simultaneously 
-    %     % in the direction of the perturbation vector (eps_p)
-    %     pars_tmp = pars_baseline;
-    %     eps_p_interp = obj.Ic2f'*obj.eps_p;
-    %     eps_p_interp
-    %     % pars_tmp.a
-    %     for j = 1:numel(obj.inversionPars)
-    %         parName = obj.inversionPars{j};
-    %         % p_new = p_old + h * v
-    %         pars_tmp.(parName) = pars_baseline.(parName) + deltaG * eps_p_interp; 
-    %     end
-    %     % pars_tmp.a
-        
-    %     % 3. Compute the perturbed gradient
-    %     obj.pars = pars_tmp;
-    %     obj.updateForwardDiscr(pars_tmp);
-    %     obj.runForward();
-    %     grad_pert = obj.computeGradient();
-        
-    %     % 4. Compute the full Hessian-vector product
-    %     for j = 1:numel(obj.inversionPars)
-    %         parName = obj.inversionPars{j};
-    %         % (g_pert - g_0) / h
-    %         hessVec.(parName) = (grad_pert.(parName) - grad0.(parName)) / deltaG;
-    %     end
 
-    %     % Clean up
-    %     obj.pars = pars_baseline;
-    %     obj.updateForwardDiscr(pars_baseline);
-    % end
-    % function hessVec = computeHessianVectorCentralFD(obj, deltaG)
-    %     pars_baseline = obj.pars;
-        
-    %     % --- 1. Forward Step (+ h) ---
-    %     pars_plus = pars_baseline;
-    %     for j = 1:numel(obj.inversionPars)
-    %         parName = obj.inversionPars{j};
-    %         pars_plus.(parName) = pars_baseline.(parName) + deltaG * obj.eps_p; 
-    %     end
-    %     obj.pars = pars_plus;
-    %     obj.updateForwardDiscr(pars_plus);
-    %     obj.runForward();
-    %     grad_plus = obj.computeGradient();
-        
-    %     % --- 2. Backward Step (- h) ---
-    %     pars_minus = pars_baseline;
-    %     for j = 1:numel(obj.inversionPars)
-    %         parName = obj.inversionPars{j};
-    %         pars_minus.(parName) = pars_baseline.(parName) - deltaG * obj.eps_p; 
-    %     end
-    %     obj.pars = pars_minus;
-    %     obj.updateForwardDiscr(pars_minus);
-    %     obj.runForward();
-    %     grad_minus = obj.computeGradient();
-        
-    %     % --- 3. Central Difference ---
-    %     for j = 1:numel(obj.inversionPars)
-    %         parName = obj.inversionPars{j};
-    %         % H*v approx (grad_plus - grad_minus) / (2h)
-    %         hessVec.(parName) = (grad_plus.(parName) - grad_minus.(parName)) / (2 * deltaG);
-    %     end
+    % Forward difference of the adjoint gradient along the perturbation direction Delta p_1:
+    % hessVec.(p_2) = (grad_{p_2}(p + deltaG*Delta p_1) - grad_{p_2}(p))/deltaG
+    % Requires two gradient evaluations, independent of the number of parameters.
+    function hessVec = computeHessianVectorDirectionalFD(obj, deltaG)
+        % Compute gradient with current parameter vector
+        pars_baseline = obj.pars;
+        obj.updateForwardDiscr(pars_baseline);
+        grad0 = obj.computeGradient();
 
-    %     % Clean up
-    %     obj.pars = pars_baseline;
-    %     obj.updateForwardDiscr(pars_baseline);
-    % end
+        % Perturb all inversion parameters along Delta p_1
+        pars_tmp = pars_baseline;
+        for j = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{j};
+            pars_tmp.(parName) = pars_baseline.(parName) + deltaG*obj.eps_p_coarse.(parName);
+        end
+        obj.pars = pars_tmp;
+        obj.updateForwardDiscr(pars_tmp);
+        grad = obj.computeGradient();
+
+        for j = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{j};
+            hessVec.(parName) = (grad.(parName) - grad0.(parName))/deltaG;
+        end
+
+        % Clean up
+        obj.pars = pars_baseline;
+        obj.updateForwardDiscr(pars_baseline);
+    end
+
     function M = computeMisfit(obj)
         data = obj.receiverData;
         approx = obj.forwardReceiverRecordings;

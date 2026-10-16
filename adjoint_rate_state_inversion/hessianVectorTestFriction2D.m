@@ -2,15 +2,16 @@
 clear all;
 addSubpaths;
 order = 8;
+% E.g. 'a', 'b', {'a', 'b'}, {'b', 'a'}
 inversionPars = {'a'};
 initialGuessScaling = 1.1;
 T = 5;
 % NOTE: can only use order=8 if m != m_p
-m = 51;
+m = 36;
 m_p = 11;
 
 parset = @pars.rsFriction2DFractalFaultVerification; 
-delta_p = 1e-9; % For FD (also second pertubation?)
+delta_p = 1e-7; % For FD (also second pertubation?)
 
 parsetOpts.inversionParameters = inversionPars;
 parsetOpts.initialGuessScalings = initialGuessScaling;
@@ -23,7 +24,7 @@ parsetOpts.delta_p = delta_p;
 
 plotFlag = false;
 progressBar = true;
-convergenceStudy = true;
+convergenceStudy = false;
 
 % Get synthetic data
 % TODO: Add option for loading data from mat files
@@ -45,11 +46,21 @@ function [delta_hessVec, hessVec, hessVec_fd] = compare_gradients(parset, order,
     
     tic
     hessVec_fd = adj_opt.computeHessianVectorFD(delta_p);
+    % hessVec_fd = adj_opt.computeHessianVectorDirectionalFD(delta_p);
     toc
 
+    % tic
+    % hessVec_dfd = adj_opt.computeHessianVectorDirectionalFD(delta_p);
+    % toc
+
+    % delta_hessVec_dfd = adj_opt.compareGradients(hessVec, hessVec_dfd);
     delta_hessVec = adj_opt.compareGradients(hessVec,hessVec_fd);
+    
     disp("Delta Hessian-Vector:")
     disp(delta_hessVec)
+    % disp("Delta Hessian-Vector Directional FD:")
+    % disp(delta_hessVec_dfd)
+
     figure();
     fprintf('%s Misfit = %f\n',misfitType,adj_opt.computeMisfit());
     for i = 1:numel(inversionPars)
