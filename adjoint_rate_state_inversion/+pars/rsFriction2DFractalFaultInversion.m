@@ -9,6 +9,7 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultInversion(opts)
     default_field(opts,'initialGuessScalings',[]);
     default_field(opts,'initialGuessValues',[]);
     default_field(opts,'doFilter',false);
+    default_field(opts,'delta_p',1e-7);
 
     if isempty(opts.initialGuessScalings) && isempty(opts.initialGuessValues)
         error();
@@ -67,6 +68,7 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultInversion(opts)
     % sources.funs - cell array with function handles for time dependent part of sources
     %                ex: sources.funs = {@(t) f1(t), @(t) f2(t), ...}
     sources = [];
+    secondOrderSources = [];
 
     %% Receivers
     % receivers.x - cell array with coordinate vectors for receiver positions
@@ -85,6 +87,7 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultInversion(opts)
         boundaries.inner.x = [-7, 7];
     end
     receivers = pars.placeReceivers(boundaries,opts.receiverSpacing);
+    secondOrderReceivers = pars.placeReceivers(boundaries,opts.receiverSpacing);
     
     
     
@@ -143,6 +146,9 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultInversion(opts)
     friction.rsParams.V0 = V0;
     friction.rsParams.D_c = D_c;
     friction.rsParams.tau0 = tau0;
+    % Only used for Hessian-vector products. The direction is set by adjopt.hessianVector.
+    friction.rsParams.delta_p = opts.delta_p;
+    friction.eps_p = zeros(m_p,1);
 
     friction.loadingParams.Vinit = Vinit; 
     friction.loadingParams.A = A;
@@ -154,6 +160,13 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultInversion(opts)
     friction.funs.G = G;
     friction.funs.G_V = G_V;
     friction.funs.G_Psi = G_Psi;
+    % Second derivatives, needed for Hessian-vector products
+    friction.funs.F_V_V = @elastic.friction.inversion.F_V_V;
+    friction.funs.F_V_Psi = @elastic.friction.inversion.F_V_Psi;
+    friction.funs.F_Psi_Psi = @elastic.friction.inversion.F_Psi_Psi;
+    friction.funs.G_V_V = @elastic.friction.inversion.G_V_V;
+    friction.funs.G_V_Psi = @elastic.friction.inversion.G_V_Psi;
+    friction.funs.G_Psi_Psi = @elastic.friction.inversion.G_Psi_Psi;
     friction.funs.Finv = Finv;
     friction.funs.nonlin_solve_fun = nonlin_solve_fun;
     friction.funs.tau_L = tau_L;
@@ -207,6 +220,8 @@ function [parameters, trueParameters] = rsFriction2DFractalFaultInversion(opts)
     parameters.friction = friction;
     parameters.sources = sources;
     parameters.receivers = receivers;
+    parameters.secondOrderSources = secondOrderSources;
+    parameters.secondOrderReceivers = secondOrderReceivers;
     parameters.initialconditions = initialconditions;
     parameters.misfitType = opts.misfitType;
     parameters.tsOpts = tsOpts;

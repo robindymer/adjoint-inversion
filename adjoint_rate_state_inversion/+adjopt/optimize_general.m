@@ -2,13 +2,14 @@
 %
 % optObjFunc: 	Handle to an AdjointOptimization class
 % parSetFunc: 		Handle to a parameter definition function
-function [parsVec, misFit, flag, output, history, initialPars, truePars, parset] = optimize_lbfgs(optObjFunc, parSetFunc, invPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, lbfgs)
+% NOTE: Previously called optimize_lbfgs, now we call it optimize_general
+function [parsVec, misFit, flag, output, history, initialPars, truePars, parset] = optimize_general(optObjFunc, parSetFunc, invPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str)
     default_arg('maxIter', 20);
     default_arg('order', 4);
     default_arg('parSetOpts', struct);
     default_arg('loadDataPath', '');
     default_arg('loadOptPath', '');
-    default_arg('lbfgs', true);
+    default_arg('opt_routine_str','lbfgs');
 
     % Plot settings
     if ~strcmp(loadDataPath,'') % Load data and create optimization object
@@ -68,7 +69,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         x0 = optObj.parametersNativeToVector( optObj.pars );
     end
 
-    if lbfgs
+    if strcmp(opt_routine_str,'lbfgs')
         % LBFGS via MATLABs fmincon
         options = optimoptions('fmincon');
         options.SpecifyObjectiveGradient = true;
@@ -93,8 +94,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         tic
         [parsVec, misFit, flag, output] = fmincon(fun,x0,A,b,Aeq,beq,lb,ub,nonlcon,options);
         toc
-
-    else
+    elseif strcmp(opt_routine_str,'bfgs')
         % BFGS via MATLABs fminunc
         options = optimoptions('fminunc');
         options.SpecifyObjectiveGradient = true;
@@ -110,6 +110,36 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         tic
         [parsVec, misFit, flag, output] = fminunc(fun,x0,options);
         toc
+    elseif strcmp(opt_routine_str,'CG')
+        % TODO: Implement CG optimization routine
+        % LBFGS via MATLABs fmincon
+        options = optimoptions('fmincon');
+        options.SpecifyObjectiveGradient = true;
+        options.Algorithm = 'interior-point';
+        % options.HessianApproximation = 'lbfgs';
+        options.SubproblemAlgorithm = 'cg';
+        options.HessianMultiplyFcn = @(x, lambda, v) adjopt.hessianVector(x, v, optObj);
+        options.MaxIterations = maxIter;
+        options.OutputFcn = @outputMisfit;
+        options.Display = 'iter-detailed';
+        options.OptimalityTolerance = 1e-10;
+        %options.PlotFcn = {@optimplotx,@optimplotfval};
+
+        % fmincon arguments
+        A = [];
+        b = [];
+        Aeq = [];
+        beq = [];
+        lb = [];
+        ub = [];
+        nonlcon = [];
+
+        % Optimize
+        tic
+        [parsVec, misFit, flag, output] = fmincon(fun,x0,A,b,Aeq,beq,lb,ub,nonlcon,options);
+        toc
+    else
+        error('Unknown optimization routine: %s', opt_routine_str);
     end
 
     

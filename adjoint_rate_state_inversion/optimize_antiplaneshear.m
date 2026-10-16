@@ -1,13 +1,21 @@
-function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, horizontalFault, loadOptPath, lbfgs)
+function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, horizontalFault, loadOptPath, opt_routine_str)
     
     addSubpaths;
     default_arg('scalingStudy',true);
     default_arg('loadData',false);
     default_arg('horizontalFault',false);
     default_arg('loadOptPath','');
-    default_arg('lbfgs',true);
+    % lbfgs or CG or bfgs
+    % lbfgs and bfgs are quasi-newton methods, CG is a conjugate gradient method
+    % lbfgs usually better than bfgs for many unknowns, but require same information (gradient)
+    % CG require gradient and hessian-vector product
+    default_arg('opt_routine_str','CG');
     order = 8;
-    optObj = @AntiplaneShear2DRSFrictionOpt;
+    if strcmp(opt_routine_str, 'CG') % Requires Hessian-vector products
+        optObj = @AntiplaneShear2DRSFrictionOptHessian;
+    else
+        optObj = @AntiplaneShear2DRSFrictionOpt;
+    end
     
     if loadData
          % Generate this data by running fractal_fault_generate_data.m with the 
@@ -39,14 +47,13 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
     parSetOpts.inversionParameters = optPars;
     parSetOpts.m = m;
     parSetOpts.m_p = m_p;
-    [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = adjopt.optimize_lbfgs(optObj, parSetFun, optPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, lbfgs);
+    [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = adjopt.optimize_general(optObj, parSetFun, optPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str);
 
-    if lbfgs
-        opt_str = 'lbfgs';
-    else
-        opt_str = 'bfgs';
-    end
-
+    % if lbfgs
+    %     opt_str = 'lbfgs';
+    % else
+    %     opt_str = 'bfgs';
+    % end
     if scalingStudy
         scalings = parSetOpts.initialGuessScalings;
         str_ending = 'scaled';
@@ -64,7 +71,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
             str_ending = erase(sprintf('%s_%s%1.4f',str_ending,parname,p),'.');
         end
     end
-    filename = sprintf('mat/inversion/%s_%s_maxiter%d_m%d_mp%d_%s_%s_%s.mat',fault_str,opt_str,maxIter,m,m_p,misfitType,data_str,str_ending);
+    filename = sprintf('mat/inversion/%s_%s_maxiter%d_m%d_mp%d_%s_%s_%s.mat',fault_str,opt_routine_str,maxIter,m,m_p,misfitType,data_str,str_ending);
     if isfile(filename)
         filecounter = 1;
         split_str = split(filename,'.');

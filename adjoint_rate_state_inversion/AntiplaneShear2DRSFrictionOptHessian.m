@@ -797,7 +797,17 @@ methods
             obj.pars.(parName) = pars.(parName);
         end
     end
-    
+
+    % Sets the perturbation direction Delta p_1 used in the Hessian-vector product
+    % dpNative -- direction on the parameter grid in native format
+    function setPerturbationDirection(obj, dpNative)
+        for i = 1:numel(obj.inversionPars)
+            parName = obj.inversionPars{i};
+            obj.eps_p_coarse.(parName) = dpNative.(parName);
+            obj.eps_p.(parName) = obj.Ic2f*dpNative.(parName);
+        end
+    end
+
     % Converts inversion parameters from native format to one column vector
     % parsNative -- parameters in native fomat
     function parsVec = parametersNativeToVector(obj, parsNative)
@@ -1153,21 +1163,21 @@ methods
     function hessianVector = computeHessianVector(obj, plotFlag, progressBar)
         default_arg('plotFlag', false)
         default_arg('progressBar', false)
-        disp("Run forward...")
+        % disp("Run forward...")
         obj.runForward(plotFlag, obj.T, [], progressBar);
-        disp("Run forward complete. Update adjoint discr...")
+        % disp("Run forward complete. Update adjoint discr...")
         obj.updateAdjointDiscr();
-        disp("Update adjoint discr complete. Run adjoint...")
+        % disp("Update adjoint discr complete. Run adjoint...")
         obj.runAdjoint(plotFlag, obj.T, [], progressBar);
-        disp("Run adjoint complete. Update second order forward discr...")
+        % disp("Run adjoint complete. Update second order forward discr...")
         obj.updateSecondOrderForwardDiscr();
-        disp("Update second order forward discr complete. Run second order forward...")
+        % disp("Update second order forward discr complete. Run second order forward...")
         obj.runSecondOrderForward(plotFlag, obj.T, [], progressBar);
-        disp("Run second order forward complete. Update second order adjoint discr...")
+        % disp("Run second order forward complete. Update second order adjoint discr...")
         obj.updateSecondOrderAdjointDiscr();
-        disp("Update second order adjoint discr complete. Run second order adjoint...")
+        % disp("Update second order adjoint discr complete. Run second order adjoint...")
         obj.runSecondOrderAdjoint(plotFlag, obj.T, [], progressBar);
-        disp("Run second order adjoint complete. Compute hessian vector...")
+        % disp("Run second order adjoint complete. Compute hessian vector...")
         hessianVector = obj.hessianVectorFormula();
         % grad = obj.gradientFormula();
     end
