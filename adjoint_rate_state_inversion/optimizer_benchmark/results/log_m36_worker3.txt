@@ -1,0 +1,285 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+==== trncg ====
+[     6s] it   0  f 2.9811e+01  |g| 3.654e-01  err  0.2864  fwd    1 adj    1 Hv    0  cost    1.0  init
+[    18s] it   1  f 1.6714e+01  |g| 6.805e+03  err  0.2589  fwd    2 adj    2 Hv    1  cost    2.7  CG  1 negcurv  rho 2044.401 th 1.00 Delta 2.75e-02
+    rejected: CG  2 negcurv  rho -0.138 th 0.84 Delta 5.81e-03  f_trial 2.9811e+01
+    rejected: CG  2 negcurv  rho -0.620 th 1.00 Delta 1.45e-03  f_trial 2.9804e+01
+    rejected: CG  2 negcurv  rho -0.865 th 1.00 Delta 3.63e-04  f_trial 2.1552e+01
+[    45s] it   2  f 8.7540e+00  |g| 6.061e+03  err  0.2582  fwd    6 adj    3 Hv    3  cost    7.5  CG  1 boundary rho  4.503 th 1.00 Delta 1.45e-03
+[    60s] it   3  f 8.6605e+00  |g| 3.185e+04  err  0.2386  fwd    7 adj    4 Hv    5  cost   10.0  CG  2 boundary rho  0.066 th 1.00 Delta 3.63e-04
+[    70s] it   4  f 7.4980e+00  |g| 9.472e+03  err  0.2385  fwd    8 adj    5 Hv    6  cost   11.7  CG  1 conv     rho  0.714 th 1.00 Delta 3.63e-04
+[    85s] it   5  f 7.1117e+00  |g| 8.987e+03  err  0.2342  fwd    9 adj    6 Hv    8  cost   14.2  CG  2 negcurv  rho  0.653 th 1.00 Delta 3.63e-04
+[    99s] it   6  f 6.7258e+00  |g| 2.825e+03  err  0.2296  fwd   10 adj    7 Hv   10  cost   16.6  CG  2 boundary rho  1.108 th 1.00 Delta 1.45e-03
+[   113s] it   7  f 5.4383e+00  |g| 2.965e+03  err  0.2111  fwd   11 adj    8 Hv   12  cost   19.1  CG  2 boundary rho  1.122 th 1.00 Delta 5.81e-03
+    rejected: CG  4 boundary rho -6.742 th 1.00 Delta 1.45e-03  f_trial 2.3438e+01
+[   141s] it   8  f 4.4880e+00  |g| 1.488e+04  err  0.1930  fwd   13 adj    9 Hv   16  cost   23.8  CG  2 boundary rho  0.850 th 1.00 Delta 2.90e-03
+[   151s] it   9  f 4.3269e+00  |g| 8.890e+02  err  0.1930  fwd   14 adj   10 Hv   17  cost   25.5  CG  1 conv     rho  0.989 th 1.00 Delta 2.90e-03
+    rejected: CG  3 negcurv  rho -8.721 th 1.00 Delta 7.26e-04  f_trial 1.8925e+01
+    rejected: CG  2 boundary rho -4.701 th 1.00 Delta 1.82e-04  f_trial 6.7155e+00
+[   180s] it  10  f 4.2190e+00  |g| 6.931e+03  err  0.1912  fwd   17 adj   11 Hv   20  cost   30.2  CG  2 boundary rho  0.757 th 1.00 Delta 3.63e-04
+[   195s] it  11  f 3.9232e+00  |g| 2.291e+03  err  0.1869  fwd   18 adj   12 Hv   22  cost   32.7  CG  2 boundary rho  1.030 th 1.00 Delta 1.45e-03
+    rejected: CG  3 boundary rho -0.653 th 1.00 Delta 3.63e-04  f_trial 4.3035e+00
+[   218s] it  12  f 3.6822e+00  |g| 3.124e+03  err  0.1827  fwd   20 adj   13 Hv   25  cost   36.7  CG  2 boundary rho  1.012 th 1.00 Delta 1.45e-03
+[   236s] it  13  f 2.9359e+00  |g| 1.410e+04  err  0.1674  fwd   21 adj   14 Hv   28  cost   39.9  CG  3 boundary rho  0.978 th 1.00 Delta 5.81e-03
+[   247s] it  14  f 2.7990e+00  |g| 1.010e+03  err  0.1673  fwd   22 adj   15 Hv   29  cost   41.6  CG  1 conv     rho  0.987 th 1.00 Delta 5.81e-03
+    rejected: CG  3 negcurv  rho -0.619 th 1.00 Delta 1.45e-03  f_trial 7.8270e+00
+    rejected: CG  3 negcurv  rho -1.181 th 1.00 Delta 3.63e-04  f_trial 4.1660e+00
+    rejected: CG  2 boundary rho -2.194 th 1.00 Delta 9.08e-05  f_trial 3.2490e+00
+[   282s] it  15  f 2.7351e+00  |g| 4.404e+03  err  0.1666  fwd   26 adj   16 Hv   32  cost   47.1  CG  2 boundary rho  0.862 th 1.00 Delta 1.82e-04
+[   296s] it  16  f 2.6062e+00  |g| 2.337e+03  err  0.1647  fwd   27 adj   17 Hv   34  cost   49.6  CG  2 boundary rho  1.062 th 1.00 Delta 7.26e-04
+    rejected: CG  2 boundary rho -0.254 th 1.00 Delta 1.82e-04  f_trial 2.6861e+00
+[   317s] it  17  f 2.4811e+00  |g| 1.736e+03  err  0.1628  fwd   29 adj   18 Hv   36  cost   52.8  CG  2 boundary rho  1.005 th 1.00 Delta 7.26e-04
+[   331s] it  18  f 2.3064e+00  |g| 1.680e+04  err  0.1553  fwd   30 adj   19 Hv   38  cost   55.3  CG  2 boundary rho  0.550 th 1.00 Delta 7.26e-04
+[   342s] it  19  f 2.1387e+00  |g| 1.284e+03  err  0.1552  fwd   31 adj   20 Hv   39  cost   57.0  CG  1 conv     rho  0.977 th 1.00 Delta 7.26e-04
+    rejected: CG  3 boundary rho -8.319 th 1.00 Delta 1.82e-04  f_trial 6.0235e+00
+[   366s] it  20  f 2.1285e+00  |g| 1.421e+04  err  0.1545  fwd   33 adj   21 Hv   42  cost   61.0  CG  2 boundary rho  0.060 th 1.00 Delta 4.54e-05
+[   377s] it  21  f 2.0062e+00  |g| 5.945e+02  err  0.1545  fwd   34 adj   22 Hv   43  cost   62.7  CG  1 conv     rho  0.986 th 1.00 Delta 4.54e-05
+[   391s] it  22  f 1.9831e+00  |g| 1.118e+03  err  0.1540  fwd   35 adj   23 Hv   45  cost   65.2  CG  2 boundary rho  0.999 th 1.00 Delta 1.82e-04
+[   405s] it  23  f 1.8902e+00  |g| 5.703e+02  err  0.1524  fwd   36 adj   24 Hv   47  cost   67.6  CG  2 boundary rho  1.003 th 1.00 Delta 7.26e-04
+[   420s] it  24  f 1.5317e+00  |g| 2.649e+03  err  0.1463  fwd   37 adj   25 Hv   49  cost   70.1  CG  2 boundary rho  1.040 th 1.00 Delta 2.90e-03
+[   438s] it  25  f 6.9642e-01  |g| 1.123e+04  err  0.1228  fwd   38 adj   26 Hv   52  cost   73.3  CG  3 boundary rho  0.882 th 1.00 Delta 5.81e-03
+[   449s] it  26  f 6.3670e-01  |g| 4.241e+02  err  0.1228  fwd   39 adj   27 Hv   53  cost   75.0  CG  1 conv     rho  0.988 th 1.00 Delta 5.81e-03
+[   471s] it  27  f 4.8767e-01  |g| 8.334e+03  err  0.0947  fwd   40 adj   28 Hv   57  cost   78.9  CG  4 boundary rho  0.240 th 1.00 Delta 1.45e-03
+[   483s] it  28  f 4.5594e-01  |g| 4.468e+02  err  0.0947  fwd   41 adj   29 Hv   58  cost   80.7  CG  1 conv     rho  0.991 th 1.00 Delta 1.45e-03
+[   501s] it  29  f 1.4206e-01  |g| 4.791e+02  err  0.0866  fwd   42 adj   30 Hv   61  cost   83.9  CG  3 boundary rho  0.921 th 1.00 Delta 5.81e-03
+[   530s] it  30  f 2.1690e-02  |g| 9.393e+02  err  0.0481  fwd   43 adj   31 Hv   67  cost   89.3  CG  6 conv     rho  0.926 th 1.00 Delta 5.81e-03
+[   541s] it  31  f 2.1308e-02  |g| 3.424e+01  err  0.0481  fwd   44 adj   32 Hv   68  cost   91.0  CG  1 conv     rho  1.000 th 1.00 Delta 5.81e-03
+[   594s] it  32  f 2.4519e-04  |g| 3.836e+02  err  0.0278  fwd   45 adj   33 Hv   81  cost  101.5  CG 13 conv     rho  0.992 th 1.00 Delta 5.81e-03
+[   606s] it  33  f 1.8174e-04  |g| 3.288e+00  err  0.0278  fwd   46 adj   34 Hv   82  cost  103.3  CG  1 conv     rho  1.000 th 1.00 Delta 5.81e-03
+[   684s] it  34  f 4.0312e-06  |g| 1.012e+00  err  0.0246  fwd   47 adj   35 Hv  102  cost  118.9  CG 20 maxit    rho  0.999 th 1.00 Delta 5.81e-03
+[   762s] it  35  f 1.7344e-06  |g| 3.308e-02  err  0.0242  fwd   48 adj   36 Hv  122  cost  134.5  CG 20 maxit    rho  0.999 th 1.00 Delta 5.81e-03
+[   840s] it  36  f 7.4057e-07  |g| 8.139e-02  err  0.0237  fwd   49 adj   37 Hv  142  cost  150.2  CG 20 maxit    rho  0.976 th 1.00 Delta 5.81e-03
+[   919s] it  37  f 3.7754e-07  |g| 1.201e-02  err  0.0236  fwd   50 adj   38 Hv  162  cost  165.8  CG 20 maxit    rho  1.000 th 1.00 Delta 5.81e-03
+[   998s] it  38  f 2.4995e-07  |g| 8.114e-02  err  0.0235  fwd   51 adj   39 Hv  182  cost  181.5  CG 20 maxit    rho  0.989 th 1.00 Delta 5.81e-03
+[  1076s] it  39  f 2.1179e-07  |g| 3.099e-03  err  0.0235  fwd   52 adj   40 Hv  202  cost  197.1  CG 20 maxit    rho  1.000 th 1.00 Delta 5.81e-03
+[  1155s] it  40  f 1.9991e-07  |g| 2.554e-02  err  0.0234  fwd   53 adj   41 Hv  222  cost  212.8  CG 20 maxit    rho  0.998 th 1.00 Delta 5.81e-03
+[  1233s] it  41  f 1.9570e-07  |g| 1.189e-03  err  0.0234  fwd   54 adj   42 Hv  242  cost  228.4  CG 20 maxit    rho  1.000 th 1.00 Delta 5.81e-03
+[  1312s] it  42  f 1.9418e-07  |g| 9.884e-03  err  0.0233  fwd   55 adj   43 Hv  262  cost  244.0  CG 20 maxit    rho  1.000 th 1.00 Delta 5.81e-03
+[  1391s] it  43  f 1.9284e-07  |g| 1.160e-03  err  0.0233  fwd   56 adj   44 Hv  282  cost  259.7  CG 20 maxit    rho  1.000 th 1.00 Delta 5.81e-03
+==== done trncg: f 1.92845e-07 err 0.0233119 cost 259.679 time 1390.92
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+==== lbfgs ====
+[     6s] it   0  f 2.9811e+01  |g| 3.654e-01  err  0.2864  fwd    1 adj    1 Hv    0  cost    1.0  init
+[    13s] it   1  f 1.6714e+01  |g| 6.805e+03  err  0.2589  fwd    2 adj    2 Hv    0  cost    2.0  stp 1.00e+00 ls 1
+[    28s] it   2  f 1.0095e+01  |g| 7.090e+03  err  0.2591  fwd    5 adj    3 Hv    0  cost    4.5  stp 8.36e-02 ls 3
+[    49s] it   3  f 1.0027e+01  |g| 6.302e+03  err  0.2592  fwd    9 adj    4 Hv    0  cost    7.8  stp 6.39e-03 ls 4
+[    56s] it   4  f 9.9822e+00  |g| 1.969e+03  err  0.2591  fwd   10 adj    5 Hv    0  cost    8.8  stp 1.00e+00 ls 1
+[    63s] it   5  f 9.9764e+00  |g| 6.308e+02  err  0.2591  fwd   11 adj    6 Hv    0  cost    9.8  stp 1.00e+00 ls 1
+[    70s] it   6  f 9.9747e+00  |g| 5.099e+02  err  0.2591  fwd   12 adj    7 Hv    0  cost   10.8  stp 1.00e+00 ls 1
+[    77s] it   7  f 9.9697e+00  |g| 1.146e+03  err  0.2589  fwd   13 adj    8 Hv    0  cost   11.8  stp 1.00e+00 ls 1
+[    84s] it   8  f 9.9566e+00  |g| 2.520e+03  err  0.2582  fwd   14 adj    9 Hv    0  cost   12.8  stp 1.00e+00 ls 1
+[    91s] it   9  f 9.9245e+00  |g| 4.243e+03  err  0.2565  fwd   15 adj   10 Hv    0  cost   13.8  stp 1.00e+00 ls 1
+[    98s] it  10  f 9.8121e+00  |g| 4.921e+03  err  0.2523  fwd   16 adj   11 Hv    0  cost   14.8  stp 1.00e+00 ls 1
+[   105s] it  11  f 9.3738e+00  |g| 6.376e+02  err  0.2446  fwd   17 adj   12 Hv    0  cost   15.8  stp 1.00e+00 ls 1
+[   112s] it  12  f 9.2456e+00  |g| 8.604e+02  err  0.2363  fwd   18 adj   13 Hv    0  cost   16.8  stp 1.00e+00 ls 1
+[   125s] it  13  f 8.4217e+00  |g| 1.434e+04  err  0.2297  fwd   20 adj   14 Hv    0  cost   18.6  stp 1.88e-01 ls 2
+[   145s] it  14  f 7.2203e+00  |g| 2.496e+04  err  0.2165  fwd   23 adj   15 Hv    0  cost   21.1  stp 6.72e-02 ls 3
+[   152s] it  15  f 6.8470e+00  |g| 1.124e+04  err  0.2221  fwd   24 adj   16 Hv    0  cost   22.1  stp 1.00e+00 ls 1
+[   159s] it  16  f 6.3893e+00  |g| 1.266e+03  err  0.2181  fwd   25 adj   17 Hv    0  cost   23.1  stp 1.00e+00 ls 1
+[   167s] it  17  f 6.2196e+00  |g| 8.115e+03  err  0.2139  fwd   26 adj   18 Hv    0  cost   24.1  stp 1.00e+00 ls 1
+[   174s] it  18  f 5.9395e+00  |g| 9.660e+03  err  0.2083  fwd   27 adj   19 Hv    0  cost   25.1  stp 1.00e+00 ls 1
+[   181s] it  19  f 3.9729e+00  |g| 1.192e+03  err  0.1782  fwd   28 adj   20 Hv    0  cost   26.1  stp 1.00e+00 ls 1
+[   193s] it  20  f 3.2515e+00  |g| 2.712e+03  err  0.1717  fwd   30 adj   21 Hv    0  cost   27.9  stp 3.94e-02 ls 2
+[   201s] it  21  f 3.0703e+00  |g| 1.189e+04  err  0.1821  fwd   31 adj   22 Hv    0  cost   28.9  stp 1.00e+00 ls 1
+[   208s] it  22  f 2.6919e+00  |g| 1.165e+03  err  0.1723  fwd   32 adj   23 Hv    0  cost   29.9  stp 1.00e+00 ls 1
+[   216s] it  23  f 2.6845e+00  |g| 1.198e+03  err  0.1723  fwd   33 adj   24 Hv    0  cost   30.9  stp 1.00e+00 ls 1
+[   223s] it  24  f 2.6658e+00  |g| 3.631e+03  err  0.1728  fwd   34 adj   25 Hv    0  cost   31.9  stp 1.00e+00 ls 1
+[   231s] it  25  f 2.6553e+00  |g| 4.420e+03  err  0.1731  fwd   35 adj   26 Hv    0  cost   32.9  stp 1.00e+00 ls 1
+[   239s] it  26  f 2.6039e+00  |g| 6.756e+03  err  0.1743  fwd   36 adj   27 Hv    0  cost   33.9  stp 1.00e+00 ls 1
+[   246s] it  27  f 2.5094e+00  |g| 9.301e+03  err  0.1757  fwd   37 adj   28 Hv    0  cost   34.9  stp 1.00e+00 ls 1
+[   254s] it  28  f 2.2249e+00  |g| 1.372e+04  err  0.1773  fwd   38 adj   29 Hv    0  cost   35.9  stp 1.00e+00 ls 1
+[   262s] it  29  f 1.5994e+00  |g| 1.532e+04  err  0.1793  fwd   39 adj   30 Hv    0  cost   36.9  stp 1.00e+00 ls 1
+[   270s] it  30  f 1.5884e+00  |g| 1.387e+04  err  0.1718  fwd   40 adj   31 Hv    0  cost   37.9  stp 1.00e+00 ls 1
+[   278s] it  31  f 1.1744e+00  |g| 3.428e+03  err  0.1676  fwd   41 adj   32 Hv    0  cost   38.9  stp 1.00e+00 ls 1
+[   297s] it  32  f 1.0968e+00  |g| 3.658e+03  err  0.1666  fwd   44 adj   33 Hv    0  cost   41.4  stp 3.92e-02 ls 3
+[   305s] it  33  f 1.0885e+00  |g| 1.078e+04  err  0.1652  fwd   45 adj   34 Hv    0  cost   42.4  stp 1.00e+00 ls 1
+[   313s] it  34  f 1.0638e+00  |g| 5.082e+03  err  0.1654  fwd   46 adj   35 Hv    0  cost   43.4  stp 1.00e+00 ls 1
+[   320s] it  35  f 1.0474e+00  |g| 3.650e+03  err  0.1654  fwd   47 adj   36 Hv    0  cost   44.4  stp 1.00e+00 ls 1
+[   328s] it  36  f 9.9000e-01  |g| 3.431e+03  err  0.1653  fwd   48 adj   37 Hv    0  cost   45.4  stp 1.00e+00 ls 1
+[   336s] it  37  f 9.6943e-01  |g| 1.742e+03  err  0.1646  fwd   49 adj   38 Hv    0  cost   46.4  stp 1.00e+00 ls 1
+[   343s] it  38  f 9.3668e-01  |g| 9.809e+02  err  0.1625  fwd   50 adj   39 Hv    0  cost   47.4  stp 1.00e+00 ls 1
+[   351s] it  39  f 9.1302e-01  |g| 7.068e+03  err  0.1592  fwd   51 adj   40 Hv    0  cost   48.4  stp 1.00e+00 ls 1
+[   365s] it  40  f 8.8923e-01  |g| 5.231e+03  err  0.1577  fwd   53 adj   41 Hv    0  cost   50.2  stp 1.00e-01 ls 2
+[   378s] it  41  f 8.6766e-01  |g| 1.612e+03  err  0.1561  fwd   55 adj   42 Hv    0  cost   52.0  stp 1.00e-01 ls 2
+[   392s] it  42  f 8.5790e-01  |g| 9.255e+02  err  0.1547  fwd   57 adj   43 Hv    0  cost   53.8  stp 2.47e-01 ls 2
+[   400s] it  43  f 8.4008e-01  |g| 3.926e+03  err  0.1515  fwd   58 adj   44 Hv    0  cost   54.8  stp 1.00e+00 ls 1
+[   407s] it  44  f 8.0252e-01  |g| 3.815e+03  err  0.1478  fwd   59 adj   45 Hv    0  cost   55.8  stp 1.00e+00 ls 1
+[   415s] it  45  f 7.0877e-01  |g| 1.303e+03  err  0.1397  fwd   60 adj   46 Hv    0  cost   56.8  stp 1.00e+00 ls 1
+[   423s] it  46  f 7.0722e-01  |g| 7.488e+03  err  0.1331  fwd   61 adj   47 Hv    0  cost   57.8  stp 1.00e+00 ls 1
+[   431s] it  47  f 6.7958e-01  |g| 2.261e+03  err  0.1335  fwd   62 adj   48 Hv    0  cost   58.8  stp 1.00e+00 ls 1
+[   438s] it  48  f 6.7700e-01  |g| 9.184e+02  err  0.1331  fwd   63 adj   49 Hv    0  cost   59.8  stp 1.00e+00 ls 1
+[   446s] it  49  f 6.7591e-01  |g| 4.616e+02  err  0.1327  fwd   64 adj   50 Hv    0  cost   60.8  stp 1.00e+00 ls 1
+[   454s] it  50  f 6.7388e-01  |g| 3.445e+02  err  0.1323  fwd   65 adj   51 Hv    0  cost   61.8  stp 1.00e+00 ls 1
+[   461s] it  51  f 6.6612e-01  |g| 1.156e+03  err  0.1311  fwd   66 adj   52 Hv    0  cost   62.8  stp 1.00e+00 ls 1
+[   469s] it  52  f 6.4772e-01  |g| 2.508e+03  err  0.1290  fwd   67 adj   53 Hv    0  cost   63.8  stp 1.00e+00 ls 1
+[   477s] it  53  f 6.0553e-01  |g| 5.270e+03  err  0.1245  fwd   68 adj   54 Hv    0  cost   64.8  stp 1.00e+00 ls 1
+[   485s] it  54  f 5.6048e-01  |g| 1.024e+04  err  0.1187  fwd   69 adj   55 Hv    0  cost   65.8  stp 1.00e+00 ls 1
+[   493s] it  55  f 5.0989e-01  |g| 7.994e+03  err  0.1166  fwd   70 adj   56 Hv    0  cost   66.8  stp 1.00e+00 ls 1
+[   500s] it  56  f 4.7144e-01  |g| 4.442e+03  err  0.1149  fwd   71 adj   57 Hv    0  cost   67.8  stp 1.00e+00 ls 1
+[   508s] it  57  f 4.5648e-01  |g| 6.180e+03  err  0.1133  fwd   72 adj   58 Hv    0  cost   68.8  stp 1.00e+00 ls 1
+[   516s] it  58  f 4.2433e-01  |g| 5.704e+02  err  0.1129  fwd   73 adj   59 Hv    0  cost   69.8  stp 1.00e+00 ls 1
+[   524s] it  59  f 4.0074e-01  |g| 2.241e+03  err  0.1112  fwd   74 adj   60 Hv    0  cost   70.8  stp 1.00e+00 ls 1
+[   532s] it  60  f 3.6916e-01  |g| 9.191e+02  err  0.1096  fwd   75 adj   61 Hv    0  cost   71.8  stp 1.00e+00 ls 1
+[   539s] it  61  f 3.3280e-01  |g| 1.610e+03  err  0.1073  fwd   76 adj   62 Hv    0  cost   72.8  stp 1.00e+00 ls 1
+[   547s] it  62  f 2.6224e-01  |g| 9.986e+02  err  0.0984  fwd   77 adj   63 Hv    0  cost   73.8  stp 1.00e+00 ls 1
+[   555s] it  63  f 2.1832e-01  |g| 7.275e+03  err  0.0902  fwd   78 adj   64 Hv    0  cost   74.8  stp 1.00e+00 ls 1
+[   563s] it  64  f 1.6038e-01  |g| 6.099e+03  err  0.0856  fwd   79 adj   65 Hv    0  cost   75.8  stp 1.00e+00 ls 1
+[   571s] it  65  f 1.4065e-01  |g| 1.901e+03  err  0.0856  fwd   80 adj   66 Hv    0  cost   76.8  stp 1.00e+00 ls 1
+[   578s] it  66  f 1.3603e-01  |g| 7.818e+02  err  0.0854  fwd   81 adj   67 Hv    0  cost   77.8  stp 1.00e+00 ls 1
+[   586s] it  67  f 1.3546e-01  |g| 2.073e+02  err  0.0854  fwd   82 adj   68 Hv    0  cost   78.8  stp 1.00e+00 ls 1
+[   594s] it  68  f 1.3515e-01  |g| 8.378e+01  err  0.0855  fwd   83 adj   69 Hv    0  cost   79.8  stp 1.00e+00 ls 1
+[   602s] it  69  f 1.3504e-01  |g| 1.042e+02  err  0.0855  fwd   84 adj   70 Hv    0  cost   80.8  stp 1.00e+00 ls 1
+[   615s] it  70  f 1.3491e-01  |g| 1.538e+02  err  0.0854  fwd   86 adj   71 Hv    0  cost   82.5  stp 4.32e-01 ls 2
+[   623s] it  71  f 1.3448e-01  |g| 3.018e+02  err  0.0855  fwd   87 adj   72 Hv    0  cost   83.5  stp 1.00e+00 ls 1
+[   631s] it  72  f 1.3232e-01  |g| 7.421e+02  err  0.0851  fwd   88 adj   73 Hv    0  cost   84.5  stp 1.00e+00 ls 1
+[   639s] it  73  f 1.2514e-01  |g| 9.605e+02  err  0.0835  fwd   89 adj   74 Hv    0  cost   85.5  stp 1.00e+00 ls 1
+[   647s] it  74  f 1.1068e-01  |g| 1.436e+02  err  0.0800  fwd   90 adj   75 Hv    0  cost   86.5  stp 1.00e+00 ls 1
+[   654s] it  75  f 8.5161e-02  |g| 1.015e+03  err  0.0737  fwd   91 adj   76 Hv    0  cost   87.5  stp 1.00e+00 ls 1
+[   662s] it  76  f 6.2968e-02  |g| 5.260e+02  err  0.0684  fwd   92 adj   77 Hv    0  cost   88.5  stp 1.00e+00 ls 1
+[   676s] it  77  f 5.8681e-02  |g| 2.940e+03  err  0.0672  fwd   94 adj   78 Hv    0  cost   90.3  stp 4.18e-01 ls 2
+[   684s] it  78  f 5.4568e-02  |g| 1.088e+03  err  0.0659  fwd   95 adj   79 Hv    0  cost   91.3  stp 1.00e+00 ls 1
+[   692s] it  79  f 5.1920e-02  |g| 9.022e+02  err  0.0663  fwd   96 adj   80 Hv    0  cost   92.3  stp 1.00e+00 ls 1
+[   706s] it  80  f 5.0598e-02  |g| 5.255e+02  err  0.0668  fwd   98 adj   81 Hv    0  cost   94.1  stp 3.10e-01 ls 2
+[   720s] it  81  f 4.9628e-02  |g| 1.945e+02  err  0.0668  fwd  100 adj   82 Hv    0  cost   95.8  stp 3.84e-01 ls 2
+[   728s] it  82  f 4.9586e-02  |g| 6.450e+01  err  0.0667  fwd  101 adj   83 Hv    0  cost   96.8  stp 1.00e+00 ls 1
+[   735s] it  83  f 4.9578e-02  |g| 4.022e+01  err  0.0667  fwd  102 adj   84 Hv    0  cost   97.8  stp 1.00e+00 ls 1
+[   743s] it  84  f 4.9559e-02  |g| 7.082e+01  err  0.0667  fwd  103 adj   85 Hv    0  cost   98.8  stp 1.00e+00 ls 1
+[   751s] it  85  f 4.9525e-02  |g| 1.507e+02  err  0.0667  fwd  104 adj   86 Hv    0  cost   99.8  stp 1.00e+00 ls 1
+[   759s] it  86  f 4.9433e-02  |g| 2.863e+02  err  0.0667  fwd  105 adj   87 Hv    0  cost  100.8  stp 1.00e+00 ls 1
+[   767s] it  87  f 4.9207e-02  |g| 4.826e+02  err  0.0667  fwd  106 adj   88 Hv    0  cost  101.8  stp 1.00e+00 ls 1
+[   775s] it  88  f 4.8646e-02  |g| 7.563e+02  err  0.0664  fwd  107 adj   89 Hv    0  cost  102.8  stp 1.00e+00 ls 1
+[   782s] it  89  f 4.7342e-02  |g| 1.087e+03  err  0.0656  fwd  108 adj   90 Hv    0  cost  103.8  stp 1.00e+00 ls 1
+[   790s] it  90  f 4.4594e-02  |g| 1.411e+03  err  0.0638  fwd  109 adj   91 Hv    0  cost  104.8  stp 1.00e+00 ls 1
+[   798s] it  91  f 3.9610e-02  |g| 1.642e+03  err  0.0603  fwd  110 adj   92 Hv    0  cost  105.8  stp 1.00e+00 ls 1
+[   806s] it  92  f 3.1985e-02  |g| 1.608e+03  err  0.0548  fwd  111 adj   93 Hv    0  cost  106.8  stp 1.00e+00 ls 1
+[   826s] it  93  f 3.1649e-02  |g| 1.597e+03  err  0.0547  fwd  114 adj   94 Hv    0  cost  109.4  stp 2.19e-02 ls 3
+[   834s] it  94  f 2.1424e-02  |g| 1.587e+03  err  0.0443  fwd  115 adj   95 Hv    0  cost  110.4  stp 1.00e+00 ls 1
+[   849s] it  95  f 1.6145e-02  |g| 6.320e+02  err  0.0435  fwd  117 adj   96 Hv    0  cost  112.1  stp 3.15e-01 ls 2
+[   857s] it  96  f 1.1915e-02  |g| 1.824e+02  err  0.0444  fwd  118 adj   97 Hv    0  cost  113.1  stp 1.00e+00 ls 1
+[   865s] it  97  f 1.1321e-02  |g| 1.314e+02  err  0.0447  fwd  119 adj   98 Hv    0  cost  114.1  stp 1.00e+00 ls 1
+[   873s] it  98  f 1.1272e-02  |g| 1.354e+02  err  0.0446  fwd  120 adj   99 Hv    0  cost  115.1  stp 1.00e+00 ls 1
+[   893s] it  99  f 1.1247e-02  |g| 2.184e+02  err  0.0445  fwd  123 adj  100 Hv    0  cost  117.7  stp 4.72e-02 ls 3
+[   901s] it 100  f 1.1160e-02  |g| 2.100e+02  err  0.0444  fwd  124 adj  101 Hv    0  cost  118.7  stp 1.00e+00 ls 1
+[   909s] it 101  f 1.0542e-02  |g| 8.471e+01  err  0.0435  fwd  125 adj  102 Hv    0  cost  119.7  stp 1.00e+00 ls 1
+[   916s] it 102  f 9.8887e-03  |g| 7.344e+02  err  0.0423  fwd  126 adj  103 Hv    0  cost  120.7  stp 1.00e+00 ls 1
+[   924s] it 103  f 8.4267e-03  |g| 1.021e+02  err  0.0409  fwd  127 adj  104 Hv    0  cost  121.7  stp 1.00e+00 ls 1
+[   932s] it 104  f 6.5775e-03  |g| 3.321e+02  err  0.0396  fwd  128 adj  105 Hv    0  cost  122.7  stp 1.00e+00 ls 1
+[   940s] it 105  f 5.2944e-03  |g| 2.027e+02  err  0.0385  fwd  129 adj  106 Hv    0  cost  123.7  stp 1.00e+00 ls 1
+[   948s] it 106  f 5.2080e-03  |g| 8.663e+01  err  0.0384  fwd  130 adj  107 Hv    0  cost  124.7  stp 1.00e+00 ls 1
+[   955s] it 107  f 5.1885e-03  |g| 1.523e+01  err  0.0384  fwd  131 adj  108 Hv    0  cost  125.7  stp 1.00e+00 ls 1
+[   963s] it 108  f 5.1869e-03  |g| 9.759e+00  err  0.0385  fwd  132 adj  109 Hv    0  cost  126.7  stp 1.00e+00 ls 1
+[   971s] it 109  f 5.1832e-03  |g| 9.130e+00  err  0.0385  fwd  133 adj  110 Hv    0  cost  127.7  stp 1.00e+00 ls 1
+[   979s] it 110  f 5.1464e-03  |g| 3.415e+01  err  0.0384  fwd  134 adj  111 Hv    0  cost  128.7  stp 1.00e+00 ls 1
+[   987s] it 111  f 5.0467e-03  |g| 4.720e+01  err  0.0383  fwd  135 adj  112 Hv    0  cost  129.7  stp 1.00e+00 ls 1
+[   994s] it 112  f 4.7556e-03  |g| 5.155e+01  err  0.0379  fwd  136 adj  113 Hv    0  cost  130.7  stp 1.00e+00 ls 1
+[  1008s] it 113  f 4.4977e-03  |g| 2.910e+02  err  0.0367  fwd  138 adj  114 Hv    0  cost  132.4  stp 4.61e-01 ls 2
+[  1016s] it 114  f 3.7867e-03  |g| 1.968e+02  err  0.0358  fwd  139 adj  115 Hv    0  cost  133.4  stp 1.00e+00 ls 1
+[  1024s] it 115  f 2.4507e-03  |g| 8.415e+01  err  0.0339  fwd  140 adj  116 Hv    0  cost  134.4  stp 1.00e+00 ls 1
+[  1031s] it 116  f 1.7659e-03  |g| 2.305e+02  err  0.0326  fwd  141 adj  117 Hv    0  cost  135.4  stp 1.00e+00 ls 1
+[  1045s] it 117  f 1.5839e-03  |g| 1.335e+02  err  0.0323  fwd  143 adj  118 Hv    0  cost  137.2  stp 4.13e-01 ls 2
+[  1053s] it 118  f 1.4990e-03  |g| 5.935e+01  err  0.0322  fwd  144 adj  119 Hv    0  cost  138.2  stp 1.00e+00 ls 1
+[  1061s] it 119  f 1.4797e-03  |g| 3.433e+01  err  0.0322  fwd  145 adj  120 Hv    0  cost  139.2  stp 1.00e+00 ls 1
+[  1069s] it 120  f 1.4672e-03  |g| 4.265e+01  err  0.0322  fwd  146 adj  121 Hv    0  cost  140.2  stp 1.00e+00 ls 1
+[  1077s] it 121  f 1.4509e-03  |g| 3.830e+01  err  0.0322  fwd  147 adj  122 Hv    0  cost  141.2  stp 1.00e+00 ls 1
+[  1090s] it 122  f 1.4319e-03  |g| 3.657e+01  err  0.0322  fwd  149 adj  123 Hv    0  cost  143.0  stp 3.31e-01 ls 2
+[  1110s] it 123  f 1.4284e-03  |g| 6.746e+00  err  0.0322  fwd  152 adj  124 Hv    0  cost  145.5  stp 1.95e-02 ls 3
+[  1118s] it 124  f 1.4181e-03  |g| 6.779e+00  err  0.0322  fwd  153 adj  125 Hv    0  cost  146.5  stp 1.00e+00 ls 1
+[  1126s] it 125  f 1.4046e-03  |g| 3.585e+01  err  0.0321  fwd  154 adj  126 Hv    0  cost  147.5  stp 1.00e+00 ls 1
+[  1134s] it 126  f 1.3792e-03  |g| 6.350e+01  err  0.0321  fwd  155 adj  127 Hv    0  cost  148.5  stp 1.00e+00 ls 1
+[  1142s] it 127  f 1.3115e-03  |g| 7.350e+01  err  0.0319  fwd  156 adj  128 Hv    0  cost  149.5  stp 1.00e+00 ls 1
+[  1156s] it 128  f 1.3033e-03  |g| 1.707e+01  err  0.0318  fwd  158 adj  129 Hv    0  cost  151.3  stp 1.33e-01 ls 2
+[  1163s] it 129  f 1.2647e-03  |g| 1.963e+01  err  0.0317  fwd  159 adj  130 Hv    0  cost  152.3  stp 1.00e+00 ls 1
+[  1171s] it 130  f 1.1939e-03  |g| 1.877e+01  err  0.0315  fwd  160 adj  131 Hv    0  cost  153.3  stp 1.00e+00 ls 1
+[  1179s] it 131  f 8.4369e-04  |g| 1.545e+01  err  0.0305  fwd  161 adj  132 Hv    0  cost  154.3  stp 1.00e+00 ls 1
+[  1187s] it 132  f 5.3627e-04  |g| 1.432e+01  err  0.0297  fwd  162 adj  133 Hv    0  cost  155.3  stp 1.00e+00 ls 1
+[  1194s] it 133  f 3.1524e-04  |g| 4.853e+01  err  0.0291  fwd  163 adj  134 Hv    0  cost  156.3  stp 1.00e+00 ls 1
+[  1202s] it 134  f 2.7666e-04  |g| 4.319e+01  err  0.0291  fwd  164 adj  135 Hv    0  cost  157.3  stp 1.00e+00 ls 1
+[  1222s] it 135  f 2.7256e-04  |g| 6.968e+00  err  0.0291  fwd  167 adj  136 Hv    0  cost  159.8  stp 1.00e-02 ls 3
+[  1230s] it 136  f 2.6857e-04  |g| 1.817e+00  err  0.0291  fwd  168 adj  137 Hv    0  cost  160.8  stp 1.00e+00 ls 1
+[  1238s] it 137  f 2.6824e-04  |g| 1.749e+00  err  0.0291  fwd  169 adj  138 Hv    0  cost  161.8  stp 1.00e+00 ls 1
+[  1258s] it 138  f 2.6818e-04  |g| 5.192e+00  err  0.0291  fwd  172 adj  139 Hv    0  cost  164.3  stp 1.15e-02 ls 3
+[  1266s] it 139  f 2.6368e-04  |g| 3.816e+00  err  0.0291  fwd  173 adj  140 Hv    0  cost  165.3  stp 1.00e+00 ls 1
+[  1273s] it 140  f 2.6074e-04  |g| 4.071e+01  err  0.0291  fwd  174 adj  141 Hv    0  cost  166.3  stp 1.00e+00 ls 1
+[  1281s] it 141  f 2.5137e-04  |g| 1.220e+01  err  0.0290  fwd  175 adj  142 Hv    0  cost  167.3  stp 1.00e+00 ls 1
+[  1289s] it 142  f 2.3875e-04  |g| 2.861e+01  err  0.0289  fwd  176 adj  143 Hv    0  cost  168.3  stp 1.00e+00 ls 1
+[  1297s] it 143  f 2.0878e-04  |g| 4.167e+01  err  0.0286  fwd  177 adj  144 Hv    0  cost  169.3  stp 1.00e+00 ls 1
+[  1311s] it 144  f 2.0789e-04  |g| 1.504e+01  err  0.0285  fwd  179 adj  145 Hv    0  cost  171.1  stp 1.97e-01 ls 2
+[  1318s] it 145  f 2.0351e-04  |g| 9.438e+00  err  0.0284  fwd  180 adj  146 Hv    0  cost  172.1  stp 1.00e+00 ls 1
+[  1326s] it 146  f 2.0269e-04  |g| 1.556e+00  err  0.0284  fwd  181 adj  147 Hv    0  cost  173.1  stp 1.00e+00 ls 1
+[  1334s] it 147  f 2.0254e-04  |g| 2.227e+00  err  0.0284  fwd  182 adj  148 Hv    0  cost  174.1  stp 1.00e+00 ls 1
+[  1342s] it 148  f 2.0234e-04  |g| 5.777e+00  err  0.0284  fwd  183 adj  149 Hv    0  cost  175.1  stp 1.00e+00 ls 1
+[  1349s] it 149  f 2.0187e-04  |g| 1.003e+01  err  0.0284  fwd  184 adj  150 Hv    0  cost  176.1  stp 1.00e+00 ls 1
+[  1357s] it 150  f 2.0078e-04  |g| 1.628e+01  err  0.0284  fwd  185 adj  151 Hv    0  cost  177.1  stp 1.00e+00 ls 1
+[  1365s] it 151  f 1.9854e-04  |g| 1.726e+01  err  0.0284  fwd  186 adj  152 Hv    0  cost  178.1  stp 1.00e+00 ls 1
+[  1385s] it 152  f 1.9844e-04  |g| 3.428e+01  err  0.0284  fwd  189 adj  153 Hv    0  cost  180.6  stp 1.00e-02 ls 3
+[  1393s] it 153  f 1.9436e-04  |g| 1.935e+01  err  0.0283  fwd  190 adj  154 Hv    0  cost  181.6  stp 1.00e+00 ls 1
+[  1400s] it 154  f 1.8874e-04  |g| 5.056e+00  err  0.0282  fwd  191 adj  155 Hv    0  cost  182.6  stp 1.00e+00 ls 1
+[  1408s] it 155  f 1.8251e-04  |g| 2.910e+01  err  0.0281  fwd  192 adj  156 Hv    0  cost  183.6  stp 1.00e+00 ls 1
+[  1416s] it 156  f 1.7529e-04  |g| 4.715e+01  err  0.0280  fwd  193 adj  157 Hv    0  cost  184.6  stp 1.00e+00 ls 1
+[  1423s] it 157  f 1.6561e-04  |g| 5.597e+01  err  0.0279  fwd  194 adj  158 Hv    0  cost  185.6  stp 1.00e+00 ls 1
+[  1431s] it 158  f 1.5412e-04  |g| 3.887e+01  err  0.0277  fwd  195 adj  159 Hv    0  cost  186.6  stp 1.00e+00 ls 1
+[  1445s] it 159  f 1.5295e-04  |g| 6.571e+01  err  0.0277  fwd  197 adj  160 Hv    0  cost  188.4  stp 1.24e-01 ls 2
+[  1453s] it 160  f 1.4611e-04  |g| 3.349e+01  err  0.0276  fwd  198 adj  161 Hv    0  cost  189.4  stp 1.00e+00 ls 1
+[  1461s] it 161  f 1.4232e-04  |g| 8.476e+00  err  0.0276  fwd  199 adj  162 Hv    0  cost  190.4  stp 1.00e+00 ls 1
+[  1468s] it 162  f 1.4103e-04  |g| 3.867e+00  err  0.0276  fwd  200 adj  163 Hv    0  cost  191.4  stp 1.00e+00 ls 1
+[  1476s] it 163  f 1.3965e-04  |g| 4.063e+00  err  0.0276  fwd  201 adj  164 Hv    0  cost  192.4  stp 1.00e+00 ls 1
+[  1484s] it 164  f 1.3844e-04  |g| 5.077e+00  err  0.0275  fwd  202 adj  165 Hv    0  cost  193.4  stp 1.00e+00 ls 1
+[  1498s] it 165  f 1.3836e-04  |g| 1.239e+01  err  0.0275  fwd  204 adj  166 Hv    0  cost  195.2  stp 1.19e-01 ls 2
+[  1506s] it 166  f 1.3784e-04  |g| 9.261e+00  err  0.0275  fwd  205 adj  167 Hv    0  cost  196.2  stp 1.00e+00 ls 1
+[  1513s] it 167  f 1.3715e-04  |g| 7.889e+00  err  0.0275  fwd  206 adj  168 Hv    0  cost  197.2  stp 1.00e+00 ls 1
+[  1521s] it 168  f 1.3711e-04  |g| 1.092e+01  err  0.0275  fwd  207 adj  169 Hv    0  cost  198.2  stp 1.00e+00 ls 1
+[  1529s] it 169  f 1.3564e-04  |g| 2.062e+00  err  0.0275  fwd  208 adj  170 Hv    0  cost  199.2  stp 1.00e+00 ls 1
+[  1537s] it 170  f 1.3491e-04  |g| 6.958e+00  err  0.0275  fwd  209 adj  171 Hv    0  cost  200.2  stp 1.00e+00 ls 1
+[  1544s] it 171  f 1.3352e-04  |g| 1.838e+01  err  0.0275  fwd  210 adj  172 Hv    0  cost  201.2  stp 1.00e+00 ls 1
+[  1552s] it 172  f 1.3192e-04  |g| 2.734e+01  err  0.0275  fwd  211 adj  173 Hv    0  cost  202.2  stp 1.00e+00 ls 1
+[  1560s] it 173  f 1.2849e-04  |g| 3.269e+01  err  0.0275  fwd  212 adj  174 Hv    0  cost  203.2  stp 1.00e+00 ls 1
+[  1574s] it 174  f 1.2706e-04  |g| 5.398e+01  err  0.0274  fwd  214 adj  175 Hv    0  cost  204.9  stp 3.19e-01 ls 2
+[  1582s] it 175  f 1.2166e-04  |g| 4.087e+01  err  0.0273  fwd  215 adj  176 Hv    0  cost  205.9  stp 1.00e+00 ls 1
+[  1589s] it 176  f 1.1603e-04  |g| 1.380e+01  err  0.0273  fwd  216 adj  177 Hv    0  cost  206.9  stp 1.00e+00 ls 1
+[  1597s] it 177  f 1.1467e-04  |g| 1.385e+00  err  0.0272  fwd  217 adj  178 Hv    0  cost  207.9  stp 1.00e+00 ls 1
+[  1605s] it 178  f 1.1451e-04  |g| 9.430e-01  err  0.0272  fwd  218 adj  179 Hv    0  cost  208.9  stp 1.00e+00 ls 1
+[  1613s] it 179  f 1.1448e-04  |g| 8.928e-01  err  0.0272  fwd  219 adj  180 Hv    0  cost  209.9  stp 1.00e+00 ls 1
+[  1639s] it 180  f 1.1447e-04  |g| 1.498e+00  err  0.0273  fwd  223 adj  181 Hv    0  cost  213.3  stp 1.40e-03 ls 4
+[  1647s] it 181  f 1.1444e-04  |g| 1.983e+00  err  0.0272  fwd  224 adj  182 Hv    0  cost  214.2  stp 1.00e+00 ls 1
+[  1655s] it 182  f 1.1439e-04  |g| 6.510e-01  err  0.0273  fwd  225 adj  183 Hv    0  cost  215.3  stp 1.00e+00 ls 1
+[  1662s] it 183  f 1.1419e-04  |g| 5.386e+00  err  0.0272  fwd  226 adj  184 Hv    0  cost  216.2  stp 1.00e+00 ls 1
+[  1670s] it 184  f 1.1386e-04  |g| 4.728e+00  err  0.0272  fwd  227 adj  185 Hv    0  cost  217.2  stp 1.00e+00 ls 1
+[  1678s] it 185  f 1.0977e-04  |g| 3.622e+00  err  0.0272  fwd  228 adj  186 Hv    0  cost  218.3  stp 1.00e+00 ls 1
+[  1692s] it 186  f 1.0953e-04  |g| 1.595e+01  err  0.0272  fwd  230 adj  187 Hv    0  cost  220.0  stp 1.05e-01 ls 2
+[  1700s] it 187  f 1.0764e-04  |g| 1.302e+01  err  0.0271  fwd  231 adj  188 Hv    0  cost  221.0  stp 1.00e+00 ls 1
+[  1707s] it 188  f 1.0433e-04  |g| 1.095e+01  err  0.0271  fwd  232 adj  189 Hv    0  cost  222.0  stp 1.00e+00 ls 1
+[  1715s] it 189  f 9.9000e-05  |g| 2.811e+00  err  0.0270  fwd  233 adj  190 Hv    0  cost  223.0  stp 1.00e+00 ls 1
+[  1723s] it 190  f 9.6807e-05  |g| 2.070e+00  err  0.0269  fwd  234 adj  191 Hv    0  cost  224.0  stp 1.00e+00 ls 1
+[  1744s] it 191  f 9.6665e-05  |g| 6.932e+00  err  0.0269  fwd  237 adj  192 Hv    0  cost  226.6  stp 1.00e-02 ls 3
+[  1751s] it 192  f 9.5682e-05  |g| 1.293e+00  err  0.0269  fwd  238 adj  193 Hv    0  cost  227.6  stp 1.00e+00 ls 1
+[  1759s] it 193  f 9.5291e-05  |g| 2.763e+00  err  0.0268  fwd  239 adj  194 Hv    0  cost  228.6  stp 1.00e+00 ls 1
+[  1767s] it 194  f 9.4794e-05  |g| 6.026e+00  err  0.0268  fwd  240 adj  195 Hv    0  cost  229.6  stp 1.00e+00 ls 1
+[  1775s] it 195  f 9.4188e-05  |g| 5.350e+00  err  0.0268  fwd  241 adj  196 Hv    0  cost  230.6  stp 1.00e+00 ls 1
+[  1796s] it 196  f 9.4116e-05  |g| 1.013e+01  err  0.0268  fwd  244 adj  197 Hv    0  cost  233.1  stp 1.19e-02 ls 3
+[  1804s] it 197  f 9.3359e-05  |g| 6.179e+00  err  0.0268  fwd  245 adj  198 Hv    0  cost  234.1  stp 1.00e+00 ls 1
+[  1813s] it 198  f 9.2914e-05  |g| 3.172e+00  err  0.0269  fwd  246 adj  199 Hv    0  cost  235.1  stp 1.00e+00 ls 1
+[  1821s] it 199  f 9.2698e-05  |g| 1.716e+00  err  0.0268  fwd  247 adj  200 Hv    0  cost  236.1  stp 1.00e+00 ls 1
+[  1829s] it 200  f 9.2449e-05  |g| 3.659e+00  err  0.0269  fwd  248 adj  201 Hv    0  cost  237.1  stp 1.00e+00 ls 1
+[  1844s] it 201  f 9.2371e-05  |g| 3.964e+00  err  0.0268  fwd  250 adj  202 Hv    0  cost  238.9  stp 3.53e-01 ls 2
+[  1851s] it 202  f 9.2005e-05  |g| 3.490e+00  err  0.0268  fwd  251 adj  203 Hv    0  cost  239.9  stp 1.00e+00 ls 1
+[  1861s] it 203  f 8.6112e-05  |g| 1.023e+00  err  0.0268  fwd  252 adj  204 Hv    0  cost  240.9  stp 1.00e+00 ls 1
+[  1884s] it 204  f 8.5507e-05  |g| 8.052e+00  err  0.0267  fwd  255 adj  205 Hv    0  cost  243.4  stp 3.84e-02 ls 3
+[  1893s] it 205  f 7.7645e-05  |g| 8.506e+00  err  0.0266  fwd  256 adj  206 Hv    0  cost  244.4  stp 1.00e+00 ls 1
+[  1901s] it 206  f 6.9474e-05  |g| 1.134e+01  err  0.0263  fwd  257 adj  207 Hv    0  cost  245.4  stp 1.00e+00 ls 1
+[  1910s] it 207  f 5.6490e-05  |g| 1.147e+01  err  0.0263  fwd  258 adj  208 Hv    0  cost  246.4  stp 1.00e+00 ls 1
+[  1926s] it 208  f 5.4554e-05  |g| 2.025e+01  err  0.0263  fwd  260 adj  209 Hv    0  cost  248.2  stp 2.10e-01 ls 2
+[  1934s] it 209  f 4.9841e-05  |g| 1.237e+00  err  0.0262  fwd  261 adj  210 Hv    0  cost  249.2  stp 1.00e+00 ls 1
+[  1943s] it 210  f 4.9055e-05  |g| 2.954e+00  err  0.0262  fwd  262 adj  211 Hv    0  cost  250.2  stp 1.00e+00 ls 1
+==== done lbfgs: f 4.90547e-05 err 0.0261798 cost 250.161 time 1942.83

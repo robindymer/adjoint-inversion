@@ -1,0 +1,1081 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+==== trncg_pc ====
+[     6s] it   0  f 2.9811e+01  |g| 3.654e-01  err  0.2864  fwd    1 adj    1 Hv    0  cost    1.0  init
+[    18s] it   1  f 1.6714e+01  |g| 6.805e+03  err  0.2589  fwd    2 adj    2 Hv    1  cost    2.7  CG  1 negcurv  rho 2044.401 th 1.00 Delta 2.75e-02
+    rejected: CG  2 negcurv  rho -0.138 th 0.84 Delta 5.81e-03  f_trial 2.9811e+01
+    rejected: CG  2 negcurv  rho -0.620 th 1.00 Delta 1.45e-03  f_trial 2.9804e+01
+    rejected: CG  2 negcurv  rho -0.865 th 1.00 Delta 3.63e-04  f_trial 2.1552e+01
+[    45s] it   2  f 8.7540e+00  |g| 6.061e+03  err  0.2582  fwd    6 adj    3 Hv    3  cost    7.5  CG  1 boundary rho  4.503 th 1.00 Delta 1.45e-03
+[    56s] it   3  f 8.7513e+00  |g| 5.901e+03  err  0.2582  fwd    7 adj    4 Hv    4  cost    9.2  CG  1 boundary rho  1.000 th 1.00 Delta 5.81e-03
+[    67s] it   4  f 8.7496e+00  |g| 5.797e+03  err  0.2582  fwd    8 adj    5 Hv    5  cost   11.0  CG  1 boundary rho  1.000 th 1.00 Delta 2.32e-02
+[    78s] it   5  f 8.7425e+00  |g| 5.377e+03  err  0.2582  fwd    9 adj    6 Hv    6  cost   12.7  CG  1 boundary rho  1.000 th 1.00 Delta 9.29e-02
+[    88s] it   6  f 8.7184e+00  |g| 3.672e+03  err  0.2582  fwd   10 adj    7 Hv    7  cost   14.4  CG  1 boundary rho  0.997 th 1.00 Delta 3.72e-01
+[   103s] it   7  f 8.6775e+00  |g| 1.708e+03  err  0.2579  fwd   11 adj    8 Hv    9  cost   16.9  CG  2 boundary rho  0.972 th 1.00 Delta 6.88e-01
+[   117s] it   8  f 8.1363e+00  |g| 1.610e+04  err  0.2464  fwd   12 adj    9 Hv   11  cost   19.4  CG  2 boundary rho  0.893 th 1.00 Delta 6.88e-01
+[   131s] it   9  f 6.9018e+00  |g| 1.496e+03  err  0.2362  fwd   13 adj   10 Hv   13  cost   21.8  CG  2 boundary rho  1.055 th 1.00 Delta 6.88e-01
+[   142s] it  10  f 5.5204e+00  |g| 2.596e+03  err  0.2191  fwd   14 adj   11 Hv   14  cost   23.6  CG  1 boundary rho  1.019 th 1.00 Delta 6.88e-01
+[   153s] it  11  f 4.2490e+00  |g| 2.195e+03  err  0.2054  fwd   15 adj   12 Hv   15  cost   25.3  CG  1 boundary rho  1.216 th 1.00 Delta 6.88e-01
+[   164s] it  12  f 3.2096e+00  |g| 2.821e+03  err  0.1977  fwd   16 adj   13 Hv   16  cost   27.0  CG  1 boundary rho  0.910 th 1.00 Delta 6.88e-01
+[   178s] it  13  f 2.4758e+00  |g| 3.849e+03  err  0.1964  fwd   17 adj   14 Hv   18  cost   29.5  CG  2 boundary rho  1.156 th 1.00 Delta 6.88e-01
+[   189s] it  14  f 2.3557e+00  |g| 5.333e+03  err  0.2002  fwd   18 adj   15 Hv   19  cost   31.2  CG  1 boundary rho  0.773 th 1.00 Delta 6.88e-01
+[   207s] it  15  f 2.2612e+00  |g| 8.823e+02  err  0.1985  fwd   19 adj   16 Hv   22  cost   34.4  CG  3 boundary rho  1.112 th 1.00 Delta 6.88e-01
+[   218s] it  16  f 2.1049e+00  |g| 7.432e+03  err  0.1884  fwd   20 adj   17 Hv   23  cost   36.1  CG  1 boundary rho  1.041 th 1.00 Delta 6.88e-01
+[   230s] it  17  f 1.7320e+00  |g| 2.709e+03  err  0.1734  fwd   21 adj   18 Hv   24  cost   37.9  CG  1 negcurv  rho  1.018 th 1.00 Delta 6.88e-01
+[   241s] it  18  f 1.4408e+00  |g| 7.025e+03  err  0.1594  fwd   22 adj   19 Hv   25  cost   39.6  CG  1 boundary rho  1.127 th 1.00 Delta 6.88e-01
+[   252s] it  19  f 9.7122e-01  |g| 3.598e+03  err  0.1451  fwd   23 adj   20 Hv   26  cost   41.3  CG  1 negcurv  rho  0.805 th 1.00 Delta 6.88e-01
+[   263s] it  20  f 7.2217e-01  |g| 3.005e+03  err  0.1380  fwd   24 adj   21 Hv   27  cost   43.1  CG  1 boundary rho  1.167 th 1.00 Delta 6.88e-01
+[   281s] it  21  f 6.2029e-01  |g| 3.887e+03  err  0.1367  fwd   25 adj   22 Hv   30  cost   46.3  CG  3 boundary rho  0.817 th 1.00 Delta 6.88e-01
+[   303s] it  22  f 5.5848e-01  |g| 5.354e+02  err  0.1331  fwd   26 adj   23 Hv   34  cost   50.2  CG  4 boundary rho  1.059 th 1.00 Delta 6.88e-01
+[   318s] it  23  f 4.1924e-01  |g| 9.455e+02  err  0.1191  fwd   27 adj   24 Hv   36  cost   52.7  CG  2 boundary rho  1.080 th 1.00 Delta 6.88e-01
+[   333s] it  24  f 3.1504e-01  |g| 5.037e+03  err  0.1103  fwd   28 adj   25 Hv   38  cost   55.1  CG  2 boundary rho  0.915 th 1.00 Delta 6.88e-01
+    rejected: CG  1 boundary rho -0.928 th 1.00 Delta 1.72e-01  f_trial 4.4641e-01
+[   350s] it  25  f 2.6729e-01  |g| 2.707e+03  err  0.1089  fwd   30 adj   26 Hv   39  cost   57.6  CG  1 boundary rho  0.952 th 1.00 Delta 6.88e-01
+    rejected: CG  3 conv     rho -1.401 th 1.00 Delta 9.13e-02  f_trial 3.6044e-01
+[   375s] it  26  f 2.4019e-01  |g| 3.100e+03  err  0.1078  fwd   32 adj   27 Hv   42  cost   61.6  CG  1 boundary rho  0.731 th 1.00 Delta 9.13e-02
+[   386s] it  27  f 2.3305e-01  |g| 1.121e+03  err  0.1081  fwd   33 adj   28 Hv   43  cost   63.3  CG  1 boundary rho  1.000 th 1.00 Delta 3.65e-01
+[   401s] it  28  f 2.2637e-01  |g| 4.497e+02  err  0.1082  fwd   34 adj   29 Hv   45  cost   65.8  CG  2 conv     rho  1.062 th 1.00 Delta 3.65e-01
+[   426s] it  29  f 2.2515e-01  |g| 1.092e+02  err  0.1078  fwd   35 adj   30 Hv   50  cost   70.4  CG  5 boundary rho  0.997 th 1.00 Delta 6.88e-01
+[   445s] it  30  f 4.5640e-02  |g| 3.857e+03  err  0.0603  fwd   36 adj   31 Hv   53  cost   73.6  CG  3 boundary rho  0.927 th 1.00 Delta 6.88e-01
+[   460s] it  31  f 1.1903e-02  |g| 5.888e+02  err  0.0419  fwd   37 adj   32 Hv   55  cost   76.1  CG  2 conv     rho  1.051 th 1.00 Delta 6.88e-01
+[   485s] it  32  f 8.5833e-03  |g| 1.035e+03  err  0.0394  fwd   38 adj   33 Hv   60  cost   80.8  CG  5 boundary rho  0.993 th 1.00 Delta 6.88e-01
+[   500s] it  33  f 2.2587e-03  |g| 2.514e+02  err  0.0355  fwd   39 adj   34 Hv   62  cost   83.2  CG  2 conv     rho  1.016 th 1.00 Delta 6.88e-01
+[   511s] it  34  f 2.1864e-03  |g| 8.029e+00  err  0.0355  fwd   40 adj   35 Hv   63  cost   85.0  CG  1 conv     rho  1.023 th 1.00 Delta 6.88e-01
+[   533s] it  35  f 2.0487e-03  |g| 2.075e+02  err  0.0353  fwd   41 adj   36 Hv   67  cost   88.9  CG  4 boundary rho  0.986 th 1.00 Delta 6.88e-01
+[   548s] it  36  f 1.6398e-03  |g| 2.310e+01  err  0.0350  fwd   42 adj   37 Hv   69  cost   91.4  CG  2 conv     rho  1.007 th 1.00 Delta 6.88e-01
+[   566s] it  37  f 1.5189e-03  |g| 4.686e+01  err  0.0346  fwd   43 adj   38 Hv   72  cost   94.6  CG  3 boundary rho  1.000 th 1.00 Delta 6.88e-01
+[   588s] it  38  f 5.3779e-04  |g| 2.217e+01  err  0.0313  fwd   44 adj   39 Hv   76  cost   98.5  CG  4 conv     rho  0.986 th 1.00 Delta 6.88e-01
+[   610s] it  39  f 4.5043e-04  |g| 4.146e+01  err  0.0309  fwd   45 adj   40 Hv   80  cost  102.4  CG  4 boundary rho  1.000 th 1.00 Delta 6.88e-01
+[   625s] it  40  f 3.5301e-04  |g| 7.790e+00  err  0.0298  fwd   46 adj   41 Hv   82  cost  104.9  CG  2 conv     rho  0.997 th 1.00 Delta 6.88e-01
+[   644s] it  41  f 2.5958e-04  |g| 1.042e+01  err  0.0288  fwd   47 adj   42 Hv   85  cost  108.1  CG  3 boundary rho  1.000 th 1.00 Delta 6.88e-01
+[   702s] it  42  f 4.3235e-06  |g| 2.786e+00  err  0.0248  fwd   48 adj   43 Hv   99  cost  119.3  CG 14 conv     rho  1.001 th 1.00 Delta 6.88e-01
+[   745s] it  43  f 2.7109e-06  |g| 2.975e-02  err  0.0247  fwd   49 adj   44 Hv  109  cost  127.6  CG 10 conv     rho  0.999 th 1.00 Delta 6.88e-01
+[   785s] it  44  f 2.0286e-06  |g| 1.319e+00  err  0.0243  fwd   50 adj   45 Hv  118  cost  135.2  CG  9 boundary rho  0.999 th 1.00 Delta 6.88e-01
+[   807s] it  45  f 2.5271e-07  |g| 1.824e-02  err  0.0235  fwd   51 adj   46 Hv  122  cost  139.2  CG  4 conv     rho  0.885 th 1.00 Delta 6.88e-01
+[   847s] it  46  f 1.4006e-07  |g| 8.660e-01  err  0.0219  fwd   52 adj   47 Hv  131  cost  146.8  CG  9 boundary rho  1.007 th 1.00 Delta 6.88e-01
+[   886s] it  47  f 8.8248e-08  |g| 2.307e-04  err  0.0207  fwd   53 adj   48 Hv  140  cost  154.3  CG  9 conv     rho  0.999 th 1.00 Delta 6.88e-01
+[   934s] it  48  f 8.8188e-08  |g| 6.344e-03  err  0.0199  fwd   54 adj   49 Hv  151  cost  163.4  CG 11 boundary rho  1.000 th 1.00 Delta 6.88e-01
+[   977s] it  49  f 8.8114e-08  |g| 1.023e-06  err  0.0188  fwd   55 adj   50 Hv  161  cost  171.7  CG 10 conv     rho  1.000 th 1.00 Delta 6.88e-01
+[  1031s] it  50  f 8.8112e-08  |g| 1.507e-06  err  0.0181  fwd   56 adj   51 Hv  174  cost  182.2  CG 13 conv     rho  1.000 th 1.00 Delta 6.88e-01
+[  1101s] it  51  f 8.8112e-08  |g| 1.653e-07  err  0.0181  fwd   57 adj   52 Hv  191  cost  195.7  CG 17 conv     rho 12.671 th 1.00 Delta 6.88e-01
+[  1137s] it  52  f 8.8112e-08  |g| 3.446e-09  err  0.0181  fwd   58 adj   53 Hv  199  cost  202.5  CG  8 conv     rho 3178.898 th 1.00 Delta 6.88e-01
+[  1191s] it  53  f 8.8112e-08  |g| 6.669e-06  err  0.0214  fwd   59 adj   54 Hv  212  cost  213.1  CG 13 boundary rho  1.007 th 1.00 Delta 6.88e-01
+[  1263s] it  54  f 8.8112e-08  |g| 9.678e-06  err  0.2587  fwd   60 adj   55 Hv  230  cost  227.2  CG 18 conv     rho  2.567 th 1.00 Delta 6.88e-01
+    rejected: CG  1 negcurv  rho -0.156 th 0.00 Delta 1.91e-06  f_trial 8.8129e-08
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+    rejected: CG  1 negcurv  rho    NaN th 1.00 Delta 1.91e-06  f_trial        NaN
+==== done trncg_pc: f 8.81124e-08 err 0.25868 cost 229.5 time 1262.96
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+==== trncg_pc_switch ====
+[     6s] it   0  f 2.9811e+01  |g| 3.654e-01  err  0.2864  fwd    1 adj    1 Hv    0  cost    1.0  init
+[    17s] it   1  f 1.6714e+01  |g| 6.805e+03  err  0.2589  fwd    2 adj    2 Hv    1  cost    2.7  CG  1 negcurv  rho 2044.401 th 1.00 Delta 2.75e-02
+    rejected: CG  2 negcurv  rho -0.138 th 0.84 Delta 5.81e-03  f_trial 2.9811e+01
+    rejected: CG  2 negcurv  rho -0.620 th 1.00 Delta 1.45e-03  f_trial 2.9804e+01
+    rejected: CG  2 negcurv  rho -0.865 th 1.00 Delta 3.63e-04  f_trial 2.1552e+01
+[    45s] it   2  f 8.7540e+00  |g| 6.061e+03  err  0.2582  fwd    6 adj    3 Hv    3  cost    7.5  CG  1 boundary rho  4.503 th 1.00 Delta 1.45e-03
+[    55s] it   3  f 8.7513e+00  |g| 5.901e+03  err  0.2582  fwd    7 adj    4 Hv    4  cost    9.2  CG  1 boundary rho  1.000 th 1.00 Delta 5.81e-03
+[    66s] it   4  f 8.7496e+00  |g| 5.797e+03  err  0.2582  fwd    8 adj    5 Hv    5  cost   11.0  CG  1 boundary rho  1.000 th 1.00 Delta 2.32e-02
+[    77s] it   5  f 8.7425e+00  |g| 5.377e+03  err  0.2582  fwd    9 adj    6 Hv    6  cost   12.7  CG  1 boundary rho  1.000 th 1.00 Delta 9.29e-02
+[    88s] it   6  f 8.7184e+00  |g| 3.672e+03  err  0.2582  fwd   10 adj    7 Hv    7  cost   14.4  CG  1 boundary rho  0.997 th 1.00 Delta 3.72e-01
+[   102s] it   7  f 8.6775e+00  |g| 1.708e+03  err  0.2579  fwd   11 adj    8 Hv    9  cost   16.9  CG  2 boundary rho  0.972 th 1.00 Delta 6.88e-01
+[   116s] it   8  f 8.1363e+00  |g| 1.610e+04  err  0.2464  fwd   12 adj    9 Hv   11  cost   19.4  CG  2 boundary rho  0.893 th 1.00 Delta 6.88e-01
+[   130s] it   9  f 6.9018e+00  |g| 1.496e+03  err  0.2362  fwd   13 adj   10 Hv   13  cost   21.8  CG  2 boundary rho  1.055 th 1.00 Delta 6.88e-01
+[   141s] it  10  f 5.5204e+00  |g| 2.596e+03  err  0.2191  fwd   14 adj   11 Hv   14  cost   23.6  CG  1 boundary rho  1.019 th 1.00 Delta 6.88e-01
+[   152s] it  11  f 4.2490e+00  |g| 2.195e+03  err  0.2054  fwd   15 adj   12 Hv   15  cost   25.3  CG  1 boundary rho  1.216 th 1.00 Delta 6.88e-01
+[   163s] it  12  f 3.2096e+00  |g| 2.821e+03  err  0.1977  fwd   16 adj   13 Hv   16  cost   27.0  CG  1 boundary rho  0.910 th 1.00 Delta 6.88e-01
+[   177s] it  13  f 2.4758e+00  |g| 3.849e+03  err  0.1964  fwd   17 adj   14 Hv   18  cost   29.5  CG  2 boundary rho  1.156 th 1.00 Delta 6.88e-01
+[   188s] it  14  f 2.3557e+00  |g| 5.333e+03  err  0.2002  fwd   18 adj   15 Hv   19  cost   31.2  CG  1 boundary rho  0.773 th 1.00 Delta 6.88e-01
+[   206s] it  15  f 2.2612e+00  |g| 8.823e+02  err  0.1985  fwd   19 adj   16 Hv   22  cost   34.4  CG  3 boundary rho  1.112 th 1.00 Delta 6.88e-01
+[   217s] it  16  f 2.1049e+00  |g| 7.432e+03  err  0.1884  fwd   20 adj   17 Hv   23  cost   36.1  CG  1 boundary rho  1.041 th 1.00 Delta 6.88e-01
+[   229s] it  17  f 1.7320e+00  |g| 2.709e+03  err  0.1734  fwd   21 adj   18 Hv   24  cost   37.9  CG  1 negcurv  rho  1.018 th 1.00 Delta 6.88e-01
+[   240s] it  18  f 1.4408e+00  |g| 7.025e+03  err  0.1594  fwd   22 adj   19 Hv   25  cost   39.6  CG  1 boundary rho  1.127 th 1.00 Delta 6.88e-01
+[   251s] it  19  f 9.7122e-01  |g| 3.598e+03  err  0.1451  fwd   23 adj   20 Hv   26  cost   41.3  CG  1 negcurv  rho  0.805 th 1.00 Delta 6.88e-01
+[   262s] it  20  f 7.2217e-01  |g| 3.005e+03  err  0.1380  fwd   24 adj   21 Hv   27  cost   43.1  CG  1 boundary rho  1.167 th 1.00 Delta 6.88e-01
+[   280s] it  21  f 6.2029e-01  |g| 3.887e+03  err  0.1367  fwd   25 adj   22 Hv   30  cost   46.3  CG  3 boundary rho  0.817 th 1.00 Delta 6.88e-01
+[   301s] it  22  f 5.5848e-01  |g| 5.354e+02  err  0.1331  fwd   26 adj   23 Hv   34  cost   50.2  CG  4 boundary rho  1.059 th 1.00 Delta 6.88e-01
+[   316s] it  23  f 4.1924e-01  |g| 9.455e+02  err  0.1191  fwd   27 adj   24 Hv   36  cost   52.7  CG  2 boundary rho  1.080 th 1.00 Delta 6.88e-01
+[   331s] it  24  f 3.1504e-01  |g| 5.037e+03  err  0.1103  fwd   28 adj   25 Hv   38  cost   55.1  CG  2 boundary rho  0.915 th 1.00 Delta 6.88e-01
+    rejected: CG  1 boundary rho -0.928 th 1.00 Delta 1.72e-01  f_trial 4.4641e-01
+[   348s] it  25  f 2.6729e-01  |g| 2.707e+03  err  0.1089  fwd   30 adj   26 Hv   39  cost   57.6  CG  1 boundary rho  0.952 th 1.00 Delta 6.88e-01
+    rejected: CG  3 conv     rho -1.401 th 1.00 Delta 9.13e-02  f_trial 3.6044e-01
+[   373s] it  26  f 2.4019e-01  |g| 3.100e+03  err  0.1078  fwd   32 adj   27 Hv   42  cost   61.6  CG  1 boundary rho  0.731 th 1.00 Delta 9.13e-02
+[   384s] it  27  f 2.3305e-01  |g| 1.121e+03  err  0.1081  fwd   33 adj   28 Hv   43  cost   63.3  CG  1 boundary rho  1.000 th 1.00 Delta 3.65e-01
+[   399s] it  28  f 2.2637e-01  |g| 4.497e+02  err  0.1082  fwd   34 adj   29 Hv   45  cost   65.8  CG  2 conv     rho  1.062 th 1.00 Delta 3.65e-01
+[   424s] it  29  f 2.2515e-01  |g| 1.092e+02  err  0.1078  fwd   35 adj   30 Hv   50  cost   70.4  CG  5 boundary rho  0.997 th 1.00 Delta 6.88e-01
+[   442s] it  30  f 4.5640e-02  |g| 3.857e+03  err  0.0603  fwd   36 adj   31 Hv   53  cost   73.6  CG  3 boundary rho  0.927 th 1.00 Delta 6.88e-01
+[   457s] it  31  f 1.1903e-02  |g| 5.888e+02  err  0.0419  fwd   37 adj   32 Hv   55  cost   76.1  CG  2 conv     rho  1.051 th 1.00 Delta 6.88e-01
+[   482s] it  32  f 8.5833e-03  |g| 1.035e+03  err  0.0394  fwd   38 adj   33 Hv   60  cost   80.8  CG  5 boundary rho  0.993 th 1.00 Delta 6.88e-01
+[   497s] it  33  f 2.2587e-03  |g| 2.514e+02  err  0.0355  fwd   39 adj   34 Hv   62  cost   83.2  CG  2 conv     rho  1.016 th 1.00 Delta 6.88e-01
+[   508s] it  34  f 2.1864e-03  |g| 8.029e+00  err  0.0355  fwd   40 adj   35 Hv   63  cost   85.0  CG  1 conv     rho  1.023 th 1.00 Delta 6.88e-01
+[   530s] it  35  f 2.0487e-03  |g| 2.075e+02  err  0.0353  fwd   41 adj   36 Hv   67  cost   88.9  CG  4 boundary rho  0.986 th 1.00 Delta 6.88e-01
+[   545s] it  36  f 1.6398e-03  |g| 2.310e+01  err  0.0350  fwd   42 adj   37 Hv   69  cost   91.4  CG  2 conv     rho  1.007 th 1.00 Delta 6.88e-01
+[   563s] it  37  f 1.5189e-03  |g| 4.686e+01  err  0.0346  fwd   43 adj   38 Hv   72  cost   94.6  CG  3 boundary rho  1.000 th 1.00 Delta 6.88e-01
+[   585s] it  38  f 5.3779e-04  |g| 2.217e+01  err  0.0313  fwd   44 adj   39 Hv   76  cost   98.5  CG  4 conv     rho  0.986 th 1.00 Delta 6.88e-01
+[   607s] it  39  f 4.5043e-04  |g| 4.146e+01  err  0.0309  fwd   45 adj   40 Hv   80  cost  102.4  CG  4 boundary rho  1.000 th 1.00 Delta 6.88e-01
+[   622s] it  40  f 3.5301e-04  |g| 7.790e+00  err  0.0298  fwd   46 adj   41 Hv   82  cost  104.9  CG  2 conv     rho  0.997 th 1.00 Delta 6.88e-01
+[   640s] it  41  f 2.5958e-04  |g| 1.042e+01  err  0.0288  fwd   47 adj   42 Hv   85  cost  108.1  CG  3 boundary rho  1.000 th 1.00 Delta 6.88e-01
+[   697s] it  42  f 4.3235e-06  |g| 2.786e+00  err  0.0248  fwd   48 adj   43 Hv   99  cost  119.3  CG 14 conv     rho  1.001 th 1.00 Delta 6.88e-01
+[   740s] it  43  f 2.7109e-06  |g| 2.975e-02  err  0.0247  fwd   49 adj   44 Hv  109  cost  127.6  CG 10 conv     rho  0.999 th 1.00 Delta 6.88e-01
+[   780s] it  44  f 2.0286e-06  |g| 1.319e+00  err  0.0243  fwd   50 adj   45 Hv  118  cost  135.2  CG  9 boundary rho  0.999 th 1.00 Delta 6.88e-01
+[   802s] it  45  f 2.5271e-07  |g| 1.824e-02  err  0.0235  fwd   51 adj   46 Hv  122  cost  139.2  CG  4 conv     rho  0.885 th 1.00 Delta 6.88e-01
+[   842s] it  46  f 1.4006e-07  |g| 8.660e-01  err  0.0219  fwd   52 adj   47 Hv  131  cost  146.8  CG  9 boundary rho  1.007 th 1.00 Delta 6.88e-01
+[   882s] it  47  f 8.8248e-08  |g| 2.307e-04  err  0.0207  fwd   53 adj   48 Hv  140  cost  154.3  CG  9 conv     rho  0.999 th 1.00 Delta 6.88e-01
+[   928s] it  48  f 8.8188e-08  |g| 6.344e-03  err  0.0199  fwd   54 adj   49 Hv  151  cost  163.4  CG 11 boundary rho  1.000 th 1.00 Delta 6.88e-01
+[   973s] it  49  f 8.8114e-08  |g| 1.023e-06  err  0.0188  fwd   55 adj   50 Hv  161  cost  171.7  CG 10 conv     rho  1.000 th 1.00 Delta 6.88e-01
+[  1027s] it  50  f 8.8112e-08  |g| 1.507e-06  err  0.0181  fwd   56 adj   51 Hv  174  cost  182.2  CG 13 conv     rho  1.000 th 1.00 Delta 6.88e-01
+[  1095s] it  51  f 8.8112e-08  |g| 1.653e-07  err  0.0181  fwd   57 adj   52 Hv  191  cost  195.7  CG 17 conv     rho 12.671 th 1.00 Delta 6.88e-01
+Switching to L-BFGS at iteration 56, seeded with 20 CG pairs
+[  1109s] it  52  f 8.8112e-08  |g| 3.320e-07  err  0.0181  fwd   59 adj   53 Hv  191  cost  197.4  stp 1.00e-01 ls 2
+[  1129s] it  53  f 8.8112e-08  |g| 1.322e-07  err  0.0181  fwd   62 adj   54 Hv  191  cost  200.0  stp 1.00e-02 ls 3
+[  1137s] it  54  f 8.8112e-08  |g| 1.255e-06  err  0.0181  fwd   63 adj   55 Hv  191  cost  201.0  stp 1.00e+00 ls 1
+line search failed
+==== done trncg_pc_switch: f 8.81124e-08 err 0.0180518 cost 209.429 time 1137.37

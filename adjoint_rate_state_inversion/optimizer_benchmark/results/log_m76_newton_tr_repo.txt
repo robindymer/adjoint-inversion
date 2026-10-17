@@ -1,0 +1,118 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+==== newton_tr_repo ====
+f = 3.423561e+01  |g| =  4.152e-01  init
+[    27s] it   0  f 3.4236e+01  |g| 4.152e-01  err  0.2864  fwd    1 adj    1 Hv    0  cost    1.0  init
+f = 2.763311e+01  |g| =  1.352e+04  CG  1 negcurv  rho 888.751 th 1.00 Delta 2.75e-02
+[    74s] it   1  f 2.7633e+01  |g| 1.352e+04  err  0.2594  fwd    2 adj    2 Hv    1  cost    2.7  CG  1 negcurv  rho 888.751 th 1.00 Delta 2.75e-02
+rejected: CG  1 negcurv  rho  -0.001 th 0.62 Delta 4.30e-03, f_trial = 3.423659e+01
+rejected: CG  1 negcurv  rho  -0.017 th 1.00 Delta 1.08e-03, f_trial = 3.423255e+01
+f = 1.194589e+01  |g| =  3.058e+04  CG  1 negcurv  rho   0.453 th 1.00 Delta 1.08e-03
+[   173s] it   2  f 1.1946e+01  |g| 3.058e+04  err  0.2582  fwd    5 adj    5 Hv    2  cost    6.5  CG  1 negcurv  rho   0.453 th 1.00 Delta 1.08e-03
+f = 1.087775e+01  |g| =  1.563e+04  CG  1 conv     rho   1.198 th 1.00 Delta 1.08e-03
+[   221s] it   3  f 1.0878e+01  |g| 1.563e+04  err  0.2581  fwd    6 adj    6 Hv    3  cost    8.2  CG  1 conv     rho   1.198 th 1.00 Delta 1.08e-03
+f = 1.087701e+01  |g| =  1.565e+04  CG  1 negcurv  rho   1.000 th 1.00 Delta 4.30e-03
+[   268s] it   4  f 1.0877e+01  |g| 1.565e+04  err  0.2581  fwd    7 adj    7 Hv    4  cost    9.9  CG  1 negcurv  rho   1.000 th 1.00 Delta 4.30e-03
+f = 1.087407e+01  |g| =  1.571e+04  CG  1 negcurv  rho   1.000 th 1.00 Delta 1.72e-02
+[   312s] it   5  f 1.0874e+01  |g| 1.571e+04  err  0.2581  fwd    8 adj    8 Hv    5  cost   11.7  CG  1 negcurv  rho   1.000 th 1.00 Delta 1.72e-02
+f = 1.086217e+01  |g| =  1.596e+04  CG  1 negcurv  rho   1.000 th 1.00 Delta 6.88e-02
+[   361s] it   6  f 1.0862e+01  |g| 1.596e+04  err  0.2581  fwd    9 adj    9 Hv    6  cost   13.4  CG  1 negcurv  rho   1.000 th 1.00 Delta 6.88e-02
+f = 1.081258e+01  |g| =  1.704e+04  CG  1 negcurv  rho   1.001 th 1.00 Delta 2.75e-01
+[   409s] it   7  f 1.0813e+01  |g| 1.704e+04  err  0.2581  fwd   10 adj   10 Hv    7  cost   15.1  CG  1 negcurv  rho   1.001 th 1.00 Delta 2.75e-01
+f = 1.057716e+01  |g| =  2.226e+04  CG  1 negcurv  rho   1.012 th 1.00 Delta 6.88e-01
+[   458s] it   8  f 1.0577e+01  |g| 2.226e+04  err  0.2581  fwd   11 adj   11 Hv    8  cost   16.9  CG  1 negcurv  rho   1.012 th 1.00 Delta 6.88e-01
+f = 9.742407e+00  |g| =  3.076e+04  CG  1 negcurv  rho   0.952 th 1.00 Delta 6.88e-01
+[   505s] it   9  f 9.7424e+00  |g| 3.076e+04  err  0.2581  fwd   12 adj   12 Hv    9  cost   18.6  CG  1 negcurv  rho   0.952 th 1.00 Delta 6.88e-01
+f = 8.945273e+00  |g| =  1.886e+04  CG  1 boundary rho   0.873 th 1.00 Delta 6.88e-01
+[   552s] it  10  f 8.9453e+00  |g| 1.886e+04  err  0.2581  fwd   13 adj   13 Hv   10  cost   20.3  CG  1 boundary rho   0.873 th 1.00 Delta 6.88e-01
+f = 8.693910e+00  |g| =  9.997e+02  CG  1 conv     rho   0.954 th 1.00 Delta 6.88e-01
+[   599s] it  11  f 8.6939e+00  |g| 9.997e+02  err  0.2580  fwd   14 adj   14 Hv   11  cost   22.1  CG  1 conv     rho   0.954 th 1.00 Delta 6.88e-01
+f = 8.677845e+00  |g| =  3.933e+03  CG  2 boundary rho   0.948 th 1.00 Delta 6.88e-01
+[   666s] it  12  f 8.6778e+00  |g| 3.933e+03  err  0.2575  fwd   15 adj   15 Hv   13  cost   24.5  CG  2 boundary rho   0.948 th 1.00 Delta 6.88e-01
+f = 7.196149e+00  |g| =  4.476e+03  CG  1 boundary rho   0.997 th 1.00 Delta 6.88e-01
+[   714s] it  13  f 7.1961e+00  |g| 4.476e+03  err  0.2312  fwd   16 adj   16 Hv   14  cost   26.2  CG  1 boundary rho   0.997 th 1.00 Delta 6.88e-01
+f = 4.805637e+00  |g| =  9.724e+02  CG  1 boundary rho   2.064 th 1.00 Delta 6.88e-01
+[   762s] it  14  f 4.8056e+00  |g| 9.724e+02  err  0.1999  fwd   17 adj   17 Hv   15  cost   28.0  CG  1 boundary rho   2.064 th 1.00 Delta 6.88e-01
+f = 4.476922e+00  |g| =  8.940e+03  CG  2 boundary rho   0.941 th 1.00 Delta 6.88e-01
+[   830s] it  15  f 4.4769e+00  |g| 8.940e+03  err  0.1920  fwd   18 adj   18 Hv   17  cost   30.4  CG  2 boundary rho   0.941 th 1.00 Delta 6.88e-01
+f = 3.745844e+00  |g| =  1.809e+04  CG  1 boundary rho   0.700 th 1.00 Delta 6.88e-01
+[   877s] it  16  f 3.7458e+00  |g| 1.809e+04  err  0.1706  fwd   19 adj   19 Hv   18  cost   32.2  CG  1 boundary rho   0.700 th 1.00 Delta 6.88e-01
+f = 2.984427e+00  |g| =  9.451e+03  CG  1 boundary rho   1.005 th 1.00 Delta 6.88e-01
+[   924s] it  17  f 2.9844e+00  |g| 9.451e+03  err  0.1612  fwd   20 adj   20 Hv   19  cost   33.9  CG  1 boundary rho   1.005 th 1.00 Delta 6.88e-01
+f = 2.376311e+00  |g| =  9.711e+03  CG  1 boundary rho   1.012 th 1.00 Delta 6.88e-01
+[   972s] it  18  f 2.3763e+00  |g| 9.711e+03  err  0.1531  fwd   21 adj   21 Hv   20  cost   35.6  CG  1 boundary rho   1.012 th 1.00 Delta 6.88e-01
+f = 2.062330e+00  |g| =  3.124e+03  CG  2 boundary rho   1.096 th 1.00 Delta 6.88e-01
+[  1041s] it  19  f 2.0623e+00  |g| 3.124e+03  err  0.1516  fwd   22 adj   22 Hv   22  cost   38.1  CG  2 boundary rho   1.096 th 1.00 Delta 6.88e-01
+f = 1.940350e+00  |g| =  2.246e+03  CG  1 boundary rho   0.999 th 1.00 Delta 6.88e-01
+[  1089s] it  20  f 1.9404e+00  |g| 2.246e+03  err  0.1530  fwd   23 adj   23 Hv   23  cost   39.8  CG  1 boundary rho   0.999 th 1.00 Delta 6.88e-01
+f = 1.613205e+00  |g| =  3.898e+03  CG  1 negcurv  rho   1.085 th 1.00 Delta 6.88e-01
+[  1138s] it  21  f 1.6132e+00  |g| 3.898e+03  err  0.1554  fwd   24 adj   24 Hv   24  cost   41.6  CG  1 negcurv  rho   1.085 th 1.00 Delta 6.88e-01
+f = 1.312177e+00  |g| =  1.215e+04  CG  1 negcurv  rho   0.693 th 1.00 Delta 6.88e-01
+[  1184s] it  22  f 1.3122e+00  |g| 1.215e+04  err  0.1565  fwd   25 adj   25 Hv   25  cost   43.3  CG  1 negcurv  rho   0.693 th 1.00 Delta 6.88e-01
+f = 1.100750e+00  |g| =  9.646e+02  CG  3 boundary rho   1.174 th 1.00 Delta 6.88e-01
+[  1272s] it  23  f 1.1007e+00  |g| 9.646e+02  err  0.1531  fwd   26 adj   26 Hv   28  cost   46.5  CG  3 boundary rho   1.174 th 1.00 Delta 6.88e-01
+f = 9.944001e-01  |g| =  1.086e+04  CG  2 boundary rho   0.807 th 1.00 Delta 6.88e-01
+[  1338s] it  24  f 9.9440e-01  |g| 1.086e+04  err  0.1478  fwd   27 adj   27 Hv   30  cost   49.0  CG  2 boundary rho   0.807 th 1.00 Delta 6.88e-01
+f = 9.562964e-01  |g| =  2.877e+02  CG  2 conv     rho   1.021 th 1.00 Delta 6.88e-01
+[  1405s] it  25  f 9.5630e-01  |g| 2.877e+02  err  0.1476  fwd   28 adj   28 Hv   32  cost   51.4  CG  2 conv     rho   1.021 th 1.00 Delta 6.88e-01
+f = 9.446237e-01  |g| =  2.941e+03  CG  3 boundary rho   1.029 th 1.00 Delta 6.88e-01
+[  1496s] it  26  f 9.4462e-01  |g| 2.941e+03  err  0.1464  fwd   29 adj   29 Hv   35  cost   54.6  CG  3 boundary rho   1.029 th 1.00 Delta 6.88e-01
+f = 8.685078e-01  |g| =  1.313e+04  CG  2 boundary rho   0.492 th 1.00 Delta 6.88e-01
+[  1564s] it  27  f 8.6851e-01  |g| 1.313e+04  err  0.1313  fwd   30 adj   30 Hv   37  cost   57.1  CG  2 boundary rho   0.492 th 1.00 Delta 6.88e-01
+f = 6.595983e-01  |g| =  2.165e+04  CG  1 boundary rho   0.516 th 1.00 Delta 6.88e-01
+[  1612s] it  28  f 6.5960e-01  |g| 2.165e+04  err  0.1197  fwd   31 adj   31 Hv   38  cost   58.8  CG  1 boundary rho   0.516 th 1.00 Delta 6.88e-01
+f = 4.323034e-01  |g| =  1.962e+03  CG  3 conv     rho   0.959 th 1.00 Delta 6.88e-01
+[  1699s] it  29  f 4.3230e-01  |g| 1.962e+03  err  0.1209  fwd   32 adj   32 Hv   41  cost   62.0  CG  3 conv     rho   0.959 th 1.00 Delta 6.88e-01
+f = 4.117324e-01  |g| =  1.055e+03  CG  3 boundary rho   1.005 th 1.00 Delta 6.88e-01
+[  1786s] it  30  f 4.1173e-01  |g| 1.055e+03  err  0.1202  fwd   33 adj   33 Hv   44  cost   65.2  CG  3 boundary rho   1.005 th 1.00 Delta 6.88e-01
+f = 4.069772e-01  |g| =  1.039e+04  CG  6 boundary rho   0.176 th 1.00 Delta 1.72e-01
+[  1933s] it  31  f 4.0698e-01  |g| 1.039e+04  err  0.1187  fwd   34 adj   34 Hv   50  cost   70.6  CG  6 boundary rho   0.176 th 1.00 Delta 1.72e-01
+f = 3.073653e-01  |g| =  1.422e+03  CG  1 boundary rho   1.203 th 1.00 Delta 6.88e-01
+[  1983s] it  32  f 3.0737e-01  |g| 1.422e+03  err  0.1120  fwd   35 adj   35 Hv   51  cost   72.3  CG  1 boundary rho   1.203 th 1.00 Delta 6.88e-01
+f = 2.035141e-01  |g| =  5.959e+03  CG  5 conv     rho   0.922 th 1.00 Delta 6.88e-01
+[  2109s] it  33  f 2.0351e-01  |g| 5.959e+03  err  0.0945  fwd   36 adj   36 Hv   56  cost   77.0  CG  5 conv     rho   0.922 th 1.00 Delta 6.88e-01
+f = 1.832489e-01  |g| =  5.019e+02  CG  3 conv     rho   1.184 th 1.00 Delta 6.88e-01
+[  2200s] it  34  f 1.8325e-01  |g| 5.019e+02  err  0.0934  fwd   37 adj   37 Hv   59  cost   80.2  CG  3 conv     rho   1.184 th 1.00 Delta 6.88e-01
+rejected: CG  5 boundary rho  -3.380 th 1.00 Delta 1.72e-01, f_trial = 2.616655e-01
+f = 1.759552e-01  |g| =  3.958e+03  CG  1 boundary rho   0.725 th 1.00 Delta 1.72e-01
+[  2358s] it  35  f 1.7596e-01  |g| 3.958e+03  err  0.0916  fwd   39 adj   39 Hv   64  cost   85.9  CG  1 boundary rho   0.725 th 1.00 Delta 1.72e-01
+f = 1.290787e-01  |g| =  3.249e+03  CG  1 boundary rho   0.999 th 1.00 Delta 6.88e-01
+[  2406s] it  36  f 1.2908e-01  |g| 3.249e+03  err  0.0814  fwd   40 adj   40 Hv   65  cost   87.6  CG  1 boundary rho   0.999 th 1.00 Delta 6.88e-01
+f = 4.116221e-02  |g| =  2.275e+03  CG  4 conv     rho   0.978 th 1.00 Delta 6.88e-01
+[  2515s] it  37  f 4.1162e-02  |g| 2.275e+03  err  0.0539  fwd   41 adj   41 Hv   69  cost   91.5  CG  4 conv     rho   0.978 th 1.00 Delta 6.88e-01
+f = 3.087408e-02  |g| =  3.228e+03  CG  3 conv     rho   1.202 th 1.00 Delta 6.88e-01
+[  2604s] it  38  f 3.0874e-02  |g| 3.228e+03  err  0.0505  fwd   42 adj   42 Hv   72  cost   94.7  CG  3 conv     rho   1.202 th 1.00 Delta 6.88e-01
+f = 2.250490e-02  |g| =  1.340e+03  CG  2 conv     rho   1.326 th 1.00 Delta 6.88e-01
+[  2671s] it  39  f 2.2505e-02  |g| 1.340e+03  err  0.0484  fwd   43 adj   43 Hv   74  cost   97.2  CG  2 conv     rho   1.326 th 1.00 Delta 6.88e-01
+f = 1.790374e-02  |g| =  2.692e+03  CG  2 conv     rho   1.038 th 1.00 Delta 6.88e-01
+[  2739s] it  40  f 1.7904e-02  |g| 2.692e+03  err  0.0459  fwd   44 adj   44 Hv   76  cost   99.6  CG  2 conv     rho   1.038 th 1.00 Delta 6.88e-01
+f = 1.447407e-02  |g| =  3.883e+02  CG  2 conv     rho   1.190 th 1.00 Delta 6.88e-01
+[  2806s] it  41  f 1.4474e-02  |g| 3.883e+02  err  0.0452  fwd   45 adj   45 Hv   78  cost  102.1  CG  2 conv     rho   1.190 th 1.00 Delta 6.88e-01
+f = 1.347765e-02  |g| =  1.102e+03  CG  3 conv     rho   0.926 th 1.00 Delta 6.88e-01
+[  2892s] it  42  f 1.3478e-02  |g| 1.102e+03  err  0.0444  fwd   46 adj   46 Hv   81  cost  105.3  CG  3 conv     rho   0.926 th 1.00 Delta 6.88e-01
+f = 1.307766e-02  |g| =  3.278e+01  CG  2 conv     rho   1.056 th 1.00 Delta 6.88e-01
+[  2961s] it  43  f 1.3078e-02  |g| 3.278e+01  err  0.0443  fwd   47 adj   47 Hv   83  cost  107.8  CG  2 conv     rho   1.056 th 1.00 Delta 6.88e-01
+f = 1.264588e-02  |g| =  3.907e+01  CG  6 boundary rho   1.005 th 1.00 Delta 6.88e-01
+[  3111s] it  44  f 1.2646e-02  |g| 3.907e+01  err  0.0439  fwd   48 adj   48 Hv   89  cost  113.2  CG  6 boundary rho   1.005 th 1.00 Delta 6.88e-01
+f = 1.012734e-03  |g| =  2.912e+01  CG  4 boundary rho   0.985 th 1.00 Delta 6.88e-01
+[  3219s] it  45  f 1.0127e-03  |g| 2.912e+01  err  0.0290  fwd   49 adj   49 Hv   93  cost  117.1  CG  4 boundary rho   0.985 th 1.00 Delta 6.88e-01
+f = 6.103682e-04  |g| =  9.407e+01  CG  6 boundary rho   0.995 th 1.00 Delta 6.88e-01
+[  3366s] it  46  f 6.1037e-04  |g| 9.407e+01  err  0.0282  fwd   50 adj   50 Hv   99  cost  122.5  CG  6 boundary rho   0.995 th 1.00 Delta 6.88e-01
+f = 8.524769e-05  |g| =  1.576e+01  CG  4 conv     rho   1.001 th 1.00 Delta 6.88e-01
+[  3475s] it  47  f 8.5248e-05  |g| 1.576e+01  err  0.0262  fwd   51 adj   51 Hv  103  cost  126.4  CG  4 conv     rho   1.001 th 1.00 Delta 6.88e-01
+f = 2.802106e-05  |g| =  3.416e-01  CG  6 conv     rho   1.001 th 1.00 Delta 6.88e-01
+[  3623s] it  48  f 2.8021e-05  |g| 3.416e-01  err  0.0257  fwd   52 adj   52 Hv  109  cost  131.8  CG  6 conv     rho   1.001 th 1.00 Delta 6.88e-01
+f = 7.916115e-06  |g| =  4.349e-01  CG 15 boundary rho   0.993 th 1.00 Delta 6.88e-01
+[  3949s] it  49  f 7.9161e-06  |g| 4.349e-01  err  0.0245  fwd   53 adj   53 Hv  124  cost  143.8  CG 15 boundary rho   0.993 th 1.00 Delta 6.88e-01
+f = 8.901345e-07  |g| =  9.967e-03  CG 11 conv     rho   0.974 th 1.00 Delta 6.88e-01
+[  4199s] it  50  f 8.9013e-07  |g| 9.967e-03  err  0.0232  fwd   54 adj   54 Hv  135  cost  152.8  CG 11 conv     rho   0.974 th 1.00 Delta 6.88e-01
+f = 8.727142e-07  |g| =  3.610e-02  CG 13 boundary rho   1.002 th 1.00 Delta 6.88e-01
+[  4483s] it  51  f 8.7271e-07  |g| 3.610e-02  err  0.0222  fwd   55 adj   55 Hv  148  cost  163.4  CG 13 boundary rho   1.002 th 1.00 Delta 6.88e-01
+f = 8.721613e-07  |g| =  2.952e-06  CG 11 conv     rho   1.000 th 1.00 Delta 6.88e-01
+[  4729s] it  52  f 8.7216e-07  |g| 2.952e-06  err  0.0215  fwd   56 adj   56 Hv  159  cost  172.4  CG 11 conv     rho   1.000 th 1.00 Delta 6.88e-01
+==== done newton_tr_repo: f 8.72161e-07 err 0.0215274 cost 172.411 time 4728.75

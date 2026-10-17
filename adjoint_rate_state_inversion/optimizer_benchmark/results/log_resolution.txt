@@ -1,0 +1,45 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+m=36 forward 6.4 s, k=, nT=8000, max|v_rec|=1.62663
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+m=76 forward 14.9 s, k=, nT=8000, max|v_rec|=1.57747
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+m=151 forward 39.7 s, k=, nT=8000, max|v_rec|=1.75866
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+m=251 forward 88.5 s, k=, nT=8000, max|v_rec|=1.85205
+{Error using matlab.internal.math.interp2
+Sample points must be unique.
+
+Error in interp1 (line 185)
+        VqLite = matlab.internal.math.interp2(Xext,V,method,method,...
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in resolution_check (line 19)
+    Ri = interp1(Tt{i}', R{i}', Tref', 'linear', 'extrap')';
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Error in run (line 112)
+evalin('caller', strcat(scriptStem, ';'));
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+} 
