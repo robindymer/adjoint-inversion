@@ -140,6 +140,18 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         tic
         [parsVec, misFit, flag, output] = fmincon(fun,x0,A,b,Aeq,beq,lb,ub,nonlcon,options);
         toc
+    elseif strcmp(opt_routine_str,'newton-tr')
+        % Trust-region Newton-CG with Hessian-vector products and L-BFGS preconditioning
+        hessVec = @(x, V) adjopt.hessianVector(x, V, optObj);
+        tropts.maxIter = maxIter;
+        tropts.OutputFcn = @(x, f, g, info) outputMisfit(x, struct('fval', f), 'iter');
+        % Rate-and-state parameters are positive.
+        lb = zeros(size(x0));
+
+        % Optimize
+        tic
+        [parsVec, misFit, flag, output] = adjopt.trustRegionNewtonCG(fun, hessVec, x0, lb, tropts);
+        toc
     else
         error('Unknown optimization routine: %s', opt_routine_str);
     end
