@@ -86,9 +86,8 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         b = [];
         Aeq = [];
         beq = [];
-        % Rate-and-state parameters are positive. 
-        % Interior-point keeps iterates strictly inside the bounds.
-        lb = zeros(size(x0));
+        % No bound: the interior-point barrier for a > 0 stalled L-BFGS (notes/optimizer_comparison.md)
+        lb = [];
         ub = [];
         nonlcon = [];
 
@@ -132,7 +131,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         b = [];
         Aeq = [];
         beq = [];
-        lb = zeros(size(x0));
+        lb = []; % No bound, as for 'lbfgs'
         ub = [];
         nonlcon = [];
 

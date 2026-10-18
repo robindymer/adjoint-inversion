@@ -13,9 +13,9 @@ Comparison of optimization routines for inverting the rate-and-state parameter `
 **Problem and settings**
 - Synthetic (inverse-crime) data and velocity misfit.
 - `optPars = {'a'}`, constant initial guess `a = 0.0135`, `m_p = 26` parameter grid points.
-- Grid sizes tested: `m = 36`, with a confirmation run at `m = 76`.
+- Grid sizes tested: `m = 36`, a confirmation run at `m = 76`, and a single `newton-tr` run at `m = 251` (cluster).
 
-**Recommendation:** use the new trust-region Newton-CG option, `opt_routine_str = 'newton-tr'` (`+adjopt/trustRegionNewtonCG.m`). It was the only method that converged to the misfit floor at both `m = 36` and `m = 76`.
+**Recommendation:** use the new trust-region Newton-CG option, `opt_routine_str = 'newton-tr'` (`+adjopt/trustRegionNewtonCG.m`). It was the only method that converged to the misfit floor at both `m = 36` and `m = 76`. With unchanged settings it also converged at `m = 251` (section 4b).
 
 ## 1. Cost of the building blocks
 
@@ -60,7 +60,8 @@ All methods had a budget of 250 gradient-equivalents.
 | L-BFGS (own implementation, backtracking line search) | 4.9e-5 | 0.026 | 45 | 88 | 121 | 154 |
 | fmincon interior-point + `'cg'` + Hv (current `'CG'`) | 1.3e-3 | 4.03 | 120 | 143 | 147 | 171 |
 | fmincon trust-region-reflective + Hv | 0.34 | 1.06 | 232 | – | – | – |
-| fmincon interior-point L-BFGS (current `'lbfgs'`) | 2.7 | 0.20 | – | – | – | – |
+| fmincon interior-point L-BFGS, no lower bound (`'lbfgs'` before commit 7164513) | 4.3e-4 | 0.030 | 45 | 93 | 147 | 219 |
+| fmincon interior-point L-BFGS, `lb = 0` (current `'lbfgs'`) | 2.7 | 0.20 | – | – | – | – |
 | fminunc quasi-Newton (BFGS) | 2.7 | 0.17 | – | – | – | – |
 
 `err` is the relative L2 error in `a` on the parameter grid; see section 5 for why it bottoms out around 0.02.
@@ -68,7 +69,12 @@ All methods had a budget of 250 gradient-equivalents.
 \* This error is from the variant that switches to L-BFGS at the end. The plain preconditioned run reached the same f but then took a large step in the null space (err 0.26), which led to the fixes in section 6.
 
 **Observations**
-- **fmincon interior-point L-BFGS is very path-dependent.** In this run it never got below f = 2.7. An earlier saved run with identical settings (`mat/inversion/rough_lbfgs_maxiter200_m36_..._1.mat`) reached f ≈ 4e-4 after about 300 gradients.
+- **The lower bound `lb = 0` is what stalls fmincon L-BFGS; it is not path dependence.**
+  - Your commit 7164513 added `lb = zeros` to the `'lbfgs'` and `'CG'` options. Interior-point then adds a log-barrier term μ·log(a), and with a ≈ 0.01 that barrier distorts the steps.
+  - With the bound, the run never got below f = 2.7.
+  - Without it, the run reproduces the saved pre-7164513 run (`mat/inversion/rough_lbfgs_maxiter200_m36_..._1.mat`) iterate for iterate, and reaches f = 4.3e-4.
+  - The bound is not needed in practice: `a` never went below 0.0074 in unbounded runs.
+  - The unbounded variant is therefore the fair L-BFGS baseline. Even so, `newton-tr` reaches f < 1e-3 at about half its cost (98 against 219 here).
 - **The current `'CG'` option converges in misfit but drifts far off in `a`** (err 4.0), in directions the data cannot see.
 - **The L-BFGS preconditioner built from CG pairs (Morales & Nocedal) helps most in the non-convex early phase.** The cost to reach f < 1 drops from 73 to 41.
 - **Switching from Newton-CG to L-BFGS once the Hessian looks positive definite gave no speed-up.** The switch only triggered after f had already converged.
@@ -80,18 +86,48 @@ The three most relevant methods were run in parallel, 3 threads each. Cost weigh
 | method | final f | final err | cost to f < 1 / 1e-1 / 1e-2 / 1e-3 / 1e-5 | minutes to the same |
 |---|---|---|---|---|
 | **`newton-tr` (repo version)** | **8.7e-7** | **0.022** | 49 / 92 / 117 / 122 / 144 | 22 / 42 / 54 / 56 / 66 |
-| fmincon interior-point L-BFGS (current `'lbfgs'`) | 1.0e-3 (budget hit) | 0.081 | 39 / 61 / 93 / – / – | 18 / 29 / 44 / – / – |
+| fmincon interior-point L-BFGS, `lb = 0` (current `'lbfgs'`) | 1.0e-3 (budget hit) | 0.081 | 39 / 61 / 93 / – / – | 18 / 29 / 44 / – / – |
 | L-BFGS (own implementation) | 1.36 (stalled) | 0.126 | – | – |
 
 `newton-tr` stopped on its own (relative gradient tolerance) at cost 172, about 79 minutes.
+
+The fmincon run here used the lower bound. The unbounded variant (section 3) was not run at `m = 76`.
 
 The pattern holds at both resolutions:
 - **Early, non-convex phase:** L-BFGS is comparable or slightly cheaper down to f ≈ 1e-2.
 - **Late phase, once the Hessian is positive definite:** Newton-CG converges much faster and reaches the misfit floor, while L-BFGS crawls.
 
-## 5. Null space: the left edge of the fault is not constrained by the data
+## 4b. `newton-tr` at `m = 251` (cluster)
 
-At convergence, parameter nodes 1–4 (x ≈ −10 to −8.4 km, outside the rupture) stay at the initial guess. One Newton-CG step moved `a` there from 0.0138 to 0.0268 with **no change in the misfit to 5 digits**.
+One run on the cluster (`scripts/newton_tr_m251.sh`, 8 cores, Slurm job 7213723). It used the same harness and the same settings as at `m = 76`. Results are in `optimizer_benchmark/results/res_newton_tr_repo_m251.mat`.
+
+| | `m = 36` | `m = 76` | `m = 251` |
+|---|---|---|---|
+| initial f | 29.8 | 29.8 | 36.5 |
+| final f | 8.8e-8 | 8.7e-7 | 2.4e-5 |
+| final err | 0.018 | 0.022 | 0.021 |
+| outer iterations | 54 | 52 | 49 |
+| cost (gradient-equivalents) | 201* | 172 | 166 |
+| wall time | 21 min (3 threads) | 79 min (3 threads) | 5.9 h (8 cores) |
+
+\* Prototype with the switch to L-BFGS (`trncg_pc_switch`); the repo version was not run to convergence at `m = 36`.
+
+- The run **stopped on the relative gradient tolerance** after 49 iterations (‖g‖ = 4e-5 against a peak of about 3e4). There was no null-space blow-up and no retuning was needed.
+- **The convergence history is nearly identical across resolutions:**
+  - the same stiff valley around f ≈ 8.7, with |g| ≈ 1e4;
+  - negative curvature in roughly the first 15 iterations;
+  - fast convergence once CG converges without hitting negative curvature.
+- **Time to reach** f < 1, 1e-1, 1e-2, 1e-3, 1e-4: iterations 16, 27, 32, 41, 44, at 1.2, 2.3, 3.0, 4.1 and 4.4 h.
+- **Solve costs at this resolution:** a gradient takes about 110 s and an Hv about 97 s. At `m = 36` an Hv was 0.73 of a gradient; here it is 0.9, so the cost column underestimates the Hv share slightly. Wall time is the reliable number here.
+- **The misfit floor is higher** (2.4e-5 against 8.7e-7 at `m = 76`). The interior parameters are recovered equally well at both resolutions (section 5), so the difference is in f, not in the model.
+
+## 5. Null space: the edges of the fault are not constrained by the data
+
+At convergence, some edge nodes stay at the initial guess:
+- at `m = 36`: nodes 1–4 (x ≈ −10 to −8.4 km);
+- at `m = 76` and `m = 251`: nodes 1–5 (x ≈ −10 to −6.8 km) and node 26 (x = 10 km), all exactly at the initial 0.013500.
+
+These nodes lie outside the rupture. At `m = 36`, one Newton-CG step after convergence moved `a` at node 4 from 0.0138 to 0.0268 with **no change in the misfit to 5 digits**.
 
 | node | true | converged | one step later |
 |---|---|---|---|
@@ -101,7 +137,9 @@ At convergence, parameter nodes 1–4 (x ≈ −10 to −8.4 km, outside the rup
 | 4 | 0.0130 | 0.0135 | 0.0268 |
 | 5–26 | | recovered to about 1e-4 | unchanged |
 
-- The remaining ~2% model error comes entirely from these nodes. The interior is recovered essentially exactly.
+At `m = 251` the resolved nodes 6–25 match the true values to about 1e-5.
+
+- The remaining ~2% model error comes entirely from these edge nodes. The interior is recovered essentially exactly at all three resolutions.
 - No optimizer can fix this. It needs regularization (Tikhonov or smoothness), a prior, or fixing those nodes.
 - The model error should therefore be reported over the resolved region, or the null space handled explicitly.
 
@@ -153,7 +191,7 @@ The **grid size m should not require retuning**:
 - The optimizer only sees the `m_p` parameter values.
 - The length-scale settings are relative to ‖x0‖.
 - The stopping test is scale-free.
-- The same settings converged cleanly at `m = 76` without changes. That is one data point; the `m = 251` run would confirm it.
+- The same settings converged cleanly at `m = 76` and `m = 251` without changes (section 4b).
 
 **Revisit the settings when:**
 1. **Inverting for several parameters with different magnitudes** (e.g. `a` ≈ 0.01 together with `D_c` ≈ 0.2–1). ‖x‖, and with it `Delta0`, `DeltaMax` and `maxStep`, would be dominated by the largest parameter, so the steps in the smallest one could be far too large.
@@ -177,11 +215,11 @@ Receiver recordings at the true parameters, compared with `m = 251`. All grid si
 For reference, the initial misfit is 29.8 and 0.5∫v² of the data is 36.5.
 - At `m = 36` the discretization error is about a third of the initial misfit, so it is effectively a different physical problem.
 - In the inverse-crime setting the optimization problem is still self-consistent. However, the features that decide the optimizer ranking (non-convexity, stiffness of rupture onset) could depend on resolution. The ranking did hold at `m = 76`.
-- The forward cost grows roughly linearly in m at a fixed time step. A `newton-tr` run at `m = 251` is estimated at 5–7 h.
+- The forward cost grows roughly linearly in m at a fixed time step. A `newton-tr` run at `m = 251` took 5.9 h on 8 cores (section 4b).
 
 ## 8. Next steps
 
-1. Run `newton-tr` once at `m = 251`, after a quick Hv finite-difference check at that resolution.
+1. ~~Run `newton-tr` once at `m = 251`~~: done, converged (section 4b). Still to do: a finite-difference check of the Hv at `m = 251` (`scripts/hv_check_m251.sh`).
 2. Check robustness to the initial guess (for example `a = 0.011` and `0.015`) at `m = 76`, comparing `newton-tr` with fmincon L-BFGS.
 3. Invert for more than one parameter (for example `a` and `D_c`). Different scales and coupling are where Newton should gain most over L-BFGS.
    - Check the mixed second-derivative terms of the Hv with finite differences first.

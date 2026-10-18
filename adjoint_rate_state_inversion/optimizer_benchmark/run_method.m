@@ -1,5 +1,7 @@
-function run_method(method, maxTime, nThreads, m)
+% maxCost: budget in gradient-equivalents (default 250)
+function run_method(method, maxTime, nThreads, m, maxCost)
     if nargin < 4, m = 36; end
+    if nargin < 5, maxCost = 250; end
     benchDir = fileparts(mfilename('fullpath'));
     cd(fileparts(benchDir));
     addSubpaths;
@@ -7,7 +9,7 @@ function run_method(method, maxTime, nThreads, m)
     [optObj, x0, ~, xtrue] = setup_problem(m, 26, 0.0135);
     P = InvProblem(optObj, xtrue);
     P.maxTime = maxTime;
-    P.maxCost = 250;
+    P.maxCost = maxCost;
     lb = zeros(size(x0));
     fprintf('==== %s ====\n', method);
     switch method
@@ -16,6 +18,11 @@ function run_method(method, maxTime, nThreads, m)
                 'HessianApproximation', 'lbfgs', 'MaxIterations', 1000, 'OptimalityTolerance', 1e-10, ...
                 'Display', 'iter', 'OutputFcn', @(x,ov,st) outfun(P,x,ov,st));
             fmincon(@(x) P.fg(x), x0, [],[],[],[], lb, [], [], o);
+        case 'fmincon_ip_lbfgs_nolb' % 'lbfgs' option before commit 7164513, without lower bound
+            o = optimoptions('fmincon', 'SpecifyObjectiveGradient', true, 'Algorithm', 'interior-point', ...
+                'HessianApproximation', 'lbfgs', 'MaxIterations', 1000, 'OptimalityTolerance', 1e-10, ...
+                'Display', 'iter', 'OutputFcn', @(x,ov,st) outfun(P,x,ov,st));
+            fmincon(@(x) fg_nonan(P,x), x0, [],[],[],[], [], [], [], o);
         case 'fmincon_ip_cg' % current 'CG' option
             o = optimoptions('fmincon', 'SpecifyObjectiveGradient', true, 'Algorithm', 'interior-point', ...
                 'SubproblemAlgorithm', 'cg', 'HessianMultiplyFcn', @(x,lambda,v) P.Hv(x,v), ...
