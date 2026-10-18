@@ -19,8 +19,9 @@ Methods for `run_method`:
 
 | method | what it runs |
 |---|---|
-| `fmincon_ip_lbfgs` | current `'lbfgs'` option |
-| `fmincon_ip_cg` | current `'CG'` option |
+| `fmincon_ip_lbfgs` | `'lbfgs'` option with lower bound `lb = 0` (commit 7164513) |
+| `fmincon_ip_lbfgs_nolb` | current `'lbfgs'` option, no lower bound |
+| `fmincon_ip_cg` | `'CG'` option with lower bound `lb = 0` (commit 7164513) |
 | `fmincon_trr` | fmincon trust-region-reflective with Hv |
 | `fminunc_qn` | fminunc quasi-Newton (BFGS) |
 | `lbfgs` | own L-BFGS |

@@ -58,10 +58,10 @@ All methods had a budget of 250 gradient-equivalents.
 | **TR Newton-CG + L-BFGS preconditioner** | 8.8e-8 | 0.018* | **41** | **74** | **81** | **98** |
 | TR Newton-CG, no preconditioner | 1.9e-7 | 0.023 | 73 | 89 | 102 | 102 |
 | L-BFGS (own implementation, backtracking line search) | 4.9e-5 | 0.026 | 45 | 88 | 121 | 154 |
-| fmincon interior-point + `'cg'` + Hv (current `'CG'`) | 1.3e-3 | 4.03 | 120 | 143 | 147 | 171 |
+| fmincon interior-point + `'cg'` + Hv (`'CG'` in commit 7164513, `lb = 0`) | 1.3e-3 | 4.03 | 120 | 143 | 147 | 171 |
 | fmincon trust-region-reflective + Hv | 0.34 | 1.06 | 232 | – | – | – |
-| fmincon interior-point L-BFGS, no lower bound (`'lbfgs'` before commit 7164513) | 4.3e-4 | 0.030 | 45 | 93 | 147 | 219 |
-| fmincon interior-point L-BFGS, `lb = 0` (current `'lbfgs'`) | 2.7 | 0.20 | – | – | – | – |
+| fmincon interior-point L-BFGS, no lower bound (current `'lbfgs'`) | 4.3e-4 | 0.030 | 45 | 93 | 147 | 219 |
+| fmincon interior-point L-BFGS, `lb = 0` (`'lbfgs'` in commit 7164513) | 2.7 | 0.20 | – | – | – | – |
 | fminunc quasi-Newton (BFGS) | 2.7 | 0.17 | – | – | – | – |
 
 `err` is the relative L2 error in `a` on the parameter grid; see section 5 for why it bottoms out around 0.02.
@@ -75,7 +75,7 @@ All methods had a budget of 250 gradient-equivalents.
   - Without it, the run reproduces the saved pre-7164513 run (`mat/inversion/rough_lbfgs_maxiter200_m36_..._1.mat`) iterate for iterate, and reaches f = 4.3e-4.
   - The bound is not needed in practice: `a` never went below 0.0074 in unbounded runs.
   - The unbounded variant is therefore the fair L-BFGS baseline. Even so, `newton-tr` reaches f < 1e-3 at about half its cost (98 against 219 here).
-- **The current `'CG'` option converges in misfit but drifts far off in `a`** (err 4.0), in directions the data cannot see.
+- **The `'CG'` option (with `lb = 0`, as tested) converges in misfit but drifts far off in `a`** (err 4.0), in directions the data cannot see.
 - **The L-BFGS preconditioner built from CG pairs (Morales & Nocedal) helps most in the non-convex early phase.** The cost to reach f < 1 drops from 73 to 41.
 - **Switching from Newton-CG to L-BFGS once the Hessian looks positive definite gave no speed-up.** The switch only triggered after f had already converged.
 
@@ -86,7 +86,7 @@ The three most relevant methods were run in parallel, 3 threads each. Cost weigh
 | method | final f | final err | cost to f < 1 / 1e-1 / 1e-2 / 1e-3 / 1e-5 | minutes to the same |
 |---|---|---|---|---|
 | **`newton-tr` (repo version)** | **8.7e-7** | **0.022** | 49 / 92 / 117 / 122 / 144 | 22 / 42 / 54 / 56 / 66 |
-| fmincon interior-point L-BFGS, `lb = 0` (current `'lbfgs'`) | 1.0e-3 (budget hit) | 0.081 | 39 / 61 / 93 / – / – | 18 / 29 / 44 / – / – |
+| fmincon interior-point L-BFGS, `lb = 0` (`'lbfgs'` in commit 7164513) | 1.0e-3 (budget hit) | 0.081 | 39 / 61 / 93 / – / – | 18 / 29 / 44 / – / – |
 | L-BFGS (own implementation) | 1.36 (stalled) | 0.126 | – | – |
 
 `newton-tr` stopped on its own (relative gradient tolerance) at cost 172, about 79 minutes.
