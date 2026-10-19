@@ -255,12 +255,27 @@ For reference, the initial misfit is 29.8 and 0.5∫v² of the data is 36.5.
 ## 8. Next steps
 
 1. ~~Run `newton-tr` at `m = 251`, check the Hv there with finite differences, and compare with L-BFGS~~: done (section 4b). `newton-tr` converged in 5.9 h; L-BFGS reached only f = 1.5e-4 in 13.3 h. Hv agrees with finite differences to 2.7e-7.
-2. Check robustness to the initial guess (for example `a = 0.011` and `0.015`) at `m = 76`, comparing `newton-tr` with fmincon L-BFGS.
-3. Invert for more than one parameter (for example `a` and `D_c`). Different scales and coupling are where Newton should gain most over L-BFGS.
+2. **Is the custom `newton-tr` needed, or do simpler Newton-CG methods also beat L-BFGS?**
+   - **Why it is open:**
+     - So far only my own trust-region Newton-CG has been compared fairly with the unbounded L-BFGS. Even without the preconditioner it was about 2× faster at `m = 36` (cost 102 against 219 to reach f < 1e-3).
+     - The built-in Newton-CG methods were only run with `lb = 0`, the same confound that stalled L-BFGS. fmincon interior-point `'cg'` reached f < 1e-2 slightly faster than L-BFGS but drifted in `a` (err 4.0); fmincon trust-region-reflective did much worse.
+     - The course `newton_cg.m` was not tested.
+   - **Run at `m = 36` against `fmincon_ip_lbfgs_nolb`:**
+     - the current `'CG'` option, i.e. fmincon interior-point `'cg'` + Hv, no bound;
+     - fminunc `'trust-region'` with `HessianMultiplyFcn`, the built-in unconstrained Steihaug Newton-CG;
+     - `matlab_impl_constr/optimization/newton_cg.m` (Heinkenschloss, line-search Newton-CG with Armijo backtracking), through an adapter implementing its `fval`/`grad`/`Hessvec`/`xnew`/`xprod` interface on top of `InvProblem`. Keep the adapter functions in a separate folder, since names like `grad` could shadow others on the path.
+   - **Then:** confirm the promising ones at `m = 76`.
+   - **Expectation, not tested:** `newton_cg.m` falls back to −g with a unit step when it meets negative curvature in the first CG iteration. The Hessian at x0 is negative definite and a ≈ 0.01, so expect many backtracking steps early on.
+   - **Possible outcomes, all worth knowing:**
+     - a simple or built-in method is about as good, and the extra machinery of `newton-tr` is not needed;
+     - it is only slightly worse, which makes it a viable lower-maintenance option;
+     - handling negative curvature properly (trust region rather than line search) is what makes Newton-CG work here.
+3. Check robustness to the initial guess (for example `a = 0.011` and `0.015`) at `m = 76`, comparing `newton-tr` with fmincon L-BFGS.
+4. Invert for more than one parameter (for example `a` and `D_c`). Different scales and coupling are where Newton should gain most over L-BFGS.
    - Check the mixed second-derivative terms of the Hv with finite differences first.
    - Add parameter scaling (x/x0 or log x) before this, since the `newton-tr` settings are relative to ‖x‖ (section 6, *Tuning*).
-4. Decide how to treat the null space (section 5): regularization, a prior, or a restricted error metric.
-5. Other uses of the Hv:
+5. Decide how to treat the null space (section 5): regularization, a prior, or a restricted error metric.
+6. Other uses of the Hv:
    - Dominant Hessian eigenpairs at the solution (Lanczos, about 30–50 Hv) for uncertainty and resolution analysis.
    - A hybrid that runs L-BFGS early and switches to `newton-tr` once f has dropped a few orders of magnitude (expected saving about 20–30%).
    - Tests on non-inverse-crime data (`loadData`).
