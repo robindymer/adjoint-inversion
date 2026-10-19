@@ -97,7 +97,7 @@ The pattern holds at both resolutions:
 - **Early, non-convex phase:** L-BFGS is comparable or slightly cheaper down to f ≈ 1e-2.
 - **Late phase, once the Hessian is positive definite:** Newton-CG converges much faster and reaches the misfit floor, while L-BFGS crawls.
 
-## 4b. `newton-tr` at `m = 251` (cluster)
+## 4b. `m = 251` (cluster): `newton-tr`, Hv check and L-BFGS comparison
 
 One run on the cluster (`scripts/newton_tr_m251.sh`, 8 cores, Slurm job 7213723). It used the same harness and the same settings as at `m = 76`. Results are in `optimizer_benchmark/results/res_newton_tr_repo_m251.mat`.
 
@@ -120,6 +120,41 @@ One run on the cluster (`scripts/newton_tr_m251.sh`, 8 cores, Slurm job 7213723)
 - **Time to reach** f < 1, 1e-1, 1e-2, 1e-3, 1e-4: iterations 16, 27, 32, 41, 44, at 1.2, 2.3, 3.0, 4.1 and 4.4 h.
 - **Solve costs at this resolution:** a gradient takes about 110 s and an Hv about 97 s. At `m = 36` an Hv was 0.73 of a gradient; here it is 0.9, so the cost column underestimates the Hv share slightly. Wall time is the reliable number here.
 - **The misfit floor is higher** (2.4e-5 against 8.7e-7 at `m = 76`). The interior parameters are recovered equally well at both resolutions (section 5), so the difference is in f, not in the model.
+- **Hv at `m = 251` agrees with central finite differences of the gradient** (`scripts/hv_check_m251.sh`, job 7213722). The relative error is 2.9e-3, 2.9e-5 and 2.7e-7 for steps of 1e-3, 1e-4 and 1e-5. One Hv took 132 s and one gradient 135 s on 8 cores.
+
+### Comparison with L-BFGS at `m = 251`
+
+The `'lbfgs'` option (fmincon interior-point with L-BFGS, no lower bound) was run with the same harness, on 8 cores, with a budget of 400 gradient-equivalents (`scripts/lbfgs_m251.sh`, job 7215641).
+
+Wall time to reach each misfit level:
+
+| | f < 1 | f < 1e-1 | f < 1e-2 | f < 1e-3 | f < 2e-4 | f < 1e-4 | f < 2.4e-5 |
+|---|---|---|---|---|---|---|---|
+| **`newton-tr`** | 1.2 h | 2.3 h | 3.0 h | **4.1 h** | **4.1 h** | 4.4 h | 5.5 h |
+| `'lbfgs'` | 1.7 h | 2.9 h | 4.4 h | 7.3 h | 12.5 h | – | – |
+
+Final state of each run:
+
+| | final f | stop reason | wall time | iterations | solves |
+|---|---|---|---|---|---|
+| **`newton-tr`** | 2.4e-5 | converged (relative gradient tolerance) | 5.9 h | 49 | 58 forward + adjoint, 148 Hv |
+| `'lbfgs'` | 1.5e-4 | budget (401 gradients) | 13.3 h | 271 | 401 forward + adjoint |
+
+Recovery of the resolved nodes 6–25:
+
+| | relative error | max abs deviation |
+|---|---|---|
+| **`newton-tr`** | 2.3e-4 | 1e-5 |
+| `'lbfgs'` | 1.9e-2 | 5e-4 |
+
+**Verdict:** at `m = 251`, `newton-tr` is faster than L-BFGS at every misfit level.
+- The gap is moderate early on: about 1.3–1.5× to f < 1e-2.
+- It grows in the convex phase: 1.8× to f < 1e-3 and 3× to f < 2e-4.
+- `newton-tr` converged in less than half the wall time L-BFGS was given, while L-BFGS was still crawling at 1.5e-4 when its budget ran out.
+- The model is about 80× more accurate on the resolved nodes.
+- Both leave the unresolved nodes 1–5 and 26 at the initial guess (section 5).
+
+This confirms the `m = 36` and `m = 76` conclusions at a resolution where the forward problem is close to converged (section 7).
 
 ## 5. Null space: the edges of the fault are not constrained by the data
 
@@ -219,7 +254,7 @@ For reference, the initial misfit is 29.8 and 0.5∫v² of the data is 36.5.
 
 ## 8. Next steps
 
-1. ~~Run `newton-tr` once at `m = 251`~~: done, converged (section 4b). Still to do: a finite-difference check of the Hv at `m = 251` (`scripts/hv_check_m251.sh`).
+1. ~~Run `newton-tr` at `m = 251`, check the Hv there with finite differences, and compare with L-BFGS~~: done (section 4b). `newton-tr` converged in 5.9 h; L-BFGS reached only f = 1.5e-4 in 13.3 h. Hv agrees with finite differences to 2.7e-7.
 2. Check robustness to the initial guess (for example `a = 0.011` and `0.015`) at `m = 76`, comparing `newton-tr` with fmincon L-BFGS.
 3. Invert for more than one parameter (for example `a` and `D_c`). Different scales and coupling are where Newton should gain most over L-BFGS.
    - Check the mixed second-derivative terms of the Hv with finite differences first.

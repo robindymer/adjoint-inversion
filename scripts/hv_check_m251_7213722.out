@@ -1,0 +1,15 @@
+==== Hv FD check, m = 251, 8 threads ====
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+setup: 141.1 s
+grad: 135.0 s, f = 36.5038, |g| = 0.433317
+Hv (cached 1st order): 131.6 s, |Hv| = 0.0196765
+h = 1 (|step| = 0.001): rel err 0.00290583
+h = 0.1 (|step| = 0.0001): rel err 2.89971e-05
+h = 0.01 (|step| = 1e-05): rel err 2.66211e-07
+==== Hv FD check passed: best rel err 2.66211e-07 ====
