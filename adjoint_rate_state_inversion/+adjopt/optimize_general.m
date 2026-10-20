@@ -192,7 +192,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         usr_par.outputFcn = @(x, f) outputMisfit(x, struct('fval', f), 'iter');
         ncgopts.iprint = 1;
         ncgopts.maxit = maxIter;
-        ncgopts.gtol = 1e-10;
+        ncgopts.gtol = 1e-4;
         ncgopts.stol = 1e-14;
 
         % Optimize

@@ -1,12 +1,16 @@
 addSubpaths;
 maxIter = 200; % max number of optimization iterations
-m = 36; % Grid points in x-direction
+m = 76; % Grid points in x-direction
 m_p = 26; % Grid points on parameter grid
 scalingStudy = false; 
 misfitType = 'velocity';
 optPars = {'a'}; % parameter to invert for
 val = 0.0135; % initial value
-opt_routine_str = 'lbfgs';
+% lbfgs, newton-tr, CG, newton-tr-noprec, fminunc-tr, newton-cg-ls (see adjopt.optimize_general).
+% Can be set before running the script, e.g. matlab -batch "opt_routine_str='newton-tr'; direct_effect_inverse_crime"
+if ~exist('opt_routine_str', 'var')
+    opt_routine_str = 'lbfgs';
+end
 fprintf('RUNNING: %s\n', opt_routine_str);
 [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, [], [], [], opt_routine_str);
 

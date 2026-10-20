@@ -1,0 +1,69 @@
+RUNNING: newton-tr
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Generating synthetic data
+f = 3.423561e+01  |g| =  4.152e-01  init
+f = 2.763311e+01  |g| =  1.352e+04  CG  1 negcurv  rho 888.751 th 1.00 Delta 2.75e-02
+rejected: CG  1 negcurv  rho  -0.001 th 0.62 Delta 4.30e-03, f_trial = 3.423659e+01
+rejected: CG  1 negcurv  rho  -0.017 th 1.00 Delta 1.08e-03, f_trial = 3.423255e+01
+f = 1.194589e+01  |g| =  3.058e+04  CG  1 negcurv  rho   0.453 th 1.00 Delta 1.08e-03
+f = 1.087775e+01  |g| =  1.563e+04  CG  1 conv     rho   1.198 th 1.00 Delta 1.08e-03
+f = 1.087701e+01  |g| =  1.565e+04  CG  1 negcurv  rho   1.000 th 1.00 Delta 4.30e-03
+f = 1.087407e+01  |g| =  1.571e+04  CG  1 negcurv  rho   1.000 th 1.00 Delta 1.72e-02
+f = 1.086217e+01  |g| =  1.596e+04  CG  1 negcurv  rho   1.000 th 1.00 Delta 6.88e-02
+f = 1.081258e+01  |g| =  1.704e+04  CG  1 negcurv  rho   1.001 th 1.00 Delta 2.75e-01
+f = 1.057716e+01  |g| =  2.226e+04  CG  1 negcurv  rho   1.012 th 1.00 Delta 6.88e-01
+f = 9.742407e+00  |g| =  3.076e+04  CG  1 negcurv  rho   0.952 th 1.00 Delta 6.88e-01
+f = 8.945273e+00  |g| =  1.886e+04  CG  1 boundary rho   0.873 th 1.00 Delta 6.88e-01
+f = 8.693910e+00  |g| =  9.997e+02  CG  1 conv     rho   0.954 th 1.00 Delta 6.88e-01
+f = 8.677845e+00  |g| =  3.933e+03  CG  2 boundary rho   0.948 th 1.00 Delta 6.88e-01
+f = 7.196149e+00  |g| =  4.476e+03  CG  1 boundary rho   0.997 th 1.00 Delta 6.88e-01
+f = 4.805637e+00  |g| =  9.724e+02  CG  1 boundary rho   2.064 th 1.00 Delta 6.88e-01
+f = 4.476922e+00  |g| =  8.940e+03  CG  2 boundary rho   0.941 th 1.00 Delta 6.88e-01
+f = 3.745844e+00  |g| =  1.809e+04  CG  1 boundary rho   0.700 th 1.00 Delta 6.88e-01
+f = 2.984427e+00  |g| =  9.451e+03  CG  1 boundary rho   1.005 th 1.00 Delta 6.88e-01
+f = 2.376311e+00  |g| =  9.711e+03  CG  1 boundary rho   1.012 th 1.00 Delta 6.88e-01
+f = 2.062330e+00  |g| =  3.124e+03  CG  2 boundary rho   1.096 th 1.00 Delta 6.88e-01
+f = 1.940350e+00  |g| =  2.246e+03  CG  1 boundary rho   0.999 th 1.00 Delta 6.88e-01
+f = 1.613205e+00  |g| =  3.898e+03  CG  1 negcurv  rho   1.085 th 1.00 Delta 6.88e-01
+f = 1.312177e+00  |g| =  1.215e+04  CG  1 negcurv  rho   0.693 th 1.00 Delta 6.88e-01
+f = 1.100750e+00  |g| =  9.646e+02  CG  3 boundary rho   1.174 th 1.00 Delta 6.88e-01
+f = 9.944001e-01  |g| =  1.086e+04  CG  2 boundary rho   0.807 th 1.00 Delta 6.88e-01
+f = 9.562964e-01  |g| =  2.877e+02  CG  2 conv     rho   1.021 th 1.00 Delta 6.88e-01
+f = 9.446237e-01  |g| =  2.941e+03  CG  3 boundary rho   1.029 th 1.00 Delta 6.88e-01
+f = 8.685078e-01  |g| =  1.313e+04  CG  2 boundary rho   0.492 th 1.00 Delta 6.88e-01
+f = 6.595983e-01  |g| =  2.165e+04  CG  1 boundary rho   0.516 th 1.00 Delta 6.88e-01
+f = 4.323034e-01  |g| =  1.962e+03  CG  3 conv     rho   0.959 th 1.00 Delta 6.88e-01
+f = 4.117324e-01  |g| =  1.055e+03  CG  3 boundary rho   1.005 th 1.00 Delta 6.88e-01
+f = 4.069772e-01  |g| =  1.039e+04  CG  6 boundary rho   0.176 th 1.00 Delta 1.72e-01
+f = 3.073653e-01  |g| =  1.422e+03  CG  1 boundary rho   1.203 th 1.00 Delta 6.88e-01
+f = 2.035141e-01  |g| =  5.959e+03  CG  5 conv     rho   0.922 th 1.00 Delta 6.88e-01
+f = 1.832489e-01  |g| =  5.019e+02  CG  3 conv     rho   1.184 th 1.00 Delta 6.88e-01
+rejected: CG  5 boundary rho  -3.380 th 1.00 Delta 1.72e-01, f_trial = 2.616655e-01
+f = 1.759552e-01  |g| =  3.958e+03  CG  1 boundary rho   0.725 th 1.00 Delta 1.72e-01
+f = 1.290787e-01  |g| =  3.249e+03  CG  1 boundary rho   0.999 th 1.00 Delta 6.88e-01
+f = 4.116221e-02  |g| =  2.275e+03  CG  4 conv     rho   0.978 th 1.00 Delta 6.88e-01
+f = 3.087408e-02  |g| =  3.228e+03  CG  3 conv     rho   1.202 th 1.00 Delta 6.88e-01
+f = 2.250490e-02  |g| =  1.340e+03  CG  2 conv     rho   1.326 th 1.00 Delta 6.88e-01
+f = 1.790374e-02  |g| =  2.692e+03  CG  2 conv     rho   1.038 th 1.00 Delta 6.88e-01
+f = 1.447407e-02  |g| =  3.883e+02  CG  2 conv     rho   1.190 th 1.00 Delta 6.88e-01
+f = 1.347765e-02  |g| =  1.102e+03  CG  3 conv     rho   0.926 th 1.00 Delta 6.88e-01
+f = 1.307766e-02  |g| =  3.278e+01  CG  2 conv     rho   1.056 th 1.00 Delta 6.88e-01
+f = 1.264588e-02  |g| =  3.907e+01  CG  6 boundary rho   1.005 th 1.00 Delta 6.88e-01
+f = 1.012734e-03  |g| =  2.912e+01  CG  4 boundary rho   0.985 th 1.00 Delta 6.88e-01
+f = 6.103682e-04  |g| =  9.407e+01  CG  6 boundary rho   0.995 th 1.00 Delta 6.88e-01
+f = 8.524769e-05  |g| =  1.576e+01  CG  4 conv     rho   1.001 th 1.00 Delta 6.88e-01
+f = 2.802106e-05  |g| =  3.416e-01  CG  6 conv     rho   1.001 th 1.00 Delta 6.88e-01
+f = 7.916115e-06  |g| =  4.349e-01  CG 15 boundary rho   0.993 th 1.00 Delta 6.88e-01
+f = 8.901345e-07  |g| =  9.967e-03  CG 11 conv     rho   0.974 th 1.00 Delta 6.88e-01
+f = 8.727142e-07  |g| =  3.610e-02  CG 13 boundary rho   1.002 th 1.00 Delta 6.88e-01
+f = 8.721613e-07  |g| =  2.952e-06  CG 11 conv     rho   1.000 th 1.00 Delta 6.88e-01
+Elapsed time is 5019.541115 seconds.
+[Warning: Directory already exists.] 
+[> In optimize_antiplaneshear (line 88)
+In direct_effect_inverse_crime (line 15)] 

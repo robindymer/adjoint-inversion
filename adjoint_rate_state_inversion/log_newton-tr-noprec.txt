@@ -1,0 +1,53 @@
+RUNNING: newton-tr-noprec
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Generating synthetic data
+f = 3.423561e+01  |g| =  4.152e-01  init
+f = 2.763311e+01  |g| =  1.352e+04  CG  1 negcurv  rho 888.751 th 1.00 Delta 2.75e-02
+rejected: CG  1 negcurv  rho  -0.001 th 0.62 Delta 4.30e-03, f_trial = 3.423659e+01
+rejected: CG  1 negcurv  rho  -0.017 th 1.00 Delta 1.08e-03, f_trial = 3.423255e+01
+f = 1.194589e+01  |g| =  3.058e+04  CG  1 negcurv  rho   0.453 th 1.00 Delta 1.08e-03
+f = 1.087775e+01  |g| =  1.563e+04  CG  1 conv     rho   1.198 th 1.00 Delta 1.08e-03
+rejected: CG  1 negcurv  rho  -0.086 th 1.00 Delta 2.69e-04, f_trial = 2.828257e+01
+f = 1.031771e+01  |g| =  3.738e+04  CG  1 negcurv  rho   0.035 th 1.00 Delta 6.72e-05
+f = 8.963889e+00  |g| =  1.280e+03  CG  1 boundary rho   0.664 th 1.00 Delta 6.72e-05
+f = 8.894796e+00  |g| =  1.679e+03  CG  2 boundary rho   1.009 th 1.00 Delta 2.69e-04
+f = 8.619490e+00  |g| =  2.868e+03  CG  2 boundary rho   0.972 th 1.00 Delta 1.08e-03
+f = 7.584734e+00  |g| =  1.091e+04  CG  2 negcurv  rho   0.911 th 1.00 Delta 4.30e-03
+f = 7.499952e+00  |g| =  1.373e+03  CG  1 conv     rho   1.055 th 1.00 Delta 4.30e-03
+rejected: CG  2 negcurv  rho  -0.358 th 1.00 Delta 1.08e-03, f_trial = 9.121038e+00
+f = 6.468405e+00  |g| =  5.793e+03  CG  2 negcurv  rho   0.929 th 1.00 Delta 4.30e-03
+f = 3.085302e+00  |g| =  1.390e+03  CG  2 boundary rho   0.917 th 1.00 Delta 1.72e-02
+rejected: CG  4 boundary rho  -0.413 th 1.00 Delta 4.30e-03, f_trial = 4.994344e+00
+f = 9.847665e-01  |g| =  1.347e+04  CG  2 boundary rho   1.117 th 1.00 Delta 1.72e-02
+f = 9.269380e-01  |g| =  7.126e+02  CG  1 conv     rho   0.983 th 1.00 Delta 1.72e-02
+rejected: CG  5 boundary rho  -0.723 th 0.98 Delta 4.23e-03, f_trial = 2.158881e+00
+f = 4.251506e-01  |g| =  2.760e+04  CG  4 boundary rho   0.685 th 1.00 Delta 4.23e-03
+f = 1.970205e-01  |g| =  3.640e+03  CG  1 conv     rho   0.901 th 1.00 Delta 4.23e-03
+f = 1.933157e-01  |g| =  2.272e+02  CG  1 conv     rho   1.000 th 1.00 Delta 4.23e-03
+rejected: CG  5 boundary rho  -0.303 th 1.00 Delta 1.06e-03, f_trial = 2.548818e-01
+f = 1.393636e-01  |g| =  6.423e+03  CG  3 boundary rho   0.805 th 1.00 Delta 4.23e-03
+f = 1.279173e-01  |g| =  1.255e+02  CG  1 conv     rho   0.996 th 1.00 Delta 4.23e-03
+f = 5.455331e-02  |g| =  9.855e+03  CG  5 boundary rho   0.473 th 1.00 Delta 4.23e-03
+f = 2.857794e-02  |g| =  1.618e+02  CG  1 conv     rho   0.989 th 1.00 Delta 4.23e-03
+f = 2.806794e-03  |g| =  1.541e+02  CG  6 conv     rho   0.944 th 1.00 Delta 4.23e-03
+f = 1.564325e-03  |g| =  3.381e+01  CG  4 conv     rho   0.992 th 1.00 Delta 4.23e-03
+f = 9.129400e-05  |g| =  1.111e+02  CG  8 conv     rho   0.994 th 1.00 Delta 4.23e-03
+f = 8.805641e-05  |g| =  1.211e+00  CG  1 conv     rho   1.000 th 1.00 Delta 4.23e-03
+f = 4.712440e-06  |g| =  4.016e+00  CG 20 maxit    rho   1.002 th 1.00 Delta 4.23e-03
+f = 3.511747e-06  |g| =  8.212e-02  CG  8 conv     rho   1.000 th 1.00 Delta 4.23e-03
+f = 9.014688e-07  |g| =  2.155e-02  CG 20 maxit    rho   0.968 th 1.00 Delta 4.23e-03
+f = 8.760185e-07  |g| =  8.316e-01  CG 20 maxit    rho   1.000 th 1.00 Delta 4.23e-03
+f = 8.758020e-07  |g| =  2.532e-03  CG  2 conv     rho   1.000 th 1.00 Delta 4.23e-03
+f = 8.742407e-07  |g| =  1.679e-03  CG 20 maxit    rho   1.000 th 1.00 Delta 4.23e-03
+f = 8.738563e-07  |g| =  1.286e-03  CG 20 maxit    rho   1.000 th 1.00 Delta 4.23e-03
+f = 8.737352e-07  |g| =  3.244e-04  CG 20 maxit    rho   1.000 th 1.00 Delta 4.23e-03
+Elapsed time is 5101.954189 seconds.
+[Warning: Directory already exists.] 
+[> In optimize_antiplaneshear (line 88)
+In direct_effect_inverse_crime (line 15)] 
