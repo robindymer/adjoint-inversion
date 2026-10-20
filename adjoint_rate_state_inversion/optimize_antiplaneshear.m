@@ -9,10 +9,12 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
     % lbfgs and bfgs are quasi-newton methods, CG is a conjugate gradient method
     % lbfgs usually better than bfgs for many unknowns, but require same information (gradient)
     % CG require gradient and hessian-vector product
-    % newton-tr is trust-region Newton-CG, requires gradient and hessian-vector product
+    % newton-tr is trust-region Newton-CG (newton-tr-noprec without preconditioner), requires gradient and hessian-vector product
+    % fminunc-tr is MATLAB's trust-region Newton-CG, newton-cg-ls is M. Heinkenschloss' line-search
+    % Newton-CG (matlab_impl_constr). Both require gradient and hessian-vector product
     default_arg('opt_routine_str','lbfgs');
     order = 8;
-    if any(strcmp(opt_routine_str, {'CG', 'newton-tr'})) % Requires Hessian-vector products
+    if any(strcmp(opt_routine_str, {'CG', 'newton-tr', 'newton-tr-noprec', 'fminunc-tr', 'newton-cg-ls'})) % Requires Hessian-vector products
         optObj = @AntiplaneShear2DRSFrictionOptHessian;
     else
         optObj = @AntiplaneShear2DRSFrictionOpt;
