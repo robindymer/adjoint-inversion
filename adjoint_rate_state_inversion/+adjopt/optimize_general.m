@@ -2,14 +2,17 @@
 %
 % optObjFunc: 	Handle to an AdjointOptimization class
 % parSetFunc: 		Handle to a parameter definition function
+% checkpointPath: 	If set, history is saved there after every iteration. A run that is
+%                   stopped can be continued by passing the file as loadOptPath.
 % NOTE: Previously called optimize_lbfgs, now we call it optimize_general
-function [parsVec, misFit, flag, output, history, initialPars, truePars, parset] = optimize_general(optObjFunc, parSetFunc, invPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str)
+function [parsVec, misFit, flag, output, history, initialPars, truePars, parset] = optimize_general(optObjFunc, parSetFunc, invPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str, checkpointPath)
     default_arg('maxIter', 20);
     default_arg('order', 4);
     default_arg('parSetOpts', struct);
     default_arg('loadDataPath', '');
     default_arg('loadOptPath', '');
     default_arg('opt_routine_str','lbfgs');
+    default_arg('checkpointPath', '');
 
     % Plot settings
     if ~strcmp(loadDataPath,'') % Load data and create optimization object
@@ -219,6 +222,13 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         history.x = [history.x, x];
         history.fval = [history.fval; fval];
         history.t = [history.t; toc(tOpt)];
+
+        if ~isempty(checkpointPath)
+            % Save to a temporary file first, so a job killed during the save keeps the previous checkpoint
+            tmpPath = [checkpointPath, '.tmp'];
+            save(tmpPath, 'history', '-mat');
+            movefile(tmpPath, checkpointPath, 'f');
+        end
     end
 
     % Objective for fminunc 'trust-region', which passes its third output to HessianMultiplyFcn

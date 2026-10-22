@@ -1,4 +1,4 @@
-function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, horizontalFault, loadOptPath, opt_routine_str)
+function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, horizontalFault, loadOptPath, opt_routine_str, receiverSpacing)
     
     addSubpaths;
     default_arg('scalingStudy',true);
@@ -13,6 +13,8 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
     % fminunc-tr is MATLAB's trust-region Newton-CG, newton-cg-ls is M. Heinkenschloss' line-search
     % Newton-CG (matlab_impl_constr). Both require gradient and hessian-vector product
     default_arg('opt_routine_str','lbfgs');
+    % 2: N_rec = 88 receivers, 1: N_rec = 325 receivers (see pars.rsFriction2DFractalFaultInversion)
+    default_arg('receiverSpacing',2);
     order = 8;
     if any(strcmp(opt_routine_str, {'CG', 'newton-tr', 'newton-tr-noprec', 'fminunc-tr', 'newton-cg-ls'})) % Requires Hessian-vector products
         optObj = @AntiplaneShear2DRSFrictionOptHessian;
@@ -50,7 +52,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
     parSetOpts.inversionParameters = optPars;
     parSetOpts.m = m;
     parSetOpts.m_p = m_p;
-    [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = adjopt.optimize_general(optObj, parSetFun, optPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str);
+    parSetOpts.receiverSpacing = receiverSpacing;
 
     % if lbfgs
     %     opt_str = 'lbfgs';
@@ -74,6 +76,9 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
             str_ending = erase(sprintf('%s_%s%1.4f',str_ending,parname,p),'.');
         end
     end
+    if receiverSpacing ~= 2
+        str_ending = sprintf('%s_rs%d',str_ending,receiverSpacing);
+    end
     filename = sprintf('mat/inversion/%s_%s_maxiter%d_m%d_mp%d_%s_%s_%s.mat',fault_str,opt_routine_str,maxIter,m,m_p,misfitType,data_str,str_ending);
     if isfile(filename)
         filecounter = 1;
@@ -86,5 +91,10 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
         filename = newfilename;
     end
     mkdir('mat/inversion/');
+    % history is saved here after every iteration, and the file is removed once the run has finished
+    checkpointPath = strrep(filename, '.mat', '_checkpoint.mat');
+    [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = adjopt.optimize_general(optObj, parSetFun, optPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str, checkpointPath);
+
     save(filename, '-v7.3','-nocompression');
+    delete(checkpointPath);
 end
