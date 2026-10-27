@@ -30,5 +30,18 @@ end
 if ~exist('loadOptPath', 'var')
     loadOptPath = '';
 end
-fprintf('RUNNING: %s, inverting for %s\n', opt_routine_str, inv_par);
-[parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, [], loadOptPath, opt_routine_str, receiverSpacing);
+% Regularization: 'none', 'tikhonov', 'tikhonov-grad', 'tv' or 'lasso' (see adjopt.regularization),
+% with weight reg_beta. reg_eps smooths the absolute value in 'tv' and 'lasso'. E.g.
+% matlab -batch "reg_type='tv'; reg_beta=1; high_res_data_inversion"
+if ~exist('reg_type', 'var')
+    reg_type = 'none';
+end
+if ~exist('reg_beta', 'var')
+    reg_beta = 0;
+end
+regOpts = struct('type', reg_type, 'beta', reg_beta);
+if exist('reg_eps', 'var')
+    regOpts.eps = reg_eps;
+end
+fprintf('RUNNING: %s, inverting for %s, regularization %s with beta = %g\n', opt_routine_str, inv_par, reg_type, reg_beta);
+[parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, [], loadOptPath, opt_routine_str, receiverSpacing, regOpts);

@@ -4,8 +4,11 @@
 % parSetFunc: 		Handle to a parameter definition function
 % checkpointPath: 	If set, history is saved there after every iteration. A run that is
 %                   stopped can be continued by passing the file as loadOptPath.
+% regOpts:          Regularization added to the misfit, see adjopt.regularization. The prior is
+%                   the initial guess. history.fval is the misfit plus regularization, and
+%                   history.reg the regularization.
 % NOTE: Previously called optimize_lbfgs, now we call it optimize_general
-function [parsVec, misFit, flag, output, history, initialPars, truePars, parset] = optimize_general(optObjFunc, parSetFunc, invPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str, checkpointPath)
+function [parsVec, misFit, flag, output, history, initialPars, truePars, parset] = optimize_general(optObjFunc, parSetFunc, invPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str, checkpointPath, regOpts)
     default_arg('maxIter', 20);
     default_arg('order', 4);
     default_arg('parSetOpts', struct);
@@ -13,6 +16,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
     default_arg('loadOptPath', '');
     default_arg('opt_routine_str','lbfgs');
     default_arg('checkpointPath', '');
+    default_arg('regOpts', struct('type', 'none'));
 
     % Plot settings
     if ~strcmp(loadDataPath,'') % Load data and create optimization object
@@ -57,8 +61,14 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
     history.x = [];
     history.fval = [];
     history.t = [];
-    
-    fun = @(parsVec) adjopt.vectorGradient(parsVec, optObj);
+    history.reg = [];
+
+    % Regularization, with the initial guess as prior
+    blockSizes = cellfun(@(name) numel(initialPars.(name)), invPars);
+    reg = adjopt.regularization(regOpts, optObj.parametersNativeToVector(initialPars), blockSizes);
+
+    fun = @regularizedObjective;
+    hessVec = @(x, V) adjopt.hessianVector(x, V, optObj) + reg.hessVec(x, V);
     
     % initialize solution and set history of loading
     if ~strcmp(loadOptPath,'')
@@ -72,6 +82,9 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
             % Older histories also stored fmincon's 'init' and 'done' states and have no time
             maxIter = maxIter - (histIter-3);
             history.t = nan(histIter, 1);
+        end
+        if ~isfield(history, 'reg') % Older histories without regularization
+            history.reg = nan(size(history.fval));
         end
         % Set loaded parameters in optimization object
         optObj.setParameters(optObj.parametersVectorToNative(x0));
@@ -131,7 +144,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         options.Algorithm = 'interior-point';
         % options.HessianApproximation = 'lbfgs';
         options.SubproblemAlgorithm = 'cg';
-        options.HessianMultiplyFcn = @(x, lambda, v) adjopt.hessianVector(x, v, optObj);
+        options.HessianMultiplyFcn = @(x, lambda, v) hessVec(x, v);
         options.MaxIterations = maxIter;
         options.OutputFcn = @outputMisfit;
         options.Display = 'iter-detailed';
@@ -154,7 +167,6 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
     elseif any(strcmp(opt_routine_str,{'newton-tr','newton-tr-noprec'}))
         % Trust-region Newton-CG with Hessian-vector products and L-BFGS preconditioning.
         % 'newton-tr-noprec' is the same without preconditioner, i.e. plain Steihaug CG.
-        hessVec = @(x, V) adjopt.hessianVector(x, V, optObj);
         tropts.maxIter = maxIter;
         tropts.precond = strcmp(opt_routine_str,'newton-tr');
         tropts.OutputFcn = @(x, f, g, info) outputMisfit(x, struct('fval', f), 'iter');
@@ -171,7 +183,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         options = optimoptions('fminunc');
         options.Algorithm = 'trust-region';
         options.SpecifyObjectiveGradient = true;
-        options.HessianMultiplyFcn = @(Hinfo, Y) adjopt.hessianVector(Hinfo, Y, optObj);
+        options.HessianMultiplyFcn = @(Hinfo, Y) hessVec(Hinfo, Y);
         options.MaxIterations = maxIter;
         options.OutputFcn = @outputMisfit;
         options.Display = 'iter-detailed';
@@ -192,6 +204,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         cleanupPaths = onCleanup(@() rmpath(adapterPaths{:}));
 
         usr_par.optObj = optObj;
+        usr_par.reg = reg;
         usr_par.outputFcn = @(x, f) outputMisfit(x, struct('fval', f), 'iter');
         ncgopts.iprint = 1;
         ncgopts.maxit = maxIter;
@@ -222,6 +235,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         history.x = [history.x, x];
         history.fval = [history.fval; fval];
         history.t = [history.t; toc(tOpt)];
+        history.reg = [history.reg; reg.R(x)];
 
         if ~isempty(checkpointPath)
             % Save to a temporary file first, so a job killed during the save keeps the previous checkpoint
@@ -229,6 +243,13 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
             save(tmpPath, 'history', '-mat');
             movefile(tmpPath, checkpointPath, 'f');
         end
+    end
+
+    % Misfit plus regularization, and its gradient
+    function [f, g] = regularizedObjective(x)
+        [f, g] = adjopt.vectorGradient(x, optObj);
+        f = f + reg.R(x);
+        g = g + reg.grad(x);
     end
 
     % Objective for fminunc 'trust-region', which passes its third output to HessianMultiplyFcn

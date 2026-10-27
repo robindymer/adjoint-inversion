@@ -10,6 +10,6 @@ function [g] = grad(x, usr_par)
     optObj.runAdjoint(false);
     % Mark first-order solutions as valid at x, so Hessvec does not recompute them
     optObj.firstOrderParsVec = optObj.parametersNativeToVector(optObj.forwardDiscr.friction.rsParams);
-    g = optObj.gradientNativeToVector(optObj.gradientFormula());
-    usr_par.outputFcn(x, optObj.computeMisfit());
+    g = optObj.gradientNativeToVector(optObj.gradientFormula()) + usr_par.reg.grad(x);
+    usr_par.outputFcn(x, optObj.computeMisfit() + usr_par.reg.R(x));
 end
