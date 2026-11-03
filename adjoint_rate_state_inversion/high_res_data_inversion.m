@@ -28,6 +28,10 @@ switch inv_par
         val = 68;
         receiverSpacing = 1; % N_rec = 325
 end
+% Parameter grid size can be set before running the script, e.g. m_p_in=51
+if exist('m_p_in', 'var')
+    m_p = m_p_in;
+end
 optPars = {inv_par}; % parameter to invert for
 % lbfgs, newton-tr, CG, newton-tr-noprec, fminunc-tr, newton-cg-ls (see adjopt.optimize_general).
 if ~exist('opt_routine_str', 'var')

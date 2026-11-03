@@ -1,0 +1,7 @@
+# Step 5a of notes/high_res_plan.md: m_p = 51 (run with third argument 51), best beta from step 3.
+# Same beta as at m_p = 26: for the step in the true a, sum((Da)^2) and sum(abs(Da)) do not change with the node spacing.
+# TV with eps = 1e-3, which removes the Newton-CG stall in step 4. <optimizer> <reg_type> <reg_beta> [reg_eps]
+lbfgs tikhonov-grad 1e4
+newton-cg-ls tikhonov-grad 1e4
+lbfgs tv 10 1e-3
+newton-cg-ls tv 10 1e-3
