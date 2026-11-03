@@ -1,0 +1,11 @@
+# Step 5b of notes/high_res_plan.md: m = 151, m_p = 26 (run with fourth argument 151).
+# Less model error than at m = 76, so the best beta may be smaller: one beta below the best of step 3 as well.
+# TV with eps = 1e-3 (step 4). <optimizer> <reg_type> <reg_beta> [reg_eps]
+lbfgs tikhonov-grad 1e4
+newton-cg-ls tikhonov-grad 1e4
+lbfgs tikhonov-grad 1e3
+newton-cg-ls tikhonov-grad 1e3
+lbfgs tv 10 1e-3
+newton-cg-ls tv 10 1e-3
+lbfgs tv 1 1e-3
+newton-cg-ls tv 1 1e-3

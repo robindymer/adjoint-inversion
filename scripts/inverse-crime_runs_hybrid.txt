@@ -1,0 +1,5 @@
+# Hybrid L-BFGS -> Newton-CG in the inverse crime (run locally with direct_effect_inverse_crime):
+# newton-cg-ls from iteration 30 (f = 2.3) and 60 (f = 1.38, where L-BFGS stalls) of the unregularized lbfgs run.
+# <optimizer> <reg_type> <reg_beta> <reg_eps> <x0_iter>
+newton-cg-ls none 0 - 30
+newton-cg-ls none 0 - 60

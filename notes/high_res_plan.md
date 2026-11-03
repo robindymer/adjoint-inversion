@@ -63,11 +63,15 @@
   - `newton-cg-ls` gets no curvature from R and may zig-zag around the steps.
 - **"Got away with it"** means: the exact objective is no worse than with smoothing, the step is sharp, and there are no NaNs or stalls.
 
-## 5. If Newton-CG still does not stand out
-In order of effort:
-1. **m_p = 51:** more unknowns and worse conditioning.
-2. **m = 151:** the misfit floor is about 3× lower, so more of the convex phase is reached.
-3. **Joint inversion** (`a` + `tau0` or `D_c`): needs parameter scaling first (`optimizer_comparison.md` §6).
+## 5. Making Newton-CG stand out
+With high-res data the unregularized minimizer fits the model error, so compare the solvers on regularized problems only, by the time to reach the regularized minimizer (J*). Procedure:
+1. **Step 4 (eps study):** if eps = 1e-3 makes Newton-CG faster on TV, the 1/eps stiffness is the cause. Use the best eps from then on. Expected: with eps = 0 Newton-CG loses, since R adds no curvature.
+2. **Step 5a, m_p = 51** (`high-res_runs_step5.txt`, 4 runs): doubles the unknowns and worsens the conditioning, where L-BFGS should suffer more. Same β as the best in step 3 (tikhonov-grad 1e4, TV 10): for the step in the true `a`, Σ(Da)² and Σ|Da| do not change with the node spacing. Add the best eps from step 4 to the TV lines before submitting.
+3. **Step 5b, m = 151** (`high-res_runs_step5b.txt`, 8 runs, m_p = 26): step 5a was not convincing (speedup about 2×, not growing with m_p). The model error drops from 1.5 to 0.47 in misfit, so more of the convergence is in the late, badly conditioned phase. About 2–3× the cost per run.
+4. **Step 5c, hybrid L-BFGS → Newton-CG** (`x0_iter=<k>` in the drivers, `high-res_runs_hybrid.txt` on the cluster, `inverse-crime_runs_hybrid.txt` locally): `newton-cg-ls` starts from iteration k of the `lbfgs` run with the same settings, which must be in `mat/inversion/`. The output is `rough_lbfgs<k>-newton-cg-ls_...`, and its history contains the L-BFGS iterations 0..k, so `history.t` is the total wall time. k = 20 and 40 (J − J* about 1e-1 and 2e-2) for TV 10, TV 100 (both eps = 1e-4) and tikhonov-grad 1e4; k = 30 and 60 in the inverse crime. Original idea: L-BFGS through the nonconvex phase, then `newton-cg-ls` from that iterate, switching when the relative decrease per L-BFGS iteration stays below about 1e-3. It also removes the large-β stall, which comes from the 1/eps stiffness at the constant initial guess. Cheap test without new L-BFGS runs: add `x0_from=<file>; x0_iter=<k>` to the drivers and start `newton-cg-ls` from saved `history.x` iterates (inverse crime at f ≈ 2; high-res TV β = 100). Expected: much faster than L-BFGS in the inverse crime but only slightly faster than Newton-CG alone; removes the 6–7 h stall at large β.
+5. **Joint inversion** (`a` + `tau0` or `D_c`): needs parameter scaling first (`optimizer_comparison.md` §6).
+
+**Claim for the report:** Newton-CG reaches the regularized minimizer about 2× faster at the same accuracy in `a` (m = 76, tikhonov-grad 1e4: 0.31 h against 0.63 h; m = 251, TV β = 1: 3.7 h against 6.2 h, to rel. level 1e-3). The inverse crime remains the case where L-BFGS stalls completely.
 
 ## Cost
 - Each m = 76 run takes about 1–3 h on 8 cores.
@@ -85,8 +89,15 @@ sbatch high-res_floor.sh
 sbatch --array=1-$(grep -cv '^#' high-res_runs_step23.txt) high-res_sweep_a.sh high-res_runs_step23.txt
 # after choosing beta in step 3 (edit beta in the run file first):
 sbatch --array=1-$(grep -cv '^#' high-res_runs_step4.txt) high-res_sweep_a.sh high-res_runs_step4.txt
+# step 5a, m_p = 51 (third argument; "" keeps the m = 1001 data):
+sbatch --array=1-4 high-res_sweep_a.sh high-res_runs_step5.txt "" 51
+# step 5b, m = 151 (fourth argument), m_p = 26:
+sbatch --array=1-8 high-res_sweep_a.sh high-res_runs_step5b.txt "" "" 151
+# step 5c, hybrid (needs the step 3 lbfgs results in mat/inversion/):
+sbatch --array=1-6 high-res_sweep_a.sh high-res_runs_hybrid.txt
 ```
-Add `251` after the run file to use the m = 251 data instead (it must then be generated or copied there first).
+Hybrid, inverse crime (local): `scripts/run_local_queue.sh direct_effect_inverse_crime scripts/inverse-crime_runs_hybrid.txt 2 4`.
+Add `251` after the run file to use the m = 251 data instead (it must then be generated or copied there first). The m = 251 high-res results from before this plan (`mat/inversion/inversion/*_m251_mp26_*`) give the second data point for the claim in step 5. `summarize_inversions` assumes m_p = 26 for the true `a` and the resolved nodes, so it must be adapted for m_p = 51.
 
 **Local** (step 1, inverse crime): `scripts/run_local_queue.sh direct_effect_inverse_crime scripts/inverse-crime_runs_step1.txt 5 3`.
 
@@ -94,3 +105,27 @@ Add `251` after the run file to use the m = 251 data instead (it must then be ge
 
 ## Findings so far
 - Misfit of the true `a` sampled on the parameter grid, at m = 76 against the m = 251 data: 9.07 with m_p = 26, 3.85 with m_p = 76. The time step (k = 0.003 or 0.0005) makes no difference. The floor is dominated by how the step at x = −5 (between the nodes at −5.2 and −4.4) is represented with m_p = 26. It is only an upper bound on the reachable misfit; use the unregularized minimum from step 2 for the discrepancy principle.
+- With the m = 1001 data (cluster, job 7536888) the same misfit is 8.95, 11.09 and 11.68 at m = 76, 151 and 251, against 9.07, 11.23 and 11.85 with the m = 251 data. The m = 251 data is therefore a good local stand-in.
+- Unregularized L-BFGS reached f = 1.55 after 18 iterations, below the 8.95 of the true `a` sampled on the m_p = 26 grid, so the inversion fits better than the truth on this grid.
+- **Step 1** (inverse crime, `newton-cg-ls`, local, so the wall times are inflated by sharing the laptop): regularization fixes the null space as expected. The global error drops from 0.0200 to 0.0009 (tikhonov-grad β = 1) and 0.0002 (TV β = 1e-2), and the resolved-node error from 0.0012 to 0.0003 and 0.0002. Larger β biases the result (TV β = 1: 0.018). It costs more iterations (24–118 against 24).
+- **Step 2** (high-res, no regularization): both solvers reach F = 0.73, far below the 8.95 of the sampled truth, so that floor is useless for the discrepancy principle. `newton-cg-ls` converges in 19 iterations (0.86 h), `lbfgs` runs to 200 iterations (1.53 h), but the time to rel. level 1e-3 is about equal (0.50 h against 0.61 h). Newton-CG fits the model error better and gets the worse `a`: resolved-node error 0.29 against 0.12 (implicit regularization of L-BFGS).
+- **Step 3** (β sweep): the smallest resolved-node errors are tikhonov-grad β = 1e4 (`lbfgs` 0.073, `newton-cg-ls` 0.086) and TV β = 10 (0.085 and 0.103). They are 100× worse than in the inverse crime. At equal β both solvers reach the same objective; `newton-cg-ls` is faster for tikhonov-grad 1e3–1e4 (0.31–0.38 h against 0.63 h to level 1e-3), slower for TV.
+- **Newton-CG stalls at large β** (TV β ≥ 100, tikhonov-grad 1e6): about 50 iterations with J unchanged and R alternating between 1e-5 and 1e-12 before it suddenly converges (6–7 h; TV β = 1000 still stalled after 65 iterations, 10 h). The regularization Hessian at the constant initial guess is huge (β/eps·D'D for TV, β·D'D for tikhonov-grad), and the step zig-zags in the stiff modes. The CG flags in the cluster logs should show whether CG stops on negative curvature.
+- **Step 4** ran at TV β = 100 (the cluster had the old run file), which is the stiff case; four runs were still unfinished at download (about 1.8 h in). Exact objective F + 100·TV and resolved-node error:
+  - eps = 1e-5: `newton-cg-ls` makes no progress at all (J = 32.86 after 15 iterations; curvature β/eps = 1e7). `lbfgs` is fine (1.56, error 0.084).
+  - eps = 1e-3: `newton-cg-ls` converges in 19 iterations (1.42 h, J = 1.52) without the stall seen at eps = 1e-4 (64 iterations, 7 h). `lbfgs` was at 1.53 after 186 iterations. This confirms that the 1/eps stiffness causes the stall. The smoothing biases the minimizer: J = 1.52 against 1.38 with eps = 1e-4.
+  - eps = 0: `lbfgs` works (J = 1.65 after 184 iterations, not yet converged) and gives the best global error (0.074, resolved 0.087). `newton-cg-ls` crawls (J = 4.89 after 10 iterations, about 10 min each, probably from line-search backtracking).
+  - Verdict: eps = 0 is fine for L-BFGS, not for Newton-CG. Newton-CG needs eps large enough that β/eps stays moderate (eps = 1e-3 at β = 100).
+  - Still to run: β = 10 (the run file now says β = 10).
+
+- **Step 5a** (m_p = 51, all 4 runs finished). Error = relative L2 error of the linearly interpolated `a` against the step on x ∈ [−6, 9.2], the resolved region; it can be compared across m_p. Speedup = L-BFGS time for 200 iterations / Newton-CG time to the same J (L-BFGS never reaches level 1e-4: it ends at about 2e-4).
+
+  | m_p | case | error L-BFGS / NCG | NCG iter. | L-BFGS 200 it. | NCG to L-BFGS's J | speedup |
+  |---|---|---|---|---|---|---|
+  | 26 | tikhonov-grad 1e4 | 0.092 / 0.099 | 13 | 1.53 h | 0.34 h | 4.5 |
+  | 51 | tikhonov-grad 1e4 | 0.096 / 0.099 | 28 | 1.66 h | 0.72 h | 2.3 |
+  | 26 | TV 10, eps 1e-4 | 0.113 / 0.118 | 27 | 1.52 h | 1.80 h | 0.8 |
+  | 26 | TV 100, eps 1e-3 | — | 19 | 1.88 h | 1.08 h | 1.7 |
+  | 51 | TV 10, eps 1e-3 | 0.105 / 0.104 | 30 | 1.38 h | 0.76 h | 1.8 |
+
+  Newton-CG wins both m_p = 51 cases by about 2×, but the gap did not grow with m_p: L-BFGS gets no slower (one gradient per iteration either way), while Newton-CG needs twice the Newton iterations for tikhonov-grad. Finer m_p does not improve `a` (the error is set by the model error). So step 5a is not the convincing case; next is the hybrid (L-BFGS → Newton-CG) or step 5b (m = 151).

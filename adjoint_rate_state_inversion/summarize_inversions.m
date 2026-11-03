@@ -6,15 +6,21 @@
 % iterations, wall time, and the wall time to reach (J - J*)/(J0 - J*) = 1e-1, 1e-2, 1e-3, where J
 % is the exact objective and J* the smallest J over all listed runs that use the same regularization.
 % High-res runs have no true parameters saved, so a_true is taken from an inverse-crime run.
+% Set includeCheckpoints=true to also list unfinished runs (their _checkpoint files).
 addSubpaths;
 if ~exist('pattern', 'var')
     pattern = 'rough_*_m76_mp26_velocity_*';
+end
+if ~exist('includeCheckpoints', 'var')
+    includeCheckpoints = false;
 end
 resolved = 6:25;
 levels = [1e-1, 1e-2, 1e-3];
 
 files = dir(fullfile('mat/inversion', [pattern, '.mat']));
-files = files(~contains({files.name}, 'checkpoint'));
+if ~includeCheckpoints
+    files = files(~contains({files.name}, 'checkpoint'));
+end
 n = numel(files);
 runs = [];
 aTrueSynth = [];
@@ -26,19 +32,30 @@ for i = 1:n
     if ~isfield(h, 'reg') % Runs from before the regularization was added
         h.reg = zeros(size(h.fval));
     end
-    if ~isfield(S, 'regOpts')
+    if ~isfield(S, 'regOpts') % Old runs and checkpoints: read the regularization from the name
         S.regOpts = struct('type', 'none', 'beta', 0);
+        tok = regexp(files(i).name, '_(tikhonov-grad|tikhonov|tv|lasso)_beta([^_]+?)(_eps([^_]+?))?(_checkpoint)?\.mat$', 'tokens', 'once');
+        if ~isempty(tok)
+            S.regOpts = struct('type', tok{1}, 'beta', str2double(tok{2}));
+            if ~isempty(tok{4})
+                S.regOpts.eps = str2double(tok{4});
+            end
+        end
     end
     regOpts = S.regOpts;
     default_field(regOpts, 'eps', 1e-4);
 
     % Exact objective along the history, with eps = 0 for 'tv' and 'lasso'
-    p0 = S.initialPars.a(:);
+    if isfield(S, 'initialPars')
+        p0 = S.initialPars.a(:);
+    else % Checkpoints only store the history
+        p0 = h.x(:,1);
+    end
     regExact = adjopt.regularization(setfield(regOpts, 'eps', 0), p0, numel(p0));
     misfit = h.fval - h.reg;
     Jhist = misfit + arrayfun(@(k) regExact.R(h.x(:,k)), (1:size(h.x,2))');
 
-    if ~isempty(S.truePars)
+    if isfield(S, 'truePars') && ~isempty(S.truePars)
         aTrueSynth = S.truePars.a(:);
     end
     r.name = erase(files(i).name, '.mat');

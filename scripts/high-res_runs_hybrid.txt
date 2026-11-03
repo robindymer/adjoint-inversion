@@ -1,0 +1,11 @@
+# Hybrid L-BFGS -> Newton-CG (notes/high_res_plan.md, step 5, TODO 4): newton-cg-ls started from
+# iteration x0_iter of the step 3 lbfgs run with the same settings (must be in mat/inversion/).
+# Cases where Newton-CG alone loses (TV 10) or stalls for 6-7 h (TV 100), and tikhonov-grad 1e4.
+# L-BFGS reaches J - J* about 1e-1 at iteration 20 and 2e-2 at 40.
+# <optimizer> <reg_type> <reg_beta> <reg_eps, - for the default> <x0_iter>
+newton-cg-ls tv 10 - 20
+newton-cg-ls tv 10 - 40
+newton-cg-ls tv 100 - 20
+newton-cg-ls tv 100 - 40
+newton-cg-ls tikhonov-grad 1e4 - 20
+newton-cg-ls tikhonov-grad 1e4 - 40

@@ -54,5 +54,10 @@ regOpts = struct('type', reg_type, 'beta', reg_beta);
 if exist('reg_eps', 'var')
     regOpts.eps = reg_eps;
 end
+% Hybrid: start from iteration x0_iter of the lbfgs run with the same settings, e.g.
+% matlab -batch "opt_routine_str='newton-cg-ls'; x0_iter=40; reg_type='tv'; reg_beta=10; high_res_data_inversion"
+if ~exist('x0_iter', 'var')
+    x0_iter = [];
+end
 fprintf('RUNNING: %s, inverting for %s, regularization %s with beta = %g\n', opt_routine_str, inv_par, reg_type, reg_beta);
-[parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, [], loadOptPath, opt_routine_str, receiverSpacing, regOpts);
+[parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, [], loadOptPath, opt_routine_str, receiverSpacing, regOpts, x0_iter);

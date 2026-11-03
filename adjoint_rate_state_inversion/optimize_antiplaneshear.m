@@ -1,4 +1,4 @@
-function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, horizontalFault, loadOptPath, opt_routine_str, receiverSpacing, regOpts)
+function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, horizontalFault, loadOptPath, opt_routine_str, receiverSpacing, regOpts, x0Iter)
     
     addSubpaths;
     default_arg('scalingStudy',true);
@@ -17,6 +17,9 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
     default_arg('receiverSpacing',2);
     % Regularization added to the misfit, see adjopt.regularization. E.g. struct('type','tv','beta',1)
     default_arg('regOpts',struct('type','none'));
+    % Hybrid: start opt_routine_str from iteration x0Iter of the lbfgs run with the same settings,
+    % e.g. 40. The lbfgs history up to x0Iter is kept, so history.t is the total wall time.
+    default_arg('x0Iter',[]);
     order = 8;
     if any(strcmp(opt_routine_str, {'CG', 'newton-tr', 'newton-tr-noprec', 'fminunc-tr', 'newton-cg-ls'})) % Requires Hessian-vector products
         optObj = @AntiplaneShear2DRSFrictionOptHessian;
@@ -95,6 +98,10 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
         end
     end
     filename = sprintf('mat/inversion/%s_%s_maxiter%d_m%d_mp%d_%s_%s_%s.mat',fault_str,opt_routine_str,maxIter,m,m_p,misfitType,data_str,str_ending);
+    if ~isempty(x0Iter)
+        lbfgsPath = strrep(filename, ['_',opt_routine_str,'_'], '_lbfgs_');
+        filename = strrep(filename, ['_',opt_routine_str,'_'], sprintf('_lbfgs%d-%s_',x0Iter,opt_routine_str));
+    end
     if isfile(filename)
         filecounter = 1;
         split_str = split(filename,'.');
@@ -108,6 +115,21 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
     mkdir('mat/inversion/');
     % history is saved here after every iteration, and the file is removed once the run has finished
     checkpointPath = strrep(filename, '.mat', '_checkpoint.mat');
+    if ~isempty(x0Iter)
+        % Continue from the truncated lbfgs history, as from a checkpoint
+        S = load(lbfgsPath, 'history');
+        history = S.history;
+        history.x = history.x(:,1:x0Iter+1);
+        history.fval = history.fval(1:x0Iter+1);
+        history.t = history.t(1:x0Iter+1);
+        if isfield(history, 'reg')
+            history.reg = history.reg(1:x0Iter+1);
+        elseif strcmp(regOpts.type, 'none') % Older unregularized histories
+            history.reg = zeros(x0Iter+1, 1);
+        end
+        save(checkpointPath, 'history', '-mat');
+        loadOptPath = checkpointPath;
+    end
     [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = adjopt.optimize_general(optObj, parSetFun, optPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str, checkpointPath, regOpts);
 
     save(filename, '-v7.3','-nocompression');

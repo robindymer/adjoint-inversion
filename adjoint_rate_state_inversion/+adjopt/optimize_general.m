@@ -92,6 +92,10 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         x0 = optObj.parametersNativeToVector( optObj.pars );
     end
     tOpt = tic; % Start of optimization, for history.t
+    tOffset = 0; % A continued run counts on from the wall time of the loaded history
+    if ~isempty(history.t) && ~isnan(history.t(end))
+        tOffset = history.t(end);
+    end
 
     if strcmp(opt_routine_str,'lbfgs')
         % LBFGS via MATLABs fmincon
@@ -233,7 +237,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         fval = optimValues.fval;
         history.x = [history.x, x];
         history.fval = [history.fval; fval];
-        history.t = [history.t; toc(tOpt)];
+        history.t = [history.t; tOffset + toc(tOpt)];
         history.reg = [history.reg; reg.R(x)];
 
         if ~isempty(checkpointPath)

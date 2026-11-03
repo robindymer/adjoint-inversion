@@ -24,8 +24,12 @@ regOpts = struct('type', reg_type, 'beta', reg_beta);
 if exist('reg_eps', 'var')
     regOpts.eps = reg_eps;
 end
+% Hybrid: start from iteration x0_iter of the lbfgs run with the same settings, e.g. x0_iter=30
+if ~exist('x0_iter', 'var')
+    x0_iter = [];
+end
 fprintf('RUNNING: %s, regularization %s with beta = %g\n', opt_routine_str, reg_type, reg_beta);
-[parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, [], [], [], opt_routine_str, 2, regOpts);
+[parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, [], [], [], opt_routine_str, 2, regOpts, x0_iter);
 
 figure();
 x = linspace(-10,10,m_p); % Parameter grid
