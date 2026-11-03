@@ -4,6 +4,12 @@ order = 8;
 
 parset = @pars.rsFriction2DFractalFaultForward;
 paropts.misfitType = 'velocity';
+% Grid and parameter grid size, m = m_p = 1001 by default. Can be set before running the script,
+% e.g. matlab -batch "data_m=251; fractal_fault_generate_data". Smaller grids save no frames.
+if exist('data_m', 'var')
+    paropts.m = data_m;
+    paropts.m_p = data_m;
+end
 [~, parset_true] = parset(paropts);
 
 plotFlag = false;
@@ -16,6 +22,9 @@ if ~success
     error('Failed to create directory %s',saveDir);
 end
 saveOpts.saveDir = saveDir;
+if exist('data_m', 'var')
+    saveOpts = [];
+end
 
 % Create and save synthetic receiver data
 data_opt = AntiplaneShear2DRSFrictionOpt(parset_true, [], order);

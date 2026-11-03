@@ -24,12 +24,18 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
         optObj = @AntiplaneShear2DRSFrictionOpt;
     end
     
-    if loadData
-         % Generate this data by running fractal_fault_generate_data.m with the 
+    if ischar(loadData) || loadData
+         % Generate this data by running fractal_fault_generate_data.m with the
          % pars.rsFriction2DFractalFaultForward parameter set.
+         % loadData can also be the path to data generated on another grid, e.g. with data_m=251.
         assert(isequal(misfitType,'velocity'));
         data_str = 'highres';
         loadDataPath = 'mat/fractal_fault_m1001_mp1001/receiverData.mat';
+        if ischar(loadData) && ~strcmp(loadData, loadDataPath)
+            loadDataPath = loadData;
+            [~, dataDir] = fileparts(fileparts(loadDataPath));
+            data_str = ['highres_', erase(dataDir, 'fractal_fault_')];
+        end
     else
         loadDataPath = '';
         data_str = 'synth';

@@ -11,8 +11,21 @@ val = 0.0135; % initial value
 if ~exist('opt_routine_str', 'var')
     opt_routine_str = 'lbfgs';
 end
-fprintf('RUNNING: %s\n', opt_routine_str);
-[parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, [], [], [], opt_routine_str);
+% Regularization: 'none', 'tikhonov', 'tikhonov-grad', 'tv' or 'lasso' (see adjopt.regularization),
+% with weight reg_beta. reg_eps smooths the absolute value in 'tv' and 'lasso'. E.g.
+% matlab -batch "opt_routine_str='newton-cg-ls'; reg_type='tv'; reg_beta=1e-2; direct_effect_inverse_crime"
+if ~exist('reg_type', 'var')
+    reg_type = 'none';
+end
+if ~exist('reg_beta', 'var')
+    reg_beta = 0;
+end
+regOpts = struct('type', reg_type, 'beta', reg_beta);
+if exist('reg_eps', 'var')
+    regOpts.eps = reg_eps;
+end
+fprintf('RUNNING: %s, regularization %s with beta = %g\n', opt_routine_str, reg_type, reg_beta);
+[parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, [], [], [], opt_routine_str, 2, regOpts);
 
 figure();
 x = linspace(-10,10,m_p); % Parameter grid

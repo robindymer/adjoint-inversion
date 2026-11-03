@@ -26,10 +26,9 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
         nr = numel(parset.receivers.x);
         receiverRecordings = cell(nr,1);
         for i = 1:nr
-            for j = 1:numel(S.receiverData.positions)
-                if S.receiverData.positions{j} == parset.receivers.x{i}
-                    break
-                end
+            j = find(cellfun(@(x) isequal(x, parset.receivers.x{i}), S.receiverData.positions), 1);
+            if isempty(j)
+                error('No data for the receiver at (%g, %g)', parset.receivers.x{i});
             end
             receiverRecordings{i} = S.receiverData.recordings{j};
         end

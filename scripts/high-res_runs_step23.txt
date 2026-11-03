@@ -1,0 +1,22 @@
+# Steps 2 and 3 of notes/high_res_plan.md: <optimizer> <reg_type> <reg_beta> [reg_eps]
+# Step 2: no regularization
+lbfgs none 0
+newton-cg-ls none 0
+# Step 3: beta sweep, TV with the default eps = 1e-4
+lbfgs tv 1
+newton-cg-ls tv 1
+lbfgs tv 10
+newton-cg-ls tv 10
+lbfgs tv 100
+newton-cg-ls tv 100
+lbfgs tv 1000
+newton-cg-ls tv 1000
+# Step 3: beta sweep, tikhonov-grad
+lbfgs tikhonov-grad 1e3
+newton-cg-ls tikhonov-grad 1e3
+lbfgs tikhonov-grad 1e4
+newton-cg-ls tikhonov-grad 1e4
+lbfgs tikhonov-grad 1e5
+newton-cg-ls tikhonov-grad 1e5
+lbfgs tikhonov-grad 1e6
+newton-cg-ls tikhonov-grad 1e6

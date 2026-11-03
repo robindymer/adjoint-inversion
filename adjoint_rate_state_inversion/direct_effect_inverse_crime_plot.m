@@ -4,8 +4,18 @@
 addSubpaths;
 % resultsDir = fullfile('optimizer_benchmark', 'results');
 resultsDir = fullfile('mat', 'inversion/inversion');
-resultFiles = {'rough_lbfgs_maxiter200_m251_mp26_velocity_highres_vals_a00135.mat';
-               'rough_newton-cg-ls_maxiter200_m251_mp26_velocity_highres_vals_a00135.mat'};
+resultFiles = {'rough_lbfgs_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta1e-02.mat';
+               'rough_lbfgs_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta3e-02.mat';
+               'rough_lbfgs_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta1e-01.mat';
+               'rough_lbfgs_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta3e-01.mat';
+               'rough_lbfgs_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta1e+00.mat';
+               'rough_lbfgs_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta1e+01.mat';
+               'rough_newton-cg-ls_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta1e-02_checkpoint.mat';
+               'rough_newton-cg-ls_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta3e-02_checkpoint.mat';
+               'rough_newton-cg-ls_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta1e-01.mat';
+               'rough_newton-cg-ls_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta3e-01.mat';
+               'rough_newton-cg-ls_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta1e+00.mat';
+               'rough_newton-cg-ls_maxiter200_m251_mp26_velocity_highres_vals_a00135_tv_beta1e+01.mat'};
 % resultFiles = {'res_newton_tr_repo_m251.mat'; 'res_fmincon_ip_lbfgs_nolb_m251.mat'};
 iter = []; % Iteration to plot, [] for the final iteration of each file
 assetsDir = 'assets';
@@ -22,9 +32,17 @@ for i = 1:numel(resultFiles)
     end
 
     vars = who('-file', filePath);
-    if ismember('history', vars) % Saved by optimize_antiplaneshear
+    if ismember('history', vars) && ismember('truePars', vars) % Saved by optimize_antiplaneshear
         S = load(filePath, 'history', 'truePars', 'initialPars');
         history = S.history;
+        truePars = S.truePars;
+        initialPars = S.initialPars;
+    elseif ismember('history', vars) % Checkpoint saved by optimize_general, only stores history
+        S = load(filePath, 'history');
+        history = S.history;
+        % True and initial parameters are taken from the unregularized run with the same settings
+        baseFile = regexprep(resultFile, '(_tv_beta[^_]*)?(_checkpoint)?\.mat$', '.mat');
+        S = load(fullfile(resultsDir, baseFile), 'truePars', 'initialPars');
         truePars = S.truePars;
         initialPars = S.initialPars;
     else % Saved by optimizer_benchmark/run_method.m
@@ -69,30 +87,34 @@ for i = 1:numel(resultFiles)
     plot(x,initialPars.a,':x','color',colors(2,:),'linewidth',2);
     plot(x,a_inverted,'k--x','linewidth',2);
     plot(x,b,'k:','linewidth',2);
-    % y-limits from the reference curves, so that diverged values do not hide the rest of the plot.
-    % Values outside the limits are marked at the edge of the axes, labeled with their actual value.
-    yRef = [aTrue(:); initialPars.a(:); b(:)];
-    yRange = max(yRef) - min(yRef);
-    yAll = [yRef; a_inverted(:)];
-    yl = [max(min(yAll), min(yRef) - yRange), min(max(yAll), max(yRef) + yRange)];
-    above = a_inverted > yl(2);
-    below = a_inverted < yl(1);
-    plot(x(above), yl(2)*ones(nnz(above),1), 'r^', 'markersize', 10, 'markerfacecolor', 'r', 'HandleVisibility', 'off');
-    plot(x(below), yl(1)*ones(nnz(below),1), 'rv', 'markersize', 10, 'markerfacecolor', 'r', 'HandleVisibility', 'off');
-    text(x(above), yl(2)*ones(nnz(above),1), compose('  %.3g', a_inverted(above)), 'color', 'r', 'fontsize', 12, ...
-        'VerticalAlignment', 'top');
-    text(x(below), yl(1)*ones(nnz(below),1), compose('  %.3g', a_inverted(below)), 'color', 'r', 'fontsize', 12, ...
-        'VerticalAlignment', 'bottom');
+    % % y-limits from the reference curves, so that diverged values do not hide the rest of the plot.
+    % % Values outside the limits are marked at the edge of the axes, labeled with their actual value.
+    % yRef = [aTrue(:); initialPars.a(:); b(:)];
+    % yRange = max(yRef) - min(yRef);
+    % yAll = [yRef; a_inverted(:)];
+    % yl = [max(min(yAll), min(yRef) - yRange), min(max(yAll), max(yRef) + yRange)];
+    % above = a_inverted > yl(2);
+    % below = a_inverted < yl(1);
+    % plot(x(above), yl(2)*ones(nnz(above),1), 'r^', 'markersize', 10, 'markerfacecolor', 'r', 'HandleVisibility', 'off');
+    % plot(x(below), yl(1)*ones(nnz(below),1), 'rv', 'markersize', 10, 'markerfacecolor', 'r', 'HandleVisibility', 'off');
+    % text(x(above), yl(2)*ones(nnz(above),1), compose('  %.3g', a_inverted(above)), 'color', 'r', 'fontsize', 12, ...
+    %     'VerticalAlignment', 'top');
+    % text(x(below), yl(1)*ones(nnz(below),1), compose('  %.3g', a_inverted(below)), 'color', 'r', 'fontsize', 12, ...
+    %     'VerticalAlignment', 'bottom');
+    yAll = [aTrue(:); initialPars.a(:); b(:); a_inverted(:)];
+    yl = [min(yAll), max(yAll)];
     hold off;
     xlabel('$x$ (km)','interpreter','latex');
     legendEntries = {'$\mathbf{a}$, true','$\mathbf{a}$, initial',sprintf('$\\mathbf{a}$, %d iterations',it),'$\mathbf{b}$'};
-    if any(above | below) % Legend above the axes, so that it does not hide the markers at the edges
-        ylim(yl);
-        legend(legendEntries{:},'interpreter','latex','Location','northoutside','Orientation','horizontal');
-    else
-        ylim([yl(1), yl(2) + 0.35*diff(yl)]); % Headroom for the legend
-        legend(legendEntries{:},'interpreter','latex','Location','northwest');
-    end
+    % if any(above | below) % Legend above the axes, so that it does not hide the markers at the edges
+    %     ylim(yl);
+    %     legend(legendEntries{:},'interpreter','latex','Location','northoutside','Orientation','horizontal');
+    % else
+    %     ylim([yl(1), yl(2) + 0.35*diff(yl)]); % Headroom for the legend
+    %     legend(legendEntries{:},'interpreter','latex','Location','northwest');
+    % end
+    ylim([yl(1), yl(2) + 0.35*diff(yl)]); % Headroom for the legend
+    legend(legendEntries{:},'interpreter','latex','Location','northwest');
     grid on;
     set(gca,'fontsize',16);
 

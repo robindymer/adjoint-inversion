@@ -13,6 +13,8 @@
 % opts.eps   -- smoothing of the absolute value in 'tv' and 'lasso', which makes R twice
 %               differentiable. Should be small compared to the differences/deviations that are
 %               expected, but a smaller eps gives a stiffer Hessian (beta/eps at zero).
+%               eps = 0 gives the exact absolute value, with the subgradient sign(x) (0 at x = 0)
+%               and a zero Hessian term.
 % p0         -- prior parameter vector for 'tikhonov' and 'lasso', e.g. the initial guess
 % blockSizes -- number of entries in p of each inversion parameter. D is the forward difference
 %               within each block, so that no differences are taken across parameters.
@@ -33,6 +35,17 @@ function reg = regularization(opts, p0, blockSizes)
     end
     D = blkdiag(Dblocks{:});
 
+    % Smoothed absolute value and its first and second derivatives
+    if eps == 0
+        absEps = @(x) abs(x);
+        dAbsEps = @(x) sign(x);
+        d2AbsEps = @(x) zeros(size(x));
+    else
+        absEps = @(x) sqrt(x.^2 + eps^2) - eps;
+        dAbsEps = @(x) x./sqrt(x.^2 + eps^2);
+        d2AbsEps = @(x) eps^2./(x.^2 + eps^2).^(3/2);
+    end
+
     switch opts.type
         case 'none'
             reg.R = @(p) 0;
@@ -47,13 +60,13 @@ function reg = regularization(opts, p0, blockSizes)
             reg.grad = @(p) beta*(D'*(D*p));
             reg.hessVec = @(p, V) beta*(D'*(D*V));
         case 'tv'
-            reg.R = @(p) beta*sum(sqrt((D*p).^2 + eps^2) - eps);
-            reg.grad = @(p) beta*(D'*((D*p)./sqrt((D*p).^2 + eps^2)));
-            reg.hessVec = @(p, V) beta*(D'*((eps^2./((D*p).^2 + eps^2).^(3/2)).*(D*V)));
+            reg.R = @(p) beta*sum(absEps(D*p));
+            reg.grad = @(p) beta*(D'*dAbsEps(D*p));
+            reg.hessVec = @(p, V) beta*(D'*(d2AbsEps(D*p).*(D*V)));
         case 'lasso'
-            reg.R = @(p) beta*sum(sqrt((p - p0).^2 + eps^2) - eps);
-            reg.grad = @(p) beta*(p - p0)./sqrt((p - p0).^2 + eps^2);
-            reg.hessVec = @(p, V) beta*(eps^2./((p - p0).^2 + eps^2).^(3/2)).*V;
+            reg.R = @(p) beta*sum(absEps(p - p0));
+            reg.grad = @(p) beta*dAbsEps(p - p0);
+            reg.hessVec = @(p, V) beta*d2AbsEps(p - p0).*V;
         otherwise
             error('Unknown regularization type: %s', opts.type);
     end

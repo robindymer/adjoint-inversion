@@ -1,13 +1,15 @@
 function [parameters, trueParameters] = rsFriction2DFractalFaultForward(opts)
     default_arg('opts',struct);
     default_field(opts,'misfitType','displacement');
+    default_field(opts,'m',1001);
+    default_field(opts,'m_p',1001);
 
     %% SBP operators and grid points
     opset = @sbp.D2Nonequidistant;
     % Grid points along the fault. The total number of gridpoints is
     % approximately [m,m]^2
-    m = 1001;
-    m_p = 1001;
+    m = opts.m;
+    m_p = opts.m_p;
 
     %% Domain
     W = 20; % Width km

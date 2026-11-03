@@ -1,0 +1,8 @@
+# Step 4 of notes/high_res_plan.md: eps study for TV. Replace beta = 100 by the beta chosen in step 3.
+# eps = 1e-4 is already run in step 3. <optimizer> <reg_type> <reg_beta> [reg_eps]
+lbfgs tv 100 0
+newton-cg-ls tv 100 0
+lbfgs tv 100 1e-5
+newton-cg-ls tv 100 1e-5
+lbfgs tv 100 1e-3
+newton-cg-ls tv 100 1e-3

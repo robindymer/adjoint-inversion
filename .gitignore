@@ -2,3 +2,5 @@ adjoint_rate_state_inversion/mat/fractal_fault_m1001_mp1001/receiverData.mat
 assets/
 scripts/scripts
 adjoint_rate_state_inversion/mat/inversion/inversion
+adjoint_rate_state_inversion/mat/fractal_fault_*/
+adjoint_rate_state_inversion/logs/
