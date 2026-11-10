@@ -7,8 +7,12 @@
 % regOpts:          Regularization added to the misfit, see adjopt.regularization. The prior is
 %                   the initial guess. history.fval is the misfit plus regularization, and
 %                   history.reg the regularization.
+% noiseEta:         Synthetic data only (inverse crime). If > 0, iid Gaussian noise with
+%                   sigma = noiseEta*max|data| is added to the recordings at the solver's
+%                   output times, so dt_d is the time step. history.noise holds sigma and
+%                   dt_d; the likelihood is misfit/(sigma^2*dt_d). Default 0, no noise.
 % NOTE: Previously called optimize_lbfgs, now we call it optimize_general
-function [parsVec, misFit, flag, output, history, initialPars, truePars, parset] = optimize_general(optObjFunc, parSetFunc, invPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str, checkpointPath, regOpts)
+function [parsVec, misFit, flag, output, history, initialPars, truePars, parset] = optimize_general(optObjFunc, parSetFunc, invPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str, checkpointPath, regOpts, noiseEta)
     default_arg('maxIter', 20);
     default_arg('order', 4);
     default_arg('parSetOpts', struct);
@@ -17,6 +21,8 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
     default_arg('opt_routine_str','lbfgs');
     default_arg('checkpointPath', '');
     default_arg('regOpts', struct('type', 'none'));
+    default_arg('noiseEta', 0);
+    noise = [];
 
     % Plot settings
     if ~strcmp(loadDataPath,'') % Load data and create optimization object
@@ -39,6 +45,9 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
 
         initialPars = optObj.pars;
         truePars = [];
+        if noiseEta > 0
+            error('noiseEta is only supported for synthetic data (loadDataPath empty)');
+        end
     else % Run with true parameters, save data and create optimization object
         [parset, trueParset] = parSetFunc(parSetOpts);
         disp('Generating synthetic data')
@@ -52,6 +61,18 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
 
         % Create optimization object and set data
         optObj = optObjFunc(parset, invPars, order, k);
+
+        % Add noise (opt-in). Fixed seed and own stream, so the global RNG is untouched.
+        if noiseEta > 0
+            tData = optObj.removeStagedData(trueTimeIntegrationData.T, trueTimeIntegrationData.nStages);
+            noise.eta = noiseEta;
+            noise.seed = 1;
+            noise.sigma = noiseEta * max(abs(trueReceiverData(:)));
+            noise.dt_d = mean(diff(tData));
+            rs = RandStream('mt19937ar', 'Seed', noise.seed);
+            trueReceiverData = trueReceiverData + noise.sigma * randn(rs, size(trueReceiverData));
+            fprintf('Added noise: sigma = %.3e (eta = %g), dt_d = %.3e\n', noise.sigma, noise.eta, noise.dt_d);
+        end
         optObj.setSyntheticReceiverData(trueReceiverData, trueTimeIntegrationData);
         initialPars = optObj.pars;
     end
@@ -92,6 +113,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parset]
     else
         x0 = optObj.parametersNativeToVector( optObj.pars );
     end
+    history.noise = noise;
     tOpt = tic; % Start of optimization, for history.t
 
     if strcmp(opt_routine_str,'lbfgs')

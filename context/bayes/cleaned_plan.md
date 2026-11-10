@@ -6,11 +6,14 @@ discrepancy principle, but for now we can just take
 something that looks good.
 - Include H1 regularized 
 - Add noise to misfit
-1) Add to high-res data
-2) Scale misfit by 1 / (sigma^2 delta t_d)
-- Compare m=36, 51, 76 against high-res data.
-If M_model >> M_noise, inflate noise. If data
-becomes uninformative, increase m.
+1) Add to data
+2) Remember to scale misfit by 1 / (sigma^2 delta t_d)
+- LATER ON: When using high-res data, remember to add noise to it and
+compare m=36, 51, 76 against high-res data.
+If M_model >> M_noise, inflate noise (simple approach). If data
+becomes uninformative, increase m. More rigorous approach,
+enhanced error model of Kaipio and
+Somersalo as stated in course litterature.
 - Implement smoothness prior
 - Implement pCN, MALA and HMC samplers
 - Sample from posterior and computer
