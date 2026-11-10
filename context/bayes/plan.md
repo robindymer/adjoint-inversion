@@ -1,0 +1,4 @@
+Title: 
+Bayesian inference of frictional parameters from seismograms
+Proposal:
+Using the MATLAB code of Stiernström and Almquist as a starting point, I will first add TV regularization to the deterministic inversion for a(x) with L-BFGS, choosing the regularization strength by the discrepancy principle, and study how it affects the reconstruction. I will verify the setup on the inverse-crime data, then use noisy synthetic data generated on a well-resolved grid. I then move to the Bayesian setting, with a Gaussian smoothness prior on the increments of a(x) and a Gaussian noise model, and compare the pCN sampler against MALA and HMC with the adjoint gradient by effective samples per forward and adjoint solve. If time permits, I will replace the smoothness prior with a hierachical prior on the increments, whose samples are piecewise constant like the true a(x), and implement a low-rank Laplace approximation from Hessian-vector products.
