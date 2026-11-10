@@ -17,7 +17,7 @@ constant shifts. Under "differences" the draws are random walks started at a_1, 
 import numpy as np
 import matplotlib.pyplot as plt
 
-from fault import x, M_P, B, a_true, plot_draws, summarize
+from bayes.python.fault import x, M_P, B, a_true, plot_draws, summarize
 from priors import gaussian_precision
 
 TRANSFORM = "differences"

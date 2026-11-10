@@ -13,7 +13,7 @@ Gaussian prior on the nodal values of a(x) (no structure on the increments):
 import numpy as np
 import matplotlib.pyplot as plt
 
-from fault import x, M_P, B, a_true, plot_draws, summarize
+from bayes.python.fault import x, M_P, B, a_true, plot_draws, summarize
 from priors import se_covariance
 
 KERNEL = "iid"

@@ -23,7 +23,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import invgamma, norm
 
-from fault import x, M_P, B, a_true, plot_draws, summarize
+from bayes.python.fault import x, M_P, B, a_true, plot_draws, summarize
 from priors import sample_gsbl, neg_log_invgamma
 from solvers import difference_matrix
 
