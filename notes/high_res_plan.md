@@ -129,3 +129,45 @@ Add `251` after the run file to use the m = 251 data instead (it must then be ge
   | 51 | TV 10, eps 1e-3 | 0.105 / 0.104 | 30 | 1.38 h | 0.76 h | 1.8 |
 
   Newton-CG wins both m_p = 51 cases by about 2×, but the gap did not grow with m_p: L-BFGS gets no slower (one gradient per iteration either way), while Newton-CG needs twice the Newton iterations for tikhonov-grad. Finer m_p does not improve `a` (the error is set by the model error). So step 5a is not the convincing case; next is the hybrid (L-BFGS → Newton-CG) or step 5b (m = 151).
+- **Step 5c, inverse crime** (local, unfinished at 16:13 but clear): Newton-CG started from L-BFGS iteration 30 (f = 2.28) or 60 (f = 1.38) stops at f = 1.3616 with ||g|| ≈ 1–5 (against 2e3 at the start), the same place as L-BFGS (1.3624 after 200 iterations), with error 0.19–0.20 in `a`. Plain Newton-CG from the constant guess reaches f = 9e-7 and error 0.02 in 24 iterations (0.6 h). So L-BFGS's plateau at 1.36 is a **local minimum (or a very flat saddle) that L-BFGS has already entered by iteration 30**, not slow convergence in an ill-conditioned valley. Newton-CG wins in the inverse crime because its early steps take a different path, not because it converges faster near the end. This corrects the "late, convex valley" explanation above. The hybrid cannot help here; the high-res runs (regularized) are still a fair test.
+
+## Jobs running after 3 november
+[robind@pelle1 scripts]$ squeue -u robind
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
+         7540683_4     pelle high-res   robind  R    8:49:38      1 p62
+         7540683_2     pelle high-res   robind  R    8:58:21      1 p59
+        7536889_10     pelle high-res   robind  R   20:44:36      1 p105
+         7546731_1     pelle high-res   robind  R      39:05      1 p60
+         7546731_2     pelle high-res   robind  R      39:05      1 p114
+         7546731_3     pelle high-res   robind  R      39:05      1 p114
+         7546731_4     pelle high-res   robind  R      39:05      1 p114
+         7546731_5     pelle high-res   robind  R      39:05      1 p114
+         7546731_6     pelle high-res   robind  R      39:05      1 p52
+         7546723_1     pelle high-res   robind  R      39:36      1 p68
+         7546723_2     pelle high-res   robind  R      39:36      1 p54
+         7546723_3     pelle high-res   robind  R      39:36      1 p54
+         7546723_4     pelle high-res   robind  R      39:36      1 p54
+         7546723_5     pelle high-res   robind  R      39:36      1 p54
+         7546723_6     pelle high-res   robind  R      39:36      1 p60
+         7546723_7     pelle high-res   robind  R      39:36      1 p60
+         7546723_8     pelle high-res   robind  R      39:36      1 p60
+[robind@pelle1 scripts]$ - **Step 5b** (m = 151, m_p = 26, all 8 finished). Error as in step 5a (interpolated, x ∈ [−6, 9.2]); speedup = L-BFGS time for 200 iterations / Newton-CG time to the same J.
+
+  | case | error L-BFGS / NCG | NCG iter. | L-BFGS 200 it. | NCG to L-BFGS's J | speedup | (m = 76) |
+  |---|---|---|---|---|---|---|
+  | tikhonov-grad 1e3 | 0.082 / 0.177 | 16 | 5.36 h | never | NCG fails | 2.3 |
+  | tikhonov-grad 1e4 | 0.087 / 0.094 | 13 | 4.47 h | 1.82 h | 2.5 | 4.5 |
+  | TV 1, eps 1e-3 | 0.088 / 0.088 | 22 | 4.09 h | 2.34 h | 1.7 | — |
+  | TV 10, eps 1e-3 | 0.084 / 0.100 | 16 | 4.05 h | 1.61 h | 2.5 | — |
+
+  Less model error helps `a` (L-BFGS 0.082–0.088 against 0.092–0.113 at m = 76), but the speedup does not grow: about 2× as at m = 76. Newton-CG at tikhonov-grad 1e3 never leaves the constant initial guess (J 32.86 → 32.84 in 16 iterations, 3.5 h, flag 0). β·D'D is mild there, so this stall comes from the misfit's curvature at the start, not only from the regularization stiffness.
+- **Step 5c, hybrid, high-res m = 76** (Newton-CG from L-BFGS iteration k; times are totals, including the L-BFGS part):
+
+  | case | L-BFGS (200 it.) | Newton-CG | hybrid k = 20 | hybrid k = 40 |
+  |---|---|---|---|---|
+  | tikhonov-grad 1e4, t to 1e-4 | > 1.53 h | **0.35 h** | 0.57 h | 0.92 h |
+  | TV 10 (eps 1e-4), t to 1e-4 | > 1.52 h | 1.89 h | **0.98 h** | 1.75 h |
+  | TV 100 (eps 1e-4), t to 1e-4 | > 1.46 h | 6.47 h (stall) | **1.39 h** | 1.39 h |
+
+  All runs end at the same J* and `a` as Newton-CG. The hybrid with k = 20 removes the Newton-CG stall (4.7× faster at TV 100) and beats L-BFGS where L-BFGS is slow to finish (TV 10: 0.82 h against 1.52 h to L-BFGS's final J), but at TV 100 it is only about as fast as L-BFGS (1.35 h against 1.46 h to L-BFGS's final J; L-BFGS reaches 1e-3 first). When Newton-CG alone does not stall, starting it directly is fastest. Earlier switching is better: k = 40 spends too long in L-BFGS.
+- **TV and edges** (`assets/high_res_tv_a_eps.pdf`): φ_ε(x) ≈ x²/(2ε) for |x| ≪ ε, and the node differences of `a` are about 1e-4 (median |Da| 1.4e-4 at ε = 1e-3, 4.6e-5 at 1e-4), so smoothed TV with ε ≥ 1e-4 acts as tikhonov-grad with weight β/ε and gives ramps. Only exact TV (ε = 0, L-BFGS, β = 100) is piecewise constant (median |Da| 2.7e-6), with the best error (0.086 against 0.104 and 0.120). Newton-CG with ε = 0 fails: zero R Hessian, gradient jumps at the kinks, J = 4.43 after 50 iterations (14 h, stopped) against 1.65 for L-BFGS. Local runs with exact TV and β = 3, 10, 30 (`high-res_runs_tv_exact.txt`, m = 251 data) test whether a smaller β removes the remaining contrast loss.

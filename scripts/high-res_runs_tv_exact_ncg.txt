@@ -1,0 +1,6 @@
+# Exact TV (eps = 0) with Newton-CG at beta = 10, high-res data at m = 76 (m = 251 data locally):
+# from the constant initial guess, and from iteration 20 of the lbfgs run in high-res_runs_tv_exact.txt
+# (which must have finished). At beta = 100 Newton-CG fails (J = 4.43 after 14 h against 1.65).
+# <optimizer> <reg_type> <reg_beta> <reg_eps> [x0_iter]
+newton-cg-ls tv 10 0
+newton-cg-ls tv 10 0 20

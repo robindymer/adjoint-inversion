@@ -17,7 +17,7 @@ running() {
 
 cd "$RUN_DIR"
 mkdir -p logs
-grep -v '^#' "$RUN_FILE" | grep -v '^\s*$' | while read -r OPT REG_TYPE REG_BETA REG_EPS X0_ITER; do
+grep -v '^#' "$RUN_FILE" | grep -v '^\s*$' | { while read -r OPT REG_TYPE REG_BETA REG_EPS X0_ITER; do
     NAME="${DRIVER}_${OPT}_${REG_TYPE}_${REG_BETA}"
     EPS_STR=""
     if [ -n "$REG_EPS" ] && [ "$REG_EPS" != "-" ]; then
@@ -37,5 +37,6 @@ grep -v '^#' "$RUN_FILE" | grep -v '^\s*$' | while read -r OPT REG_TYPE REG_BETA
         > "logs/$NAME.txt" 2>&1 < /dev/null &
     sleep 120 # Let MATLAB start before counting the running jobs again
 done
-wait
+wait # Inside the pipe's subshell, where the MATLAB jobs are children
+}
 echo "$(date '+%F %T') all runs finished: $RUN_FILE"

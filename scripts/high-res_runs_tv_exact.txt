@@ -1,0 +1,7 @@
+# Exact TV (eps = 0) with L-BFGS, high-res data at m = 76. Smoothed TV with eps >= 1e-4 acts as a
+# quadratic penalty here, since the node differences in a (~5e-5) are below eps, and gives ramps.
+# tikhonov-grad 1e4 as reference on the same data. <optimizer> <reg_type> <reg_beta> [reg_eps]
+lbfgs tv 10 0
+lbfgs tv 3 0
+lbfgs tv 30 0
+lbfgs tikhonov-grad 1e4
