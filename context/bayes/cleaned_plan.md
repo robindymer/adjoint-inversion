@@ -14,7 +14,10 @@ If M_model >> M_noise, inflate noise (simple approach). If data
 becomes uninformative, increase m. More rigorous approach,
 enhanced error model of Kaipio and
 Somersalo as stated in course litterature.
+- At some point: Include deterministic, noise, inverse crime, H1 and TV regularized.
+This is a more fair comparison compare to noise-free inversion.
 - Implement smoothness prior
+- Judge it by its samples
 - Implement pCN, MALA and HMC samplers
 - Sample from posterior and computer
 1) Mean with 95% bands, compare against a_true

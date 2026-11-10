@@ -174,3 +174,33 @@ Every figure gets a script under `code/` so it can be reproduced.
 - **Discrepancy principle:** inverse-crime runs recover a_true with M(a_β) ≈ τ·M_noise, and the discrepancy is monotone in β on the bracket.
 - **Samplers:** recover the mean and covariance of the Gaussian surrogate. On the real posterior, rank-R̂ < 1.01 and ESS > 100 for every reported quantity.
 - **Laplace:** Laplace and MCMC bands agree where the posterior is near-Gaussian. Disagreements are reported, not hidden.
+
+## Temp logs
+Next is to set up the Bayesian problem in MATLAB, at m = 36 in the inverse-crime setting, and sanity-check it before writing any sampler. The forward solver is MATLAB, so I'd keep the samplers in MATLAB too, saving the chains to .mat. ESS and R-hat can then come from the course's Python code.
+
+1. Problem setup (bayes/)
+setup_bayes_problem.m: a copy of setup_problem.m plus the noise lines (η = 0.02, fixed seed). It returns an InvProblem, noise (σ, Δt_d) and a_true.
+smoothness_prior.m: a port of smoothness_prior.py, about 15 lines. It builds the precision P = LᵀL/γ² + level term/γ₀² with γ = 1e-3 and γ₀ = 2e-3, the Cholesky factor R and the mean μ = b. It provides logPrior, gradLogPrior and fromWhitened. Match the level term to gaussian_precision in the course code.
+Potential: U(a) = f(a)/(σ²Δt_d) + ½(a − μ)ᵀP(a − μ), with its gradient. Return inf for a ≤ 0 or a NaN forward solve.
+2. Checks before sampling (all cheap at m = 36)
+Misfit at the truth: U_data(a_true) should be about 0.84·N/2, as measured earlier.
+Gradient check: finite differences on the full U.
+MAP: L-BFGS on U. This is also your later "deterministic, noisy, regularized" result.
+Laplace approximation at the MAP: with m_p = 26, the full Hessian is just 26 Hv products, a few minutes. I'd move it forward from "if time is left":
+It shows how wide the posterior is. With N ≈ 176k data, the likelihood will dominate, so expect a narrow posterior.
+The Laplace covariance is the right preconditioner. Prior preconditioning (pCN, or MALA with C) mixes badly when the posterior is much narrower than the prior.
+It gives a reference to compare the samples against.
+If the posterior turns out very narrow, decide whether that's the uncertainty quantification you want to show, or whether to raise η.
+
+3. Samplers, cheapest first
+pCN: forward solves only, about 4 s per step, so 10k steps take about 11 h. Tune the step size for an acceptance rate of about 0.25.
+MALA: forward and adjoint solves, about 10 s per step, preconditioned with C or the Laplace covariance.
+HMC: mass matrix C⁻¹ or the Laplace Hessian.
+Compare the three by ESS per solve.
+
+4. Posterior quantities
+These follow your cleaned_plan: mean with 95% bands against a_true, P(a(x) < b) per node, and the positions of the VW edges.
+
+One issue I noticed: after you moved the Python files into bayes/python/, the course-code path in fault.py:16 points to bayes/python/../Computational-…. That folder isn't there; it's under context/bayes/. The from bayes.python.fault import line also assumes you run from the repo root.
+
+Should I start with step 1?
