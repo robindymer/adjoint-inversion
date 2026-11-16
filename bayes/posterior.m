@@ -2,7 +2,9 @@
 %
 %   U(a) = M(a)/(sigma^2*dt_d) - log p(a)
 %
-% post.U(a)        potential; inf if a <= 0 somewhere or the forward solve fails (NaN)
+% post.Phi(a)      negative log likelihood M(a)/(sigma^2*dt_d); inf if a <= 0 somewhere or the
+%                  forward solve fails (NaN). pCN needs only this, since its proposal keeps the prior.
+% post.U(a)        potential Phi(a) - log p(a)
 % post.Ug(a)       potential and gradient (forward + adjoint solve)
 % post.Uhv(a, V)   Hessian-vector products (Gauss-Newton + second-order terms of the misfit)
 % post.c           likelihood scale 1/(sigma^2*dt_d)
@@ -12,14 +14,15 @@ function post = posterior(prob, noise, prior)
     post.prob = prob;
     post.noise = noise;
     post.prior = prior;
-    post.U = @U;
+    post.Phi = @Phi;
+    post.U = @(a) Phi(a) - prior.logp(a);
     post.Ug = @Ug;
     post.Uhv = @(a, V) c*prob.Hv(a, V) + prior.P*V;
 
-    function u = U(a)
-        u = c*prob.f(a) - prior.logp(a);
-        if isnan(u)
-            u = inf;
+    function phi = Phi(a)
+        phi = c*prob.f(a);
+        if isnan(phi)
+            phi = inf;
         end
     end
 
