@@ -33,3 +33,11 @@ Also remember to reject bad points (a <= 0 or solver yields NaN)
 #### If time is left
 - Implement low rank laplace approximation from Hv products
 - Implement hierarchical prior
+
+#### Maximum likelihood, MAP and sampling
+This is three different levels of complexity.
+In Vidar's article, we simply minimze the L2 norm of the residual.
+This is maximum likelihood. If we add noise to the data, we also need
+to regularize so we don't fit noise. Solving this is then our MAP estimate.
+Still, we only get one solution. The final step is to sample from our posterior,
+and this gives credibility bands.
