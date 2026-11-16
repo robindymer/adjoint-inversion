@@ -6,6 +6,9 @@ AR 0.234
 - Remark 4.21: What to report about a sampler - viktig
 - Tolkar nu som att med Gaussian och Smootness prior kan vi slippa HMC, blir lättare
 
+- "Sampling the bathymetry posterior" har vi nog mycket att lära oss från
+- Viktigt att ta med "Remark 4.21" i rapporten
+
 ## Frågor
 - Behöver man i vanliga fall oroa sig över att modellfelet ska överskugga vårt gaussian noise?
 Behöver vara lite noggrann och försiktig när vi går till high-res data
