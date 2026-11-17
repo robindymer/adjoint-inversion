@@ -31,8 +31,8 @@ mass matrix.
 Also remember to reject bad points (a <= 0 or solver yields NaN)
 
 #### If time is left
-- [ ] Implement low rank laplace approximation from Hv products
-- [ ] Implement hierarchical prior
+[ ] Implement low rank laplace approximation from Hv products
+[ ] Implement hierarchical prior
 
 #### Misc
 - Decide on if we want to keep Robbins-Monroe or just manually tune
@@ -44,3 +44,11 @@ the laplace.
 the hessian is feasible and only needs to be done once?
 When would H-pCN possibly beat MALA and HMC? Probably where we use high-res data and have less of a
 Gaussian posterior. Also, using a hiearchichal prior would make the posterior non-gaussian.
+
+#### Maximum likelihood, MAP and sampling
+This is three different levels of complexity.
+In Vidar's article, we simply minimze the L2 norm of the residual.
+This is maximum likelihood. If we add noise to the data, we also need
+to regularize so we don't fit noise. Solving this is then our MAP estimate.
+Still, we only get one solution. The final step is to sample from our posterior,
+and this gives credibility bands.
