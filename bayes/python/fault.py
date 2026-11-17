@@ -13,7 +13,8 @@ import sys
 import numpy as np
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(HERE, "..", "Computational-and-Bayesian-inverse-problems-code", "course_code"))
+sys.path.insert(0, os.path.join(HERE, "..", "..", "context", "bayes", "Computational-and-Bayesian-inverse-problems-code",
+                                "course_code"))
 
 X_MIN, X_MAX, M_P = -10.0, 10.0, 26
 VW = (-5.0, 6.0)

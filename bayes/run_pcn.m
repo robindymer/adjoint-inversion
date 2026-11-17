@@ -1,16 +1,18 @@
 % Run pCN on the noisy inverse-crime posterior (m = 36, m_p = 26, smoothness prior).
 % The first nAdapt iterations tune s and are burn-in. The chain is saved to results/ as it runs.
+% seed, start, nIter, nAdapt and s0 can be set before calling, e.g. for several chains in parallel
+% (see run_chains.sh): matlab -batch "seed=2; start='prior'; run_pcn"
 
 bayesDir = fileparts(mfilename('fullpath'));
 addpath(bayesDir);
 m = 36; m_p = 26; eta = 0.02;
-nIter  = 2000;
-nAdapt = 500;
+if ~exist('nIter', 'var'), nIter = 2000; end
+if ~exist('nAdapt', 'var'), nAdapt = 500; end
 % TODO: Verify the s from Robbins-Monro manually
 % Done by testing a few values of s until 20-30% acceptance rate is achieved
-s0     = 1e-4;     % rough guess from the posterior width estimate; adapted during burn-in
-start  = 'true';   % 'true': start at a_true, 'prior': at a prior draw
-seed   = 0;
+if ~exist('s0', 'var'), s0 = 1e-4; end         % rough guess from the posterior width estimate; adapted during burn-in
+if ~exist('start', 'var'), start = 'true'; end % 'true': start at a_true, 'prior': at a prior draw
+if ~exist('seed', 'var'), seed = 0; end
 
 [prob, noise, aTrue] = setup_bayes_problem(m, m_p, eta, 1);
 prior = smoothness_prior(m_p);

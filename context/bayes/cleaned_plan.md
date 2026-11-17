@@ -36,3 +36,11 @@ Also remember to reject bad points (a <= 0 or solver yields NaN)
 
 #### Misc
 - Decide on if we want to keep Robbins-Monroe or just manually tune
+- When comparing chains we start from different initial points. For pCN, this starting
+point is drawn from the prior, reasonable. For H-pCN, the Laplace approximation is centered
+on the posterior, but we want to be a bit further away to verify burn-in. Therefore we widen
+the laplace.
+- TODO: Read about the Laplace approximation. Seems like a no-brainer for our case where computing
+the hessian is feasible and only needs to be done once?
+When would H-pCN possibly beat MALA and HMC? Probably where we use high-res data and have less of a
+Gaussian posterior. Also, using a hiearchichal prior would make the posterior non-gaussian.
