@@ -31,7 +31,8 @@ mass matrix.
 Also remember to reject bad points (a <= 0 or solver yields NaN)
 
 #### If time is left
-[ ] Implement low rank laplace approximation from Hv products
+[x] Implement low rank laplace approximation from Hv products
+[x] Compare with computing the hessian by simply using finite differences
 [ ] Implement hierarchical prior
 
 #### Misc
