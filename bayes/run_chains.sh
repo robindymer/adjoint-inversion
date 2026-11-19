@@ -1,10 +1,10 @@
 #!/bin/bash
 # Run several chains of run_pcn.m or run_hpcn.m in parallel on this machine, one MATLAB process
 # (one core) per chain, with seeds 1..n. Logs go to results/logs/.
-# Usage: ./run_chains.sh <pcn|hpcn> <n_chains> [start] [extra MATLAB assignments]
+# Usage: ./run_chains.sh <pcn|hpcn|mala|hmc> <n_chains> [start] [extra MATLAB assignments]
 # e.g.   ./run_chains.sh pcn 4 prior
 #        ./run_chains.sh hpcn 4 laplace "s=0.3; nIter=2000;"
-# start: pcn: true or prior, hpcn: map or laplace
+# start: pcn, mala, hmc: true or prior, hpcn: map or laplace
 
 SAMPLER="$1"
 N="$2"
