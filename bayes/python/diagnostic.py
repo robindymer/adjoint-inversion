@@ -55,14 +55,14 @@ def main(pattern, burn_in=None):
         sample_size = r['chain'].a.shape[1]
         a_index = 13
         a_values = A[i,:,a_index]
-        plt.plot([s for s in range(sample_size)], a_values)
+        plt.plot([s for s in range(a_values.size)], a_values)
         # for j in range(r['chain'].a.shape[1]):
         #     print(A[i, j, 10])
     plt.figure()
     for i, r in enumerate(runs):
         sample_size = r['chain'].a.shape[1]
         U_values = U[i,:]
-        plt.plot([s for s in range(sample_size)], U_values)
+        plt.plot([s for s in range(U_values.size)], U_values)
 
     plt.show()
 

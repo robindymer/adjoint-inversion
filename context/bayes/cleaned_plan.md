@@ -19,22 +19,22 @@ This is a more fair comparison compare to noise-free inversion.
 - [x] Implement smoothness prior
 - [ ] Judge it by its samples
 - [ ] Implement pCN, MALA and HMC samplers
-- [ ] Sample from posterior and computer
+- [ ] Sample from posterior and compute
 1) Mean with 95% bands, compare against a_true
 2) P(a(x) < b) per node
 3) VW edge positions
-This is done in the inverse crime setting
 
+[x] Implement low rank laplace approximation from Hv products
+[ ] Compare with computing the hessian by simply using finite differences
+[ ] Implement hierarchical prior
+
+This is done in the inverse crime setting
 Remember that it can be wise to precondition MALA with
 the prior covariance C, and use C inverse as HMC
 mass matrix.
 Also remember to reject bad points (a <= 0 or solver yields NaN)
 
-#### If time is left
-[x] Implement low rank laplace approximation from Hv products
-[x] Compare with computing the hessian by simply using finite differences
-[ ] Implement hierarchical prior
-
+- Lastly, do the above for high-resolution data!
 #### Misc
 - Decide on if we want to keep Robbins-Monroe or just manually tune
 - When comparing chains we start from different initial points. For pCN, this starting
