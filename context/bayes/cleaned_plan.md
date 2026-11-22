@@ -25,6 +25,9 @@ This is a more fair comparison compare to noise-free inversion.
 3) VW edge positions
 
 [x] Implement low rank laplace approximation from Hv products
+[ ] Center the Laplace approximation on the converged MAP (as in the course, Sec. 5.2): replace the
+one-Newton-step a_MAP with the newton-tr H1 solution (polished with a few Newton steps on U, since
+tikhonov-grad lacks the a_1 anchor of the prior), recompute H there, before the production runs.
 [ ] Compare with computing the hessian by simply using finite differences
 [ ] Implement hierarchical prior
 
