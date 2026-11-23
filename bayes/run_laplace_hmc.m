@@ -28,6 +28,8 @@ if exist(hessFile, 'file')
 else
     [H, lambda] = posterior_hessian(post, aTrue);
     [uTrue, g] = post.Ug(aTrue);
+    % Shortcut: one Newton step from a_true lands within 2.5e-4 of the newton-tr MAP (inverse crime
+    % only; needs a_true). For high-res data use run_highres_map.m.
     aMap = aTrue - H\g;   % one Newton step
     fprintf('Newton step: U(a_true) = %.4f, U(a_MAP) = %.4f\n', uTrue, post.U(aMap));
     save(hessFile, 'H', 'lambda', 'aMap', 'aTrue');
