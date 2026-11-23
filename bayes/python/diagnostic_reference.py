@@ -117,6 +117,8 @@ def main(pattern, burn_in=None):
     fig.savefig(out, dpi=150)
     print(f"Saved {out}")
 
+    plt.show()
+
 
 if __name__ == "__main__":
     main(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else None)

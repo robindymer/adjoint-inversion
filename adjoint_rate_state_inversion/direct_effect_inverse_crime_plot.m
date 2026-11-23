@@ -3,12 +3,14 @@
 % files saved by optimizer_benchmark/run_method.m (optimizer_benchmark/results, variable hist).
 addSubpaths;
 % resultsDir = fullfile('optimizer_benchmark', 'results');
-resultsDir = fullfile('mat', 'inversion/inversion');
-resultFiles = {'rough_lbfgs_maxiter200_m251_mp26_velocity_highres_vals_a00135.mat';
-               'rough_newton-cg-ls_maxiter200_m251_mp26_velocity_highres_vals_a00135.mat'};
+resultsDir = fullfile('mat', 'inversion');
+resultFiles = {'rough_newton-tr_maxiter150_m36_mp26_velocity_synth_eta002_vals_a00135_tikhonov-grad_beta3e+00_anchor.mat';
+               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135_tikhonov-grad_beta3e+00_anchor.mat',
+               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135.mat',
+               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_vals_a00135_2.mat'};
 % resultFiles = {'res_newton_tr_repo_m251.mat'; 'res_fmincon_ip_lbfgs_nolb_m251.mat'};
 iter = []; % Iteration to plot, [] for the final iteration of each file
-assetsDir = 'assets';
+assetsDir = 'assets/bayes';
 if ~isfolder(assetsDir)
     mkdir(assetsDir);
 end

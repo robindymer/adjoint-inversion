@@ -1,4 +1,4 @@
-function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, horizontalFault, loadOptPath, opt_routine_str, receiverSpacing, regOpts)
+function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = optimize_antiplaneshear(maxIter, m, m_p, misfitType, optPars, val, scalingStudy, loadData, horizontalFault, loadOptPath, opt_routine_str, receiverSpacing, regOpts, noiseEta)
     
     addSubpaths;
     default_arg('scalingStudy',true);
@@ -17,6 +17,8 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
     default_arg('receiverSpacing',2);
     % Regularization added to the misfit, see adjopt.regularization. E.g. struct('type','tv','beta',1)
     default_arg('regOpts',struct('type','none'));
+    % Relative noise level of the synthetic data, see adjopt.optimize_general. 0: no noise
+    default_arg('noiseEta',0);
     order = 8;
     if any(strcmp(opt_routine_str, {'CG', 'newton-tr', 'newton-tr-noprec', 'fminunc-tr', 'newton-cg-ls'})) % Requires Hessian-vector products
         optObj = @AntiplaneShear2DRSFrictionOptHessian;
@@ -33,6 +35,9 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
     else
         loadDataPath = '';
         data_str = 'synth';
+        if noiseEta > 0
+            data_str = erase(sprintf('synth_eta%g', noiseEta), '.');   % no '.' in the file name
+        end
     end
 
     if horizontalFault
@@ -87,6 +92,9 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
         if any(strcmp(regOpts.type,{'tv','lasso'})) && isfield(regOpts,'eps')
             str_ending = sprintf('%s_eps%.0e',str_ending,regOpts.eps);
         end
+        if isfield(regOpts,'anchorWeight') && regOpts.anchorWeight > 0
+            str_ending = sprintf('%s_anchor',str_ending);
+        end
     end
     filename = sprintf('mat/inversion/%s_%s_maxiter%d_m%d_mp%d_%s_%s_%s.mat',fault_str,opt_routine_str,maxIter,m,m_p,misfitType,data_str,str_ending);
     if isfile(filename)
@@ -102,7 +110,7 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
     mkdir('mat/inversion/');
     % history is saved here after every iteration, and the file is removed once the run has finished
     checkpointPath = strrep(filename, '.mat', '_checkpoint.mat');
-    [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = adjopt.optimize_general(optObj, parSetFun, optPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str, checkpointPath, regOpts);
+    [parsVec, misFit, flag, output, history, initialPars, truePars, parSet] = adjopt.optimize_general(optObj, parSetFun, optPars, parSetOpts, order, maxIter, loadDataPath, loadOptPath, opt_routine_str, checkpointPath, regOpts, noiseEta);
 
     save(filename, '-v7.3','-nocompression');
     delete(checkpointPath);

@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "context/bayes/Computational-and-Bayesian-inverse-problems-code/course_code"
+    ]
+}
