@@ -1,0 +1,33 @@
+Task 4: newton-cg-ls tv 100 - 40   m=76
+RUNNING: newton-cg-ls, inverting for a, regularization tv with beta = 100
+[Warning: Directory already exists.] 
+[> In optimize_antiplaneshear (line 115)
+In high_res_data_inversion (line 63)] 
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Loading data from mat/fractal_fault_m1001_mp1001/receiverData.mat
+ newton_cg 
+     k    f(x_k)    ||gradf(x_k)||    ||s_k||       stepsize     # CG iters  CG-flag
+     0  1.878449e+00  1.712437e+03  1.200220e-02  2.500000e-01         8         3 
+     1  1.737181e+00  9.946346e+02  4.959519e-02  1.250000e-01        32         0 
+     2  1.679137e+00  9.795705e+02  4.222763e-02  6.250000e-02        32         0 
+     3  1.503352e+00  8.805469e+02  2.050861e-02  2.500000e-01        29         0 
+     4  1.414532e+00  7.210469e+02  7.139024e-03  2.500000e-01        27         0 
+     5  1.412396e+00  7.526603e+02  9.737146e-03  2.500000e-01        31         0 
+     6  1.409356e+00  7.270262e+02  1.170351e-02  1.250000e-01        29         0 
+     7  1.348349e+00  6.739337e+02  4.581770e-03  2.500000e-01        29         0 
+     8  1.321313e+00  5.905908e+02  3.743696e-04  1.000000e+00        22         0 
+     9  1.312628e+00  1.353712e+03  4.763326e-05  1.000000e+00         4         0 
+    10  1.310409e+00  7.230917e+01  1.504261e-04  1.000000e+00        23         0 
+    11  1.309804e+00  2.739384e+02  4.549666e-07  1.000000e+00         1         0 
+    12  1.309741e+00  2.060944e+00  5.725998e-06  1.000000e+00        26         0 
+    13  1.309738e+00  6.199521e-02  1.930463e-07  1.000000e+00        26         0 
+    14  1.309738e+00  2.728150e-04  5.949975e-09  1.192093e-07        30         0 
+ Newton iteration 14 
+ line search returned with flag = 3; terminate 
+Elapsed time is 5708.157127 seconds.

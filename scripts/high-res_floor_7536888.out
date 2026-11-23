@@ -1,0 +1,24 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+m = 76, m_p = 26: misfit of the true a = 8.946
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+m = 151, m_p = 26: misfit of the true a = 11.09
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+m = 251, m_p = 26: misfit of the true a = 11.68
