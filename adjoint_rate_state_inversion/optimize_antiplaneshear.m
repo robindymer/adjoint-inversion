@@ -92,6 +92,9 @@ function [parsVec, misFit, flag, output, history, initialPars, truePars, parSet]
         if any(strcmp(regOpts.type,{'tv','lasso'})) && isfield(regOpts,'eps')
             str_ending = sprintf('%s_eps%.0e',str_ending,regOpts.eps);
         end
+        if isfield(regOpts,'anchorWeight') && regOpts.anchorWeight > 0
+            str_ending = sprintf('%s_anchor',str_ending);
+        end
     end
     filename = sprintf('mat/inversion/%s_%s_maxiter%d_m%d_mp%d_%s_%s_%s.mat',fault_str,opt_routine_str,maxIter,m,m_p,misfitType,data_str,str_ending);
     if isfile(filename)

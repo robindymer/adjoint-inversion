@@ -4,8 +4,8 @@
 % Objective (unscaled misfit, as in optimize_general):  M(a) + R(a)
 % The posterior is U(a) = M(a)/(sigma^2 dt_d) - log p(a), so multiplying by sigma^2 dt_d:
 %   'tikhonov-grad'  beta = sigma^2 dt_d / gamma^2 gives the smoothness prior on the increments, so
-%                    the minimizer is (close to) the MAP estimate. It lacks the weak anchor of a_1
-%                    at mu (gamma0), the only difference to the prior.
+%                    the minimizer is the MAP estimate when anchor = true, which adds the weak
+%                    anchor of a_1 at mu with weight sigma^2 dt_d / gamma0^2 (the full prior).
 %   'tv'             beta = sigma^2 dt_d / b for a Laplace prior on the increments with scale b.
 %                    Default b = gamma*sqrt(2/pi), the mean |increment| of the smoothness prior.
 % betaScale multiplies the default beta, e.g. for a sweep. Choose beta by the discrepancy
@@ -19,7 +19,8 @@ codeDir = fullfile(fileparts(bayesDir), 'adjoint_rate_state_inversion');
 m = 36; m_p = 26; eta = 0.02;
 if ~exist('regType', 'var'), regType = 'tikhonov-grad'; end   % 'tikhonov-grad', 'tv' or 'none'
 if ~exist('betaScale', 'var'), betaScale = 1; end
-if ~exist('tvEps', 'var'), tvEps = 1e-4; end    % smoothing of |.| in TV, small against increments ~1e-3
+if ~exist('anchor', 'var'), anchor = true; end  % anchor a_1 at mu as the prior ('tikhonov-grad')
+if ~exist('tvEps', 'var'), tvEps = 1e-4; end   % smoothing of |.| in TV, small against increments ~1e-3
 if ~exist('maxIter', 'var'), maxIter = 200; end
 if ~exist('a0', 'var'), a0 = 0.0135; end        % initial guess, as the noise-free run
 if ~exist('optRoutine', 'var'), optRoutine = 'lbfgs'; end   % see optimize_antiplaneshear, e.g. 'newton-tr'
@@ -37,6 +38,10 @@ s2dt = noise.sigma^2*noise.dt_d;
 switch regType
     case 'tikhonov-grad'
         regOpts = struct('type', regType, 'beta', betaScale*s2dt/prior.gamma^2);
+        if anchor
+            regOpts.anchorWeight = betaScale*s2dt/prior.gamma0^2;
+            regOpts.anchorValue = prior.mu(1);
+        end
     case 'tv'
         regOpts = struct('type', regType, 'beta', betaScale*s2dt/(prior.gamma*sqrt(2/pi)), 'eps', tvEps);
     case 'none'

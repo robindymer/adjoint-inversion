@@ -10,6 +10,7 @@
 %               'tv'             R = beta*sum(sqrt((D*p).^2 + eps^2) - eps), total variation
 %               'lasso'          R = beta*sum(sqrt((p - p0).^2 + eps^2) - eps), L1 norm of p - p0
 % opts.beta  -- regularization weight
+% opts.anchorWeight, opts.anchorValue -- optional, adds anchorWeight/2*(p(1) - anchorValue)^2
 % opts.eps   -- smoothing of the absolute value in 'tv' and 'lasso', which makes R twice
 %               differentiable. Should be small compared to the differences/deviations that are
 %               expected, but a smaller eps gives a stiffer Hessian (beta/eps at zero).
@@ -56,5 +57,18 @@ function reg = regularization(opts, p0, blockSizes)
             reg.hessVec = @(p, V) beta*(eps^2./((p - p0).^2 + eps^2).^(3/2)).*V;
         otherwise
             error('Unknown regularization type: %s', opts.type);
+    end
+
+    % Optional anchor of the first entry, + anchorWeight/2*(p(1) - anchorValue)^2. With
+    % 'tikhonov-grad' this is the negative log of the smoothness prior a_1 ~ N(mu, gamma0^2),
+    % a_{i+1} - a_i ~ N(0, gamma^2) (bayes/smoothness_prior.m), which is otherwise singular.
+    if isfield(opts, 'anchorWeight') && opts.anchorWeight > 0
+        w = opts.anchorWeight;
+        v = opts.anchorValue;
+        R0 = reg.R; g0 = reg.grad; hv0 = reg.hessVec;
+        e1 = sparse(1, 1, 1, numel(p0), 1);
+        reg.R = @(p) R0(p) + w/2*(p(1) - v)^2;
+        reg.grad = @(p) g0(p) + w*(p(1) - v)*e1;
+        reg.hessVec = @(p, V) hv0(p, V) + w*e1*V(1,:);
     end
 end
