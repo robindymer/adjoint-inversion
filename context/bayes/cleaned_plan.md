@@ -1,10 +1,10 @@
 ## Revision of plan.md and claude_plan.md
 
-- [ ] Include TV-regularized L-BFGS. If we do this
+- [ ] When we do hierarchical prior: Include TV-regularized L-BFGS. If we do this
 via the noise model we can choose lambda via the
 discrepancy principle, but for now we can just take
 something that looks good.
-- [ ] Include H1 regularized 
+- [x] Include H1 regularized 
 - [x] Add noise to misfit
 1) Add to data
 2) Remember to scale misfit by 1 / (sigma^2 delta t_d)
@@ -14,18 +14,18 @@ If M_model >> M_noise, inflate noise (simple approach). If data
 becomes uninformative, increase m. More rigorous approach,
 enhanced error model of Kaipio and
 Somersalo as stated in course litterature.
-- [ ] At some point: Include deterministic, noise, inverse crime, H1 and TV regularized.
+- [x] At some point: Include deterministic, noise, inverse crime, H1 and TV regularized.
 This is a more fair comparison compare to noise-free inversion.
 - [x] Implement smoothness prior
-- [ ] Judge it by its samples
-- [ ] Implement pCN, MALA and HMC samplers
+- [x] Judge it by its samples
+- [x] Implement pCN, MALA and HMC samplers
 - [ ] Sample from posterior and compute
 1) Mean with 95% bands, compare against a_true
 2) P(a(x) < b) per node
 3) VW edge positions
 
 [x] Implement low rank laplace approximation from Hv products
-[ ] Center the Laplace approximation on the converged MAP (as in the course, Sec. 5.2): replace the
+[x] Center the Laplace approximation on the converged MAP (as in the course, Sec. 5.2): replace the
 one-Newton-step a_MAP with the newton-tr H1 solution (polished with a few Newton steps on U, since
 tikhonov-grad lacks the a_1 anchor of the prior), recompute H there, before the production runs.
 [ ] Compare with computing the hessian by simply using finite differences
@@ -48,6 +48,9 @@ the laplace.
 the hessian is feasible and only needs to be done once?
 When would H-pCN possibly beat MALA and HMC? Probably where we use high-res data and have less of a
 Gaussian posterior. Also, using a hiearchichal prior would make the posterior non-gaussian.
+- LBFGS gets stuck, even when regularized. Newton-TR continues
+working well, so we go with that for the MAP. The objective is simply
+not nice enough with noise, for LBFGS.
 
 #### Maximum likelihood, MAP and sampling
 This is three different levels of complexity.
