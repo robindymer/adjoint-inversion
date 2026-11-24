@@ -20,6 +20,10 @@ Posterior for the noisy m = 1001 data, solved on m = 151, m_p = 26, with H-pCN, 
 
 The budget is about 1000 PDE solves per chain for each sampler (H-pCN 1000 iterations, H-MALA 500, H-HMC 100 × 5 leapfrog steps). Change it with `NITER` (and `NLEAP`) through `--export`.
 
+## If a_map did not converge properly
+sbatch -t 48:00:00 --export=ALL,RESUME=true highres_map.sh
+./highres_submit.sh --skip-map # when MAP job is finished
+
 ## Back home
 - [ ] Copy back `bayes/results/{highres_map,hpcn_highres,mala_highres,hmc_highres}_*.mat`.
 - [ ] Run `python diagnostic.py` on each set of chains. Compare R-hat and ESS per PDE solve across the three samplers.

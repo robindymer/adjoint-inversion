@@ -3,14 +3,16 @@
 % files saved by optimizer_benchmark/run_method.m (optimizer_benchmark/results, variable hist).
 addSubpaths;
 % resultsDir = fullfile('optimizer_benchmark', 'results');
-resultsDir = fullfile('mat', 'inversion');
-resultFiles = {'rough_newton-tr_maxiter150_m36_mp26_velocity_synth_eta002_vals_a00135_tikhonov-grad_beta3e+00_anchor.mat';
-               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135_tikhonov-grad_beta3e+00_anchor.mat';
-               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135.mat';
-               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_vals_a00135_2.mat';
-               'rough_newton-tr_maxiter150_m36_mp26_velocity_synth_eta002_vals_a00135_tv_beta4e-03_eps1e-04.mat';
-               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135_tv_beta4e-03_eps1e-04.mat'};
-% resultFiles = {'res_newton_tr_repo_m251.mat'; 'res_fmincon_ip_lbfgs_nolb_m251.mat'};
+% resultsDir = fullfile('mat', 'inversion');
+% resultFiles = {'rough_newton-tr_maxiter150_m36_mp26_velocity_synth_eta002_vals_a00135_tikhonov-grad_beta3e+00_anchor.mat';
+%                'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135_tikhonov-grad_beta3e+00_anchor.mat';
+%                'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135.mat';
+%                'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_vals_a00135_2.mat';
+%                'rough_newton-tr_maxiter150_m36_mp26_velocity_synth_eta002_vals_a00135_tv_beta4e-03_eps1e-04.mat';
+%                'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135_tv_beta4e-03_eps1e-04.mat'};
+resultsDir = fullfile('..', 'bayes', 'results');
+resultFiles = {'highres_map_m151_mp26_eta0.02.mat'};
+
 iter = []; % Iteration to plot, [] for the final iteration of each file
 assetsDir = 'assets/bayes';
 if ~isfolder(assetsDir)
@@ -31,6 +33,12 @@ for i = 1:numel(resultFiles)
         history = S.history;
         truePars = S.truePars;
         initialPars = S.initialPars;
+    elseif ismember('aMap', vars) % Saved by bayes/run_highres_map.m: initial guess and MAP only
+        S = load(filePath, 'aMap', 'infHist');
+        m_p = numel(S.aMap);
+        history.x = [0.0135*ones(m_p, 1), zeros(m_p, sum(S.infHist(:,4)) - 1), S.aMap];
+        truePars = []; % Plot the sharp step of the high-res data
+        initialPars = struct('a', history.x(:,1), 'b', 0.011*ones(m_p, 1));
     else % Saved by optimizer_benchmark/run_method.m
         S = load(filePath, 'hist');
         history = S.hist;
