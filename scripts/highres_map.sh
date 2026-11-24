@@ -11,8 +11,8 @@
 #SBATCH -t 48:00:00
 #SBATCH -c 8
 #SBATCH -o highres_map_%j.out
-##SBATCH --mail-type=ALL
-##SBATCH --mail-user=robin.dymer@it.uu.se
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=robin.dymer@it.uu.se
 
 module load MATLAB  # check the version with `module avail MATLAB`
 

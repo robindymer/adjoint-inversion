@@ -1,0 +1,119 @@
+Task 3: Laplace mala, seed 3
+PSD = 1.0086
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Noisy inverse-crime data: m = 36, sigma = 3.253e-02 (eta = 0.02), dt_d = 3.000e-03, N = 176088
+Noisy inverse-crime data: m = 36, sigma = 3.253e-02 (eta = 0.02), dt_d = 3.000e-03, N = 176088
+[   126s] it    10  U 7.3774e+04  h 9.15e-01  acc. rate (last 10) 0.70
+[   128s] it    10  U 7.3774e+04  h 9.15e-01  acc. rate (last 10) 0.70
+[   250s] it    20  U 7.3778e+04  h 8.50e-01  acc. rate (last 10) 0.50
+[   253s] it    20  U 7.3778e+04  h 8.50e-01  acc. rate (last 10) 0.50
+[   371s] it    30  U 7.3775e+04  h 8.01e-01  acc. rate (last 10) 0.60
+[   376s] it    30  U 7.3775e+04  h 8.01e-01  acc. rate (last 10) 0.60
+[   494s] it    40  U 7.3777e+04  h 8.56e-01  acc. rate (last 10) 0.70
+[   500s] it    40  U 7.3777e+04  h 8.56e-01  acc. rate (last 10) 0.70
+[   616s] it    50  U 7.3773e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[   624s] it    50  U 7.3773e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[   739s] it    60  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[   748s] it    60  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[   863s] it    70  U 7.3775e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[   873s] it    70  U 7.3775e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[   986s] it    80  U 7.3775e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[   997s] it    80  U 7.3775e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  1107s] it    90  U 7.3778e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  1119s] it    90  U 7.3778e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  1231s] it   100  U 7.3778e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  1244s] it   100  U 7.3778e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  1355s] it   110  U 7.3782e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  1368s] it   110  U 7.3782e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  1473s] it   120  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  1487s] it   120  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  1592s] it   130  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  1607s] it   130  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  1708s] it   140  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.40
+[  1724s] it   140  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.40
+[  1829s] it   150  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  1845s] it   150  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  1948s] it   160  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  1967s] it   160  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  2065s] it   170  U 7.3775e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  2085s] it   170  U 7.3775e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  2185s] it   180  U 7.3773e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  2206s] it   180  U 7.3773e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  2303s] it   190  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  2327s] it   190  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  2425s] it   200  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  2449s] it   200  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  2544s] it   210  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  2570s] it   210  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  2663s] it   220  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  2689s] it   220  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  2784s] it   230  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  2810s] it   230  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  2901s] it   240  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.40
+[  2929s] it   240  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.40
+[  3019s] it   250  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  3048s] it   250  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  3138s] it   260  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  3169s] it   260  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  3257s] it   270  U 7.3780e+04  h 8.31e-01  acc. rate (last 10) 0.40
+[  3288s] it   270  U 7.3780e+04  h 8.31e-01  acc. rate (last 10) 0.40
+[  3376s] it   280  U 7.3772e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  3409s] it   280  U 7.3772e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  3496s] it   290  U 7.3772e+04  h 8.31e-01  acc. rate (last 10) 0.00
+[  3530s] it   290  U 7.3772e+04  h 8.31e-01  acc. rate (last 10) 0.00
+[  3616s] it   300  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.30
+[  3651s] it   300  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.30
+[  3735s] it   310  U 7.3778e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  3773s] it   310  U 7.3778e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  3857s] it   320  U 7.3780e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  3896s] it   320  U 7.3780e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  3977s] it   330  U 7.3773e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  4016s] it   330  U 7.3773e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  4097s] it   340  U 7.3780e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  4138s] it   340  U 7.3780e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  4219s] it   350  U 7.3775e+04  h 8.31e-01  acc. rate (last 10) 0.90
+[  4261s] it   350  U 7.3775e+04  h 8.31e-01  acc. rate (last 10) 0.90
+[  4339s] it   360  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  4381s] it   360  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  4459s] it   370  U 7.3773e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  4503s] it   370  U 7.3773e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  4581s] it   380  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.30
+[  4626s] it   380  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.30
+[  4701s] it   390  U 7.3772e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  4747s] it   390  U 7.3772e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  4821s] it   400  U 7.3771e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  4870s] it   400  U 7.3771e+04  h 8.31e-01  acc. rate (last 10) 0.50
+[  4945s] it   410  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  4995s] it   410  U 7.3777e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  5065s] it   420  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.40
+[  5115s] it   420  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.40
+[  5185s] it   430  U 7.3779e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  5237s] it   430  U 7.3779e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  5306s] it   440  U 7.3778e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  5359s] it   440  U 7.3778e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  5426s] it   450  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  5479s] it   450  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  5546s] it   460  U 7.3780e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  5601s] it   460  U 7.3780e+04  h 8.31e-01  acc. rate (last 10) 0.70
+[  5666s] it   470  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  5723s] it   470  U 7.3776e+04  h 8.31e-01  acc. rate (last 10) 0.80
+[  5786s] it   480  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.30
+[  5843s] it   480  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.30
+[  5904s] it   490  U 7.3775e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  5966s] it   490  U 7.3775e+04  h 8.31e-01  acc. rate (last 10) 0.60
+[  6027s] it   500  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.40
+Final h = 8.31e-01, acceptance rate after burn-in = 0.58, 500 forward + 500 adjoint solves in 6027 s
+[  6063s] it   500  U 7.3774e+04  h 8.31e-01  acc. rate (last 10) 0.40
+Final h = 8.31e-01, acceptance rate after burn-in = 0.58, 500 forward + 500 adjoint solves in 6063 s
