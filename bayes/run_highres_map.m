@@ -19,10 +19,10 @@ addpath(bayesDir);
 if ~exist('m', 'var'), m = 151; end
 if ~exist('m_p', 'var'), m_p = 26; end
 eta = 0.02;
-if ~exist('maxIter', 'var'), maxIter = 60; end    % per round; inverse-crime runs needed 21
+if ~exist('maxIter', 'var'), maxIter = 150; end   % per round; 60 was hit in every round
 if ~exist('a0', 'var'), a0 = 0.0135; end          % constant initial guess, as before
 if ~exist('resume', 'var'), resume = false; end
-maxRounds = 4;
+if ~exist('maxRounds', 'var'), maxRounds = 8; end
 
 resDir = fullfile(bayesDir, 'results');
 if ~exist(resDir, 'dir'), mkdir(resDir); end
@@ -57,14 +57,16 @@ for round = 1:maxRounds
         '|a_MAP - a_true|/|a_true| = %.3e\n'], round, inflation, output.iterations, flag, Mmap, ...
         Mmap/noise.Mnoise, norm(aMap - aTrue)/norm(aTrue));
     save(outFile, 'aMap', 'aTrue', 'noise', 'inflation', 'infHist', 'm', 'm_p', 'eta');
-    if abs(newInflation - inflation) <= 0.05*inflation
+    converged = abs(newInflation - inflation) <= 0.05*inflation;
+    if converged
         break
     end
     inflation = newInflation;
 end
-if round == maxRounds
+if ~converged
     warning('Inflation not converged after %d rounds', maxRounds);
 end
+inflation = noise.inflation;   % the inflation a_MAP and H belong to, which the chains load
 
 % Laplace approximation at the MAP, with the final inflation. H is saved before the check, so an
 % indefinite H (MAP not converged) does not lose the solves.
