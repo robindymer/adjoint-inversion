@@ -1,0 +1,61 @@
+Task 1: H-MALA high-res, seed 1
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+High-res noisy data: m = 151, m_p = 26, sigma0 = 4.001e-02 (eta = 0.02), dt_d = 0.01, N = 52800
+  M_noise = 3.9367e-01 (sigma0^2 dt_d N/2 = 4.2264e-01), M(a_true nodes) = 1.1492e+01, inflation = 2.933
+[   635s] it    10  U 2.1222e+04  h 6.52e-02  acc. rate (last 10) 0.10
+[  1271s] it    20  U 1.6647e+04  h 1.19e-01  acc. rate (last 10) 0.90
+[  1888s] it    30  U 1.5974e+04  h 1.46e-01  acc. rate (last 10) 0.70
+[  2512s] it    40  U 1.5934e+04  h 1.21e-01  acc. rate (last 10) 0.40
+[  3117s] it    50  U 1.5898e+04  h 1.09e-01  acc. rate (last 10) 0.50
+[  3723s] it    60  U 1.5888e+04  h 1.09e-01  acc. rate (last 10) 0.30
+[  4327s] it    70  U 1.5867e+04  h 1.09e-01  acc. rate (last 10) 0.80
+[  4944s] it    80  U 1.5863e+04  h 1.09e-01  acc. rate (last 10) 0.60
+[  5611s] it    90  U 1.5865e+04  h 1.09e-01  acc. rate (last 10) 0.70
+[  6263s] it   100  U 1.5858e+04  h 1.09e-01  acc. rate (last 10) 0.20
+[  6905s] it   110  U 1.5854e+04  h 1.09e-01  acc. rate (last 10) 0.60
+[  7540s] it   120  U 1.5850e+04  h 1.09e-01  acc. rate (last 10) 0.40
+[  8167s] it   130  U 1.5848e+04  h 1.09e-01  acc. rate (last 10) 0.60
+[  8786s] it   140  U 1.5845e+04  h 1.09e-01  acc. rate (last 10) 0.90
+[  9399s] it   150  U 1.5839e+04  h 1.09e-01  acc. rate (last 10) 0.30
+[ 10033s] it   160  U 1.5838e+04  h 1.09e-01  acc. rate (last 10) 0.70
+[ 10666s] it   170  U 1.5837e+04  h 1.09e-01  acc. rate (last 10) 0.70
+[ 11296s] it   180  U 1.5831e+04  h 1.09e-01  acc. rate (last 10) 0.50
+[ 11918s] it   190  U 1.5834e+04  h 1.09e-01  acc. rate (last 10) 0.50
+[ 12539s] it   200  U 1.5824e+04  h 1.09e-01  acc. rate (last 10) 0.70
+[ 13164s] it   210  U 1.5828e+04  h 1.09e-01  acc. rate (last 10) 0.30
+[ 13783s] it   220  U 1.5828e+04  h 1.09e-01  acc. rate (last 10) 0.50
+[ 14399s] it   230  U 1.5826e+04  h 1.09e-01  acc. rate (last 10) 0.60
+[ 14998s] it   240  U 1.5830e+04  h 1.09e-01  acc. rate (last 10) 0.30
+[ 15602s] it   250  U 1.5831e+04  h 1.09e-01  acc. rate (last 10) 0.60
+[ 16203s] it   260  U 1.5830e+04  h 1.09e-01  acc. rate (last 10) 0.40
+[ 16804s] it   270  U 1.5825e+04  h 1.09e-01  acc. rate (last 10) 0.40
+[ 17416s] it   280  U 1.5821e+04  h 1.09e-01  acc. rate (last 10) 0.40
+[ 18036s] it   290  U 1.5823e+04  h 1.09e-01  acc. rate (last 10) 0.30
+[ 18656s] it   300  U 1.5826e+04  h 1.09e-01  acc. rate (last 10) 0.50
+[ 19264s] it   310  U 1.5825e+04  h 1.09e-01  acc. rate (last 10) 0.40
+[ 19851s] it   320  U 1.5827e+04  h 1.09e-01  acc. rate (last 10) 0.60
+[ 20444s] it   330  U 1.5830e+04  h 1.09e-01  acc. rate (last 10) 0.40
+[ 21037s] it   340  U 1.5832e+04  h 1.09e-01  acc. rate (last 10) 0.80
+[ 21626s] it   350  U 1.5827e+04  h 1.09e-01  acc. rate (last 10) 0.60
+[ 22215s] it   360  U 1.5827e+04  h 1.09e-01  acc. rate (last 10) 0.40
+[ 22809s] it   370  U 1.5837e+04  h 1.09e-01  acc. rate (last 10) 0.40
+[ 23404s] it   380  U 1.5829e+04  h 1.09e-01  acc. rate (last 10) 0.60
+[ 23994s] it   390  U 1.5830e+04  h 1.09e-01  acc. rate (last 10) 0.70
+[ 24587s] it   400  U 1.5828e+04  h 1.09e-01  acc. rate (last 10) 0.70
+[ 25181s] it   410  U 1.5826e+04  h 1.09e-01  acc. rate (last 10) 0.50
+[ 25765s] it   420  U 1.5828e+04  h 1.09e-01  acc. rate (last 10) 0.60
+[ 26347s] it   430  U 1.5821e+04  h 1.09e-01  acc. rate (last 10) 0.50
+[ 26942s] it   440  U 1.5823e+04  h 1.09e-01  acc. rate (last 10) 0.40
+[ 27538s] it   450  U 1.5824e+04  h 1.09e-01  acc. rate (last 10) 0.30
+[ 28135s] it   460  U 1.5825e+04  h 1.09e-01  acc. rate (last 10) 0.40
+[ 28733s] it   470  U 1.5828e+04  h 1.09e-01  acc. rate (last 10) 0.40
+[ 29323s] it   480  U 1.5823e+04  h 1.09e-01  acc. rate (last 10) 0.60
+[ 29910s] it   490  U 1.5818e+04  h 1.09e-01  acc. rate (last 10) 0.90
+[ 30499s] it   500  U 1.5818e+04  h 1.09e-01  acc. rate (last 10) 0.50
+Final h = 1.09e-01, acceptance rate after burn-in = 0.52, 500 forward + 500 adjoint solves in 30499 s

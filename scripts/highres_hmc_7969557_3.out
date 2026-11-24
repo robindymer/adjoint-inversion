@@ -1,0 +1,111 @@
+Task 3: H-HMC high-res, seed 3, nLeap = 5
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+High-res noisy data: m = 151, m_p = 26, sigma0 = 4.001e-02 (eta = 0.02), dt_d = 0.01, N = 52800
+  M_noise = 3.9367e-01 (sigma0^2 dt_d N/2 = 4.2264e-01), M(a_true nodes) = 1.1492e+01, inflation = 2.933
+[   266s] it     1  U 2.4302e+04  eps 1.57e-01  dH  1.63e+04  acc. rate (last 1) 0.00
+[   529s] it     2  U 1.7965e+04  eps 1.97e-01  dH -9.34e+01  acc. rate (last 1) 1.00
+[   796s] it     3  U 1.6598e+04  eps 2.36e-01  dH -7.17e+01  acc. rate (last 1) 1.00
+[  1064s] it     4  U 1.6598e+04  eps 1.78e-01  dH  1.12e+02  acc. rate (last 1) 0.00
+[  1333s] it     5  U 1.6085e+04  eps 2.04e-01  dH -2.80e+01  acc. rate (last 1) 1.00
+[  1599s] it     6  U 1.6048e+04  eps 2.29e-01  dH -2.36e-02  acc. rate (last 1) 1.00
+[  1866s] it     7  U 1.6013e+04  eps 2.56e-01  dH -2.56e+00  acc. rate (last 1) 1.00
+[  2132s] it     8  U 1.5935e+04  eps 2.83e-01  dH -9.30e+00  acc. rate (last 1) 1.00
+[  2399s] it     9  U 1.5915e+04  eps 3.11e-01  dH -2.45e+00  acc. rate (last 1) 1.00
+[  2664s] it    10  U 1.5856e+04  eps 3.39e-01  dH -9.75e+00  acc. rate (last 1) 1.00
+[  2930s] it    11  U 1.5856e+04  eps 2.91e-01  dH  9.02e+00  acc. rate (last 1) 0.00
+[  3194s] it    12  U 1.5849e+04  eps 3.15e-01  dH -4.48e-01  acc. rate (last 1) 1.00
+[  3456s] it    13  U 1.5833e+04  eps 3.39e-01  dH -1.32e+00  acc. rate (last 1) 1.00
+[  3719s] it    14  U 1.5823e+04  eps 3.64e-01  dH -4.85e-01  acc. rate (last 1) 1.00
+[  3983s] it    15  U 1.5823e+04  eps 3.21e-01  dH  6.21e+02  acc. rate (last 1) 0.00
+[  4248s] it    16  U 1.5825e+04  eps 3.26e-01  dH  3.05e-01  acc. rate (last 1) 1.00
+[  4511s] it    17  U 1.5825e+04  eps 3.08e-01  dH  1.09e+00  acc. rate (last 1) 0.00
+[  4774s] it    18  U 1.5825e+04  eps 2.74e-01  dH  1.10e+02  acc. rate (last 1) 0.00
+[  5036s] it    19  U 1.5825e+04  eps 2.70e-01  dH  5.77e-01  acc. rate (last 1) 0.00
+[  5299s] it    20  U 1.5825e+04  eps 2.43e-01  dH  1.73e+01  acc. rate (last 1) 0.00
+[  5562s] it    21  U 1.5825e+04  eps 2.43e-01  dH  1.64e+00  acc. rate (last 1) 0.00
+[  5824s] it    22  U 1.5818e+04  eps 2.43e-01  dH -1.15e-01  acc. rate (last 1) 1.00
+[  6087s] it    23  U 1.5820e+04  eps 2.43e-01  dH  3.43e-01  acc. rate (last 1) 1.00
+[  6349s] it    24  U 1.5823e+04  eps 2.43e-01  dH -5.66e-02  acc. rate (last 1) 1.00
+[  6609s] it    25  U 1.5823e+04  eps 2.43e-01  dH  7.41e-01  acc. rate (last 1) 1.00
+[  6871s] it    26  U 1.5826e+04  eps 2.43e-01  dH -5.70e-01  acc. rate (last 1) 1.00
+[  7133s] it    27  U 1.5821e+04  eps 2.43e-01  dH  1.01e-02  acc. rate (last 1) 1.00
+[  7399s] it    28  U 1.5823e+04  eps 2.43e-01  dH  2.71e-01  acc. rate (last 1) 1.00
+[  7665s] it    29  U 1.5818e+04  eps 2.43e-01  dH -3.29e-01  acc. rate (last 1) 1.00
+[  7930s] it    30  U 1.5818e+04  eps 2.43e-01  dH  4.77e-01  acc. rate (last 1) 0.00
+[  8195s] it    31  U 1.5821e+04  eps 2.43e-01  dH  4.32e-01  acc. rate (last 1) 1.00
+[  8460s] it    32  U 1.5818e+04  eps 2.43e-01  dH -2.39e-01  acc. rate (last 1) 1.00
+[  8725s] it    33  U 1.5816e+04  eps 2.43e-01  dH -1.34e-01  acc. rate (last 1) 1.00
+[  8987s] it    34  U 1.5818e+04  eps 2.43e-01  dH  8.79e-02  acc. rate (last 1) 1.00
+[  9254s] it    35  U 1.5816e+04  eps 2.43e-01  dH -1.65e-01  acc. rate (last 1) 1.00
+[  9523s] it    36  U 1.5814e+04  eps 2.43e-01  dH -1.62e-01  acc. rate (last 1) 1.00
+[  9791s] it    37  U 1.5811e+04  eps 2.43e-01  dH -1.55e-02  acc. rate (last 1) 1.00
+[ 10061s] it    38  U 1.5811e+04  eps 2.43e-01  dH  6.61e-01  acc. rate (last 1) 0.00
+[ 10330s] it    39  U 1.5811e+04  eps 2.43e-01  dH  5.31e+00  acc. rate (last 1) 0.00
+[ 10599s] it    40  U 1.5811e+04  eps 2.43e-01  dH  4.05e+00  acc. rate (last 1) 0.00
+[ 10868s] it    41  U 1.5811e+04  eps 2.43e-01  dH  1.46e-01  acc. rate (last 1) 0.00
+[ 11130s] it    42  U 1.5811e+04  eps 2.43e-01  dH  9.52e-01  acc. rate (last 1) 0.00
+[ 11390s] it    43  U 1.5814e+04  eps 2.43e-01  dH  2.86e-02  acc. rate (last 1) 1.00
+[ 11650s] it    44  U 1.5820e+04  eps 2.43e-01  dH  1.37e-01  acc. rate (last 1) 1.00
+[ 11914s] it    45  U 1.5811e+04  eps 2.43e-01  dH -1.76e-01  acc. rate (last 1) 1.00
+[ 12182s] it    46  U 1.5814e+04  eps 2.43e-01  dH  1.00e-01  acc. rate (last 1) 1.00
+[ 12450s] it    47  U 1.5812e+04  eps 2.43e-01  dH -4.63e-02  acc. rate (last 1) 1.00
+[ 12717s] it    48  U 1.5812e+04  eps 2.43e-01  dH  3.52e-01  acc. rate (last 1) 0.00
+[ 12990s] it    49  U 1.5812e+04  eps 2.43e-01  dH  5.86e-02  acc. rate (last 1) 1.00
+[ 13265s] it    50  U 1.5814e+04  eps 2.43e-01  dH  1.53e-02  acc. rate (last 1) 1.00
+[ 13541s] it    51  U 1.5812e+04  eps 2.43e-01  dH  1.68e-01  acc. rate (last 1) 1.00
+[ 13816s] it    52  U 1.5815e+04  eps 2.43e-01  dH  8.64e-02  acc. rate (last 1) 1.00
+[ 14087s] it    53  U 1.5814e+04  eps 2.43e-01  dH -1.05e-01  acc. rate (last 1) 1.00
+[ 14361s] it    54  U 1.5814e+04  eps 2.43e-01  dH  4.87e-02  acc. rate (last 1) 0.00
+[ 14634s] it    55  U 1.5814e+04  eps 2.43e-01  dH  1.16e+00  acc. rate (last 1) 0.00
+[ 14903s] it    56  U 1.5812e+04  eps 2.43e-01  dH  4.67e-04  acc. rate (last 1) 1.00
+[ 15164s] it    57  U 1.5814e+04  eps 2.43e-01  dH  1.31e-01  acc. rate (last 1) 1.00
+[ 15427s] it    58  U 1.5814e+04  eps 2.43e-01  dH  7.11e+00  acc. rate (last 1) 0.00
+[ 15690s] it    59  U 1.5811e+04  eps 2.43e-01  dH  1.03e-01  acc. rate (last 1) 1.00
+[ 15953s] it    60  U 1.5820e+04  eps 2.43e-01  dH  2.69e-01  acc. rate (last 1) 1.00
+[ 16216s] it    61  U 1.5816e+04  eps 2.43e-01  dH -4.95e-01  acc. rate (last 1) 1.00
+[ 16480s] it    62  U 1.5819e+04  eps 2.43e-01  dH -1.01e-01  acc. rate (last 1) 1.00
+[ 16746s] it    63  U 1.5822e+04  eps 2.43e-01  dH  4.47e-01  acc. rate (last 1) 1.00
+[ 17008s] it    64  U 1.5816e+04  eps 2.43e-01  dH -5.48e-01  acc. rate (last 1) 1.00
+[ 17269s] it    65  U 1.5813e+04  eps 2.43e-01  dH  1.25e-01  acc. rate (last 1) 1.00
+[ 17531s] it    66  U 1.5813e+04  eps 2.43e-01  dH -5.28e-03  acc. rate (last 1) 1.00
+[ 17794s] it    67  U 1.5813e+04  eps 2.43e-01  dH  2.84e+00  acc. rate (last 1) 0.00
+[ 18068s] it    68  U 1.5813e+04  eps 2.43e-01  dH -9.15e-02  acc. rate (last 1) 1.00
+[ 18342s] it    69  U 1.5813e+04  eps 2.43e-01  dH  2.33e-01  acc. rate (last 1) 0.00
+[ 18617s] it    70  U 1.5809e+04  eps 2.43e-01  dH -2.25e-02  acc. rate (last 1) 1.00
+[ 18890s] it    71  U 1.5809e+04  eps 2.43e-01  dH  1.29e+00  acc. rate (last 1) 0.00
+[ 19165s] it    72  U 1.5812e+04  eps 2.43e-01  dH -2.05e-02  acc. rate (last 1) 1.00
+[ 19439s] it    73  U 1.5818e+04  eps 2.43e-01  dH  1.99e-01  acc. rate (last 1) 1.00
+[ 19714s] it    74  U 1.5818e+04  eps 2.43e-01  dH  2.65e-01  acc. rate (last 1) 0.00
+[ 19984s] it    75  U 1.5815e+04  eps 2.43e-01  dH  5.69e-01  acc. rate (last 1) 1.00
+[ 20251s] it    76  U 1.5818e+04  eps 2.43e-01  dH -5.64e-01  acc. rate (last 1) 1.00
+[ 20518s] it    77  U 1.5816e+04  eps 2.43e-01  dH -3.03e-01  acc. rate (last 1) 1.00
+[ 20785s] it    78  U 1.5816e+04  eps 2.43e-01  dH  5.70e-02  acc. rate (last 1) 1.00
+[ 21047s] it    79  U 1.5820e+04  eps 2.43e-01  dH  1.86e-01  acc. rate (last 1) 1.00
+[ 21309s] it    80  U 1.5814e+04  eps 2.43e-01  dH  3.22e-02  acc. rate (last 1) 1.00
+[ 21576s] it    81  U 1.5818e+04  eps 2.43e-01  dH -7.60e-02  acc. rate (last 1) 1.00
+[ 21846s] it    82  U 1.5818e+04  eps 2.43e-01  dH  2.32e-01  acc. rate (last 1) 0.00
+[ 22117s] it    83  U 1.5815e+04  eps 2.43e-01  dH -3.37e-02  acc. rate (last 1) 1.00
+[ 22389s] it    84  U 1.5821e+04  eps 2.43e-01  dH -2.21e-02  acc. rate (last 1) 1.00
+[ 22663s] it    85  U 1.5821e+04  eps 2.43e-01  dH  4.58e+00  acc. rate (last 1) 0.00
+[ 22943s] it    86  U 1.5821e+04  eps 2.43e-01  dH  6.54e-01  acc. rate (last 1) 0.00
+[ 23221s] it    87  U 1.5815e+04  eps 2.43e-01  dH -4.81e-02  acc. rate (last 1) 1.00
+[ 23494s] it    88  U 1.5820e+04  eps 2.43e-01  dH  4.48e-01  acc. rate (last 1) 1.00
+[ 23763s] it    89  U 1.5817e+04  eps 2.43e-01  dH  2.68e-01  acc. rate (last 1) 1.00
+[ 24032s] it    90  U 1.5820e+04  eps 2.43e-01  dH -4.46e-01  acc. rate (last 1) 1.00
+[ 24302s] it    91  U 1.5819e+04  eps 2.43e-01  dH -1.09e-01  acc. rate (last 1) 1.00
+[ 24574s] it    92  U 1.5815e+04  eps 2.43e-01  dH -9.86e-02  acc. rate (last 1) 1.00
+[ 24843s] it    93  U 1.5816e+04  eps 2.43e-01  dH -9.14e-02  acc. rate (last 1) 1.00
+[ 25115s] it    94  U 1.5815e+04  eps 2.43e-01  dH -2.47e-01  acc. rate (last 1) 1.00
+[ 25385s] it    95  U 1.5817e+04  eps 2.43e-01  dH  1.01e-01  acc. rate (last 1) 1.00
+[ 25649s] it    96  U 1.5818e+04  eps 2.43e-01  dH -2.92e-01  acc. rate (last 1) 1.00
+[ 25916s] it    97  U 1.5818e+04  eps 2.43e-01  dH  3.91e-01  acc. rate (last 1) 0.00
+[ 26180s] it    98  U 1.5828e+04  eps 2.43e-01  dH  4.24e-01  acc. rate (last 1) 1.00
+[ 26439s] it    99  U 1.5828e+04  eps 2.43e-01  dH  2.95e+01  acc. rate (last 1) 0.00
+[ 26697s] it   100  U 1.5820e+04  eps 2.43e-01  dH -2.45e-01  acc. rate (last 1) 1.00
+Final eps = 2.43e-01, acceptance rate after burn-in = 0.75, 500 forward + 500 adjoint solves in 26697 s

@@ -1,0 +1,111 @@
+Task 1: H-pCN high-res, seed 1, s = 1
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+High-res noisy data: m = 151, m_p = 26, sigma0 = 4.001e-02 (eta = 0.02), dt_d = 0.01, N = 52800
+  M_noise = 3.9367e-01 (sigma0^2 dt_d N/2 = 4.2264e-01), M(a_true nodes) = 1.1492e+01, inflation = 2.933
+[   359s] it    10  U 2.4277e+04  s 1.00e+00  acc. rate (last 10) 0.20
+[   738s] it    20  U 2.4079e+04  s 1.00e+00  acc. rate (last 10) 0.20
+[  1115s] it    30  U 2.4079e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  1503s] it    40  U 2.4079e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  1853s] it    50  U 2.4079e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  2185s] it    60  U 2.4079e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  2515s] it    70  U 2.4079e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  2845s] it    80  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.10
+[  3181s] it    90  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  3534s] it   100  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  3922s] it   110  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  4327s] it   120  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  4731s] it   130  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  5127s] it   140  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  5505s] it   150  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  5875s] it   160  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  6254s] it   170  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  6618s] it   180  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  6982s] it   190  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  7349s] it   200  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  7713s] it   210  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  8078s] it   220  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  8446s] it   230  U 2.4059e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  8818s] it   240  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.10
+[  9189s] it   250  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  9558s] it   260  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[  9930s] it   270  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 10316s] it   280  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 10705s] it   290  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 11061s] it   300  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 11390s] it   310  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 11724s] it   320  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 12079s] it   330  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 12461s] it   340  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 12879s] it   350  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 13299s] it   360  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 13692s] it   370  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 14070s] it   380  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 14458s] it   390  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 14846s] it   400  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 15230s] it   410  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 15613s] it   420  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 16009s] it   430  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 16404s] it   440  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 16808s] it   450  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 17217s] it   460  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 17616s] it   470  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 18010s] it   480  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 18386s] it   490  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 18715s] it   500  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 19044s] it   510  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 19372s] it   520  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 19700s] it   530  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 20029s] it   540  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 20358s] it   550  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 20686s] it   560  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 21015s] it   570  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 21349s] it   580  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 21686s] it   590  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 22027s] it   600  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 22367s] it   610  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 22702s] it   620  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 23031s] it   630  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 23358s] it   640  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 23689s] it   650  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 24014s] it   660  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 24342s] it   670  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 24669s] it   680  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 24997s] it   690  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 25325s] it   700  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 25651s] it   710  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 25981s] it   720  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 26305s] it   730  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 26631s] it   740  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 26959s] it   750  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 27282s] it   760  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 27602s] it   770  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 27922s] it   780  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 28241s] it   790  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 28562s] it   800  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 28883s] it   810  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 29203s] it   820  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 29522s] it   830  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 29841s] it   840  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 30161s] it   850  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 30481s] it   860  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 30803s] it   870  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 31130s] it   880  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 31457s] it   890  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 31788s] it   900  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 32130s] it   910  U 2.3982e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 32483s] it   920  U 2.3914e+04  s 1.00e+00  acc. rate (last 10) 0.10
+[ 32850s] it   930  U 2.3914e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 33222s] it   940  U 2.3914e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 33593s] it   950  U 2.3914e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 33945s] it   960  U 2.3914e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 34287s] it   970  U 2.3914e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 34635s] it   980  U 2.3914e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 34990s] it   990  U 2.3914e+04  s 1.00e+00  acc. rate (last 10) 0.00
+[ 35337s] it  1000  U 2.3914e+04  s 1.00e+00  acc. rate (last 10) 0.00
+s = 1, acceptance rate = 0.01, std(phi) = 58.55, 1000 forward solves in 35337 s
