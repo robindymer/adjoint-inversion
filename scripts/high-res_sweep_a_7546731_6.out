@@ -1,0 +1,35 @@
+Task 6: newton-cg-ls tikhonov-grad 1e4 - 40   m=76
+RUNNING: newton-cg-ls, inverting for a, regularization tikhonov-grad with beta = 10000
+[Warning: Directory already exists.] 
+[> In optimize_antiplaneshear (line 115)
+In high_res_data_inversion (line 63)] 
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Loading data from mat/fractal_fault_m1001_mp1001/receiverData.mat
+ newton_cg 
+     k    f(x_k)    ||gradf(x_k)||    ||s_k||       stepsize     # CG iters  CG-flag
+     0  1.351222e+00  3.618063e+02  4.654376e-02  6.250000e-02         4         3 
+     1  1.246462e+00  8.492870e+03  1.396456e-03  1.000000e+00         4         0 
+     2  1.085818e+00  4.047707e+02  7.968771e-03  1.000000e+00        21         0 
+     3  1.062619e+00  9.101251e+03  4.740169e-05  1.000000e+00         3         0 
+     4  9.836290e-01  1.224716e+02  1.132451e-03  2.500000e-01        12         0 
+     5  9.722983e-01  2.101781e+03  1.753105e-04  1.000000e+00         3         0 
+     6  9.574627e-01  1.241608e+03  3.934837e-04  1.000000e+00         4         0 
+     7  9.457578e-01  3.459108e+03  1.757719e-04  1.000000e+00         3         0 
+     8  9.278004e-01  5.952990e+02  6.644962e-04  5.000000e-01         4         0 
+     9  9.183565e-01  1.911017e+03  2.461498e-04  1.000000e+00         3         0 
+    10  9.094381e-01  7.844880e+02  3.674054e-04  1.000000e+00         3         0 
+    11  9.045699e-01  1.304513e+03  2.299497e-05  1.000000e+00         2         0 
+    12  9.030552e-01  2.486250e+01  1.195022e-03  1.000000e+00        21         0 
+    13  9.011404e-01  3.790125e+02  5.735015e-07  1.000000e+00         1         0 
+    14  9.010317e-01  7.770073e-01  6.889080e-05  1.000000e+00        21         0 
+    15  9.010268e-01  2.123597e-01  1.503676e-07  1.000000e+00         4         0 
+    16  9.010268e-01  1.329748e-03  2.926320e-07  1.000000e+00        25         0 
+    17  9.010268e-01  2.131472e-06 
+
+Elapsed time is 3035.532286 seconds.

@@ -1,0 +1,2478 @@
+Task 6: mala, seed 2
+PSD = 1.0086
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Noisy inverse-crime data: m = 36, sigma = 3.253e-02 (eta = 0.02), dt_d = 3.000e-03, N = 176088
+Noisy inverse-crime data: m = 36, sigma = 3.253e-02 (eta = 0.02), dt_d = 3.000e-03, N = 176088
+[   126s] it    10  U 2.6630e+06  h 7.77e-12  acc. rate (last 10) 0.00
+[   126s] it    10  U 2.6630e+06  h 7.77e-12  acc. rate (last 10) 0.00
+[   250s] it    20  U 2.6630e+06  h 2.53e-12  acc. rate (last 10) 0.00
+[   251s] it    20  U 2.6630e+06  h 2.53e-12  acc. rate (last 10) 0.00
+[   374s] it    30  U 2.6609e+06  h 1.46e-12  acc. rate (last 10) 0.20
+[   375s] it    30  U 2.6609e+06  h 1.46e-12  acc. rate (last 10) 0.20
+[   497s] it    40  U 2.6566e+06  h 1.22e-12  acc. rate (last 10) 0.50
+[   500s] it    40  U 2.6566e+06  h 1.22e-12  acc. rate (last 10) 0.50
+[   619s] it    50  U 2.6502e+06  h 1.13e-12  acc. rate (last 10) 0.80
+[   623s] it    50  U 2.6502e+06  h 1.13e-12  acc. rate (last 10) 0.80
+[   740s] it    60  U 2.6456e+06  h 1.08e-12  acc. rate (last 10) 0.60
+[   745s] it    60  U 2.6456e+06  h 1.08e-12  acc. rate (last 10) 0.60
+[   864s] it    70  U 2.6411e+06  h 1.06e-12  acc. rate (last 10) 0.60
+[   868s] it    70  U 2.6411e+06  h 1.06e-12  acc. rate (last 10) 0.60
+[   983s] it    80  U 2.6381e+06  h 1.03e-12  acc. rate (last 10) 0.40
+[   987s] it    80  U 2.6381e+06  h 1.03e-12  acc. rate (last 10) 0.40
+[  1088s] it    90  U 2.6328e+06  h 1.02e-12  acc. rate (last 10) 0.70
+[  1093s] it    90  U 2.6328e+06  h 1.02e-12  acc. rate (last 10) 0.70
+[  1193s] it   100  U 2.6296e+06  h 1.00e-12  acc. rate (last 10) 0.40
+[  1196s] it   100  U 2.6296e+06  h 1.00e-12  acc. rate (last 10) 0.40
+[  1801s] it   110  U 2.6251e+06  h 9.91e-13  acc. rate (last 10) 0.60
+[  1800s] it   110  U 2.6251e+06  h 9.91e-13  acc. rate (last 10) 0.60
+[  1909s] it   120  U 2.6211e+06  h 9.79e-13  acc. rate (last 10) 0.50
+[  1909s] it   120  U 2.6211e+06  h 9.79e-13  acc. rate (last 10) 0.50
+[  2016s] it   130  U 2.6140e+06  h 9.66e-13  acc. rate (last 10) 0.90
+[  2016s] it   130  U 2.6140e+06  h 9.66e-13  acc. rate (last 10) 0.90
+[  2123s] it   140  U 2.6109e+06  h 9.57e-13  acc. rate (last 10) 0.40
+[  2123s] it   140  U 2.6109e+06  h 9.57e-13  acc. rate (last 10) 0.40
+[  2231s] it   150  U 2.6055e+06  h 9.48e-13  acc. rate (last 10) 0.70
+[  2231s] it   150  U 2.6055e+06  h 9.48e-13  acc. rate (last 10) 0.70
+[  2339s] it   160  U 2.6007e+06  h 9.38e-13  acc. rate (last 10) 0.60
+[  2339s] it   160  U 2.6007e+06  h 9.38e-13  acc. rate (last 10) 0.60
+[  2446s] it   170  U 2.5976e+06  h 9.33e-13  acc. rate (last 10) 0.40
+[  2447s] it   170  U 2.5976e+06  h 9.33e-13  acc. rate (last 10) 0.40
+[  2554s] it   180  U 2.5920e+06  h 9.25e-13  acc. rate (last 10) 0.70
+[  2554s] it   180  U 2.5920e+06  h 9.25e-13  acc. rate (last 10) 0.70
+[  2661s] it   190  U 2.5880e+06  h 9.15e-13  acc. rate (last 10) 0.50
+[  2662s] it   190  U 2.5880e+06  h 9.15e-13  acc. rate (last 10) 0.50
+[  2768s] it   200  U 2.5839e+06  h 9.09e-13  acc. rate (last 10) 0.50
+[  2769s] it   200  U 2.5839e+06  h 9.09e-13  acc. rate (last 10) 0.50
+[  2877s] it   210  U 2.5783e+06  h 9.02e-13  acc. rate (last 10) 0.70
+[  2878s] it   210  U 2.5783e+06  h 9.02e-13  acc. rate (last 10) 0.70
+[  2984s] it   220  U 2.5752e+06  h 8.93e-13  acc. rate (last 10) 0.40
+[  2985s] it   220  U 2.5752e+06  h 8.93e-13  acc. rate (last 10) 0.40
+[  3092s] it   230  U 2.5720e+06  h 8.88e-13  acc. rate (last 10) 0.40
+[  3092s] it   230  U 2.5720e+06  h 8.88e-13  acc. rate (last 10) 0.40
+[  3199s] it   240  U 2.5662e+06  h 8.81e-13  acc. rate (last 10) 0.70
+[  3200s] it   240  U 2.5662e+06  h 8.81e-13  acc. rate (last 10) 0.70
+[  3306s] it   250  U 2.5646e+06  h 8.71e-13  acc. rate (last 10) 0.20
+[  3307s] it   250  U 2.5646e+06  h 8.71e-13  acc. rate (last 10) 0.20
+[  3413s] it   260  U 2.5604e+06  h 8.63e-13  acc. rate (last 10) 0.50
+[  3414s] it   260  U 2.5604e+06  h 8.63e-13  acc. rate (last 10) 0.50
+[  3520s] it   270  U 2.5518e+06  h 8.55e-13  acc. rate (last 10) 1.00
+[  3521s] it   270  U 2.5518e+06  h 8.55e-13  acc. rate (last 10) 1.00
+[  3627s] it   280  U 2.5483e+06  h 8.51e-13  acc. rate (last 10) 0.40
+[  3628s] it   280  U 2.5483e+06  h 8.51e-13  acc. rate (last 10) 0.40
+[  3733s] it   290  U 2.5449e+06  h 8.44e-13  acc. rate (last 10) 0.40
+[  3735s] it   290  U 2.5449e+06  h 8.44e-13  acc. rate (last 10) 0.40
+[  3840s] it   300  U 2.5386e+06  h 8.37e-13  acc. rate (last 10) 0.70
+[  3841s] it   300  U 2.5386e+06  h 8.37e-13  acc. rate (last 10) 0.70
+[  3946s] it   310  U 2.5349e+06  h 8.28e-13  acc. rate (last 10) 0.40
+[  3948s] it   310  U 2.5349e+06  h 8.28e-13  acc. rate (last 10) 0.40
+[  4053s] it   320  U 2.5306e+06  h 8.22e-13  acc. rate (last 10) 0.50
+[  4054s] it   320  U 2.5306e+06  h 8.22e-13  acc. rate (last 10) 0.50
+[  4159s] it   330  U 2.5244e+06  h 8.16e-13  acc. rate (last 10) 0.70
+[  4161s] it   330  U 2.5244e+06  h 8.16e-13  acc. rate (last 10) 0.70
+[  4265s] it   340  U 2.5181e+06  h 8.10e-13  acc. rate (last 10) 0.70
+[  4267s] it   340  U 2.5181e+06  h 8.10e-13  acc. rate (last 10) 0.70
+[  4372s] it   350  U 2.5137e+06  h 8.05e-13  acc. rate (last 10) 0.50
+[  4373s] it   350  U 2.5137e+06  h 8.05e-13  acc. rate (last 10) 0.50
+[  4478s] it   360  U 2.5091e+06  h 7.99e-13  acc. rate (last 10) 0.50
+[  4480s] it   360  U 2.5091e+06  h 7.99e-13  acc. rate (last 10) 0.50
+[  4584s] it   370  U 2.5054e+06  h 7.93e-13  acc. rate (last 10) 0.40
+[  4586s] it   370  U 2.5054e+06  h 7.93e-13  acc. rate (last 10) 0.40
+[  4691s] it   380  U 2.5009e+06  h 7.89e-13  acc. rate (last 10) 0.50
+[  4692s] it   380  U 2.5009e+06  h 7.89e-13  acc. rate (last 10) 0.50
+[  4797s] it   390  U 2.4963e+06  h 7.84e-13  acc. rate (last 10) 0.50
+[  4799s] it   390  U 2.4963e+06  h 7.84e-13  acc. rate (last 10) 0.50
+[  4903s] it   400  U 2.4945e+06  h 7.79e-13  acc. rate (last 10) 0.20
+[  4905s] it   400  U 2.4945e+06  h 7.79e-13  acc. rate (last 10) 0.20
+[  5009s] it   410  U 2.4888e+06  h 7.72e-13  acc. rate (last 10) 0.60
+[  5011s] it   410  U 2.4888e+06  h 7.72e-13  acc. rate (last 10) 0.60
+[  5116s] it   420  U 2.4831e+06  h 7.68e-13  acc. rate (last 10) 0.60
+[  5117s] it   420  U 2.4831e+06  h 7.68e-13  acc. rate (last 10) 0.60
+[  5222s] it   430  U 2.4802e+06  h 7.64e-13  acc. rate (last 10) 0.30
+[  5224s] it   430  U 2.4802e+06  h 7.64e-13  acc. rate (last 10) 0.30
+[  5328s] it   440  U 2.4747e+06  h 7.61e-13  acc. rate (last 10) 0.60
+[  5330s] it   440  U 2.4747e+06  h 7.61e-13  acc. rate (last 10) 0.60
+[  5434s] it   450  U 2.4660e+06  h 7.57e-13  acc. rate (last 10) 0.90
+[  5436s] it   450  U 2.4660e+06  h 7.57e-13  acc. rate (last 10) 0.90
+[  5540s] it   460  U 2.4603e+06  h 7.52e-13  acc. rate (last 10) 0.60
+[  5542s] it   460  U 2.4603e+06  h 7.52e-13  acc. rate (last 10) 0.60
+[  5647s] it   470  U 2.4563e+06  h 7.47e-13  acc. rate (last 10) 0.40
+[  5648s] it   470  U 2.4563e+06  h 7.47e-13  acc. rate (last 10) 0.40
+[  5753s] it   480  U 2.4486e+06  h 7.44e-13  acc. rate (last 10) 0.80
+[  5755s] it   480  U 2.4486e+06  h 7.44e-13  acc. rate (last 10) 0.80
+[  5859s] it   490  U 2.4425e+06  h 7.39e-13  acc. rate (last 10) 0.60
+[  5861s] it   490  U 2.4425e+06  h 7.39e-13  acc. rate (last 10) 0.60
+[  5966s] it   500  U 2.4344e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[  5968s] it   500  U 2.4344e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[  6073s] it   510  U 2.4283e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  6075s] it   510  U 2.4283e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  6180s] it   520  U 2.4242e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  6181s] it   520  U 2.4242e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  6286s] it   530  U 2.4190e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  6288s] it   530  U 2.4190e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  6393s] it   540  U 2.4105e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[  6394s] it   540  U 2.4105e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[  6500s] it   550  U 2.4073e+06  h 7.34e-13  acc. rate (last 10) 0.30
+[  6501s] it   550  U 2.4073e+06  h 7.34e-13  acc. rate (last 10) 0.30
+[  6606s] it   560  U 2.4020e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  6607s] it   560  U 2.4020e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  6712s] it   570  U 2.3976e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  6714s] it   570  U 2.3976e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  6819s] it   580  U 2.3922e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  6820s] it   580  U 2.3922e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  6925s] it   590  U 2.3864e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  6927s] it   590  U 2.3864e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  7033s] it   600  U 2.3795e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  7034s] it   600  U 2.3795e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  7143s] it   610  U 2.3713e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  7144s] it   610  U 2.3713e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  7253s] it   620  U 2.3631e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  7254s] it   620  U 2.3631e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  7363s] it   630  U 2.3547e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  7365s] it   630  U 2.3547e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  7471s] it   640  U 2.3461e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  7473s] it   640  U 2.3461e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  7577s] it   650  U 2.3388e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  7579s] it   650  U 2.3388e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  7684s] it   660  U 2.3286e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[  7685s] it   660  U 2.3286e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[  7790s] it   670  U 2.3260e+06  h 7.34e-13  acc. rate (last 10) 0.20
+[  7791s] it   670  U 2.3260e+06  h 7.34e-13  acc. rate (last 10) 0.20
+[  7896s] it   680  U 2.3183e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  7897s] it   680  U 2.3183e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  8002s] it   690  U 2.3118e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  8004s] it   690  U 2.3118e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  8109s] it   700  U 2.3038e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  8110s] it   700  U 2.3038e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  8215s] it   710  U 2.2959e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  8216s] it   710  U 2.2959e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  8321s] it   720  U 2.2906e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  8323s] it   720  U 2.2906e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  8428s] it   730  U 2.2839e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  8429s] it   730  U 2.2839e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  8534s] it   740  U 2.2784e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  8535s] it   740  U 2.2784e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  8641s] it   750  U 2.2702e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  8642s] it   750  U 2.2702e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  8746s] it   760  U 2.2593e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[  8748s] it   760  U 2.2593e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[  8853s] it   770  U 2.2524e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  8854s] it   770  U 2.2524e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  8959s] it   780  U 2.2465e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  8961s] it   780  U 2.2465e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  9066s] it   790  U 2.2363e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  9067s] it   790  U 2.2363e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  9172s] it   800  U 2.2307e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  9174s] it   800  U 2.2307e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  9278s] it   810  U 2.2217e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  9280s] it   810  U 2.2217e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[  9384s] it   820  U 2.2159e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  9386s] it   820  U 2.2159e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[  9490s] it   830  U 2.2114e+06  h 7.34e-13  acc. rate (last 10) 0.30
+[  9492s] it   830  U 2.2114e+06  h 7.34e-13  acc. rate (last 10) 0.30
+[  9597s] it   840  U 2.2009e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  9598s] it   840  U 2.2009e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  9703s] it   850  U 2.1902e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  9704s] it   850  U 2.1902e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  9809s] it   860  U 2.1795e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  9811s] it   860  U 2.1795e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[  9915s] it   870  U 2.1715e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[  9917s] it   870  U 2.1715e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[ 10021s] it   880  U 2.1605e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[ 10022s] it   880  U 2.1605e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[ 10126s] it   890  U 2.1510e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[ 10128s] it   890  U 2.1510e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[ 10232s] it   900  U 2.1446e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[ 10233s] it   900  U 2.1446e+06  h 7.34e-13  acc. rate (last 10) 0.40
+[ 10337s] it   910  U 2.1366e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[ 10339s] it   910  U 2.1366e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[ 10443s] it   920  U 2.1267e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[ 10444s] it   920  U 2.1267e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[ 10549s] it   930  U 2.1146e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[ 10551s] it   930  U 2.1146e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[ 10656s] it   940  U 2.1061e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[ 10657s] it   940  U 2.1061e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[ 10762s] it   950  U 2.0976e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[ 10763s] it   950  U 2.0976e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[ 10868s] it   960  U 2.0860e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[ 10870s] it   960  U 2.0860e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[ 10974s] it   970  U 2.0720e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 10976s] it   970  U 2.0720e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 11080s] it   980  U 2.0601e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[ 11081s] it   980  U 2.0601e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[ 11187s] it   990  U 2.0548e+06  h 7.34e-13  acc. rate (last 10) 0.30
+[ 11188s] it   990  U 2.0548e+06  h 7.34e-13  acc. rate (last 10) 0.30
+[ 11294s] it  1000  U 2.0446e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[ 11295s] it  1000  U 2.0446e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[ 11406s] it  1010  U 2.0303e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 11407s] it  1010  U 2.0303e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 11513s] it  1020  U 2.0197e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[ 11514s] it  1020  U 2.0197e+06  h 7.34e-13  acc. rate (last 10) 0.60
+[ 11619s] it  1030  U 2.0107e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[ 11620s] it  1030  U 2.0107e+06  h 7.34e-13  acc. rate (last 10) 0.50
+[ 11725s] it  1040  U 1.9961e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 11726s] it  1040  U 1.9961e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 11831s] it  1050  U 1.9798e+06  h 7.34e-13  acc. rate (last 10) 0.90
+[ 11833s] it  1050  U 1.9798e+06  h 7.34e-13  acc. rate (last 10) 0.90
+[ 11937s] it  1060  U 1.9651e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 11939s] it  1060  U 1.9651e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 12044s] it  1070  U 1.9486e+06  h 7.34e-13  acc. rate (last 10) 0.90
+[ 12045s] it  1070  U 1.9486e+06  h 7.34e-13  acc. rate (last 10) 0.90
+[ 12150s] it  1080  U 1.9339e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 12151s] it  1080  U 1.9339e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 12256s] it  1090  U 1.9212e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[ 12257s] it  1090  U 1.9212e+06  h 7.34e-13  acc. rate (last 10) 0.70
+[ 12362s] it  1100  U 1.9024e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 12363s] it  1100  U 1.9024e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 12468s] it  1110  U 1.8837e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 12469s] it  1110  U 1.8837e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 12573s] it  1120  U 1.8667e+06  h 7.34e-13  acc. rate (last 10) 0.90
+[ 12575s] it  1120  U 1.8667e+06  h 7.34e-13  acc. rate (last 10) 0.90
+[ 12679s] it  1130  U 1.8497e+06  h 7.34e-13  acc. rate (last 10) 0.90
+[ 12681s] it  1130  U 1.8497e+06  h 7.34e-13  acc. rate (last 10) 0.90
+[ 12785s] it  1140  U 1.8341e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 12787s] it  1140  U 1.8341e+06  h 7.34e-13  acc. rate (last 10) 0.80
+[ 12891s] it  1150  U 1.8147e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 12892s] it  1150  U 1.8147e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 12997s] it  1160  U 1.7955e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 12998s] it  1160  U 1.7955e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13102s] it  1170  U 1.7762e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13104s] it  1170  U 1.7762e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13208s] it  1180  U 1.7572e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13210s] it  1180  U 1.7572e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13314s] it  1190  U 1.7384e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13316s] it  1190  U 1.7384e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13419s] it  1200  U 1.7194e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13421s] it  1200  U 1.7194e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13524s] it  1210  U 1.7003e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13526s] it  1210  U 1.7003e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13629s] it  1220  U 1.6817e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13631s] it  1220  U 1.6817e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13734s] it  1230  U 1.6631e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13736s] it  1230  U 1.6631e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13840s] it  1240  U 1.6445e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13842s] it  1240  U 1.6445e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13945s] it  1250  U 1.6261e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 13947s] it  1250  U 1.6261e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14051s] it  1260  U 1.6078e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14053s] it  1260  U 1.6078e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14156s] it  1270  U 1.5899e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14158s] it  1270  U 1.5899e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14261s] it  1280  U 1.5719e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14263s] it  1280  U 1.5719e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14367s] it  1290  U 1.5540e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14368s] it  1290  U 1.5540e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14472s] it  1300  U 1.5364e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14473s] it  1300  U 1.5364e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14578s] it  1310  U 1.5191e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14579s] it  1310  U 1.5191e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14684s] it  1320  U 1.5023e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14684s] it  1320  U 1.5023e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14789s] it  1330  U 1.4855e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14790s] it  1330  U 1.4855e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14895s] it  1340  U 1.4693e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 14896s] it  1340  U 1.4693e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15001s] it  1350  U 1.4536e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15002s] it  1350  U 1.4536e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15107s] it  1360  U 1.4377e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15108s] it  1360  U 1.4377e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15213s] it  1370  U 1.4222e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15214s] it  1370  U 1.4222e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15319s] it  1380  U 1.4071e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15320s] it  1380  U 1.4071e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15425s] it  1390  U 1.3922e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15426s] it  1390  U 1.3922e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15531s] it  1400  U 1.3775e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15532s] it  1400  U 1.3775e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15637s] it  1410  U 1.3630e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15638s] it  1410  U 1.3630e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15743s] it  1420  U 1.3490e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15744s] it  1420  U 1.3490e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15848s] it  1430  U 1.3356e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15850s] it  1430  U 1.3356e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15954s] it  1440  U 1.3223e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 15956s] it  1440  U 1.3223e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16060s] it  1450  U 1.3096e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16061s] it  1450  U 1.3096e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16166s] it  1460  U 1.2971e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16167s] it  1460  U 1.2971e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16271s] it  1470  U 1.2853e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16273s] it  1470  U 1.2853e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16377s] it  1480  U 1.2735e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16378s] it  1480  U 1.2735e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16482s] it  1490  U 1.2623e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16484s] it  1490  U 1.2623e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16588s] it  1500  U 1.2513e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16589s] it  1500  U 1.2513e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16693s] it  1510  U 1.2407e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16695s] it  1510  U 1.2407e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16799s] it  1520  U 1.2304e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16800s] it  1520  U 1.2304e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16904s] it  1530  U 1.2205e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 16906s] it  1530  U 1.2205e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17009s] it  1540  U 1.2110e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17011s] it  1540  U 1.2110e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17115s] it  1550  U 1.2016e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17116s] it  1550  U 1.2016e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17220s] it  1560  U 1.1926e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17221s] it  1560  U 1.1926e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17325s] it  1570  U 1.1838e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17326s] it  1570  U 1.1838e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17430s] it  1580  U 1.1756e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17431s] it  1580  U 1.1756e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17536s] it  1590  U 1.1674e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17537s] it  1590  U 1.1674e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17641s] it  1600  U 1.1595e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17642s] it  1600  U 1.1595e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17747s] it  1610  U 1.1518e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17748s] it  1610  U 1.1518e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17852s] it  1620  U 1.1443e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17853s] it  1620  U 1.1443e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17957s] it  1630  U 1.1372e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 17959s] it  1630  U 1.1372e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18063s] it  1640  U 1.1305e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18064s] it  1640  U 1.1305e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18168s] it  1650  U 1.1240e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18170s] it  1650  U 1.1240e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18273s] it  1660  U 1.1177e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18275s] it  1660  U 1.1177e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18378s] it  1670  U 1.1116e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18380s] it  1670  U 1.1116e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18484s] it  1680  U 1.1058e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18485s] it  1680  U 1.1058e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18589s] it  1690  U 1.1002e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18590s] it  1690  U 1.1002e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18694s] it  1700  U 1.0949e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18696s] it  1700  U 1.0949e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18799s] it  1710  U 1.0898e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18801s] it  1710  U 1.0898e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18904s] it  1720  U 1.0849e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 18906s] it  1720  U 1.0849e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19009s] it  1730  U 1.0803e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19010s] it  1730  U 1.0803e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19114s] it  1740  U 1.0756e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19115s] it  1740  U 1.0756e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19219s] it  1750  U 1.0712e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19221s] it  1750  U 1.0712e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19324s] it  1760  U 1.0670e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19326s] it  1760  U 1.0670e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19429s] it  1770  U 1.0631e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19431s] it  1770  U 1.0631e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19534s] it  1780  U 1.0593e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19536s] it  1780  U 1.0593e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19639s] it  1790  U 1.0558e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19641s] it  1790  U 1.0558e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19745s] it  1800  U 1.0524e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19746s] it  1800  U 1.0524e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19850s] it  1810  U 1.0490e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19851s] it  1810  U 1.0490e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19955s] it  1820  U 1.0458e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 19957s] it  1820  U 1.0458e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20060s] it  1830  U 1.0428e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20062s] it  1830  U 1.0428e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20165s] it  1840  U 1.0398e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20167s] it  1840  U 1.0398e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20270s] it  1850  U 1.0370e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20272s] it  1850  U 1.0370e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20375s] it  1860  U 1.0343e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20377s] it  1860  U 1.0343e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20481s] it  1870  U 1.0317e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20482s] it  1870  U 1.0317e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20586s] it  1880  U 1.0292e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20587s] it  1880  U 1.0292e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20691s] it  1890  U 1.0269e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20692s] it  1890  U 1.0269e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20796s] it  1900  U 1.0246e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20797s] it  1900  U 1.0246e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20901s] it  1910  U 1.0224e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 20902s] it  1910  U 1.0224e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21005s] it  1920  U 1.0203e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21007s] it  1920  U 1.0203e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21110s] it  1930  U 1.0184e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21112s] it  1930  U 1.0184e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21215s] it  1940  U 1.0164e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21217s] it  1940  U 1.0164e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21320s] it  1950  U 1.0145e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21322s] it  1950  U 1.0145e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21425s] it  1960  U 1.0127e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21427s] it  1960  U 1.0127e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21530s] it  1970  U 1.0110e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21532s] it  1970  U 1.0110e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21635s] it  1980  U 1.0094e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21637s] it  1980  U 1.0094e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21740s] it  1990  U 1.0079e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21742s] it  1990  U 1.0079e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21844s] it  2000  U 1.0065e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21846s] it  2000  U 1.0065e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21949s] it  2010  U 1.0051e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 21951s] it  2010  U 1.0051e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22054s] it  2020  U 1.0038e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22056s] it  2020  U 1.0038e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22159s] it  2030  U 1.0025e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22161s] it  2030  U 1.0025e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22264s] it  2040  U 1.0014e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22266s] it  2040  U 1.0014e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22369s] it  2050  U 1.0003e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22371s] it  2050  U 1.0003e+06  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22474s] it  2060  U 9.9915e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22476s] it  2060  U 9.9915e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22579s] it  2070  U 9.9811e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22581s] it  2070  U 9.9811e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22684s] it  2080  U 9.9705e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22686s] it  2080  U 9.9705e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22789s] it  2090  U 9.9609e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22791s] it  2090  U 9.9609e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22894s] it  2100  U 9.9513e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22896s] it  2100  U 9.9513e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 22998s] it  2110  U 9.9419e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23000s] it  2110  U 9.9419e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23103s] it  2120  U 9.9329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23105s] it  2120  U 9.9329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23208s] it  2130  U 9.9246e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23210s] it  2130  U 9.9246e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23313s] it  2140  U 9.9172e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23315s] it  2140  U 9.9172e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23418s] it  2150  U 9.9097e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23420s] it  2150  U 9.9097e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23522s] it  2160  U 9.9024e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23524s] it  2160  U 9.9024e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23627s] it  2170  U 9.8957e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23629s] it  2170  U 9.8957e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23732s] it  2180  U 9.8893e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23734s] it  2180  U 9.8893e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23837s] it  2190  U 9.8841e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23839s] it  2190  U 9.8841e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23941s] it  2200  U 9.8790e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 23943s] it  2200  U 9.8790e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24046s] it  2210  U 9.8734e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24048s] it  2210  U 9.8734e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24151s] it  2220  U 9.8676e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24153s] it  2220  U 9.8676e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24256s] it  2230  U 9.8617e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24258s] it  2230  U 9.8617e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24361s] it  2240  U 9.8564e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24363s] it  2240  U 9.8564e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24466s] it  2250  U 9.8509e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24468s] it  2250  U 9.8509e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24571s] it  2260  U 9.8462e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24573s] it  2260  U 9.8462e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24676s] it  2270  U 9.8417e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24678s] it  2270  U 9.8417e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24781s] it  2280  U 9.8376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24783s] it  2280  U 9.8376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24886s] it  2290  U 9.8335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24888s] it  2290  U 9.8335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24992s] it  2300  U 9.8299e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 24993s] it  2300  U 9.8299e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25097s] it  2310  U 9.8263e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25098s] it  2310  U 9.8263e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25202s] it  2320  U 9.8224e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25203s] it  2320  U 9.8224e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25307s] it  2330  U 9.8191e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25309s] it  2330  U 9.8191e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25412s] it  2340  U 9.8159e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25414s] it  2340  U 9.8159e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25517s] it  2350  U 9.8126e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25519s] it  2350  U 9.8126e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25623s] it  2360  U 9.8098e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25624s] it  2360  U 9.8098e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25728s] it  2370  U 9.8070e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25729s] it  2370  U 9.8070e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25833s] it  2380  U 9.8045e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25835s] it  2380  U 9.8045e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25939s] it  2390  U 9.8020e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 25940s] it  2390  U 9.8020e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26044s] it  2400  U 9.7992e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26045s] it  2400  U 9.7992e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26149s] it  2410  U 9.7970e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26150s] it  2410  U 9.7970e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26254s] it  2420  U 9.7947e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26255s] it  2420  U 9.7947e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26359s] it  2430  U 9.7920e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26361s] it  2430  U 9.7920e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26464s] it  2440  U 9.7902e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26466s] it  2440  U 9.7902e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26569s] it  2450  U 9.7883e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26571s] it  2450  U 9.7883e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26674s] it  2460  U 9.7866e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26676s] it  2460  U 9.7866e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26779s] it  2470  U 9.7847e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26781s] it  2470  U 9.7847e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26884s] it  2480  U 9.7829e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26886s] it  2480  U 9.7829e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26989s] it  2490  U 9.7810e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 26991s] it  2490  U 9.7810e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27094s] it  2500  U 9.7796e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27096s] it  2500  U 9.7796e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27199s] it  2510  U 9.7784e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27201s] it  2510  U 9.7784e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27304s] it  2520  U 9.7769e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27306s] it  2520  U 9.7769e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27409s] it  2530  U 9.7754e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27411s] it  2530  U 9.7754e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27514s] it  2540  U 9.7740e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27516s] it  2540  U 9.7740e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27619s] it  2550  U 9.7731e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27620s] it  2550  U 9.7731e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27723s] it  2560  U 9.7717e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27725s] it  2560  U 9.7717e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27828s] it  2570  U 9.7703e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27830s] it  2570  U 9.7703e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27933s] it  2580  U 9.7692e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 27935s] it  2580  U 9.7692e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28038s] it  2590  U 9.7680e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28040s] it  2590  U 9.7680e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28143s] it  2600  U 9.7672e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28145s] it  2600  U 9.7672e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28248s] it  2610  U 9.7661e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28250s] it  2610  U 9.7661e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28352s] it  2620  U 9.7652e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28354s] it  2620  U 9.7652e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28457s] it  2630  U 9.7643e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28459s] it  2630  U 9.7643e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28562s] it  2640  U 9.7633e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28564s] it  2640  U 9.7633e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28667s] it  2650  U 9.7624e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28669s] it  2650  U 9.7624e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28772s] it  2660  U 9.7616e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28774s] it  2660  U 9.7616e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28877s] it  2670  U 9.7611e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28878s] it  2670  U 9.7611e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28981s] it  2680  U 9.7604e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 28983s] it  2680  U 9.7604e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29086s] it  2690  U 9.7595e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29088s] it  2690  U 9.7595e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29191s] it  2700  U 9.7589e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29193s] it  2700  U 9.7589e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29296s] it  2710  U 9.7583e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29298s] it  2710  U 9.7583e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29401s] it  2720  U 9.7575e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29402s] it  2720  U 9.7575e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29505s] it  2730  U 9.7569e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29507s] it  2730  U 9.7569e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29610s] it  2740  U 9.7562e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29612s] it  2740  U 9.7562e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29715s] it  2750  U 9.7557e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29717s] it  2750  U 9.7557e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29820s] it  2760  U 9.7551e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29822s] it  2760  U 9.7551e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29925s] it  2770  U 9.7546e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 29927s] it  2770  U 9.7546e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30030s] it  2780  U 9.7541e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30032s] it  2780  U 9.7541e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30134s] it  2790  U 9.7537e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30136s] it  2790  U 9.7537e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30239s] it  2800  U 9.7532e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30241s] it  2800  U 9.7532e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30344s] it  2810  U 9.7528e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30346s] it  2810  U 9.7528e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30449s] it  2820  U 9.7523e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30451s] it  2820  U 9.7523e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30553s] it  2830  U 9.7518e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30555s] it  2830  U 9.7518e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30658s] it  2840  U 9.7513e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30660s] it  2840  U 9.7513e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30763s] it  2850  U 9.7509e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30764s] it  2850  U 9.7509e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30868s] it  2860  U 9.7505e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30869s] it  2860  U 9.7505e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30973s] it  2870  U 9.7500e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 30974s] it  2870  U 9.7500e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31078s] it  2880  U 9.7497e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31079s] it  2880  U 9.7497e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31183s] it  2890  U 9.7493e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31184s] it  2890  U 9.7493e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31288s] it  2900  U 9.7492e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31289s] it  2900  U 9.7492e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31393s] it  2910  U 9.7488e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31394s] it  2910  U 9.7488e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31498s] it  2920  U 9.7485e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31499s] it  2920  U 9.7485e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31603s] it  2930  U 9.7482e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31605s] it  2930  U 9.7482e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31708s] it  2940  U 9.7479e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31710s] it  2940  U 9.7479e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31813s] it  2950  U 9.7478e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31815s] it  2950  U 9.7478e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31918s] it  2960  U 9.7477e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 31919s] it  2960  U 9.7477e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32023s] it  2970  U 9.7475e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32024s] it  2970  U 9.7475e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32128s] it  2980  U 9.7473e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32129s] it  2980  U 9.7473e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32232s] it  2990  U 9.7470e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32234s] it  2990  U 9.7470e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32337s] it  3000  U 9.7467e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32339s] it  3000  U 9.7467e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32442s] it  3010  U 9.7466e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32444s] it  3010  U 9.7466e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32547s] it  3020  U 9.7464e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32549s] it  3020  U 9.7464e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32652s] it  3030  U 9.7463e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32654s] it  3030  U 9.7463e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32757s] it  3040  U 9.7462e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32758s] it  3040  U 9.7462e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32861s] it  3050  U 9.7460e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32863s] it  3050  U 9.7460e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32966s] it  3060  U 9.7459e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 32968s] it  3060  U 9.7459e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33071s] it  3070  U 9.7456e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33073s] it  3070  U 9.7456e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33176s] it  3080  U 9.7455e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33177s] it  3080  U 9.7455e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33280s] it  3090  U 9.7454e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33282s] it  3090  U 9.7454e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33385s] it  3100  U 9.7453e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33387s] it  3100  U 9.7453e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33490s] it  3110  U 9.7452e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33492s] it  3110  U 9.7452e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33595s] it  3120  U 9.7450e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33597s] it  3120  U 9.7450e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33699s] it  3130  U 9.7449e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33701s] it  3130  U 9.7449e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33804s] it  3140  U 9.7449e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33806s] it  3140  U 9.7449e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33909s] it  3150  U 9.7448e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 33911s] it  3150  U 9.7448e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34014s] it  3160  U 9.7447e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34016s] it  3160  U 9.7447e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34119s] it  3170  U 9.7446e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34121s] it  3170  U 9.7446e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34224s] it  3180  U 9.7444e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34226s] it  3180  U 9.7444e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34329s] it  3190  U 9.7444e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34331s] it  3190  U 9.7444e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34434s] it  3200  U 9.7443e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34436s] it  3200  U 9.7443e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34539s] it  3210  U 9.7442e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34541s] it  3210  U 9.7442e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34644s] it  3220  U 9.7441e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34646s] it  3220  U 9.7441e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34749s] it  3230  U 9.7441e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34751s] it  3230  U 9.7441e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34854s] it  3240  U 9.7440e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34856s] it  3240  U 9.7440e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34959s] it  3250  U 9.7439e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 34961s] it  3250  U 9.7439e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35064s] it  3260  U 9.7438e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35066s] it  3260  U 9.7438e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35169s] it  3270  U 9.7438e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35171s] it  3270  U 9.7438e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35274s] it  3280  U 9.7437e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35276s] it  3280  U 9.7437e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35379s] it  3290  U 9.7437e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35381s] it  3290  U 9.7437e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35484s] it  3300  U 9.7436e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35486s] it  3300  U 9.7436e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35589s] it  3310  U 9.7435e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35591s] it  3310  U 9.7435e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35694s] it  3320  U 9.7435e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35696s] it  3320  U 9.7435e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35799s] it  3330  U 9.7434e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35801s] it  3330  U 9.7434e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35904s] it  3340  U 9.7433e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 35906s] it  3340  U 9.7433e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36009s] it  3350  U 9.7433e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36011s] it  3350  U 9.7433e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36114s] it  3360  U 9.7432e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36116s] it  3360  U 9.7432e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36219s] it  3370  U 9.7431e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36221s] it  3370  U 9.7431e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36324s] it  3380  U 9.7431e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36326s] it  3380  U 9.7431e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36430s] it  3390  U 9.7431e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36431s] it  3390  U 9.7431e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36535s] it  3400  U 9.7430e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36536s] it  3400  U 9.7430e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36640s] it  3410  U 9.7430e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36641s] it  3410  U 9.7430e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36745s] it  3420  U 9.7429e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36746s] it  3420  U 9.7429e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36850s] it  3430  U 9.7429e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36852s] it  3430  U 9.7429e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36955s] it  3440  U 9.7429e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 36957s] it  3440  U 9.7429e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37060s] it  3450  U 9.7428e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37062s] it  3450  U 9.7428e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37165s] it  3460  U 9.7428e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37167s] it  3460  U 9.7428e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37270s] it  3470  U 9.7428e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37272s] it  3470  U 9.7428e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37375s] it  3480  U 9.7427e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37377s] it  3480  U 9.7427e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37480s] it  3490  U 9.7427e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37482s] it  3490  U 9.7427e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37585s] it  3500  U 9.7427e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37587s] it  3500  U 9.7427e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37690s] it  3510  U 9.7427e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37692s] it  3510  U 9.7427e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37795s] it  3520  U 9.7426e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37797s] it  3520  U 9.7426e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37900s] it  3530  U 9.7426e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 37902s] it  3530  U 9.7426e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38005s] it  3540  U 9.7425e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38007s] it  3540  U 9.7425e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38110s] it  3550  U 9.7425e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38112s] it  3550  U 9.7425e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38215s] it  3560  U 9.7425e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38217s] it  3560  U 9.7425e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38320s] it  3570  U 9.7424e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38322s] it  3570  U 9.7424e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38425s] it  3580  U 9.7424e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38427s] it  3580  U 9.7424e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38529s] it  3590  U 9.7423e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38531s] it  3590  U 9.7423e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38634s] it  3600  U 9.7422e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38636s] it  3600  U 9.7422e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38739s] it  3610  U 9.7422e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38741s] it  3610  U 9.7422e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38845s] it  3620  U 9.7422e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38846s] it  3620  U 9.7422e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38950s] it  3630  U 9.7422e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 38951s] it  3630  U 9.7422e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39055s] it  3640  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39056s] it  3640  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39160s] it  3650  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39161s] it  3650  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39265s] it  3660  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39267s] it  3660  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39370s] it  3670  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39372s] it  3670  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39475s] it  3680  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39477s] it  3680  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39580s] it  3690  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39581s] it  3690  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39685s] it  3700  U 9.7420e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39686s] it  3700  U 9.7420e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39789s] it  3710  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39791s] it  3710  U 9.7421e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39894s] it  3720  U 9.7420e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39895s] it  3720  U 9.7420e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 39998s] it  3730  U 9.7419e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40000s] it  3730  U 9.7419e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40103s] it  3740  U 9.7419e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40104s] it  3740  U 9.7419e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40208s] it  3750  U 9.7419e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40210s] it  3750  U 9.7419e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40314s] it  3760  U 9.7419e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40315s] it  3760  U 9.7419e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40419s] it  3770  U 9.7418e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40420s] it  3770  U 9.7418e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40524s] it  3780  U 9.7418e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40526s] it  3780  U 9.7418e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40629s] it  3790  U 9.7418e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40631s] it  3790  U 9.7418e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40735s] it  3800  U 9.7418e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40736s] it  3800  U 9.7418e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40840s] it  3810  U 9.7417e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40841s] it  3810  U 9.7417e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40945s] it  3820  U 9.7417e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 40947s] it  3820  U 9.7417e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41051s] it  3830  U 9.7417e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41052s] it  3830  U 9.7417e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41156s] it  3840  U 9.7416e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41157s] it  3840  U 9.7416e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41261s] it  3850  U 9.7416e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41262s] it  3850  U 9.7416e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41366s] it  3860  U 9.7416e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41368s] it  3860  U 9.7416e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41471s] it  3870  U 9.7415e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41473s] it  3870  U 9.7415e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41577s] it  3880  U 9.7415e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41578s] it  3880  U 9.7415e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41682s] it  3890  U 9.7415e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41683s] it  3890  U 9.7415e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41787s] it  3900  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41789s] it  3900  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41892s] it  3910  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41894s] it  3910  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41998s] it  3920  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 41999s] it  3920  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42103s] it  3930  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42104s] it  3930  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42208s] it  3940  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42209s] it  3940  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42313s] it  3950  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42314s] it  3950  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42418s] it  3960  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42419s] it  3960  U 9.7414e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42523s] it  3970  U 9.7413e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42525s] it  3970  U 9.7413e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42628s] it  3980  U 9.7413e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42630s] it  3980  U 9.7413e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42734s] it  3990  U 9.7412e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42735s] it  3990  U 9.7412e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42839s] it  4000  U 9.7412e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42840s] it  4000  U 9.7412e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42944s] it  4010  U 9.7412e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 42945s] it  4010  U 9.7412e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43049s] it  4020  U 9.7412e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43051s] it  4020  U 9.7412e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43154s] it  4030  U 9.7411e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43156s] it  4030  U 9.7411e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43260s] it  4040  U 9.7411e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43261s] it  4040  U 9.7411e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43365s] it  4050  U 9.7411e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43366s] it  4050  U 9.7411e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43470s] it  4060  U 9.7411e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43472s] it  4060  U 9.7411e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43575s] it  4070  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43577s] it  4070  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43681s] it  4080  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43682s] it  4080  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43786s] it  4090  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43787s] it  4090  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43891s] it  4100  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43893s] it  4100  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43997s] it  4110  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 43998s] it  4110  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44102s] it  4120  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44103s] it  4120  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44207s] it  4130  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44209s] it  4130  U 9.7410e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44313s] it  4140  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44314s] it  4140  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44418s] it  4150  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44419s] it  4150  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44523s] it  4160  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44525s] it  4160  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44629s] it  4170  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44630s] it  4170  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44734s] it  4180  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44735s] it  4180  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44839s] it  4190  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44841s] it  4190  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44945s] it  4200  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 44946s] it  4200  U 9.7409e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45050s] it  4210  U 9.7408e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45051s] it  4210  U 9.7408e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45156s] it  4220  U 9.7408e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45157s] it  4220  U 9.7408e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45261s] it  4230  U 9.7408e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45262s] it  4230  U 9.7408e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45366s] it  4240  U 9.7408e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45367s] it  4240  U 9.7408e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45472s] it  4250  U 9.7407e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45473s] it  4250  U 9.7407e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45577s] it  4260  U 9.7407e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45578s] it  4260  U 9.7407e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45682s] it  4270  U 9.7407e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45683s] it  4270  U 9.7407e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45787s] it  4280  U 9.7406e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45788s] it  4280  U 9.7406e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45892s] it  4290  U 9.7406e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45894s] it  4290  U 9.7406e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45998s] it  4300  U 9.7406e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 45999s] it  4300  U 9.7406e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46103s] it  4310  U 9.7406e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46104s] it  4310  U 9.7406e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46208s] it  4320  U 9.7406e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46209s] it  4320  U 9.7406e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46313s] it  4330  U 9.7405e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46314s] it  4330  U 9.7405e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46418s] it  4340  U 9.7405e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46419s] it  4340  U 9.7405e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46523s] it  4350  U 9.7405e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46524s] it  4350  U 9.7405e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46628s] it  4360  U 9.7404e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46629s] it  4360  U 9.7404e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46733s] it  4370  U 9.7404e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46734s] it  4370  U 9.7404e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46838s] it  4380  U 9.7404e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46839s] it  4380  U 9.7404e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46942s] it  4390  U 9.7404e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 46944s] it  4390  U 9.7404e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47047s] it  4400  U 9.7404e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47049s] it  4400  U 9.7404e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47151s] it  4410  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47153s] it  4410  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47256s] it  4420  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47257s] it  4420  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47361s] it  4430  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47362s] it  4430  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47466s] it  4440  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47467s] it  4440  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47571s] it  4450  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47572s] it  4450  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47676s] it  4460  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47677s] it  4460  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47781s] it  4470  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47782s] it  4470  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47886s] it  4480  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47888s] it  4480  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47992s] it  4490  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 47993s] it  4490  U 9.7403e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48097s] it  4500  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48098s] it  4500  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48202s] it  4510  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48203s] it  4510  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48307s] it  4520  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48309s] it  4520  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48412s] it  4530  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48414s] it  4530  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48517s] it  4540  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48519s] it  4540  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48622s] it  4550  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48624s] it  4550  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48727s] it  4560  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48728s] it  4560  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48831s] it  4570  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48833s] it  4570  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48936s] it  4580  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 48938s] it  4580  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49040s] it  4590  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49043s] it  4590  U 9.7402e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49145s] it  4600  U 9.7401e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49147s] it  4600  U 9.7401e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49250s] it  4610  U 9.7401e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49252s] it  4610  U 9.7401e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49354s] it  4620  U 9.7401e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49356s] it  4620  U 9.7401e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49458s] it  4630  U 9.7400e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49460s] it  4630  U 9.7400e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49562s] it  4640  U 9.7400e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49564s] it  4640  U 9.7400e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49666s] it  4650  U 9.7400e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49668s] it  4650  U 9.7400e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49770s] it  4660  U 9.7399e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49772s] it  4660  U 9.7399e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49875s] it  4670  U 9.7399e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49876s] it  4670  U 9.7399e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49979s] it  4680  U 9.7399e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 49981s] it  4680  U 9.7399e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50084s] it  4690  U 9.7399e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50086s] it  4690  U 9.7399e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50189s] it  4700  U 9.7399e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50191s] it  4700  U 9.7399e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50293s] it  4710  U 9.7398e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50295s] it  4710  U 9.7398e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50397s] it  4720  U 9.7398e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50399s] it  4720  U 9.7398e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50501s] it  4730  U 9.7398e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50503s] it  4730  U 9.7398e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50605s] it  4740  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50607s] it  4740  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50710s] it  4750  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50712s] it  4750  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50815s] it  4760  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50817s] it  4760  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50919s] it  4770  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 50921s] it  4770  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51024s] it  4780  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51026s] it  4780  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51128s] it  4790  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51130s] it  4790  U 9.7397e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51232s] it  4800  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51234s] it  4800  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51337s] it  4810  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51339s] it  4810  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51442s] it  4820  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51444s] it  4820  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51546s] it  4830  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51548s] it  4830  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51650s] it  4840  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51652s] it  4840  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51755s] it  4850  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51757s] it  4850  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51860s] it  4860  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51862s] it  4860  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51965s] it  4870  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 51967s] it  4870  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52069s] it  4880  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52071s] it  4880  U 9.7396e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52173s] it  4890  U 9.7395e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52175s] it  4890  U 9.7395e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52278s] it  4900  U 9.7395e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52280s] it  4900  U 9.7395e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52383s] it  4910  U 9.7395e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52385s] it  4910  U 9.7395e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52488s] it  4920  U 9.7395e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52490s] it  4920  U 9.7395e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52592s] it  4930  U 9.7395e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52594s] it  4930  U 9.7395e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52697s] it  4940  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52698s] it  4940  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52801s] it  4950  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52803s] it  4950  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52906s] it  4960  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 52908s] it  4960  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53011s] it  4970  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53012s] it  4970  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53115s] it  4980  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53117s] it  4980  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53220s] it  4990  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53222s] it  4990  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53325s] it  5000  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53327s] it  5000  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53430s] it  5010  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53431s] it  5010  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53534s] it  5020  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53536s] it  5020  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53639s] it  5030  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53641s] it  5030  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53743s] it  5040  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53745s] it  5040  U 9.7394e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53848s] it  5050  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53850s] it  5050  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53953s] it  5060  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 53955s] it  5060  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54057s] it  5070  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54059s] it  5070  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54161s] it  5080  U 9.7392e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54163s] it  5080  U 9.7392e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54266s] it  5090  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54268s] it  5090  U 9.7393e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54370s] it  5100  U 9.7392e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54372s] it  5100  U 9.7392e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54475s] it  5110  U 9.7392e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54477s] it  5110  U 9.7392e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54579s] it  5120  U 9.7392e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54581s] it  5120  U 9.7392e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54684s] it  5130  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54686s] it  5130  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54788s] it  5140  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54790s] it  5140  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54893s] it  5150  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54895s] it  5150  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54997s] it  5160  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 54999s] it  5160  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55101s] it  5170  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55104s] it  5170  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55206s] it  5180  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55208s] it  5180  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55310s] it  5190  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55312s] it  5190  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55414s] it  5200  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55417s] it  5200  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55518s] it  5210  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55520s] it  5210  U 9.7391e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55622s] it  5220  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55624s] it  5220  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55726s] it  5230  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55728s] it  5230  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55830s] it  5240  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55832s] it  5240  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55935s] it  5250  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 55937s] it  5250  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56039s] it  5260  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56041s] it  5260  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56143s] it  5270  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56145s] it  5270  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56248s] it  5280  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56250s] it  5280  U 9.7390e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56352s] it  5290  U 9.7389e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56354s] it  5290  U 9.7389e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56456s] it  5300  U 9.7389e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56458s] it  5300  U 9.7389e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56561s] it  5310  U 9.7389e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56563s] it  5310  U 9.7389e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56666s] it  5320  U 9.7389e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56668s] it  5320  U 9.7389e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56770s] it  5330  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56772s] it  5330  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56875s] it  5340  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56877s] it  5340  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56980s] it  5350  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 56981s] it  5350  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57086s] it  5360  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57086s] it  5360  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57192s] it  5370  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57192s] it  5370  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57296s] it  5380  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57297s] it  5380  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57401s] it  5390  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57402s] it  5390  U 9.7388e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57504s] it  5400  U 9.7387e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57507s] it  5400  U 9.7387e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57608s] it  5410  U 9.7387e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57611s] it  5410  U 9.7387e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57711s] it  5420  U 9.7387e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57715s] it  5420  U 9.7387e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57815s] it  5430  U 9.7387e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57819s] it  5430  U 9.7387e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57918s] it  5440  U 9.7386e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 57923s] it  5440  U 9.7386e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58021s] it  5450  U 9.7386e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58027s] it  5450  U 9.7386e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58125s] it  5460  U 9.7386e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58131s] it  5460  U 9.7386e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58228s] it  5470  U 9.7386e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58236s] it  5470  U 9.7386e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58332s] it  5480  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58340s] it  5480  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58436s] it  5490  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58445s] it  5490  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58541s] it  5500  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58550s] it  5500  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58646s] it  5510  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58656s] it  5510  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58751s] it  5520  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58762s] it  5520  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58856s] it  5530  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58867s] it  5530  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58960s] it  5540  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 58972s] it  5540  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59064s] it  5550  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59077s] it  5550  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59167s] it  5560  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59181s] it  5560  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59271s] it  5570  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59285s] it  5570  U 9.7385e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59374s] it  5580  U 9.7384e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59389s] it  5580  U 9.7384e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59478s] it  5590  U 9.7384e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59494s] it  5590  U 9.7384e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59581s] it  5600  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59598s] it  5600  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59684s] it  5610  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59702s] it  5610  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59788s] it  5620  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59807s] it  5620  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59892s] it  5630  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59912s] it  5630  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 59997s] it  5640  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60017s] it  5640  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60102s] it  5650  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60123s] it  5650  U 9.7383e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60207s] it  5660  U 9.7382e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60229s] it  5660  U 9.7382e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60312s] it  5670  U 9.7382e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60334s] it  5670  U 9.7382e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60416s] it  5680  U 9.7382e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60438s] it  5680  U 9.7382e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60519s] it  5690  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60543s] it  5690  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60623s] it  5700  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60647s] it  5700  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60726s] it  5710  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60751s] it  5710  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60830s] it  5720  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60856s] it  5720  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60933s] it  5730  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 60960s] it  5730  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61036s] it  5740  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61064s] it  5740  U 9.7381e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61140s] it  5750  U 9.7380e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61168s] it  5750  U 9.7380e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61244s] it  5760  U 9.7380e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61273s] it  5760  U 9.7380e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61348s] it  5770  U 9.7380e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61378s] it  5770  U 9.7380e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61453s] it  5780  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61484s] it  5780  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61558s] it  5790  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61590s] it  5790  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61663s] it  5800  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61695s] it  5800  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61768s] it  5810  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61800s] it  5810  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61872s] it  5820  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61905s] it  5820  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 61976s] it  5830  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62010s] it  5830  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62079s] it  5840  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62114s] it  5840  U 9.7379e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62182s] it  5850  U 9.7378e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62218s] it  5850  U 9.7378e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62286s] it  5860  U 9.7378e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62322s] it  5860  U 9.7378e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62389s] it  5870  U 9.7377e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62427s] it  5870  U 9.7377e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62493s] it  5880  U 9.7377e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62531s] it  5880  U 9.7377e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62596s] it  5890  U 9.7377e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62636s] it  5890  U 9.7377e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62700s] it  5900  U 9.7377e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62741s] it  5900  U 9.7377e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62805s] it  5910  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62846s] it  5910  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62910s] it  5920  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 62952s] it  5920  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63015s] it  5930  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63058s] it  5930  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63120s] it  5940  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63163s] it  5940  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63224s] it  5950  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63268s] it  5950  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63328s] it  5960  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63371s] it  5960  U 9.7376e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63431s] it  5970  U 9.7375e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63475s] it  5970  U 9.7375e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63534s] it  5980  U 9.7375e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63578s] it  5980  U 9.7375e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63637s] it  5990  U 9.7375e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63682s] it  5990  U 9.7375e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63741s] it  6000  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63785s] it  6000  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63844s] it  6010  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63889s] it  6010  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63947s] it  6020  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 63994s] it  6020  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64051s] it  6030  U 9.7375e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64098s] it  6030  U 9.7375e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64154s] it  6040  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64202s] it  6040  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64257s] it  6050  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64306s] it  6050  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64361s] it  6060  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64411s] it  6060  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64465s] it  6070  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64517s] it  6070  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64570s] it  6080  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64622s] it  6080  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64675s] it  6090  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64728s] it  6090  U 9.7374e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64780s] it  6100  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64833s] it  6100  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64885s] it  6110  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64938s] it  6110  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 64989s] it  6120  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65043s] it  6120  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65092s] it  6130  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65147s] it  6130  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65196s] it  6140  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65251s] it  6140  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65299s] it  6150  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65355s] it  6150  U 9.7373e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65402s] it  6160  U 9.7372e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65460s] it  6160  U 9.7372e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65505s] it  6170  U 9.7372e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65564s] it  6170  U 9.7372e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65609s] it  6180  U 9.7372e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65668s] it  6180  U 9.7372e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65712s] it  6190  U 9.7372e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65773s] it  6190  U 9.7372e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65816s] it  6200  U 9.7371e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65878s] it  6200  U 9.7371e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65921s] it  6210  U 9.7371e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 65984s] it  6210  U 9.7371e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66026s] it  6220  U 9.7371e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66089s] it  6220  U 9.7371e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66131s] it  6230  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66195s] it  6230  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66236s] it  6240  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66300s] it  6240  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66340s] it  6250  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66404s] it  6250  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66443s] it  6260  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66509s] it  6260  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66547s] it  6270  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66613s] it  6270  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66650s] it  6280  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66717s] it  6280  U 9.7370e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66753s] it  6290  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66821s] it  6290  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66856s] it  6300  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66925s] it  6300  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 66960s] it  6310  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67029s] it  6310  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67063s] it  6320  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67134s] it  6320  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67167s] it  6330  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67239s] it  6330  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67272s] it  6340  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67345s] it  6340  U 9.7369e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67377s] it  6350  U 9.7368e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67451s] it  6350  U 9.7368e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67482s] it  6360  U 9.7368e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67556s] it  6360  U 9.7368e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67587s] it  6370  U 9.7368e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67661s] it  6370  U 9.7368e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67691s] it  6380  U 9.7367e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67766s] it  6380  U 9.7367e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67794s] it  6390  U 9.7367e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67870s] it  6390  U 9.7367e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67898s] it  6400  U 9.7367e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 67974s] it  6400  U 9.7367e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68001s] it  6410  U 9.7367e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68079s] it  6410  U 9.7367e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68105s] it  6420  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68183s] it  6420  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68208s] it  6430  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68287s] it  6430  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68311s] it  6440  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68391s] it  6440  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68415s] it  6450  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68496s] it  6450  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68519s] it  6460  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68601s] it  6460  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68623s] it  6470  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68706s] it  6470  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68728s] it  6480  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68812s] it  6480  U 9.7366e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68833s] it  6490  U 9.7365e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68918s] it  6490  U 9.7365e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 68938s] it  6500  U 9.7365e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69023s] it  6500  U 9.7365e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69042s] it  6510  U 9.7365e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69127s] it  6510  U 9.7365e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69146s] it  6520  U 9.7365e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69232s] it  6520  U 9.7365e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69249s] it  6530  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69336s] it  6530  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69352s] it  6540  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69440s] it  6540  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69456s] it  6550  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69544s] it  6550  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69559s] it  6560  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69649s] it  6560  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69662s] it  6570  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69753s] it  6570  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69766s] it  6580  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69858s] it  6580  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69870s] it  6590  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69963s] it  6590  U 9.7364e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 69974s] it  6600  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70069s] it  6600  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70080s] it  6610  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70175s] it  6610  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70185s] it  6620  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70280s] it  6620  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70290s] it  6630  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70385s] it  6630  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70394s] it  6640  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70489s] it  6640  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70498s] it  6650  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70594s] it  6650  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70601s] it  6660  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70698s] it  6660  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70704s] it  6670  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70802s] it  6670  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70808s] it  6680  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70906s] it  6680  U 9.7363e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 70911s] it  6690  U 9.7362e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71011s] it  6690  U 9.7362e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71014s] it  6700  U 9.7362e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71115s] it  6700  U 9.7362e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71118s] it  6710  U 9.7362e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71219s] it  6710  U 9.7362e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71222s] it  6720  U 9.7362e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71324s] it  6720  U 9.7362e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71326s] it  6730  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71429s] it  6730  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71430s] it  6740  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71535s] it  6750  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71535s] it  6740  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71640s] it  6760  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71641s] it  6750  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71745s] it  6770  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71746s] it  6760  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71849s] it  6780  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71851s] it  6770  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71953s] it  6790  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 71955s] it  6780  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72056s] it  6800  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72059s] it  6790  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72160s] it  6810  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72163s] it  6800  U 9.7361e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72263s] it  6820  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72267s] it  6810  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72366s] it  6830  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72371s] it  6820  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72470s] it  6840  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72476s] it  6830  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72573s] it  6850  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72580s] it  6840  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72677s] it  6860  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72684s] it  6850  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72780s] it  6870  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72789s] it  6860  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72884s] it  6880  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72894s] it  6870  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72989s] it  6890  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 72999s] it  6880  U 9.7360e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73094s] it  6900  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73105s] it  6890  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73200s] it  6910  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73210s] it  6900  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73304s] it  6920  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73316s] it  6910  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73408s] it  6930  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73420s] it  6920  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73512s] it  6940  U 9.7358e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73525s] it  6930  U 9.7359e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73615s] it  6950  U 9.7358e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73629s] it  6940  U 9.7358e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73718s] it  6960  U 9.7358e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73733s] it  6950  U 9.7358e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73822s] it  6970  U 9.7358e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73837s] it  6960  U 9.7358e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73925s] it  6980  U 9.7358e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 73941s] it  6970  U 9.7358e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74028s] it  6990  U 9.7357e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74045s] it  6980  U 9.7358e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74132s] it  7000  U 9.7357e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74149s] it  6990  U 9.7357e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74235s] it  7010  U 9.7357e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74254s] it  7000  U 9.7357e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74339s] it  7020  U 9.7357e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74359s] it  7010  U 9.7357e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74444s] it  7030  U 9.7357e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74464s] it  7020  U 9.7357e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74549s] it  7040  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74570s] it  7030  U 9.7357e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74654s] it  7050  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74676s] it  7040  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74759s] it  7060  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74781s] it  7050  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74863s] it  7070  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74886s] it  7060  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74966s] it  7080  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 74990s] it  7070  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75070s] it  7090  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75094s] it  7080  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75173s] it  7100  U 9.7355e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75198s] it  7090  U 9.7356e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75277s] it  7110  U 9.7355e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75303s] it  7100  U 9.7355e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75380s] it  7120  U 9.7355e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75407s] it  7110  U 9.7355e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75483s] it  7130  U 9.7354e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75511s] it  7120  U 9.7355e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75587s] it  7140  U 9.7354e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75615s] it  7130  U 9.7354e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75691s] it  7150  U 9.7354e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75720s] it  7140  U 9.7354e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75795s] it  7160  U 9.7354e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75825s] it  7150  U 9.7354e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75900s] it  7170  U 9.7354e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 75931s] it  7160  U 9.7354e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76005s] it  7180  U 9.7353e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76037s] it  7170  U 9.7354e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76110s] it  7190  U 9.7353e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76142s] it  7180  U 9.7353e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76214s] it  7200  U 9.7353e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76247s] it  7190  U 9.7353e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76318s] it  7210  U 9.7353e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76352s] it  7200  U 9.7353e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76422s] it  7220  U 9.7352e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76456s] it  7210  U 9.7353e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76525s] it  7230  U 9.7352e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76560s] it  7220  U 9.7352e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76628s] it  7240  U 9.7352e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76664s] it  7230  U 9.7352e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76732s] it  7250  U 9.7352e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76768s] it  7240  U 9.7352e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76835s] it  7260  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76873s] it  7250  U 9.7352e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76939s] it  7270  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 76977s] it  7260  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77042s] it  7280  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77081s] it  7270  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77146s] it  7290  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77186s] it  7280  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77251s] it  7300  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77292s] it  7290  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77356s] it  7310  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77398s] it  7300  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77461s] it  7320  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77503s] it  7310  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77565s] it  7330  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77608s] it  7320  U 9.7351e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77669s] it  7340  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77713s] it  7330  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77773s] it  7350  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77817s] it  7340  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77877s] it  7360  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77921s] it  7350  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 77980s] it  7370  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78025s] it  7360  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78083s] it  7380  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78130s] it  7370  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78187s] it  7390  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78234s] it  7380  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78290s] it  7400  U 9.7349e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78338s] it  7390  U 9.7350e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78393s] it  7410  U 9.7349e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78443s] it  7400  U 9.7349e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78497s] it  7420  U 9.7349e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78547s] it  7410  U 9.7349e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78601s] it  7430  U 9.7349e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78653s] it  7420  U 9.7349e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78706s] it  7440  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78758s] it  7430  U 9.7349e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78811s] it  7450  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78864s] it  7440  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78916s] it  7460  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 78969s] it  7450  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79021s] it  7470  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79074s] it  7460  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79124s] it  7480  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79179s] it  7470  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79228s] it  7490  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79283s] it  7480  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79331s] it  7500  U 9.7347e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79387s] it  7490  U 9.7348e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79435s] it  7510  U 9.7347e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79492s] it  7500  U 9.7347e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79538s] it  7520  U 9.7347e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79596s] it  7510  U 9.7347e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79641s] it  7530  U 9.7347e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79700s] it  7520  U 9.7347e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79745s] it  7540  U 9.7347e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79804s] it  7530  U 9.7347e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79848s] it  7550  U 9.7346e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79909s] it  7540  U 9.7347e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 79953s] it  7560  U 9.7346e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80014s] it  7550  U 9.7346e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80057s] it  7570  U 9.7346e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80120s] it  7560  U 9.7346e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80162s] it  7580  U 9.7346e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80226s] it  7570  U 9.7346e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80268s] it  7590  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80331s] it  7580  U 9.7346e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80372s] it  7600  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80436s] it  7590  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80476s] it  7610  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80541s] it  7600  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80580s] it  7620  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80645s] it  7610  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80683s] it  7630  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80749s] it  7620  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80787s] it  7640  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80853s] it  7630  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80890s] it  7650  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80958s] it  7640  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 80993s] it  7660  U 9.7344e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81062s] it  7650  U 9.7345e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81097s] it  7670  U 9.7344e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81166s] it  7660  U 9.7344e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81200s] it  7680  U 9.7344e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81271s] it  7670  U 9.7344e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81304s] it  7690  U 9.7343e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81375s] it  7680  U 9.7344e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81408s] it  7700  U 9.7343e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81481s] it  7690  U 9.7343e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81513s] it  7710  U 9.7343e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81587s] it  7700  U 9.7343e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81619s] it  7720  U 9.7343e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81692s] it  7710  U 9.7343e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81724s] it  7730  U 9.7343e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81798s] it  7720  U 9.7343e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81828s] it  7740  U 9.7342e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81903s] it  7730  U 9.7343e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 81932s] it  7750  U 9.7342e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82007s] it  7740  U 9.7342e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82036s] it  7760  U 9.7341e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82111s] it  7750  U 9.7342e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82140s] it  7770  U 9.7341e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82215s] it  7760  U 9.7341e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82243s] it  7780  U 9.7341e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82319s] it  7770  U 9.7341e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82346s] it  7790  U 9.7341e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82423s] it  7780  U 9.7341e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82450s] it  7800  U 9.7340e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82527s] it  7790  U 9.7341e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82553s] it  7810  U 9.7340e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82632s] it  7800  U 9.7340e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82656s] it  7820  U 9.7340e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82736s] it  7810  U 9.7340e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82760s] it  7830  U 9.7340e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82840s] it  7820  U 9.7340e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82863s] it  7840  U 9.7339e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82945s] it  7830  U 9.7340e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 82967s] it  7850  U 9.7339e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83049s] it  7840  U 9.7339e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83072s] it  7860  U 9.7339e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83155s] it  7850  U 9.7339e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83177s] it  7870  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83261s] it  7860  U 9.7339e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83282s] it  7880  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83366s] it  7870  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83387s] it  7890  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83471s] it  7880  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83491s] it  7900  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83576s] it  7890  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83595s] it  7910  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83681s] it  7900  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83699s] it  7920  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83785s] it  7910  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83802s] it  7930  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83889s] it  7920  U 9.7338e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83905s] it  7940  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 83993s] it  7930  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84009s] it  7950  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84097s] it  7940  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84112s] it  7960  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84202s] it  7950  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84215s] it  7970  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84306s] it  7960  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84319s] it  7980  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84411s] it  7970  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84423s] it  7990  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84515s] it  7980  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84527s] it  8000  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84620s] it  7990  U 9.7337e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84632s] it  8010  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84726s] it  8000  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84737s] it  8020  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84832s] it  8010  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84842s] it  8030  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84937s] it  8020  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 84947s] it  8040  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85042s] it  8030  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85051s] it  8050  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85146s] it  8040  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85154s] it  8060  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85251s] it  8050  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85258s] it  8070  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85355s] it  8060  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85361s] it  8080  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85459s] it  8070  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85464s] it  8090  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85562s] it  8080  U 9.7336e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85567s] it  8100  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85666s] it  8090  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85670s] it  8110  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85770s] it  8100  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85774s] it  8120  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85874s] it  8110  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85877s] it  8130  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85979s] it  8120  U 9.7335e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 85981s] it  8140  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86084s] it  8130  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86085s] it  8150  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86190s] it  8140  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86190s] it  8160  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86296s] it  8170  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86296s] it  8150  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86400s] it  8180  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86401s] it  8160  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86504s] it  8190  U 9.7333e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86506s] it  8170  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86608s] it  8200  U 9.7333e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86611s] it  8180  U 9.7334e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86712s] it  8210  U 9.7333e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86715s] it  8190  U 9.7333e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86815s] it  8220  U 9.7333e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86819s] it  8200  U 9.7333e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86918s] it  8230  U 9.7333e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 86923s] it  8210  U 9.7333e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87022s] it  8240  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87028s] it  8220  U 9.7333e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87125s] it  8250  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87132s] it  8230  U 9.7333e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87229s] it  8260  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87236s] it  8240  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87332s] it  8270  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87339s] it  8250  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87435s] it  8280  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87443s] it  8260  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87539s] it  8290  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87547s] it  8270  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87643s] it  8300  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87651s] it  8280  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87747s] it  8310  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87755s] it  8290  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87851s] it  8320  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87860s] it  8300  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87956s] it  8330  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 87966s] it  8310  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88061s] it  8340  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88072s] it  8320  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88166s] it  8350  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88177s] it  8330  U 9.7332e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88270s] it  8360  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88282s] it  8340  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88374s] it  8370  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88386s] it  8350  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88478s] it  8380  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88490s] it  8360  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88581s] it  8390  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88594s] it  8370  U 9.7331e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88685s] it  8400  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88698s] it  8380  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88788s] it  8410  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88803s] it  8390  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88891s] it  8420  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88907s] it  8400  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 88995s] it  8430  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89011s] it  8410  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89098s] it  8440  U 9.7329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89115s] it  8420  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89201s] it  8450  U 9.7329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89220s] it  8430  U 9.7330e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89305s] it  8460  U 9.7329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89324s] it  8440  U 9.7329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89410s] it  8470  U 9.7329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89430s] it  8450  U 9.7329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89515s] it  8480  U 9.7328e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89535s] it  8460  U 9.7329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89620s] it  8490  U 9.7329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89641s] it  8470  U 9.7329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89725s] it  8500  U 9.7328e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89746s] it  8480  U 9.7328e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89829s] it  8510  U 9.7328e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89851s] it  8490  U 9.7329e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89932s] it  8520  U 9.7328e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 89956s] it  8500  U 9.7328e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90036s] it  8530  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90060s] it  8510  U 9.7328e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90139s] it  8540  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90164s] it  8520  U 9.7328e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90242s] it  8550  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90269s] it  8530  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90346s] it  8560  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90373s] it  8540  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90449s] it  8570  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90477s] it  8550  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90553s] it  8580  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90581s] it  8560  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90656s] it  8590  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90686s] it  8570  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90761s] it  8600  U 9.7328e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90792s] it  8580  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90866s] it  8610  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90898s] it  8590  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 90971s] it  8620  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91003s] it  8600  U 9.7328e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91076s] it  8630  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91109s] it  8610  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91180s] it  8640  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91213s] it  8620  U 9.7327e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91284s] it  8650  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91318s] it  8630  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91387s] it  8660  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91422s] it  8640  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91491s] it  8670  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91526s] it  8650  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91594s] it  8680  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91630s] it  8660  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91697s] it  8690  U 9.7325e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91734s] it  8670  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91801s] it  8700  U 9.7325e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91839s] it  8680  U 9.7326e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91904s] it  8710  U 9.7324e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 91943s] it  8690  U 9.7325e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92008s] it  8720  U 9.7324e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92048s] it  8700  U 9.7325e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92112s] it  8730  U 9.7324e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92153s] it  8710  U 9.7324e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92217s] it  8740  U 9.7324e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92259s] it  8720  U 9.7324e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92322s] it  8750  U 9.7323e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92365s] it  8730  U 9.7324e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92427s] it  8760  U 9.7323e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92470s] it  8740  U 9.7324e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92531s] it  8770  U 9.7323e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92575s] it  8750  U 9.7323e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92635s] it  8780  U 9.7323e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92679s] it  8760  U 9.7323e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92738s] it  8790  U 9.7323e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92783s] it  8770  U 9.7323e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92842s] it  8800  U 9.7322e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92887s] it  8780  U 9.7323e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92945s] it  8810  U 9.7322e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 92992s] it  8790  U 9.7323e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93049s] it  8820  U 9.7322e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93096s] it  8800  U 9.7322e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93152s] it  8830  U 9.7322e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93200s] it  8810  U 9.7322e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93256s] it  8840  U 9.7322e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93304s] it  8820  U 9.7322e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93359s] it  8850  U 9.7321e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93409s] it  8830  U 9.7322e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93463s] it  8860  U 9.7321e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93514s] it  8840  U 9.7322e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93568s] it  8870  U 9.7321e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93620s] it  8850  U 9.7321e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93673s] it  8880  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93726s] it  8860  U 9.7321e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93778s] it  8890  U 9.7321e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93831s] it  8870  U 9.7321e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93883s] it  8900  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93936s] it  8880  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 93986s] it  8910  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94041s] it  8890  U 9.7321e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94090s] it  8920  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94145s] it  8900  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94193s] it  8930  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94249s] it  8910  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94296s] it  8940  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94353s] it  8920  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94400s] it  8950  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94458s] it  8930  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94503s] it  8960  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94562s] it  8940  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94607s] it  8970  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94666s] it  8950  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94710s] it  8980  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94771s] it  8960  U 9.7320e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94814s] it  8990  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94876s] it  8970  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94919s] it  9000  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 94982s] it  8980  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95025s] it  9010  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95088s] it  8990  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95130s] it  9020  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95193s] it  9000  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95235s] it  9030  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95299s] it  9010  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95340s] it  9040  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95404s] it  9020  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95445s] it  9050  U 9.7318e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95509s] it  9030  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95550s] it  9060  U 9.7318e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95614s] it  9040  U 9.7319e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95655s] it  9070  U 9.7318e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95718s] it  9050  U 9.7318e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95760s] it  9080  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95823s] it  9060  U 9.7318e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95864s] it  9090  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95928s] it  9070  U 9.7318e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 95969s] it  9100  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96033s] it  9080  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96074s] it  9110  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96137s] it  9090  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96179s] it  9120  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96242s] it  9100  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96283s] it  9130  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96347s] it  9110  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96388s] it  9140  U 9.7316e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96451s] it  9120  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96493s] it  9150  U 9.7316e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96556s] it  9130  U 9.7317e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96598s] it  9160  U 9.7316e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96661s] it  9140  U 9.7316e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96702s] it  9170  U 9.7316e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96766s] it  9150  U 9.7316e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96807s] it  9180  U 9.7316e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96871s] it  9160  U 9.7316e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96912s] it  9190  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 96976s] it  9170  U 9.7316e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97017s] it  9200  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97081s] it  9180  U 9.7316e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97122s] it  9210  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97186s] it  9190  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97227s] it  9220  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97291s] it  9200  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97330s] it  9230  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97395s] it  9210  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97434s] it  9240  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97499s] it  9220  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97537s] it  9250  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97602s] it  9230  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97640s] it  9260  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97706s] it  9240  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97743s] it  9270  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97810s] it  9250  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97847s] it  9280  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97914s] it  9260  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 97950s] it  9290  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98018s] it  9270  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98053s] it  9300  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98122s] it  9280  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98157s] it  9310  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98226s] it  9290  U 9.7315e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98260s] it  9320  U 9.7313e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98331s] it  9300  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98364s] it  9330  U 9.7313e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98435s] it  9310  U 9.7314e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98468s] it  9340  U 9.7313e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98540s] it  9320  U 9.7313e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98572s] it  9350  U 9.7312e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98645s] it  9330  U 9.7313e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98677s] it  9360  U 9.7312e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98750s] it  9340  U 9.7313e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98782s] it  9370  U 9.7312e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98856s] it  9350  U 9.7312e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98887s] it  9380  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98961s] it  9360  U 9.7312e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 98992s] it  9390  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99066s] it  9370  U 9.7312e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99096s] it  9400  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99171s] it  9380  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99201s] it  9410  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99275s] it  9390  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99304s] it  9420  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99379s] it  9400  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99408s] it  9430  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99484s] it  9410  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99511s] it  9440  U 9.7310e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99587s] it  9420  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99615s] it  9450  U 9.7310e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99691s] it  9430  U 9.7311e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99718s] it  9460  U 9.7310e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99795s] it  9440  U 9.7310e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99821s] it  9470  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99899s] it  9450  U 9.7310e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[ 99924s] it  9480  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100003s] it  9460  U 9.7310e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100027s] it  9490  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100107s] it  9470  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100131s] it  9500  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100211s] it  9480  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100234s] it  9510  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100314s] it  9490  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100338s] it  9520  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100418s] it  9500  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100441s] it  9530  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100522s] it  9510  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100545s] it  9540  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100627s] it  9520  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100649s] it  9550  U 9.7308e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100732s] it  9530  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100754s] it  9560  U 9.7308e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100838s] it  9540  U 9.7309e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100859s] it  9570  U 9.7308e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100944s] it  9550  U 9.7308e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[100964s] it  9580  U 9.7308e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101049s] it  9560  U 9.7308e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101069s] it  9590  U 9.7307e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101154s] it  9570  U 9.7308e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101173s] it  9600  U 9.7307e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101258s] it  9580  U 9.7308e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101277s] it  9610  U 9.7307e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101362s] it  9590  U 9.7307e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101380s] it  9620  U 9.7307e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101467s] it  9600  U 9.7307e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101484s] it  9630  U 9.7306e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101571s] it  9610  U 9.7307e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101587s] it  9640  U 9.7306e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101675s] it  9620  U 9.7307e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101690s] it  9650  U 9.7306e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101779s] it  9630  U 9.7306e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101794s] it  9660  U 9.7306e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101883s] it  9640  U 9.7306e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101897s] it  9670  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[101986s] it  9650  U 9.7306e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102000s] it  9680  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102091s] it  9660  U 9.7306e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102104s] it  9690  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102195s] it  9670  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102207s] it  9700  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102300s] it  9680  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102312s] it  9710  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102405s] it  9690  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102416s] it  9720  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102511s] it  9700  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102522s] it  9730  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102616s] it  9710  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102627s] it  9740  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102722s] it  9720  U 9.7305e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102731s] it  9750  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102827s] it  9730  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102836s] it  9760  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102931s] it  9740  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[102939s] it  9770  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103035s] it  9750  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103043s] it  9780  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103140s] it  9760  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103146s] it  9790  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103244s] it  9770  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103250s] it  9800  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103348s] it  9780  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103353s] it  9810  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103452s] it  9790  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103456s] it  9820  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103556s] it  9800  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103560s] it  9830  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103661s] it  9810  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103663s] it  9840  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103765s] it  9820  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103767s] it  9850  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103869s] it  9830  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103871s] it  9860  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103975s] it  9840  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[103975s] it  9870  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104080s] it  9850  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104081s] it  9880  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104186s] it  9890  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104186s] it  9860  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104291s] it  9900  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104292s] it  9870  U 9.7304e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104396s] it  9910  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104397s] it  9880  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104500s] it  9920  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104501s] it  9890  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104604s] it  9930  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104605s] it  9900  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104707s] it  9940  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104709s] it  9910  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104811s] it  9950  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104813s] it  9920  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104914s] it  9960  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[104917s] it  9930  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105018s] it  9970  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105022s] it  9940  U 9.7303e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105121s] it  9980  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105126s] it  9950  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105225s] it  9990  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105230s] it  9960  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105328s] it 10000  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105334s] it  9970  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105431s] it 10010  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105438s] it  9980  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105535s] it 10020  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105541s] it  9990  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105638s] it 10030  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105645s] it 10000  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105741s] it 10040  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105749s] it 10010  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105845s] it 10050  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105852s] it 10020  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105948s] it 10060  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[105956s] it 10030  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106052s] it 10070  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106061s] it 10040  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106157s] it 10080  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106166s] it 10050  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106262s] it 10090  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106272s] it 10060  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106367s] it 10100  U 9.7301e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106378s] it 10070  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106472s] it 10110  U 9.7301e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106483s] it 10080  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106576s] it 10120  U 9.7301e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106588s] it 10090  U 9.7302e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106680s] it 10130  U 9.7301e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106693s] it 10100  U 9.7301e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106784s] it 10140  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106797s] it 10110  U 9.7301e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106887s] it 10150  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106901s] it 10120  U 9.7301e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[106991s] it 10160  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107005s] it 10130  U 9.7301e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107094s] it 10170  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107109s] it 10140  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107197s] it 10180  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107213s] it 10150  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107301s] it 10190  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107317s] it 10160  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107404s] it 10200  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107422s] it 10170  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107508s] it 10210  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107526s] it 10180  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107611s] it 10220  U 9.7299e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107631s] it 10190  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107716s] it 10230  U 9.7299e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107736s] it 10200  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107821s] it 10240  U 9.7299e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107842s] it 10210  U 9.7300e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107926s] it 10250  U 9.7299e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[107947s] it 10220  U 9.7299e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108031s] it 10260  U 9.7298e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108053s] it 10230  U 9.7299e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108135s] it 10270  U 9.7298e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108157s] it 10240  U 9.7299e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108239s] it 10280  U 9.7298e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108262s] it 10250  U 9.7299e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108343s] it 10290  U 9.7298e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108366s] it 10260  U 9.7298e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108446s] it 10300  U 9.7297e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108470s] it 10270  U 9.7298e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108549s] it 10310  U 9.7297e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108574s] it 10280  U 9.7298e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108653s] it 10320  U 9.7297e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108678s] it 10290  U 9.7298e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108756s] it 10330  U 9.7297e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108782s] it 10300  U 9.7297e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108860s] it 10340  U 9.7296e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108887s] it 10310  U 9.7297e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108963s] it 10350  U 9.7296e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[108991s] it 10320  U 9.7297e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109067s] it 10360  U 9.7296e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109095s] it 10330  U 9.7297e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109170s] it 10370  U 9.7296e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109200s] it 10340  U 9.7296e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109275s] it 10380  U 9.7296e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109305s] it 10350  U 9.7296e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109379s] it 10390  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109410s] it 10360  U 9.7296e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109485s] it 10400  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109516s] it 10370  U 9.7296e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109590s] it 10410  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109622s] it 10380  U 9.7296e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109694s] it 10420  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109727s] it 10390  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109799s] it 10430  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109832s] it 10400  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109903s] it 10440  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[109936s] it 10410  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110006s] it 10450  U 9.7294e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110040s] it 10420  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110110s] it 10460  U 9.7294e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110144s] it 10430  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110213s] it 10470  U 9.7294e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110248s] it 10440  U 9.7295e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110316s] it 10480  U 9.7294e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110352s] it 10450  U 9.7294e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110419s] it 10490  U 9.7293e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110456s] it 10460  U 9.7294e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110523s] it 10500  U 9.7293e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110561s] it 10470  U 9.7294e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110626s] it 10510  U 9.7293e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110665s] it 10480  U 9.7294e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110730s] it 10520  U 9.7293e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110769s] it 10490  U 9.7293e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110834s] it 10530  U 9.7293e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110874s] it 10500  U 9.7293e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110938s] it 10540  U 9.7292e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[110980s] it 10510  U 9.7293e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111044s] it 10550  U 9.7292e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111086s] it 10520  U 9.7293e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111149s] it 10560  U 9.7292e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111191s] it 10530  U 9.7293e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111253s] it 10570  U 9.7292e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111296s] it 10540  U 9.7292e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111357s] it 10580  U 9.7291e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111401s] it 10550  U 9.7292e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111461s] it 10590  U 9.7291e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111505s] it 10560  U 9.7292e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111565s] it 10600  U 9.7291e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111609s] it 10570  U 9.7292e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111668s] it 10610  U 9.7291e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111713s] it 10580  U 9.7291e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111772s] it 10620  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111818s] it 10590  U 9.7291e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111875s] it 10630  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111922s] it 10600  U 9.7291e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[111978s] it 10640  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112026s] it 10610  U 9.7291e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112082s] it 10650  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112130s] it 10620  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112185s] it 10660  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112234s] it 10630  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112289s] it 10670  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112339s] it 10640  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112393s] it 10680  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112443s] it 10650  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112497s] it 10690  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112548s] it 10660  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112602s] it 10700  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112654s] it 10670  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112707s] it 10710  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112760s] it 10680  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112812s] it 10720  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112865s] it 10690  U 9.7290e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112917s] it 10730  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[112970s] it 10700  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113021s] it 10740  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113075s] it 10710  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113124s] it 10750  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113179s] it 10720  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113228s] it 10760  U 9.7288e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113283s] it 10730  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113331s] it 10770  U 9.7288e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113387s] it 10740  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113435s] it 10780  U 9.7288e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113491s] it 10750  U 9.7289e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113538s] it 10790  U 9.7288e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113595s] it 10760  U 9.7288e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113641s] it 10800  U 9.7288e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113699s] it 10770  U 9.7288e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113745s] it 10810  U 9.7287e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113803s] it 10780  U 9.7288e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113848s] it 10820  U 9.7287e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113907s] it 10790  U 9.7288e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[113951s] it 10830  U 9.7287e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114012s] it 10800  U 9.7288e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114055s] it 10840  U 9.7287e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114117s] it 10810  U 9.7287e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114160s] it 10850  U 9.7286e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114222s] it 10820  U 9.7287e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114265s] it 10860  U 9.7286e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114328s] it 10830  U 9.7287e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114370s] it 10870  U 9.7286e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114433s] it 10840  U 9.7287e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114476s] it 10880  U 9.7286e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114538s] it 10850  U 9.7286e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114581s] it 10890  U 9.7286e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114644s] it 10860  U 9.7286e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114687s] it 10900  U 9.7285e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114749s] it 10870  U 9.7286e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114792s] it 10910  U 9.7285e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114855s] it 10880  U 9.7286e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114898s] it 10920  U 9.7285e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[114961s] it 10890  U 9.7286e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115003s] it 10930  U 9.7285e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115066s] it 10900  U 9.7285e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115109s] it 10940  U 9.7285e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115172s] it 10910  U 9.7285e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115214s] it 10950  U 9.7284e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115277s] it 10920  U 9.7285e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115320s] it 10960  U 9.7284e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115383s] it 10930  U 9.7285e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115426s] it 10970  U 9.7284e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115488s] it 10940  U 9.7285e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115531s] it 10980  U 9.7284e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115594s] it 10950  U 9.7284e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115637s] it 10990  U 9.7283e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115699s] it 10960  U 9.7284e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115742s] it 11000  U 9.7283e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115805s] it 10970  U 9.7284e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115847s] it 11010  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115910s] it 10980  U 9.7284e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[115953s] it 11020  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116015s] it 10990  U 9.7283e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116058s] it 11030  U 9.7283e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116121s] it 11000  U 9.7283e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116164s] it 11040  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116226s] it 11010  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116269s] it 11050  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116332s] it 11020  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116375s] it 11060  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116437s] it 11030  U 9.7283e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116480s] it 11070  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116543s] it 11040  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116585s] it 11080  U 9.7281e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116648s] it 11050  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116691s] it 11090  U 9.7281e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116754s] it 11060  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116796s] it 11100  U 9.7281e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116860s] it 11070  U 9.7282e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116901s] it 11110  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[116965s] it 11080  U 9.7281e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117006s] it 11120  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117069s] it 11090  U 9.7281e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117111s] it 11130  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117174s] it 11100  U 9.7281e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117215s] it 11140  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117279s] it 11110  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117319s] it 11150  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117383s] it 11120  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117423s] it 11160  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117487s] it 11130  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117527s] it 11170  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117591s] it 11140  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117631s] it 11180  U 9.7279e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117695s] it 11150  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117735s] it 11190  U 9.7279e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117799s] it 11160  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117838s] it 11200  U 9.7279e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117903s] it 11170  U 9.7280e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[117941s] it 11210  U 9.7279e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118007s] it 11180  U 9.7279e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118045s] it 11220  U 9.7279e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118110s] it 11190  U 9.7279e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118147s] it 11230  U 9.7278e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118214s] it 11200  U 9.7279e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118250s] it 11240  U 9.7278e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118317s] it 11210  U 9.7279e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118354s] it 11250  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118422s] it 11220  U 9.7279e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118457s] it 11260  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118526s] it 11230  U 9.7278e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118561s] it 11270  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118630s] it 11240  U 9.7278e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118664s] it 11280  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118734s] it 11250  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118768s] it 11290  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118839s] it 11260  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118872s] it 11300  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118944s] it 11270  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[118977s] it 11310  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119050s] it 11280  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119082s] it 11320  U 9.7276e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119156s] it 11290  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119187s] it 11330  U 9.7276e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119261s] it 11300  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119292s] it 11340  U 9.7275e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119367s] it 11310  U 9.7277e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119396s] it 11350  U 9.7275e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119471s] it 11320  U 9.7276e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119500s] it 11360  U 9.7275e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119575s] it 11330  U 9.7276e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119604s] it 11370  U 9.7275e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119680s] it 11340  U 9.7275e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119707s] it 11380  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119783s] it 11350  U 9.7275e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119810s] it 11390  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119886s] it 11360  U 9.7275e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119913s] it 11400  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[119990s] it 11370  U 9.7275e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120017s] it 11410  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120094s] it 11380  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120120s] it 11420  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120199s] it 11390  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120223s] it 11430  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120303s] it 11400  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120327s] it 11440  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120407s] it 11410  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120430s] it 11450  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120512s] it 11420  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120534s] it 11460  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120618s] it 11430  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120639s] it 11470  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120723s] it 11440  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120745s] it 11480  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120829s] it 11450  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120850s] it 11490  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120934s] it 11460  U 9.7274e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[120954s] it 11500  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121039s] it 11470  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121058s] it 11510  U 9.7272e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121143s] it 11480  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121162s] it 11520  U 9.7272e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121246s] it 11490  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121265s] it 11530  U 9.7272e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121351s] it 11500  U 9.7273e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121369s] it 11540  U 9.7272e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121455s] it 11510  U 9.7272e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121472s] it 11550  U 9.7271e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121559s] it 11520  U 9.7272e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121575s] it 11560  U 9.7271e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121663s] it 11530  U 9.7272e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121678s] it 11570  U 9.7271e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121766s] it 11540  U 9.7272e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121782s] it 11580  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121869s] it 11550  U 9.7271e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121885s] it 11590  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121973s] it 11560  U 9.7271e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[121988s] it 11600  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122076s] it 11570  U 9.7271e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122091s] it 11610  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122180s] it 11580  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122194s] it 11620  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122284s] it 11590  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122298s] it 11630  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122389s] it 11600  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122401s] it 11640  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122494s] it 11610  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122506s] it 11650  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122600s] it 11620  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122611s] it 11660  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122706s] it 11630  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122716s] it 11670  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122811s] it 11640  U 9.7270e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122821s] it 11680  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122916s] it 11650  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[122925s] it 11690  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123020s] it 11660  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123029s] it 11700  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123124s] it 11670  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123132s] it 11710  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123227s] it 11680  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123235s] it 11720  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123331s] it 11690  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123338s] it 11730  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123435s] it 11700  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123442s] it 11740  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123539s] it 11710  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123545s] it 11750  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123643s] it 11720  U 9.7269e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123648s] it 11760  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123747s] it 11730  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123752s] it 11770  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123851s] it 11740  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123855s] it 11780  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123955s] it 11750  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[123958s] it 11790  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124059s] it 11760  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124062s] it 11800  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124164s] it 11770  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124166s] it 11810  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124268s] it 11780  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124270s] it 11820  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124373s] it 11790  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124374s] it 11830  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124479s] it 11800  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124479s] it 11840  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124585s] it 11850  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124585s] it 11810  U 9.7268e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124690s] it 11860  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124690s] it 11820  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124794s] it 11870  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124795s] it 11830  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124897s] it 11880  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[124900s] it 11840  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125001s] it 11890  U 9.7266e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125004s] it 11850  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125104s] it 11900  U 9.7266e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125107s] it 11860  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125207s] it 11910  U 9.7266e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125211s] it 11870  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125310s] it 11920  U 9.7266e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125314s] it 11880  U 9.7267e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125413s] it 11930  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125417s] it 11890  U 9.7266e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125517s] it 11940  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125521s] it 11900  U 9.7266e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125620s] it 11950  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125624s] it 11910  U 9.7266e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125723s] it 11960  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125728s] it 11920  U 9.7266e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125826s] it 11970  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125832s] it 11930  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125930s] it 11980  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[125937s] it 11940  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126033s] it 11990  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126041s] it 11950  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126136s] it 12000  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126144s] it 11960  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126240s] it 12010  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126248s] it 11970  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126344s] it 12020  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126352s] it 11980  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126447s] it 12030  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126456s] it 11990  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126552s] it 12040  U 9.7264e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126561s] it 12000  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126656s] it 12050  U 9.7264e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126665s] it 12010  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126761s] it 12060  U 9.7263e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126770s] it 12020  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126866s] it 12070  U 9.7263e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126875s] it 12030  U 9.7265e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126971s] it 12080  U 9.7263e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[126981s] it 12040  U 9.7264e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127076s] it 12090  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127086s] it 12050  U 9.7264e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127182s] it 12100  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127192s] it 12060  U 9.7263e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127287s] it 12110  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127297s] it 12070  U 9.7263e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127392s] it 12120  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127402s] it 12080  U 9.7263e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127497s] it 12130  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127507s] it 12090  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127603s] it 12140  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127613s] it 12100  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127707s] it 12150  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127719s] it 12110  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127811s] it 12160  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127823s] it 12120  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127915s] it 12170  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[127928s] it 12130  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128018s] it 12180  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128032s] it 12140  U 9.7262e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128122s] it 12190  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128136s] it 12150  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128225s] it 12200  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128240s] it 12160  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128328s] it 12210  U 9.7260e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128344s] it 12170  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128432s] it 12220  U 9.7260e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128448s] it 12180  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128535s] it 12230  U 9.7260e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128553s] it 12190  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128639s] it 12240  U 9.7260e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128657s] it 12200  U 9.7261e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128743s] it 12250  U 9.7260e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128762s] it 12210  U 9.7260e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128847s] it 12260  U 9.7259e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128867s] it 12220  U 9.7260e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128952s] it 12270  U 9.7259e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[128973s] it 12230  U 9.7260e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[129058s] it 12280  U 9.7259e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[129078s] it 12240  U 9.7260e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[129163s] it 12290  U 9.7258e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[129184s] it 12250  U 9.7260e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[129268s] it 12300  U 9.7258e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[129290s] it 12260  U 9.7259e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[129373s] it 12310  U 9.7258e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[129395s] it 12270  U 9.7259e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[129477s] it 12320  U 9.7258e+05  h 7.34e-13  acc. rate (last 10) 1.00
+[2026-11-21T00:11:04.025] error: *** STEP 7889863.0 ON p112 CANCELLED AT 2026-11-21T00:11:04 DUE TO TIME LIMIT ***
+[2026-11-21T00:11:04.026] error: *** JOB 7889863 ON p112 CANCELLED AT 2026-11-21T00:11:04 DUE TO TIME LIMIT ***

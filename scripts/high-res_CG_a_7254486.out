@@ -1,0 +1,61 @@
+RUNNING: CG, inverting for a
+[Warning: Directory already exists.] 
+[> In optimize_antiplaneshear (line 93)
+In high_res_data_inversion (line 34)] 
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Loading data from mat/fractal_fault_m1001_mp1001/receiverData.mat
+                                            First-order      Norm of
+ Iter F-count            f(x)  Feasibility   optimality         step
+    0       1    3.285903e+01    0.000e+00    3.305e-01
+Objective function returned NaN; trying a new point...
+    1      34    2.984530e+01    0.000e+00    2.395e+04    4.980e-03
+Objective function returned NaN; trying a new point...
+    2      52    2.048838e+01    0.000e+00    3.014e+04    1.089e-03
+    3      61    1.045437e+01    0.000e+00    3.467e+04    5.446e-04
+    4      72    1.024101e+01    0.000e+00    3.958e+04    2.723e-04
+    5      78    7.122663e+00    0.000e+00    5.215e+03    1.362e-04
+    6      82    6.843187e+00    0.000e+00    8.568e+02    2.723e-04
+    7      86    6.361684e+00    0.000e+00    3.592e+02    5.446e-04
+    8      94    5.096890e+00    0.000e+00    1.720e+04    1.906e-03
+    9      98    2.586339e+00    0.000e+00    1.278e+04    3.812e-03
+   10     104    9.375291e-01    0.000e+00    1.962e+04    7.625e-03
+   11     109    5.107653e-01    0.000e+00    1.953e+03    1.297e-03
+   12     133    4.590573e-01    0.000e+00    1.105e+04    1.906e-03
+   13     136    3.932628e-01    0.000e+00    2.245e+02    1.158e-05
+   14     142    3.206686e-01    0.000e+00    5.891e+02    1.906e-03
+   15     150    2.974958e-01    0.000e+00    2.409e+03    3.812e-03
+   16     156    2.501994e-01    0.000e+00    5.840e+02    1.254e-03
+   17     165    2.387100e-01    0.000e+00    6.741e+01    2.535e-03
+   18     180    2.366370e-01    0.000e+00    1.087e+02    1.590e-03
+   19     183    2.366316e-01    0.000e+00    3.597e-01    9.628e-08
+   20     198    2.356379e-01    0.000e+00    9.090e+01    5.071e-03
+   21     208    2.352817e-01    0.000e+00    5.244e+01    5.886e-04
+   22     217    2.352253e-01    0.000e+00    8.151e-01    2.170e-04
+   23     235    2.338427e-01    0.000e+00    1.834e+01    1.014e-02
+   24     259    2.313723e-01    0.000e+00    4.279e+00    2.028e-02
+   25     287    2.279242e-01    0.000e+00    2.184e+01    4.057e-02
+   26     304    2.276632e-01    0.000e+00    1.938e+00    5.790e-04
+   27     330    2.243343e-01    0.000e+00    2.043e+02    8.113e-02
+   28     336    2.241591e-01    0.000e+00    3.092e+00    9.749e-05
+   29     367    2.216094e-01    0.000e+00    5.816e+00    1.197e-01
+   30     390    2.214764e-01    0.000e+00    1.288e+00    6.322e-04
+
+                                            First-order      Norm of
+ Iter F-count            f(x)  Feasibility   optimality         step
+   31     426    2.202339e-01    0.000e+00    4.751e+00    1.249e-01
+   32     443    2.201984e-01    0.000e+00    6.248e-01    3.617e-04
+   33     470    2.184934e-01    0.000e+00    2.278e+01    2.498e-01
+   34     483    2.184162e-01    0.000e+00    2.340e+00    4.639e-04
+   35     485    2.184162e-01    0.000e+00    2.340e+00    0.000e+00
+
+Optimization stopped because the relative changes in all elements of x are
+less than options.StepTolerance = 1.000000e-10, and the relative maximum constraint
+violation, 0.000000e+00, is less than options.ConstraintTolerance = 1.000000e-06.
+
+Elapsed time is 66363.052652 seconds.
