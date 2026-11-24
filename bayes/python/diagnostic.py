@@ -37,6 +37,23 @@ def load_chains(pattern): # e.g. pattern is hpcn_m36_eta0.02_s1_laplace_seed*.ma
     n_adapt = int(getattr(runs[0]["chain"].opts, "nAdapt", 0))
     return files, runs, A, U, acc, n_adapt
 
+# Input: one sample a(x). Start at middle node x=0 and move outwards
+# Linear interpolation through b, otherwise we basically just do the P(a < b) plot
+def vw_edges(a):
+    """Edges of the VW segment (a < b) around x = 0, where a(x) crosses b, linearly interpolated.
+    VW patches near the poorly constrained fault ends are ignored; nan if x = 0 is not VW."""
+    x, b = fault.x, fault.B
+    i = j = np.argmin(np.abs(x))
+    if a[i] >= b:
+        return np.nan, np.nan
+    while i > 0 and a[i-1] < b:
+        i -= 1
+    while j < len(x) - 1 and a[j+1] < b:
+        j += 1
+    left = x[i] if i == 0 else x[i-1] + (b - a[i-1]) / (a[i] - a[i-1]) * (x[i] - x[i-1])
+    right = x[j] if j == len(x) - 1 else x[j] + (b - a[j]) / (a[j+1] - a[j]) * (x[j+1] - x[j])
+    return left, right
+
 def main(pattern, burn_in=None):
     files, runs, A, U, acc, n_adapt = load_chains(pattern)
     # print(files)
@@ -76,6 +93,7 @@ def main(pattern, burn_in=None):
     print(f"Monte Carlo error of the mean / std: max {np.max(mcse / std):.3f}")
 
     # How well Laplace approximates posterior
+    laplace = None
     if "H" in runs[0]:
         H, a_map = runs[0]["H"], runs[0]["aMap"]
         std_lap = np.sqrt(np.diag(np.linalg.inv(H)))
@@ -108,23 +126,75 @@ def main(pattern, burn_in=None):
     plt.legend()
     plt.show()
 
-    """ 2. Posterior of a with 50 % and 95 % bands, on top of the true a(x) """
+    out_dir = os.path.join(os.path.dirname(files[0]), "figures")
+    os.makedirs(out_dir, exist_ok=True)
+    name = os.path.basename(files[0]).replace("_seed1.mat", "").replace(".mat", "")
+
+    """ 2. Posterior of a with 50 % and 95 % bands, MAP and a few samples, on top of the true a(x) """
     x, xx = fault.x, np.linspace(fault.X_MIN, fault.X_MAX, 1001)
     lo50, hi50 = np.percentile(samples, [25, 75], axis=0)
+    draws = samples[np.random.default_rng(0).choice(len(samples), 5, replace=False)]
     fig, ax = plt.subplots(figsize=(8, 4.5))
     ax.plot(xx, fault.a_true(xx), color="0.75", lw=4, label="$a$, true", zorder=0)
     ax.fill_between(x, lo, hi, color="C0", alpha=0.2, lw=0, label="95 % band")
     ax.fill_between(x, lo50, hi50, color="C0", alpha=0.4, lw=0, label="50 % band")
+    ax.plot(x, draws.T, color="C0", lw=0.5, alpha=0.6)
     ax.plot(x, mean, ".-", color="C0", lw=1.2, label="posterior mean")
+    if laplace is not None:
+        ax.plot(x, laplace[0], "--", color="C3", lw=1.2, label="MAP")
     ax.axhline(fault.B, color="0.4", ls=":", label="$b$ (VW below)")
-    ax.set(xlabel="$x$ (km)", ylabel="$a$", title=f"Posterior of $a$ ({C} chains, {len(samples)} samples)")
+    # title=f"Posterior of $a$ ({C} chains, {len(samples)} samples, thin: 5 draws)"
+    ax.set(xlabel="$x$ (km)", ylabel="$a$")
     ax.legend(frameon=False, fontsize=8, loc="upper center", ncol=3)
     fig.tight_layout()
-
-    out_dir = os.path.join(os.path.dirname(files[0]), "figures")
-    os.makedirs(out_dir, exist_ok=True)
-    name = os.path.basename(files[0]).replace("_seed1.mat", "").replace(".mat", "")
     out = os.path.join(out_dir, f"posterior_a_{name}.png")
+    fig.savefig(out, dpi=150)
+    print(f"Saved {out}")
+    plt.show()
+
+    """ 3. Posterior std against Laplace std; ratio far from 1 means a non-Gaussian posterior """
+    if laplace is not None:
+        fig, ax = plt.subplots()
+        ax.semilogy(x, std, ".-", label="samples")
+        ax.semilogy(x, laplace[1], "--", label="Laplace")
+        # title="Posterior standard deviation"
+        ax.set(xlabel="$x$ (km)", ylabel="posterior std of $a$")
+        ax.legend(frameon=False, fontsize=8)
+        fig.tight_layout()
+        out = os.path.join(out_dir, f"std_laplace_{name}.png")
+        fig.savefig(out, dpi=150)
+        print(f"Saved {out}")
+        plt.show()
+
+    """ 4. Posterior of the VW edges, where a(x) crosses b """
+    edges = np.array([vw_edges(s) for s in samples])
+    has_vw = ~np.isnan(edges[:, 0])
+    print(f"P(x = 0 is VW) = {has_vw.mean():.3f}")
+    fig, ax = plt.subplots(1, 2, figsize=(9, 3.5))
+    for k, side in enumerate(["left", "right"]):
+        ax[k].hist(edges[has_vw, k], bins=40, density=True, color="C0", alpha=0.7)
+        ax[k].axvline(fault.VW[k], color="k", lw=1.5, label="true")
+        # title=f"{side} VW edge"
+        ax[k].set(xlabel="$x$ (km)")
+        ax[k].legend(frameon=False, fontsize=8)
+        print(f"{side} VW edge: mean {edges[has_vw, k].mean():.2f} km, "
+              f"95 % interval {np.percentile(edges[has_vw, k], [2.5, 97.5]).round(2)} km (true {fault.VW[k]})")
+    fig.tight_layout()
+    out = os.path.join(out_dir, f"vw_edges_{name}.png")
+    fig.savefig(out, dpi=150)
+    print(f"Saved {out}")
+    plt.show()
+
+    """ 5. Probability of VW, P(a(x) < b), per node """
+    p_vw = (samples < fault.B).mean(axis=0)
+    fig, ax = plt.subplots(figsize=(8, 3.5))
+    ax.plot(x, p_vw, ".-", color="C0", label="posterior")
+    ax.plot(xx, fault.a_true(xx) < fault.B, color="0.75", lw=4, label="true", zorder=0)
+    # title="Probability of velocity weakening"
+    ax.set(xlabel="$x$ (km)", ylabel="$P(a < b)$", ylim=(-0.05, 1.05))
+    ax.legend(frameon=False, fontsize=8)
+    fig.tight_layout()
+    out = os.path.join(out_dir, f"p_vw_{name}.png")
     fig.savefig(out, dpi=150)
     print(f"Saved {out}")
     plt.show()

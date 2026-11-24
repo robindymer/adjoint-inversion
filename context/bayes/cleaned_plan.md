@@ -19,11 +19,11 @@ This is a more fair comparison compare to noise-free inversion.
 - [x] Implement smoothness prior
 - [x] Judge it by its samples
 - [x] Implement pCN, MALA and HMC samplers
-- [ ] Sample from posterior and compute
+- [x] Sample from posterior and compute
 1) Mean with 95% bands, compare against a_true
 2) P(a(x) < b) per node
 3) VW edge positions
-- [ ] Missing diagnostic.py plots (Remark 4.21):
+- [x] Missing diagnostic.py plots (Remark 4.21):
 1) Posterior std vs Laplace std per node (see diagnostic_reference.py)
 2) a_MAP and a few samples on the posterior plot
 3) Histogram of VW edge positions / VW extent
