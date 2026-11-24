@@ -23,6 +23,22 @@ This is a more fair comparison compare to noise-free inversion.
 1) Mean with 95% bands, compare against a_true
 2) P(a(x) < b) per node
 3) VW edge positions
+- [ ] Missing diagnostic.py plots (Remark 4.21):
+1) Posterior std vs Laplace std per node (see diagnostic_reference.py)
+2) a_MAP and a few samples on the posterior plot
+3) Histogram of VW edge positions / VW extent
+- [ ] diagnostic.py fixes:
+1) Cost from chain.nFwd + chain.nAdj, not C*N (HMC undercounted 10x); print chain.time
+2) Actually apply burn_in
+3) Check hpCN starts are dispersed (widened Laplace), else Rhat is meaningless
+- [ ] Verification (Sec. 4.6):
+1) Compare pCN/MALA/HMC/hpCN mean and std within MC errors
+2) Fixed-truth coverage also tests the prior (a_true not drawn from prior); full coverage out of scope, say so
+- [ ] Report (template):
+1) Dependence on noise level eta and prior gamma
+2) Table: rel. error, coverage, wall-clock for det., MAP, posterior mean
+3) 95 % bands need ESS of a few thousand, not 400
+- Hierarchical prior: use prior normalization (Remark 4.15) against the funnel, expect high Rhat at jumps
 
 [x] Implement low rank laplace approximation from Hv products
 [x] Center the Laplace approximation on the converged MAP (as in the course, Sec. 5.2): replace the

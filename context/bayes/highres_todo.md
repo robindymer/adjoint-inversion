@@ -3,13 +3,13 @@
 Posterior for the noisy m = 1001 data, solved on m = 151, m_p = 26, with H-pCN, H-MALA and H-HMC.
 
 ## Before the cluster
-- [ ] Commit and push `bayes/run_highres_{mala,hmc}.m`, `scripts/highres_{mala,hmc}.sh` and the updated `scripts/highres_submit.sh`.
+- [x] Commit and push `bayes/run_highres_{mala,hmc}.m`, `scripts/highres_{mala,hmc}.sh` and the updated `scripts/highres_submit.sh`.
 
 ## On the cluster
-- [ ] `git pull`.
-- [ ] Copy `adjoint_rate_state_inversion/mat/fractal_fault_m1001_mp1001/` with `rsync`. It is gitignored and needs `receiverData.mat` and `receiverData_noisy_eta0.02.mat`.
-- [ ] Optional smoke test: run `matlab -batch "maxIter=2; run_highres_map"` interactively to catch path or data errors.
-- [ ] From `scripts/`, run `./highres_submit.sh`. It queues the MAP job, then 4 chains each of H-pCN, H-MALA and H-HMC once the MAP job succeeds.
+- [x] `git pull`.
+- [x] Copy `adjoint_rate_state_inversion/mat/fractal_fault_m1001_mp1001/` with `rsync`. It is gitignored and needs `receiverData.mat` and `receiverData_noisy_eta0.02.mat`.
+- [x] Optional smoke test: run `matlab -batch "maxIter=2; run_highres_map"` interactively to catch path or data errors.
+- [x] From `scripts/`, run `./highres_submit.sh`. It queues the MAP job, then 4 chains each of H-pCN, H-MALA and H-HMC once the MAP job succeeds.
 - [ ] Check `highres_map_*.out`. The inflation should converge and the Hessian should be positive definite. Otherwise:
   - resubmit with `sbatch --export=ALL,RESUME=true highres_map.sh`
   - cancel the waiting chain jobs, which will never start because their dependency failed

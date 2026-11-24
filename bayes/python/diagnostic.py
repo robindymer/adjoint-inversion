@@ -19,6 +19,7 @@ from scipy.io import loadmat
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "context", "bayes",
                                 "Computational-and-Bayesian-inverse-problems-code", "course_code"))
 from samplers import ess, rank_rhat
+import fault
 
 # First, plot QOI (a(x)) against iterations for each chain
 def load_chains(pattern): # e.g. pattern is hpcn_m36_eta0.02_s1_laplace_seed*.mat
@@ -45,29 +46,6 @@ def main(pattern, burn_in=None):
     # print(U)
     # print(acc)
     # print(n_adapt)
-
-    """ Trace plots and burn-in """
-    # With Laplace preconditoning, no burn-in is seen. Need to have step-size s high enough for burn-in
-    plt.figure()
-    for i, r in enumerate(runs):
-        print(f"Chain {i+1}: {r['chain'].a.shape[1]} iterations, acceptance rate {np.round(r['chain'].accepted.mean(), 2)}")
-
-        sample_size = r['chain'].a.shape[1]
-        a_index = 13
-        a_values = A[i,:,a_index]
-        plt.plot([s for s in range(a_values.size)], a_values)
-        # for j in range(r['chain'].a.shape[1]):
-        #     print(A[i, j, 10])
-    plt.figure()
-    for i, r in enumerate(runs):
-        sample_size = r['chain'].a.shape[1]
-        U_values = U[i,:]
-        plt.plot([s for s in range(U_values.size)], U_values)
-
-    plt.show()
-
-    # NOTE: If burn_in is seen, we need to add something like
-    # burn_in = max(n_adapt, N // 10) or manually
 
     """ Autocorrelation time (can be derived from ESS) """
     # ESS, autocorrelation and Rhat at every node AND for U
@@ -104,6 +82,53 @@ def main(pattern, burn_in=None):
         laplace = (a_map, std_lap)
         print(f"vs Laplace: |mean - a_MAP|/std max {np.max(np.abs(mean - a_map) / std):.2f}, "
                 f"std/std_Laplace in [{np.min(std / std_lap):.3f}, {np.max(std / std_lap):.3f}]")
+
+    # Now, plotting!
+    """ 1. Trace plots and burn-in. Traces of U and of the slowest node """
+    # With Laplace preconditoning, no burn-in is seen. Need to have step-size s high enough for burn-in
+    # NOTE: If burn_in is seen, we need to add something like
+    # burn_in = max(n_adapt, N // 10) or manually
+    worst_a_index = ess_a.argmin()
+    plt.figure()
+    for i, r in enumerate(runs):
+        print(f"Chain {i+1}: {r['chain'].a.shape[1]} iterations, acceptance rate {np.round(r['chain'].accepted.mean(), 2)}")
+        a_values = A[i,:,worst_a_index]
+        plt.plot([s for s in range(a_values.size)], a_values, label=f"Chain {i+1}")
+        plt.xlabel("iteration")
+        plt.ylabel(f"$a$ at node {worst_a_index + 1}")
+    plt.legend()
+    plt.show()
+
+    plt.figure()
+    for i, r in enumerate(runs):
+        U_values = U[i,:]
+        plt.plot([s for s in range(U_values.size)], U_values, label=f"Chain {i+1}")
+        plt.xlabel("iteration")
+        plt.ylabel("$U$")
+    plt.legend()
+    plt.show()
+
+    """ 2. Posterior of a with 50 % and 95 % bands, on top of the true a(x) """
+    x, xx = fault.x, np.linspace(fault.X_MIN, fault.X_MAX, 1001)
+    lo50, hi50 = np.percentile(samples, [25, 75], axis=0)
+    fig, ax = plt.subplots(figsize=(8, 4.5))
+    ax.plot(xx, fault.a_true(xx), color="0.75", lw=4, label="$a$, true", zorder=0)
+    ax.fill_between(x, lo, hi, color="C0", alpha=0.2, lw=0, label="95 % band")
+    ax.fill_between(x, lo50, hi50, color="C0", alpha=0.4, lw=0, label="50 % band")
+    ax.plot(x, mean, ".-", color="C0", lw=1.2, label="posterior mean")
+    ax.axhline(fault.B, color="0.4", ls=":", label="$b$ (VW below)")
+    ax.set(xlabel="$x$ (km)", ylabel="$a$", title=f"Posterior of $a$ ({C} chains, {len(samples)} samples)")
+    ax.legend(frameon=False, fontsize=8, loc="upper center", ncol=3)
+    fig.tight_layout()
+
+    out_dir = os.path.join(os.path.dirname(files[0]), "figures")
+    os.makedirs(out_dir, exist_ok=True)
+    name = os.path.basename(files[0]).replace("_seed1.mat", "").replace(".mat", "")
+    out = os.path.join(out_dir, f"posterior_a_{name}.png")
+    fig.savefig(out, dpi=150)
+    print(f"Saved {out}")
+    plt.show()
+
 
 if __name__ == "__main__":
     try:

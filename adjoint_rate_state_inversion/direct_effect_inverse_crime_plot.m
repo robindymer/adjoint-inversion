@@ -5,9 +5,11 @@ addSubpaths;
 % resultsDir = fullfile('optimizer_benchmark', 'results');
 resultsDir = fullfile('mat', 'inversion');
 resultFiles = {'rough_newton-tr_maxiter150_m36_mp26_velocity_synth_eta002_vals_a00135_tikhonov-grad_beta3e+00_anchor.mat';
-               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135_tikhonov-grad_beta3e+00_anchor.mat',
-               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135.mat',
-               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_vals_a00135_2.mat'};
+               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135_tikhonov-grad_beta3e+00_anchor.mat';
+               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135.mat';
+               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_vals_a00135_2.mat';
+               'rough_newton-tr_maxiter150_m36_mp26_velocity_synth_eta002_vals_a00135_tv_beta4e-03_eps1e-04.mat';
+               'rough_lbfgs_maxiter200_m36_mp26_velocity_synth_eta002_vals_a00135_tv_beta4e-03_eps1e-04.mat'};
 % resultFiles = {'res_newton_tr_repo_m251.mat'; 'res_fmincon_ip_lbfgs_nolb_m251.mat'};
 iter = []; % Iteration to plot, [] for the final iteration of each file
 assetsDir = 'assets/bayes';
