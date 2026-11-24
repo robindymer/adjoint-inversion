@@ -81,7 +81,12 @@ def main(pattern, burn_in=None):
     print(f"Rhat < 1.01 and ESS > 400 for U and all nodes: {'yes' if ok else 'NO'}")
 
     # Posterior summaries
-    a_true = runs[0]["aTrue"]
+    if "aTrue" in runs[0]:
+        a_true = runs[0]["aTrue"]
+    else:   # checkpoint-only runs (stopped before the final save)
+        a_true = loadmat(os.path.join(os.path.dirname(files[0]), "hessian_m36_eta0.02.mat"),
+                         squeeze_me=True)["aTrue"]
+
     samples = A.reshape(-1, m_p)
     print(samples.size) # 4 * 1000 * 26
     mean, std = samples.mean(axis=0), samples.std(axis=0, ddof=1)
@@ -115,7 +120,7 @@ def main(pattern, burn_in=None):
         plt.xlabel("iteration")
         plt.ylabel(f"$a$ at node {worst_a_index + 1}")
     plt.legend()
-    plt.show()
+    # plt.show()
 
     plt.figure()
     for i, r in enumerate(runs):
@@ -124,7 +129,7 @@ def main(pattern, burn_in=None):
         plt.xlabel("iteration")
         plt.ylabel("$U$")
     plt.legend()
-    plt.show()
+    # plt.show()
 
     out_dir = os.path.join(os.path.dirname(files[0]), "figures")
     os.makedirs(out_dir, exist_ok=True)
@@ -150,7 +155,7 @@ def main(pattern, burn_in=None):
     out = os.path.join(out_dir, f"posterior_a_{name}.png")
     fig.savefig(out, dpi=150)
     print(f"Saved {out}")
-    plt.show()
+    # plt.show()
 
     """ 3. Posterior std against Laplace std; ratio far from 1 means a non-Gaussian posterior """
     if laplace is not None:
@@ -164,7 +169,7 @@ def main(pattern, burn_in=None):
         out = os.path.join(out_dir, f"std_laplace_{name}.png")
         fig.savefig(out, dpi=150)
         print(f"Saved {out}")
-        plt.show()
+        # plt.show()
 
     """ 4. Posterior of the VW edges, where a(x) crosses b """
     edges = np.array([vw_edges(s) for s in samples])
@@ -183,7 +188,7 @@ def main(pattern, burn_in=None):
     out = os.path.join(out_dir, f"vw_edges_{name}.png")
     fig.savefig(out, dpi=150)
     print(f"Saved {out}")
-    plt.show()
+    # plt.show()
 
     """ 5. Probability of VW, P(a(x) < b), per node """
     p_vw = (samples < fault.B).mean(axis=0)
@@ -197,7 +202,7 @@ def main(pattern, burn_in=None):
     out = os.path.join(out_dir, f"p_vw_{name}.png")
     fig.savefig(out, dpi=150)
     print(f"Saved {out}")
-    plt.show()
+    # plt.show()
 
 
 if __name__ == "__main__":
