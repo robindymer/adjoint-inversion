@@ -46,6 +46,9 @@ one-Newton-step a_MAP with the newton-tr H1 solution (polished with a few Newton
 tikhonov-grad lacks the a_1 anchor of the prior), recompute H there, before the production runs.
 [ ] Compare with computing the hessian by simply using finite differences
 [ ] Implement hierarchical prior
+[ ] Think about sensor placement! How does it make sense to put them in the body?
+What if we put an array at the surface? Fiber sensors in the fault? Non-slip region does
+not radiate, but maybe waves that go through them can give information.
 
 This is done in the inverse crime setting
 Remember that it can be wise to precondition MALA with

@@ -1,0 +1,843 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+High-res noisy data: m = 151, m_p = 26, sigma0 = 4.001e-02 (eta = 0.02), dt_d = 0.01, N = 52800
+  M_noise = 3.9367e-01 (sigma0^2 dt_d N/2 = 4.2264e-01), M(a_true nodes) = 1.1492e+01, inflation = 1.000
+Resuming from /gorilla/proj/efficient_elastic/efficient_elastic/nobackup/adjoint-inversion/bayes/results/highres_map_m151_mp26_eta0.02.mat with inflation 2.933
+f = 2.459596e+04  |g| =  5.842e+07  init
+  U = 2.459596e+04, |g| = 5.842e+07, M = 1.1546e+00, solves 2/1/0
+f = 2.449904e+04  |g| =  3.930e+06  CG  1 conv     rho   1.009 th 1.00 Delta 6.06e-03
+  U = 2.449904e+04, |g| = 3.930e+06, M = 1.1501e+00, solves 3/2/1
+f = 2.449903e+04  |g| =  3.929e+06  CG  1 boundary rho   1.000 th 1.00 Delta 2.42e-02
+  U = 2.449903e+04, |g| = 3.929e+06, M = 1.1501e+00, solves 4/3/2
+f = 2.449887e+04  |g| =  3.920e+06  CG  1 boundary rho   1.000 th 1.00 Delta 9.69e-02
+  U = 2.449887e+04, |g| = 3.920e+06, M = 1.1501e+00, solves 5/4/3
+f = 2.449780e+04  |g| =  3.893e+06  CG  1 boundary rho   1.000 th 1.00 Delta 3.88e-01
+  U = 2.449780e+04, |g| = 3.893e+06, M = 1.1500e+00, solves 6/5/4
+f = 2.449215e+04  |g| =  4.008e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.449215e+04, |g| = 4.008e+06, M = 1.1498e+00, solves 7/6/5
+f = 2.448161e+04  |g| =  4.729e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.448161e+04, |g| = 4.729e+06, M = 1.1493e+00, solves 8/7/6
+f = 2.446969e+04  |g| =  5.752e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.446969e+04, |g| = 5.752e+06, M = 1.1487e+00, solves 9/8/7
+f = 2.445662e+04  |g| =  6.816e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.445662e+04, |g| = 6.816e+06, M = 1.1481e+00, solves 10/9/8
+f = 2.444264e+04  |g| =  7.802e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.444264e+04, |g| = 7.802e+06, M = 1.1474e+00, solves 11/10/9
+f = 2.442797e+04  |g| =  8.662e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.442797e+04, |g| = 8.662e+06, M = 1.1468e+00, solves 12/11/10
+f = 2.441278e+04  |g| =  9.381e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.441278e+04, |g| = 9.381e+06, M = 1.1460e+00, solves 13/12/11
+f = 2.439719e+04  |g| =  9.966e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.439719e+04, |g| = 9.966e+06, M = 1.1453e+00, solves 14/13/12
+f = 2.438125e+04  |g| =  1.044e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.438125e+04, |g| = 1.044e+07, M = 1.1446e+00, solves 15/14/13
+f = 2.436492e+04  |g| =  1.083e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.436492e+04, |g| = 1.083e+07, M = 1.1438e+00, solves 16/15/14
+f = 2.434807e+04  |g| =  1.118e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.434807e+04, |g| = 1.118e+07, M = 1.1430e+00, solves 17/16/15
+f = 2.433054e+04  |g| =  1.151e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.433054e+04, |g| = 1.151e+07, M = 1.1422e+00, solves 18/17/16
+f = 2.431224e+04  |g| =  1.184e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.431224e+04, |g| = 1.184e+07, M = 1.1413e+00, solves 19/18/17
+f = 2.429312e+04  |g| =  1.216e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.429312e+04, |g| = 1.216e+07, M = 1.1404e+00, solves 20/19/18
+f = 2.427318e+04  |g| =  1.249e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.427318e+04, |g| = 1.249e+07, M = 1.1395e+00, solves 21/20/19
+f = 2.425243e+04  |g| =  1.282e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.425243e+04, |g| = 1.282e+07, M = 1.1385e+00, solves 22/21/20
+f = 2.423087e+04  |g| =  1.315e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.423087e+04, |g| = 1.315e+07, M = 1.1375e+00, solves 23/22/21
+f = 2.420823e+04  |g| =  1.307e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.420823e+04, |g| = 1.307e+07, M = 1.1364e+00, solves 24/23/22
+f = 2.418136e+04  |g| =  1.527e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.418136e+04, |g| = 1.527e+07, M = 1.1352e+00, solves 25/24/23
+f = 2.415604e+04  |g| =  1.587e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.415604e+04, |g| = 1.587e+07, M = 1.1340e+00, solves 26/25/24
+f = 2.412611e+04  |g| =  1.503e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.412611e+04, |g| = 1.503e+07, M = 1.1326e+00, solves 27/26/25
+f = 2.409476e+04  |g| =  1.554e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.409476e+04, |g| = 1.554e+07, M = 1.1311e+00, solves 28/27/26
+f = 2.406036e+04  |g| =  1.401e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.406036e+04, |g| = 1.401e+07, M = 1.1295e+00, solves 29/28/27
+f = 2.402586e+04  |g| =  1.407e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.402586e+04, |g| = 1.407e+07, M = 1.1279e+00, solves 30/29/28
+f = 2.397877e+04  |g| =  5.286e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.397877e+04, |g| = 5.286e+06, M = 1.1257e+00, solves 31/30/29
+f = 2.394277e+04  |g| =  5.028e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.394277e+04, |g| = 5.028e+06, M = 1.1240e+00, solves 32/31/30
+f = 2.390568e+04  |g| =  4.795e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.390568e+04, |g| = 4.795e+06, M = 1.1222e+00, solves 33/32/31
+f = 2.386711e+04  |g| =  4.589e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.386711e+04, |g| = 4.589e+06, M = 1.1204e+00, solves 34/33/32
+f = 2.382732e+04  |g| =  4.407e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.382732e+04, |g| = 4.407e+06, M = 1.1185e+00, solves 35/34/33
+f = 2.378651e+04  |g| =  4.246e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.378651e+04, |g| = 4.246e+06, M = 1.1166e+00, solves 36/35/34
+f = 2.374481e+04  |g| =  4.103e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.374481e+04, |g| = 4.103e+06, M = 1.1147e+00, solves 37/36/35
+f = 2.370229e+04  |g| =  3.976e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.370229e+04, |g| = 3.976e+06, M = 1.1127e+00, solves 38/37/36
+f = 2.365899e+04  |g| =  3.864e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.365899e+04, |g| = 3.864e+06, M = 1.1106e+00, solves 39/38/37
+f = 2.361493e+04  |g| =  3.767e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.361493e+04, |g| = 3.767e+06, M = 1.1086e+00, solves 40/39/38
+f = 2.357005e+04  |g| =  3.684e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.357005e+04, |g| = 3.684e+06, M = 1.1065e+00, solves 41/40/39
+f = 2.352425e+04  |g| =  3.614e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.352425e+04, |g| = 3.614e+06, M = 1.1043e+00, solves 42/41/40
+f = 2.347725e+04  |g| =  3.553e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.347725e+04, |g| = 3.553e+06, M = 1.1021e+00, solves 43/42/41
+f = 2.342864e+04  |g| =  3.496e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.342864e+04, |g| = 3.496e+06, M = 1.0998e+00, solves 44/43/42
+f = 2.337813e+04  |g| =  3.450e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.337813e+04, |g| = 3.450e+06, M = 1.0974e+00, solves 45/44/43
+f = 2.332507e+04  |g| =  3.545e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.332507e+04, |g| = 3.545e+06, M = 1.0949e+00, solves 46/45/44
+f = 2.327026e+04  |g| =  3.500e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.327026e+04, |g| = 3.500e+06, M = 1.0924e+00, solves 47/46/45
+f = 2.321347e+04  |g| =  3.586e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.321347e+04, |g| = 3.586e+06, M = 1.0897e+00, solves 48/47/46
+f = 2.315470e+04  |g| =  3.501e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.315470e+04, |g| = 3.501e+06, M = 1.0869e+00, solves 49/48/47
+f = 2.309456e+04  |g| =  3.937e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.309456e+04, |g| = 3.937e+06, M = 1.0841e+00, solves 50/49/48
+f = 2.303578e+04  |g| =  3.879e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.303578e+04, |g| = 3.879e+06, M = 1.0814e+00, solves 51/50/49
+f = 2.297713e+04  |g| =  2.877e+07  CG  2 boundary rho   1.001 th 1.00 Delta 6.06e-01
+  U = 2.297713e+04, |g| = 2.877e+07, M = 1.0786e+00, solves 52/51/51
+f = 2.291542e+04  |g| =  2.855e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.291542e+04, |g| = 2.855e+07, M = 1.0757e+00, solves 53/52/52
+f = 2.285164e+04  |g| =  2.836e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.285164e+04, |g| = 2.836e+07, M = 1.0727e+00, solves 54/53/53
+f = 2.278715e+04  |g| =  2.817e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.278715e+04, |g| = 2.817e+07, M = 1.0697e+00, solves 55/54/54
+f = 2.272205e+04  |g| =  2.798e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.272205e+04, |g| = 2.798e+07, M = 1.0666e+00, solves 56/55/55
+f = 2.265646e+04  |g| =  2.780e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.265646e+04, |g| = 2.780e+07, M = 1.0635e+00, solves 57/56/56
+f = 2.259051e+04  |g| =  2.761e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.259051e+04, |g| = 2.761e+07, M = 1.0604e+00, solves 58/57/57
+f = 2.252432e+04  |g| =  2.743e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.252432e+04, |g| = 2.743e+07, M = 1.0573e+00, solves 59/58/58
+f = 2.245805e+04  |g| =  2.724e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.245805e+04, |g| = 2.724e+07, M = 1.0542e+00, solves 60/59/59
+f = 2.239184e+04  |g| =  2.706e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.239184e+04, |g| = 2.706e+07, M = 1.0511e+00, solves 61/60/60
+f = 2.232586e+04  |g| =  2.687e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.232586e+04, |g| = 2.687e+07, M = 1.0480e+00, solves 62/61/61
+f = 2.226023e+04  |g| =  2.668e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.226023e+04, |g| = 2.668e+07, M = 1.0449e+00, solves 63/62/62
+f = 2.219512e+04  |g| =  2.650e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.219512e+04, |g| = 2.650e+07, M = 1.0419e+00, solves 64/63/63
+f = 2.213065e+04  |g| =  2.631e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.213065e+04, |g| = 2.631e+07, M = 1.0388e+00, solves 65/64/64
+f = 2.206694e+04  |g| =  2.611e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.206694e+04, |g| = 2.611e+07, M = 1.0359e+00, solves 66/65/65
+f = 2.200411e+04  |g| =  2.592e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.200411e+04, |g| = 2.592e+07, M = 1.0329e+00, solves 67/66/66
+f = 2.194225e+04  |g| =  2.572e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.194225e+04, |g| = 2.572e+07, M = 1.0300e+00, solves 68/67/67
+f = 2.188142e+04  |g| =  2.553e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.188142e+04, |g| = 2.553e+07, M = 1.0271e+00, solves 69/68/68
+f = 2.182165e+04  |g| =  2.532e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.182165e+04, |g| = 2.532e+07, M = 1.0243e+00, solves 70/69/69
+f = 2.176299e+04  |g| =  2.513e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.176299e+04, |g| = 2.513e+07, M = 1.0216e+00, solves 71/70/70
+f = 2.170544e+04  |g| =  2.669e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.170544e+04, |g| = 2.669e+07, M = 1.0189e+00, solves 72/71/71
+f = 2.163346e+04  |g| =  2.453e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.163346e+04, |g| = 2.453e+07, M = 1.0155e+00, solves 73/72/72
+f = 2.157643e+04  |g| =  2.463e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.157643e+04, |g| = 2.463e+07, M = 1.0128e+00, solves 74/73/73
+f = 2.151191e+04  |g| =  1.361e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.151191e+04, |g| = 1.361e+07, M = 1.0098e+00, solves 75/74/74
+f = 2.145897e+04  |g| =  1.348e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.145897e+04, |g| = 1.348e+07, M = 1.0073e+00, solves 76/75/75
+f = 2.140813e+04  |g| =  1.336e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.140813e+04, |g| = 1.336e+07, M = 1.0049e+00, solves 77/76/76
+f = 2.135794e+04  |g| =  1.325e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.135794e+04, |g| = 1.325e+07, M = 1.0025e+00, solves 78/77/77
+f = 2.130828e+04  |g| =  1.315e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.130828e+04, |g| = 1.315e+07, M = 1.0002e+00, solves 79/78/78
+f = 2.125905e+04  |g| =  1.306e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.125905e+04, |g| = 1.306e+07, M = 9.9790e-01, solves 80/79/79
+f = 2.121012e+04  |g| =  1.298e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.121012e+04, |g| = 1.298e+07, M = 9.9560e-01, solves 81/80/80
+f = 2.116132e+04  |g| =  1.293e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.116132e+04, |g| = 1.293e+07, M = 9.9331e-01, solves 82/81/81
+f = 2.111220e+04  |g| =  1.294e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.111220e+04, |g| = 1.294e+07, M = 9.9100e-01, solves 83/82/82
+f = 2.106182e+04  |g| =  1.302e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.106182e+04, |g| = 1.302e+07, M = 9.8863e-01, solves 84/83/83
+f = 2.101093e+04  |g| =  1.288e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.101093e+04, |g| = 1.288e+07, M = 9.8624e-01, solves 85/84/84
+f = 2.096060e+04  |g| =  1.276e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.096060e+04, |g| = 1.276e+07, M = 9.8388e-01, solves 86/85/85
+f = 2.091084e+04  |g| =  1.264e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.091084e+04, |g| = 1.264e+07, M = 9.8154e-01, solves 87/86/86
+f = 2.086161e+04  |g| =  1.251e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.086161e+04, |g| = 1.251e+07, M = 9.7923e-01, solves 88/87/87
+f = 2.081289e+04  |g| =  1.239e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.081289e+04, |g| = 1.239e+07, M = 9.7694e-01, solves 89/88/88
+f = 2.076465e+04  |g| =  1.227e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.076465e+04, |g| = 1.227e+07, M = 9.7467e-01, solves 90/89/89
+f = 2.071690e+04  |g| =  1.214e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.071690e+04, |g| = 1.214e+07, M = 9.7243e-01, solves 91/90/90
+f = 2.066962e+04  |g| =  1.201e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.066962e+04, |g| = 1.201e+07, M = 9.7021e-01, solves 92/91/91
+f = 2.062279e+04  |g| =  1.191e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.062279e+04, |g| = 1.191e+07, M = 9.6800e-01, solves 93/92/92
+f = 2.057637e+04  |g| =  1.184e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.057637e+04, |g| = 1.184e+07, M = 9.6582e-01, solves 94/93/93
+f = 2.053019e+04  |g| =  1.166e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.053019e+04, |g| = 1.166e+07, M = 9.6365e-01, solves 95/94/94
+f = 2.048715e+04  |g| =  2.600e+07  CG  1 boundary rho   1.001 th 1.00 Delta 6.06e-01
+  U = 2.048715e+04, |g| = 2.600e+07, M = 9.6163e-01, solves 96/95/95
+f = 2.044157e+04  |g| =  2.574e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.044157e+04, |g| = 2.574e+07, M = 9.5949e-01, solves 97/96/96
+f = 2.039533e+04  |g| =  2.548e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.039533e+04, |g| = 2.548e+07, M = 9.5731e-01, solves 98/97/97
+f = 2.034953e+04  |g| =  2.522e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.034953e+04, |g| = 2.522e+07, M = 9.5516e-01, solves 99/98/98
+f = 2.030418e+04  |g| =  2.496e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.030418e+04, |g| = 2.496e+07, M = 9.5303e-01, solves 100/99/99
+f = 2.025926e+04  |g| =  2.470e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.025926e+04, |g| = 2.470e+07, M = 9.5092e-01, solves 101/100/100
+f = 2.021479e+04  |g| =  2.444e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.021479e+04, |g| = 2.444e+07, M = 9.4883e-01, solves 102/101/101
+f = 2.017075e+04  |g| =  2.418e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.017075e+04, |g| = 2.418e+07, M = 9.4676e-01, solves 103/102/102
+f = 2.012716e+04  |g| =  2.391e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.012716e+04, |g| = 2.391e+07, M = 9.4471e-01, solves 104/103/103
+f = 2.008404e+04  |g| =  2.365e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.008404e+04, |g| = 2.365e+07, M = 9.4268e-01, solves 105/104/104
+f = 2.004138e+04  |g| =  2.338e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 2.004138e+04, |g| = 2.338e+07, M = 9.4068e-01, solves 106/105/105
+f = 1.999915e+04  |g| =  2.312e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.999915e+04, |g| = 2.312e+07, M = 9.3869e-01, solves 107/106/106
+f = 1.995736e+04  |g| =  2.286e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.995736e+04, |g| = 2.286e+07, M = 9.3673e-01, solves 108/107/107
+f = 1.991597e+04  |g| =  2.260e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.991597e+04, |g| = 2.260e+07, M = 9.3478e-01, solves 109/108/108
+f = 1.987499e+04  |g| =  2.234e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.987499e+04, |g| = 2.234e+07, M = 9.3285e-01, solves 110/109/109
+f = 1.983438e+04  |g| =  2.208e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.983438e+04, |g| = 2.208e+07, M = 9.3094e-01, solves 111/110/110
+f = 1.979415e+04  |g| =  2.182e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.979415e+04, |g| = 2.182e+07, M = 9.2905e-01, solves 112/111/111
+f = 1.975427e+04  |g| =  2.156e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.975427e+04, |g| = 2.156e+07, M = 9.2718e-01, solves 113/112/112
+f = 1.971473e+04  |g| =  2.131e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.971473e+04, |g| = 2.131e+07, M = 9.2532e-01, solves 114/113/113
+f = 1.967553e+04  |g| =  2.106e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.967553e+04, |g| = 2.106e+07, M = 9.2347e-01, solves 115/114/114
+f = 1.963664e+04  |g| =  2.081e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.963664e+04, |g| = 2.081e+07, M = 9.2164e-01, solves 116/115/115
+f = 1.959811e+04  |g| =  2.352e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.959811e+04, |g| = 2.352e+07, M = 9.1983e-01, solves 117/116/116
+f = 1.955540e+04  |g| =  2.269e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.955540e+04, |g| = 2.269e+07, M = 9.1782e-01, solves 118/117/117
+f = 1.951632e+04  |g| =  2.304e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.951632e+04, |g| = 2.304e+07, M = 9.1598e-01, solves 119/118/118
+f = 1.947455e+04  |g| =  2.029e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.947455e+04, |g| = 2.029e+07, M = 9.1402e-01, solves 120/119/119
+f = 1.943700e+04  |g| =  2.004e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.943700e+04, |g| = 2.004e+07, M = 9.1225e-01, solves 121/120/120
+f = 1.940009e+04  |g| =  1.986e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.940009e+04, |g| = 1.986e+07, M = 9.1051e-01, solves 122/121/121
+f = 1.936343e+04  |g| =  1.945e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.936343e+04, |g| = 1.945e+07, M = 9.0879e-01, solves 123/122/122
+f = 1.932696e+04  |g| =  1.936e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.932696e+04, |g| = 1.936e+07, M = 9.0707e-01, solves 124/123/123
+f = 1.929019e+04  |g| =  1.677e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.929019e+04, |g| = 1.677e+07, M = 9.0534e-01, solves 125/124/124
+f = 1.925443e+04  |g| =  1.651e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.925443e+04, |g| = 1.651e+07, M = 9.0366e-01, solves 126/125/125
+f = 1.921902e+04  |g| =  1.634e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.921902e+04, |g| = 1.634e+07, M = 9.0199e-01, solves 127/126/126
+f = 1.918382e+04  |g| =  1.613e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.918382e+04, |g| = 1.613e+07, M = 9.0034e-01, solves 128/127/127
+f = 1.914880e+04  |g| =  1.595e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.914880e+04, |g| = 1.595e+07, M = 8.9869e-01, solves 129/128/128
+f = 1.911397e+04  |g| =  1.575e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.911397e+04, |g| = 1.575e+07, M = 8.9705e-01, solves 130/129/129
+f = 1.907930e+04  |g| =  1.557e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.907930e+04, |g| = 1.557e+07, M = 8.9542e-01, solves 131/130/130
+f = 1.904479e+04  |g| =  1.538e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.904479e+04, |g| = 1.538e+07, M = 8.9379e-01, solves 132/131/131
+f = 1.901042e+04  |g| =  1.520e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.901042e+04, |g| = 1.520e+07, M = 8.9217e-01, solves 133/132/132
+f = 1.897620e+04  |g| =  1.502e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.897620e+04, |g| = 1.502e+07, M = 8.9056e-01, solves 134/133/133
+f = 1.894210e+04  |g| =  1.484e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.894210e+04, |g| = 1.484e+07, M = 8.8896e-01, solves 135/134/134
+f = 1.890812e+04  |g| =  1.467e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.890812e+04, |g| = 1.467e+07, M = 8.8736e-01, solves 136/135/135
+f = 1.887424e+04  |g| =  1.450e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.887424e+04, |g| = 1.450e+07, M = 8.8576e-01, solves 137/136/136
+f = 1.884047e+04  |g| =  1.434e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.884047e+04, |g| = 1.434e+07, M = 8.8417e-01, solves 138/137/137
+f = 1.880678e+04  |g| =  1.399e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.880678e+04, |g| = 1.399e+07, M = 8.8258e-01, solves 139/138/138
+f = 1.877285e+04  |g| =  1.461e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.877285e+04, |g| = 1.461e+07, M = 8.8099e-01, solves 140/139/139
+f = 1.873432e+04  |g| =  1.175e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.873432e+04, |g| = 1.175e+07, M = 8.7917e-01, solves 141/140/140
+f = 1.870076e+04  |g| =  1.160e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.870076e+04, |g| = 1.160e+07, M = 8.7759e-01, solves 142/141/141
+f = 1.866784e+04  |g| =  1.163e+07  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.866784e+04, |g| = 1.163e+07, M = 8.7604e-01, solves 143/142/142
+f = 1.863379e+04  |g| =  2.591e+06  CG  1 boundary rho   0.999 th 1.00 Delta 6.06e-01
+  U = 1.863379e+04, |g| = 2.591e+06, M = 8.7443e-01, solves 144/143/143
+f = 1.860149e+04  |g| =  2.641e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.860149e+04, |g| = 2.641e+06, M = 8.7291e-01, solves 145/144/144
+f = 1.856897e+04  |g| =  2.739e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.856897e+04, |g| = 2.739e+06, M = 8.7138e-01, solves 146/145/145
+f = 1.853673e+04  |g| =  2.751e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.853673e+04, |g| = 2.751e+06, M = 8.6986e-01, solves 147/146/146
+f = 1.850078e+04  |g| =  3.086e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.850078e+04, |g| = 3.086e+06, M = 8.6816e-01, solves 148/147/147
+f = 1.846894e+04  |g| =  3.118e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.846894e+04, |g| = 3.118e+06, M = 8.6666e-01, solves 149/148/148
+f = 1.843327e+04  |g| =  3.063e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.843327e+04, |g| = 3.063e+06, M = 8.6498e-01, solves 150/149/149
+f = 1.839683e+04  |g| =  3.082e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.839683e+04, |g| = 3.082e+06, M = 8.6327e-01, solves 151/150/150
+f = 1.835827e+04  |g| =  2.832e+06  CG  1 boundary rho   1.000 th 1.00 Delta 6.06e-01
+  U = 1.835827e+04, |g| = 2.832e+06, M = 8.6145e-01, solves 152/151/151
+Round 1: inflation 2.933, 150 iterations (flag 1), M(a_MAP) = 8.6145e-01 = 2.188 M_noise, |a_MAP - a_true|/|a_true| = 8.267e-02
+f = 2.460236e+04  |g| =  3.796e+06  init
+  U = 2.460236e+04, |g| = 3.796e+06, M = 8.6145e-01, solves 152/151/151
+f = 2.232414e+04  |g| =  3.567e+07  CG  5 boundary rho   0.631 th 1.00 Delta 5.98e-03
+  U = 2.232414e+04, |g| = 3.567e+07, M = 7.8036e-01, solves 153/152/156
+f = 2.232371e+04  |g| =  3.566e+07  CG  1 boundary rho   1.000 th 1.00 Delta 2.39e-02
+  U = 2.232371e+04, |g| = 3.566e+07, M = 7.8034e-01, solves 154/153/157
+f = 2.232274e+04  |g| =  3.564e+07  CG  1 boundary rho   1.000 th 1.00 Delta 9.56e-02
+  U = 2.232274e+04, |g| = 3.564e+07, M = 7.8031e-01, solves 155/154/158
+f = 2.231885e+04  |g| =  3.555e+07  CG  1 boundary rho   1.000 th 1.00 Delta 3.82e-01
+  U = 2.231885e+04, |g| = 3.555e+07, M = 7.8017e-01, solves 156/155/159
+f = 2.230336e+04  |g| =  3.521e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.230336e+04, |g| = 3.521e+07, M = 7.7964e-01, solves 157/156/160
+f = 2.227944e+04  |g| =  3.469e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.227944e+04, |g| = 3.469e+07, M = 7.7880e-01, solves 158/157/161
+f = 2.225588e+04  |g| =  3.417e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.225588e+04, |g| = 3.417e+07, M = 7.7799e-01, solves 159/158/162
+f = 2.223267e+04  |g| =  3.365e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.223267e+04, |g| = 3.365e+07, M = 7.7718e-01, solves 160/159/163
+f = 2.220983e+04  |g| =  3.313e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.220983e+04, |g| = 3.313e+07, M = 7.7639e-01, solves 161/160/164
+f = 2.218735e+04  |g| =  3.261e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.218735e+04, |g| = 3.261e+07, M = 7.7561e-01, solves 162/161/165
+f = 2.216523e+04  |g| =  3.209e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.216523e+04, |g| = 3.209e+07, M = 7.7484e-01, solves 163/162/166
+f = 2.214347e+04  |g| =  3.157e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.214347e+04, |g| = 3.157e+07, M = 7.7408e-01, solves 164/163/167
+f = 2.212205e+04  |g| =  3.106e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.212205e+04, |g| = 3.106e+07, M = 7.7334e-01, solves 165/164/168
+f = 2.210099e+04  |g| =  3.054e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.210099e+04, |g| = 3.054e+07, M = 7.7261e-01, solves 166/165/169
+f = 2.208028e+04  |g| =  3.002e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.208028e+04, |g| = 3.002e+07, M = 7.7189e-01, solves 167/166/170
+f = 2.205993e+04  |g| =  2.950e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.205993e+04, |g| = 2.950e+07, M = 7.7118e-01, solves 168/167/171
+f = 2.203995e+04  |g| =  2.898e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.203995e+04, |g| = 2.898e+07, M = 7.7049e-01, solves 169/168/172
+f = 2.202033e+04  |g| =  2.841e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.202033e+04, |g| = 2.841e+07, M = 7.6981e-01, solves 170/169/173
+f = 2.200104e+04  |g| =  2.901e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.200104e+04, |g| = 2.901e+07, M = 7.6914e-01, solves 171/170/174
+f = 2.196842e+04  |g| =  1.628e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.196842e+04, |g| = 1.628e+07, M = 7.6801e-01, solves 172/171/175
+f = 2.195013e+04  |g| =  1.598e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.195013e+04, |g| = 1.598e+07, M = 7.6737e-01, solves 173/172/176
+f = 2.193211e+04  |g| =  1.550e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.193211e+04, |g| = 1.550e+07, M = 7.6675e-01, solves 174/173/177
+f = 2.191442e+04  |g| =  1.537e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.191442e+04, |g| = 1.537e+07, M = 7.6613e-01, solves 175/174/178
+f = 2.189681e+04  |g| =  1.395e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.189681e+04, |g| = 1.395e+07, M = 7.6552e-01, solves 176/175/179
+f = 2.188115e+04  |g| =  1.381e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.188115e+04, |g| = 1.381e+07, M = 7.6497e-01, solves 177/176/180
+f = 2.186302e+04  |g| =  1.453e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.186302e+04, |g| = 1.453e+07, M = 7.6435e-01, solves 178/177/181
+f = 2.184662e+04  |g| =  1.403e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.184662e+04, |g| = 1.403e+07, M = 7.6378e-01, solves 179/178/182
+f = 2.183070e+04  |g| =  1.372e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.183070e+04, |g| = 1.372e+07, M = 7.6323e-01, solves 180/179/183
+f = 2.181513e+04  |g| =  1.341e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.181513e+04, |g| = 1.341e+07, M = 7.6269e-01, solves 181/180/184
+f = 2.179989e+04  |g| =  1.310e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.179989e+04, |g| = 1.310e+07, M = 7.6216e-01, solves 182/181/185
+f = 2.178500e+04  |g| =  1.279e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.178500e+04, |g| = 1.279e+07, M = 7.6165e-01, solves 183/182/186
+f = 2.177046e+04  |g| =  1.248e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.177046e+04, |g| = 1.248e+07, M = 7.6115e-01, solves 184/183/187
+f = 2.175625e+04  |g| =  1.218e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.175625e+04, |g| = 1.218e+07, M = 7.6065e-01, solves 185/184/188
+f = 2.174238e+04  |g| =  1.187e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.174238e+04, |g| = 1.187e+07, M = 7.6017e-01, solves 186/185/189
+f = 2.172884e+04  |g| =  1.157e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.172884e+04, |g| = 1.157e+07, M = 7.5971e-01, solves 187/186/190
+f = 2.171564e+04  |g| =  1.126e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.171564e+04, |g| = 1.126e+07, M = 7.5925e-01, solves 188/187/191
+f = 2.170276e+04  |g| =  1.095e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.170276e+04, |g| = 1.095e+07, M = 7.5880e-01, solves 189/188/192
+f = 2.169023e+04  |g| =  1.065e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.169023e+04, |g| = 1.065e+07, M = 7.5837e-01, solves 190/189/193
+f = 2.167803e+04  |g| =  1.034e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.167803e+04, |g| = 1.034e+07, M = 7.5795e-01, solves 191/190/194
+f = 2.166617e+04  |g| =  1.004e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.166617e+04, |g| = 1.004e+07, M = 7.5754e-01, solves 192/191/195
+f = 2.165466e+04  |g| =  8.967e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.165466e+04, |g| = 8.967e+06, M = 7.5714e-01, solves 193/192/196
+f = 2.164186e+04  |g| =  1.266e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.164186e+04, |g| = 1.266e+07, M = 7.5670e-01, solves 194/193/197
+f = 2.163050e+04  |g| =  1.193e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.163050e+04, |g| = 1.193e+07, M = 7.5631e-01, solves 195/194/198
+f = 2.162004e+04  |g| =  1.183e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.162004e+04, |g| = 1.183e+07, M = 7.5595e-01, solves 196/195/199
+f = 2.161198e+04  |g| =  6.103e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.161198e+04, |g| = 6.103e+06, M = 7.5567e-01, solves 197/196/200
+f = 2.160218e+04  |g| =  5.894e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.160218e+04, |g| = 5.894e+06, M = 7.5533e-01, solves 198/197/201
+f = 2.159268e+04  |g| =  5.680e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.159268e+04, |g| = 5.680e+06, M = 7.5501e-01, solves 199/198/202
+f = 2.158344e+04  |g| =  5.497e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.158344e+04, |g| = 5.497e+06, M = 7.5469e-01, solves 200/199/203
+f = 2.157394e+04  |g| =  5.194e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.157394e+04, |g| = 5.194e+06, M = 7.5436e-01, solves 201/200/204
+f = 2.156411e+04  |g| =  5.004e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.156411e+04, |g| = 5.004e+06, M = 7.5402e-01, solves 202/201/205
+f = 2.155556e+04  |g| =  4.768e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.155556e+04, |g| = 4.768e+06, M = 7.5373e-01, solves 203/202/206
+f = 2.154766e+04  |g| =  4.568e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.154766e+04, |g| = 4.568e+06, M = 7.5346e-01, solves 204/203/207
+f = 2.154012e+04  |g| =  4.366e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.154012e+04, |g| = 4.366e+06, M = 7.5320e-01, solves 205/204/208
+f = 2.153288e+04  |g| =  4.163e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.153288e+04, |g| = 4.163e+06, M = 7.5296e-01, solves 206/205/209
+f = 2.152595e+04  |g| =  3.961e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.152595e+04, |g| = 3.961e+06, M = 7.5272e-01, solves 207/206/210
+f = 2.151932e+04  |g| =  3.760e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.151932e+04, |g| = 3.760e+06, M = 7.5249e-01, solves 208/207/211
+f = 2.151298e+04  |g| =  3.559e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.151298e+04, |g| = 3.559e+06, M = 7.5227e-01, solves 209/208/212
+f = 2.150693e+04  |g| =  3.359e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.150693e+04, |g| = 3.359e+06, M = 7.5207e-01, solves 210/209/213
+f = 2.150117e+04  |g| =  3.160e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.150117e+04, |g| = 3.160e+06, M = 7.5187e-01, solves 211/210/214
+f = 2.149570e+04  |g| =  2.962e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.149570e+04, |g| = 2.962e+06, M = 7.5169e-01, solves 212/211/215
+f = 2.149051e+04  |g| =  2.763e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.149051e+04, |g| = 2.763e+06, M = 7.5151e-01, solves 213/212/216
+f = 2.148558e+04  |g| =  2.561e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.148558e+04, |g| = 2.561e+06, M = 7.5134e-01, solves 214/213/217
+f = 2.148087e+04  |g| =  2.321e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.148087e+04, |g| = 2.321e+06, M = 7.5118e-01, solves 215/214/218
+f = 2.147634e+04  |g| =  2.093e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.147634e+04, |g| = 2.093e+06, M = 7.5103e-01, solves 216/215/219
+f = 2.147200e+04  |g| =  1.872e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.147200e+04, |g| = 1.872e+06, M = 7.5088e-01, solves 217/216/220
+f = 2.146789e+04  |g| =  2.305e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.146789e+04, |g| = 2.305e+06, M = 7.5074e-01, solves 218/217/221
+f = 2.146364e+04  |g| =  8.074e+06  CG  2 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.146364e+04, |g| = 8.074e+06, M = 7.5060e-01, solves 219/218/223
+f = 2.146015e+04  |g| =  7.363e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.146015e+04, |g| = 7.363e+06, M = 7.5048e-01, solves 220/219/224
+f = 2.145698e+04  |g| =  6.655e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.145698e+04, |g| = 6.655e+06, M = 7.5037e-01, solves 221/220/225
+f = 2.145411e+04  |g| =  5.949e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.145411e+04, |g| = 5.949e+06, M = 7.5028e-01, solves 222/221/226
+f = 2.145153e+04  |g| =  5.245e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.145153e+04, |g| = 5.245e+06, M = 7.5019e-01, solves 223/222/227
+f = 2.144924e+04  |g| =  4.544e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.144924e+04, |g| = 4.544e+06, M = 7.5012e-01, solves 224/223/228
+f = 2.144723e+04  |g| =  3.845e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.144723e+04, |g| = 3.845e+06, M = 7.5005e-01, solves 225/224/229
+f = 2.144547e+04  |g| =  3.150e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.144547e+04, |g| = 3.150e+06, M = 7.4999e-01, solves 226/225/230
+f = 2.144396e+04  |g| =  2.463e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.144396e+04, |g| = 2.463e+06, M = 7.4994e-01, solves 227/226/231
+f = 2.144267e+04  |g| =  1.788e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.144267e+04, |g| = 1.788e+06, M = 7.4990e-01, solves 228/227/232
+f = 2.144156e+04  |g| =  1.137e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.144156e+04, |g| = 1.137e+06, M = 7.4986e-01, solves 229/228/233
+f = 2.144057e+04  |g| =  5.526e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.144057e+04, |g| = 5.526e+05, M = 7.4983e-01, solves 230/229/234
+f = 2.143963e+04  |g| =  3.871e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.143963e+04, |g| = 3.871e+05, M = 7.4980e-01, solves 231/230/235
+f = 2.143865e+04  |g| =  8.543e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.143865e+04, |g| = 8.543e+05, M = 7.4977e-01, solves 232/231/236
+f = 2.143752e+04  |g| =  1.404e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.143752e+04, |g| = 1.404e+06, M = 7.4973e-01, solves 233/232/237
+f = 2.143615e+04  |g| =  1.958e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.143615e+04, |g| = 1.958e+06, M = 7.4968e-01, solves 234/233/238
+f = 2.143444e+04  |g| =  2.502e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.143444e+04, |g| = 2.502e+06, M = 7.4962e-01, solves 235/234/239
+f = 2.143234e+04  |g| =  3.022e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.143234e+04, |g| = 3.022e+06, M = 7.4955e-01, solves 236/235/240
+f = 2.142984e+04  |g| =  3.503e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.142984e+04, |g| = 3.503e+06, M = 7.4946e-01, solves 237/236/241
+f = 2.142695e+04  |g| =  3.932e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.142695e+04, |g| = 3.932e+06, M = 7.4935e-01, solves 238/237/242
+f = 2.142377e+04  |g| =  5.562e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.142377e+04, |g| = 5.562e+06, M = 7.4923e-01, solves 239/238/243
+f = 2.141994e+04  |g| =  3.704e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.141994e+04, |g| = 3.704e+06, M = 7.4909e-01, solves 240/239/244
+f = 2.141613e+04  |g| =  5.389e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.141613e+04, |g| = 5.389e+06, M = 7.4895e-01, solves 241/240/245
+f = 2.141275e+04  |g| =  5.261e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.141275e+04, |g| = 5.261e+06, M = 7.4882e-01, solves 242/241/246
+f = 2.141027e+04  |g| =  1.398e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.141027e+04, |g| = 1.398e+07, M = 7.4872e-01, solves 243/242/247
+f = 2.140713e+04  |g| =  1.321e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.140713e+04, |g| = 1.321e+07, M = 7.4860e-01, solves 244/243/248
+f = 2.140401e+04  |g| =  1.232e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.140401e+04, |g| = 1.232e+07, M = 7.4848e-01, solves 245/244/249
+f = 2.140100e+04  |g| =  1.135e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.140100e+04, |g| = 1.135e+07, M = 7.4836e-01, solves 246/245/250
+f = 2.139814e+04  |g| =  1.032e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.139814e+04, |g| = 1.032e+07, M = 7.4825e-01, solves 247/246/251
+f = 2.139550e+04  |g| =  9.236e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.139550e+04, |g| = 9.236e+06, M = 7.4815e-01, solves 248/247/252
+f = 2.139311e+04  |g| =  8.117e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.139311e+04, |g| = 8.117e+06, M = 7.4805e-01, solves 249/248/253
+f = 2.139100e+04  |g| =  6.972e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.139100e+04, |g| = 6.972e+06, M = 7.4797e-01, solves 250/249/254
+f = 2.138917e+04  |g| =  5.812e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.138917e+04, |g| = 5.812e+06, M = 7.4790e-01, solves 251/250/255
+f = 2.138763e+04  |g| =  4.645e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.138763e+04, |g| = 4.645e+06, M = 7.4783e-01, solves 252/251/256
+f = 2.138639e+04  |g| =  3.482e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.138639e+04, |g| = 3.482e+06, M = 7.4778e-01, solves 253/252/257
+f = 2.138543e+04  |g| =  2.340e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.138543e+04, |g| = 2.340e+06, M = 7.4773e-01, solves 254/253/258
+f = 2.138474e+04  |g| =  1.252e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.138474e+04, |g| = 1.252e+06, M = 7.4770e-01, solves 255/254/259
+f = 2.138430e+04  |g| =  3.957e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.138430e+04, |g| = 3.957e+05, M = 7.4768e-01, solves 256/255/260
+f = 2.138405e+04  |g| =  7.198e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.138405e+04, |g| = 7.198e+05, M = 7.4766e-01, solves 257/256/261
+f = 2.138385e+04  |g| =  1.003e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.138385e+04, |g| = 1.003e+06, M = 7.4766e-01, solves 258/257/262
+f = 2.138344e+04  |g| =  1.252e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.138344e+04, |g| = 1.252e+06, M = 7.4764e-01, solves 259/258/263
+f = 2.138242e+04  |g| =  1.731e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.138242e+04, |g| = 1.731e+06, M = 7.4760e-01, solves 260/259/264
+f = 2.138078e+04  |g| =  2.173e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.138078e+04, |g| = 2.173e+06, M = 7.4754e-01, solves 261/260/265
+f = 2.137849e+04  |g| =  2.592e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.137849e+04, |g| = 2.592e+06, M = 7.4746e-01, solves 262/261/266
+f = 2.137559e+04  |g| =  2.954e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.137559e+04, |g| = 2.954e+06, M = 7.4735e-01, solves 263/262/267
+f = 2.137220e+04  |g| =  2.486e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.137220e+04, |g| = 2.486e+06, M = 7.4722e-01, solves 264/263/268
+f = 2.136803e+04  |g| =  1.362e+07  CG  2 boundary rho   0.999 th 1.00 Delta 5.98e-01
+  U = 2.136803e+04, |g| = 1.362e+07, M = 7.4709e-01, solves 265/264/270
+f = 2.136399e+04  |g| =  1.277e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.136399e+04, |g| = 1.277e+07, M = 7.4694e-01, solves 266/265/271
+f = 2.135986e+04  |g| =  1.188e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.135986e+04, |g| = 1.188e+07, M = 7.4679e-01, solves 267/266/272
+f = 2.135572e+04  |g| =  1.096e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.135572e+04, |g| = 1.096e+07, M = 7.4664e-01, solves 268/267/273
+f = 2.135167e+04  |g| =  1.004e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.135167e+04, |g| = 1.004e+07, M = 7.4649e-01, solves 269/268/274
+f = 2.134777e+04  |g| =  9.130e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.134777e+04, |g| = 9.130e+06, M = 7.4634e-01, solves 270/269/275
+f = 2.134405e+04  |g| =  8.225e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.134405e+04, |g| = 8.225e+06, M = 7.4621e-01, solves 271/270/276
+f = 2.134055e+04  |g| =  7.332e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.134055e+04, |g| = 7.332e+06, M = 7.4608e-01, solves 272/271/277
+f = 2.133727e+04  |g| =  6.450e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.133727e+04, |g| = 6.450e+06, M = 7.4596e-01, solves 273/272/278
+f = 2.133423e+04  |g| =  5.581e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.133423e+04, |g| = 5.581e+06, M = 7.4585e-01, solves 274/273/279
+f = 2.133143e+04  |g| =  4.725e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.133143e+04, |g| = 4.725e+06, M = 7.4574e-01, solves 275/274/280
+f = 2.132887e+04  |g| =  3.891e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.132887e+04, |g| = 3.891e+06, M = 7.4565e-01, solves 276/275/281
+f = 2.132653e+04  |g| =  3.092e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.132653e+04, |g| = 3.092e+06, M = 7.4556e-01, solves 277/276/282
+f = 2.132441e+04  |g| =  2.361e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.132441e+04, |g| = 2.361e+06, M = 7.4548e-01, solves 278/277/283
+f = 2.132248e+04  |g| =  1.697e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.132248e+04, |g| = 1.697e+06, M = 7.4540e-01, solves 279/278/284
+f = 2.132071e+04  |g| =  1.283e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.132071e+04, |g| = 1.283e+06, M = 7.4534e-01, solves 280/279/285
+f = 2.131907e+04  |g| =  1.220e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.131907e+04, |g| = 1.220e+06, M = 7.4528e-01, solves 281/280/286
+f = 2.131751e+04  |g| =  1.375e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.131751e+04, |g| = 1.375e+06, M = 7.4521e-01, solves 282/281/287
+f = 2.131572e+04  |g| =  4.483e+06  CG  2 boundary rho   1.001 th 1.00 Delta 5.98e-01
+  U = 2.131572e+04, |g| = 4.483e+06, M = 7.4517e-01, solves 283/282/289
+f = 2.131271e+04  |g| =  1.337e+06  CG  2 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.131271e+04, |g| = 1.337e+06, M = 7.4506e-01, solves 284/283/291
+f = 2.130890e+04  |g| =  1.396e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.130890e+04, |g| = 1.396e+06, M = 7.4492e-01, solves 285/284/292
+f = 2.130506e+04  |g| =  1.277e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.130506e+04, |g| = 1.277e+06, M = 7.4477e-01, solves 286/285/293
+f = 2.130141e+04  |g| =  1.588e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.130141e+04, |g| = 1.588e+06, M = 7.4464e-01, solves 287/286/294
+f = 2.129804e+04  |g| =  1.408e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.129804e+04, |g| = 1.408e+06, M = 7.4452e-01, solves 288/287/295
+f = 2.129498e+04  |g| =  1.207e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.129498e+04, |g| = 1.207e+06, M = 7.4440e-01, solves 289/288/296
+f = 2.129218e+04  |g| =  1.051e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.129218e+04, |g| = 1.051e+06, M = 7.4430e-01, solves 290/289/297
+f = 2.128963e+04  |g| =  6.774e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.128963e+04, |g| = 6.774e+05, M = 7.4421e-01, solves 291/290/298
+f = 2.128732e+04  |g| =  5.724e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.128732e+04, |g| = 5.724e+05, M = 7.4412e-01, solves 292/291/299
+f = 2.128534e+04  |g| =  1.054e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.128534e+04, |g| = 1.054e+06, M = 7.4406e-01, solves 293/292/300
+f = 2.128363e+04  |g| =  1.075e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.128363e+04, |g| = 1.075e+06, M = 7.4399e-01, solves 294/293/301
+f = 2.128197e+04  |g| =  6.822e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.128197e+04, |g| = 6.822e+05, M = 7.4393e-01, solves 295/294/302
+f = 2.128038e+04  |g| =  5.559e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.128038e+04, |g| = 5.559e+05, M = 7.4386e-01, solves 296/295/303
+f = 2.127889e+04  |g| =  4.031e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.127889e+04, |g| = 4.031e+05, M = 7.4381e-01, solves 297/296/304
+f = 2.127743e+04  |g| =  2.913e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.127743e+04, |g| = 2.913e+05, M = 7.4375e-01, solves 298/297/305
+f = 2.127596e+04  |g| =  2.402e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.127596e+04, |g| = 2.402e+05, M = 7.4369e-01, solves 299/298/306
+f = 2.127446e+04  |g| =  3.050e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.127446e+04, |g| = 3.050e+05, M = 7.4363e-01, solves 300/299/307
+f = 2.127286e+04  |g| =  4.279e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.127286e+04, |g| = 4.279e+05, M = 7.4357e-01, solves 301/300/308
+f = 2.127118e+04  |g| =  5.908e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.98e-01
+  U = 2.127118e+04, |g| = 5.908e+05, M = 7.4351e-01, solves 302/301/309
+Round 2: inflation 2.188, 150 iterations (flag 1), M(a_MAP) = 7.4351e-01 = 1.889 M_noise, |a_MAP - a_true|/|a_true| = 8.301e-02
+f = 2.463791e+04  |g| =  6.843e+05  init
+  U = 2.463791e+04, |g| = 6.843e+05, M = 7.4351e-01, solves 302/301/309
+f = 2.452965e+04  |g| =  1.515e+07  CG  8 conv     rho   0.970 th 1.00 Delta 5.91e-03
+  U = 2.452965e+04, |g| = 1.515e+07, M = 7.3989e-01, solves 303/302/317
+f = 2.452963e+04  |g| =  1.511e+07  CG  1 boundary rho   1.000 th 1.00 Delta 2.36e-02
+  U = 2.452963e+04, |g| = 1.511e+07, M = 7.3989e-01, solves 304/303/318
+f = 2.452955e+04  |g| =  1.500e+07  CG  1 boundary rho   1.000 th 1.00 Delta 9.45e-02
+  U = 2.452955e+04, |g| = 1.500e+07, M = 7.3989e-01, solves 305/304/319
+f = 2.452920e+04  |g| =  1.454e+07  CG  1 boundary rho   1.000 th 1.00 Delta 3.78e-01
+  U = 2.452920e+04, |g| = 1.454e+07, M = 7.3988e-01, solves 306/305/320
+f = 2.452788e+04  |g| =  1.276e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.452788e+04, |g| = 1.276e+07, M = 7.3983e-01, solves 307/306/321
+f = 2.452607e+04  |g| =  1.010e+07  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.452607e+04, |g| = 1.010e+07, M = 7.3977e-01, solves 308/307/322
+f = 2.452456e+04  |g| =  7.563e+06  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.452456e+04, |g| = 7.563e+06, M = 7.3971e-01, solves 309/308/323
+f = 2.452334e+04  |g| =  5.167e+06  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.452334e+04, |g| = 5.167e+06, M = 7.3967e-01, solves 310/309/324
+f = 2.452242e+04  |g| =  2.949e+06  CG  1 boundary rho   1.002 th 1.00 Delta 5.91e-01
+  U = 2.452242e+04, |g| = 2.949e+06, M = 7.3963e-01, solves 311/310/325
+f = 2.452179e+04  |g| =  9.708e+05  CG  1 boundary rho   1.003 th 1.00 Delta 5.91e-01
+  U = 2.452179e+04, |g| = 9.708e+05, M = 7.3960e-01, solves 312/311/326
+f = 2.452145e+04  |g| =  6.448e+05  CG  1 boundary rho   1.007 th 1.00 Delta 5.91e-01
+  U = 2.452145e+04, |g| = 6.448e+05, M = 7.3958e-01, solves 313/312/327
+f = 2.452134e+04  |g| =  5.558e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.452134e+04, |g| = 5.558e+05, M = 7.3957e-01, solves 314/313/329
+f = 2.452133e+04  |g| =  4.916e+04  CG  2 conv     rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.452133e+04, |g| = 4.916e+04, M = 7.3957e-01, solves 315/314/331
+f = 2.452131e+04  |g| =  7.448e+04  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.452131e+04, |g| = 7.448e+04, M = 7.3957e-01, solves 316/315/332
+f = 2.452105e+04  |g| =  8.438e+05  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.452105e+04, |g| = 8.438e+05, M = 7.3955e-01, solves 317/316/333
+f = 2.452083e+04  |g| =  1.278e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.452083e+04, |g| = 1.278e+06, M = 7.3954e-01, solves 318/317/334
+f = 2.452059e+04  |g| =  1.352e+06  CG  1 boundary rho   0.999 th 1.00 Delta 5.91e-01
+  U = 2.452059e+04, |g| = 1.352e+06, M = 7.3954e-01, solves 319/318/335
+f = 2.451940e+04  |g| =  1.809e+06  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451940e+04, |g| = 1.809e+06, M = 7.3948e-01, solves 320/319/337
+f = 2.451854e+04  |g| =  1.256e+06  CG  1 boundary rho   0.999 th 1.00 Delta 5.91e-01
+  U = 2.451854e+04, |g| = 1.256e+06, M = 7.3945e-01, solves 321/320/338
+f = 2.451798e+04  |g| =  5.973e+05  CG  1 boundary rho   0.999 th 1.00 Delta 5.91e-01
+  U = 2.451798e+04, |g| = 5.973e+05, M = 7.3943e-01, solves 322/321/339
+f = 2.451776e+04  |g| =  9.231e+04  CG  1 boundary rho   0.997 th 1.00 Delta 5.91e-01
+  U = 2.451776e+04, |g| = 9.231e+04, M = 7.3942e-01, solves 323/322/340
+f = 2.451769e+04  |g| =  1.298e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451769e+04, |g| = 1.298e+05, M = 7.3942e-01, solves 324/323/342
+f = 2.451753e+04  |g| =  5.894e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451753e+04, |g| = 5.894e+04, M = 7.3941e-01, solves 325/324/344
+f = 2.451724e+04  |g| =  2.468e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451724e+04, |g| = 2.468e+05, M = 7.3939e-01, solves 326/325/345
+f = 2.451712e+04  |g| =  4.081e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451712e+04, |g| = 4.081e+05, M = 7.3937e-01, solves 327/326/346
+f = 2.451705e+04  |g| =  2.523e+04  CG  1 boundary rho   0.998 th 1.00 Delta 5.91e-01
+  U = 2.451705e+04, |g| = 2.523e+04, M = 7.3938e-01, solves 328/327/347
+f = 2.451702e+04  |g| =  2.142e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451702e+04, |g| = 2.142e+05, M = 7.3938e-01, solves 329/328/349
+f = 2.451690e+04  |g| =  1.180e+05  CG  3 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.451690e+04, |g| = 1.180e+05, M = 7.3939e-01, solves 330/329/352
+f = 2.451643e+04  |g| =  2.702e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451643e+04, |g| = 2.702e+05, M = 7.3937e-01, solves 331/330/353
+f = 2.451609e+04  |g| =  9.304e+05  CG  1 boundary rho   1.002 th 1.00 Delta 5.91e-01
+  U = 2.451609e+04, |g| = 9.304e+05, M = 7.3936e-01, solves 332/331/354
+f = 2.451571e+04  |g| =  1.062e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451571e+04, |g| = 1.062e+05, M = 7.3934e-01, solves 333/332/355
+f = 2.451527e+04  |g| =  6.661e+05  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.451527e+04, |g| = 6.661e+05, M = 7.3932e-01, solves 334/333/356
+f = 2.451473e+04  |g| =  2.621e+05  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.451473e+04, |g| = 2.621e+05, M = 7.3930e-01, solves 335/334/357
+f = 2.451418e+04  |g| =  1.085e+06  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.451418e+04, |g| = 1.085e+06, M = 7.3927e-01, solves 336/335/358
+f = 2.451376e+04  |g| =  4.607e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451376e+04, |g| = 4.607e+05, M = 7.3924e-01, solves 337/336/359
+f = 2.451356e+04  |g| =  3.126e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451356e+04, |g| = 3.126e+05, M = 7.3923e-01, solves 338/337/360
+f = 2.451349e+04  |g| =  1.062e+05  CG  3 boundary rho   0.999 th 1.00 Delta 5.91e-01
+  U = 2.451349e+04, |g| = 1.062e+05, M = 7.3922e-01, solves 339/338/363
+f = 2.451347e+04  |g| =  1.106e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451347e+04, |g| = 1.106e+04, M = 7.3922e-01, solves 340/339/366
+f = 2.451341e+04  |g| =  1.692e+05  CG  2 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.451341e+04, |g| = 1.692e+05, M = 7.3922e-01, solves 341/340/368
+f = 2.451330e+04  |g| =  2.347e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451330e+04, |g| = 2.347e+05, M = 7.3921e-01, solves 342/341/370
+f = 2.451318e+04  |g| =  2.246e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451318e+04, |g| = 2.246e+05, M = 7.3920e-01, solves 343/342/371
+f = 2.451308e+04  |g| =  1.157e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451308e+04, |g| = 1.157e+05, M = 7.3920e-01, solves 344/343/373
+f = 2.451299e+04  |g| =  1.166e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451299e+04, |g| = 1.166e+05, M = 7.3919e-01, solves 345/344/375
+f = 2.451295e+04  |g| =  5.519e+04  CG  2 boundary rho   0.999 th 1.00 Delta 5.91e-01
+  U = 2.451295e+04, |g| = 5.519e+04, M = 7.3918e-01, solves 346/345/377
+f = 2.451291e+04  |g| =  8.264e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451291e+04, |g| = 8.264e+04, M = 7.3918e-01, solves 347/346/379
+f = 2.451274e+04  |g| =  8.965e+03  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451274e+04, |g| = 8.965e+03, M = 7.3918e-01, solves 348/347/381
+f = 2.451232e+04  |g| =  1.354e+06  CG  1 boundary rho   1.005 th 1.00 Delta 5.91e-01
+  U = 2.451232e+04, |g| = 1.354e+06, M = 7.3917e-01, solves 349/348/382
+f = 2.451191e+04  |g| =  1.547e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451191e+04, |g| = 1.547e+06, M = 7.3916e-01, solves 350/349/383
+f = 2.451167e+04  |g| =  4.723e+05  CG  2 boundary rho   0.999 th 1.00 Delta 5.91e-01
+  U = 2.451167e+04, |g| = 4.723e+05, M = 7.3915e-01, solves 351/350/385
+f = 2.451164e+04  |g| =  2.308e+04  CG  1 conv     rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.451164e+04, |g| = 2.308e+04, M = 7.3915e-01, solves 352/351/386
+f = 2.451162e+04  |g| =  2.936e+04  CG  4 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451162e+04, |g| = 2.936e+04, M = 7.3915e-01, solves 353/352/390
+f = 2.451160e+04  |g| =  3.055e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451160e+04, |g| = 3.055e+04, M = 7.3914e-01, solves 354/353/392
+f = 2.451156e+04  |g| =  5.695e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451156e+04, |g| = 5.695e+04, M = 7.3914e-01, solves 355/354/394
+f = 2.451152e+04  |g| =  3.371e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451152e+04, |g| = 3.371e+04, M = 7.3913e-01, solves 356/355/397
+f = 2.451140e+04  |g| =  6.153e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451140e+04, |g| = 6.153e+04, M = 7.3913e-01, solves 357/356/399
+f = 2.451130e+04  |g| =  2.931e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451130e+04, |g| = 2.931e+05, M = 7.3914e-01, solves 358/357/401
+f = 2.451030e+04  |g| =  3.167e+04  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451030e+04, |g| = 3.167e+04, M = 7.3910e-01, solves 359/358/402
+f = 2.450972e+04  |g| =  9.786e+04  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450972e+04, |g| = 9.786e+04, M = 7.3907e-01, solves 360/359/403
+f = 2.450946e+04  |g| =  3.044e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450946e+04, |g| = 3.044e+04, M = 7.3904e-01, solves 361/360/405
+f = 2.450938e+04  |g| =  8.463e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450938e+04, |g| = 8.463e+04, M = 7.3903e-01, solves 362/361/408
+f = 2.450892e+04  |g| =  1.212e+06  CG  1 boundary rho   0.998 th 1.00 Delta 5.91e-01
+  U = 2.450892e+04, |g| = 1.212e+06, M = 7.3899e-01, solves 363/362/409
+f = 2.450872e+04  |g| =  1.432e+05  CG  2 boundary rho   1.002 th 1.00 Delta 5.91e-01
+  U = 2.450872e+04, |g| = 1.432e+05, M = 7.3896e-01, solves 364/363/411
+f = 2.450862e+04  |g| =  2.652e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450862e+04, |g| = 2.652e+05, M = 7.3895e-01, solves 365/364/413
+f = 2.450861e+04  |g| =  2.154e+04  CG  1 conv     rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450861e+04, |g| = 2.154e+04, M = 7.3895e-01, solves 366/365/414
+f = 2.450857e+04  |g| =  2.680e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450857e+04, |g| = 2.680e+05, M = 7.3895e-01, solves 367/366/415
+f = 2.450838e+04  |g| =  1.107e+06  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.450838e+04, |g| = 1.107e+06, M = 7.3894e-01, solves 368/367/416
+f = 2.450827e+04  |g| =  5.850e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450827e+04, |g| = 5.850e+05, M = 7.3894e-01, solves 369/368/418
+f = 2.450816e+04  |g| =  4.601e+05  CG  2 boundary rho   0.995 th 1.00 Delta 5.91e-01
+  U = 2.450816e+04, |g| = 4.601e+05, M = 7.3893e-01, solves 370/369/420
+f = 2.450805e+04  |g| =  2.056e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450805e+04, |g| = 2.056e+05, M = 7.3892e-01, solves 371/370/422
+f = 2.450792e+04  |g| =  1.799e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450792e+04, |g| = 1.799e+04, M = 7.3891e-01, solves 372/371/425
+f = 2.450767e+04  |g| =  3.956e+04  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450767e+04, |g| = 3.956e+04, M = 7.3888e-01, solves 373/372/426
+f = 2.450758e+04  |g| =  8.349e+03  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450758e+04, |g| = 8.349e+03, M = 7.3886e-01, solves 374/373/429
+f = 2.450751e+04  |g| =  1.650e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450751e+04, |g| = 1.650e+04, M = 7.3885e-01, solves 375/374/431
+f = 2.450747e+04  |g| =  1.944e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450747e+04, |g| = 1.944e+04, M = 7.3884e-01, solves 376/375/434
+f = 2.450741e+04  |g| =  5.951e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450741e+04, |g| = 5.951e+04, M = 7.3883e-01, solves 377/376/437
+f = 2.450724e+04  |g| =  2.115e+04  CG  3 boundary rho   1.002 th 1.00 Delta 5.91e-01
+  U = 2.450724e+04, |g| = 2.115e+04, M = 7.3882e-01, solves 378/377/440
+f = 2.450715e+04  |g| =  3.612e+04  CG  4 boundary rho   1.003 th 1.00 Delta 5.91e-01
+  U = 2.450715e+04, |g| = 3.612e+04, M = 7.3882e-01, solves 379/378/444
+f = 2.450712e+04  |g| =  3.273e+04  CG  2 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.450712e+04, |g| = 3.273e+04, M = 7.3881e-01, solves 380/379/446
+f = 2.450712e+04  |g| =  1.647e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450712e+04, |g| = 1.647e+05, M = 7.3882e-01, solves 381/380/448
+f = 2.450709e+04  |g| =  7.492e+04  CG  2 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.450709e+04, |g| = 7.492e+04, M = 7.3881e-01, solves 382/381/450
+f = 2.450708e+04  |g| =  2.938e+04  CG  5 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.450708e+04, |g| = 2.938e+04, M = 7.3880e-01, solves 383/382/455
+f = 2.450707e+04  |g| =  4.811e+03  CG  4 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450707e+04, |g| = 4.811e+03, M = 7.3880e-01, solves 384/383/459
+f = 2.450706e+04  |g| =  1.443e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450706e+04, |g| = 1.443e+04, M = 7.3880e-01, solves 385/384/462
+f = 2.450703e+04  |g| =  2.872e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450703e+04, |g| = 2.872e+04, M = 7.3880e-01, solves 386/385/465
+f = 2.450673e+04  |g| =  5.987e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450673e+04, |g| = 5.987e+04, M = 7.3881e-01, solves 387/386/467
+f = 2.450666e+04  |g| =  9.036e+03  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450666e+04, |g| = 9.036e+03, M = 7.3881e-01, solves 388/387/470
+f = 2.450600e+04  |g| =  8.090e+04  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450600e+04, |g| = 8.090e+04, M = 7.3878e-01, solves 389/388/471
+f = 2.450566e+04  |g| =  8.289e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450566e+04, |g| = 8.289e+04, M = 7.3876e-01, solves 390/389/473
+f = 2.450556e+04  |g| =  1.950e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450556e+04, |g| = 1.950e+04, M = 7.3873e-01, solves 391/390/476
+f = 2.450554e+04  |g| =  4.831e+03  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450554e+04, |g| = 4.831e+03, M = 7.3873e-01, solves 392/391/479
+f = 2.450550e+04  |g| =  6.428e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450550e+04, |g| = 6.428e+04, M = 7.3873e-01, solves 393/392/482
+f = 2.450548e+04  |g| =  8.828e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450548e+04, |g| = 8.828e+04, M = 7.3873e-01, solves 394/393/484
+f = 2.450546e+04  |g| =  4.506e+04  CG  4 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450546e+04, |g| = 4.506e+04, M = 7.3873e-01, solves 395/394/488
+f = 2.450545e+04  |g| =  5.756e+04  CG  5 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450545e+04, |g| = 5.756e+04, M = 7.3873e-01, solves 396/395/493
+f = 2.450545e+04  |g| =  3.361e+03  CG  2 conv     rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450545e+04, |g| = 3.361e+03, M = 7.3873e-01, solves 397/396/495
+f = 2.450544e+04  |g| =  6.869e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450544e+04, |g| = 6.869e+04, M = 7.3873e-01, solves 398/397/498
+f = 2.450542e+04  |g| =  6.719e+04  CG  4 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450542e+04, |g| = 6.719e+04, M = 7.3873e-01, solves 399/398/502
+f = 2.450539e+04  |g| =  1.903e+04  CG  5 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450539e+04, |g| = 1.903e+04, M = 7.3874e-01, solves 400/399/507
+f = 2.450530e+04  |g| =  3.927e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450530e+04, |g| = 3.927e+04, M = 7.3873e-01, solves 401/400/510
+f = 2.450521e+04  |g| =  1.260e+05  CG  3 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.450521e+04, |g| = 1.260e+05, M = 7.3872e-01, solves 402/401/513
+f = 2.450507e+04  |g| =  2.031e+05  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450507e+04, |g| = 2.031e+05, M = 7.3872e-01, solves 403/402/516
+f = 2.450489e+04  |g| =  2.341e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450489e+04, |g| = 2.341e+05, M = 7.3871e-01, solves 404/403/518
+f = 2.450486e+04  |g| =  1.098e+05  CG  2 boundary rho   0.999 th 1.00 Delta 5.91e-01
+  U = 2.450486e+04, |g| = 1.098e+05, M = 7.3871e-01, solves 405/404/520
+f = 2.450483e+04  |g| =  4.530e+04  CG  5 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450483e+04, |g| = 4.530e+04, M = 7.3869e-01, solves 406/405/525
+f = 2.450482e+04  |g| =  5.152e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450482e+04, |g| = 5.152e+04, M = 7.3869e-01, solves 407/406/528
+f = 2.450480e+04  |g| =  8.782e+04  CG  4 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450480e+04, |g| = 8.782e+04, M = 7.3870e-01, solves 408/407/532
+f = 2.450475e+04  |g| =  1.745e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450475e+04, |g| = 1.745e+04, M = 7.3869e-01, solves 409/408/535
+f = 2.450473e+04  |g| =  1.290e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450473e+04, |g| = 1.290e+04, M = 7.3869e-01, solves 410/409/538
+f = 2.450471e+04  |g| =  2.214e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450471e+04, |g| = 2.214e+04, M = 7.3869e-01, solves 411/410/540
+f = 2.450470e+04  |g| =  2.253e+04  CG  4 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450470e+04, |g| = 2.253e+04, M = 7.3869e-01, solves 412/411/544
+f = 2.450470e+04  |g| =  6.928e+04  CG  3 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.450470e+04, |g| = 6.928e+04, M = 7.3869e-01, solves 413/412/547
+srun: Job step aborted: Waiting up to 602 seconds for job step to finish.
+[2026-11-25T13:10:50.019] error: *** STEP 7987365.0 ON p93 CANCELLED AT 2026-11-25T13:10:50 DUE TO TIME LIMIT ***
+[2026-11-25T13:10:50.019] error: *** JOB 7987365 ON p93 CANCELLED AT 2026-11-25T13:10:50 DUE TO TIME LIMIT ***

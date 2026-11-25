@@ -19,5 +19,6 @@ module load MATLAB  # check the version with `module avail MATLAB`
 REPO_DIR="$SLURM_SUBMIT_DIR/.."
 BAYES_DIR="$REPO_DIR/bayes"
 RESUME="${RESUME:-false}"
+MAXITER="${MAXITER:-150}"
 
-srun matlab -batch "addpath('$BAYES_DIR'); maxNumCompThreads($SLURM_CPUS_PER_TASK); m=151; m_p=26; resume=$RESUME; run_highres_map"
+srun matlab -batch "addpath('$BAYES_DIR'); maxNumCompThreads($SLURM_CPUS_PER_TASK); m=151; m_p=26; resume=$RESUME; maxIter=$MAXITER; run_highres_map"
