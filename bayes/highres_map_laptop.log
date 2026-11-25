@@ -1,0 +1,77 @@
+nohup: ignoring input
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+High-res noisy data: m = 151, m_p = 26, sigma0 = 4.001e-02 (eta = 0.02), dt_d = 0.01, N = 52800
+  M_noise = 3.9367e-01 (sigma0^2 dt_d N/2 = 4.2264e-01), M(a_true nodes) = 1.1492e+01, inflation = 1.000
+Resuming from /home/robindymer/Kod/adjoint-inversion/bayes/results/highres_map_m151_mp26_eta0.02.mat with inflation 1.889
+f = 2.463791e+04  |g| =  6.843e+05  init
+  U = 2.463791e+04, |g| = 6.843e+05, M = 7.4351e-01, solves 2/1/0
+f = 2.452966e+04  |g| =  1.515e+07  CG  8 conv     rho   0.970 th 1.00 Delta 5.91e-03
+  U = 2.452966e+04, |g| = 1.515e+07, M = 7.3989e-01, solves 3/2/8
+f = 2.452963e+04  |g| =  1.511e+07  CG  1 boundary rho   1.000 th 1.00 Delta 2.36e-02
+  U = 2.452963e+04, |g| = 1.511e+07, M = 7.3989e-01, solves 4/3/9
+f = 2.452955e+04  |g| =  1.500e+07  CG  1 boundary rho   1.000 th 1.00 Delta 9.45e-02
+  U = 2.452955e+04, |g| = 1.500e+07, M = 7.3989e-01, solves 5/4/10
+f = 2.452920e+04  |g| =  1.454e+07  CG  1 boundary rho   1.000 th 1.00 Delta 3.78e-01
+  U = 2.452920e+04, |g| = 1.454e+07, M = 7.3988e-01, solves 6/5/11
+f = 2.452789e+04  |g| =  1.276e+07  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.452789e+04, |g| = 1.276e+07, M = 7.3983e-01, solves 7/6/12
+f = 2.452607e+04  |g| =  1.010e+07  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.452607e+04, |g| = 1.010e+07, M = 7.3977e-01, solves 8/7/13
+f = 2.452456e+04  |g| =  7.564e+06  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.452456e+04, |g| = 7.564e+06, M = 7.3971e-01, solves 9/8/14
+f = 2.452334e+04  |g| =  5.167e+06  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.452334e+04, |g| = 5.167e+06, M = 7.3967e-01, solves 10/9/15
+f = 2.452242e+04  |g| =  2.949e+06  CG  1 boundary rho   1.002 th 1.00 Delta 5.91e-01
+  U = 2.452242e+04, |g| = 2.949e+06, M = 7.3963e-01, solves 11/10/16
+f = 2.452179e+04  |g| =  9.705e+05  CG  1 boundary rho   1.003 th 1.00 Delta 5.91e-01
+  U = 2.452179e+04, |g| = 9.705e+05, M = 7.3960e-01, solves 12/11/17
+f = 2.452145e+04  |g| =  6.453e+05  CG  1 boundary rho   1.007 th 1.00 Delta 5.91e-01
+  U = 2.452145e+04, |g| = 6.453e+05, M = 7.3958e-01, solves 13/12/18
+f = 2.452134e+04  |g| =  5.575e+05  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.452134e+04, |g| = 5.575e+05, M = 7.3957e-01, solves 14/13/20
+f = 2.452133e+04  |g| =  4.916e+04  CG  2 conv     rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.452133e+04, |g| = 4.916e+04, M = 7.3957e-01, solves 15/14/22
+f = 2.452131e+04  |g| =  7.434e+04  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.452131e+04, |g| = 7.434e+04, M = 7.3957e-01, solves 16/15/23
+f = 2.452105e+04  |g| =  8.445e+05  CG  1 boundary rho   1.001 th 1.00 Delta 5.91e-01
+  U = 2.452105e+04, |g| = 8.445e+05, M = 7.3955e-01, solves 17/16/24
+f = 2.452082e+04  |g| =  1.283e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.452082e+04, |g| = 1.283e+06, M = 7.3954e-01, solves 18/17/25
+f = 2.452057e+04  |g| =  1.623e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.452057e+04, |g| = 1.623e+06, M = 7.3953e-01, solves 19/18/26
+f = 2.451997e+04  |g| =  1.955e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451997e+04, |g| = 1.955e+06, M = 7.3950e-01, solves 20/19/27
+f = 2.451940e+04  |g| =  1.712e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451940e+04, |g| = 1.712e+06, M = 7.3947e-01, solves 21/20/28
+f = 2.451882e+04  |g| =  9.665e+05  CG  1 boundary rho   0.998 th 1.00 Delta 5.91e-01
+  U = 2.451882e+04, |g| = 9.665e+05, M = 7.3944e-01, solves 22/21/29
+f = 2.451848e+04  |g| =  8.624e+04  CG  1 boundary rho   0.996 th 1.00 Delta 5.91e-01
+  U = 2.451848e+04, |g| = 8.624e+04, M = 7.3942e-01, solves 23/22/30
+f = 2.451835e+04  |g| =  6.328e+05  CG  2 boundary rho   0.996 th 1.00 Delta 5.91e-01
+  U = 2.451835e+04, |g| = 6.328e+05, M = 7.3942e-01, solves 24/23/32
+f = 2.451807e+04  |g| =  1.002e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451807e+04, |g| = 1.002e+05, M = 7.3941e-01, solves 25/24/33
+f = 2.451791e+04  |g| =  4.652e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451791e+04, |g| = 4.652e+05, M = 7.3941e-01, solves 26/25/34
+f = 2.451774e+04  |g| =  6.401e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451774e+04, |g| = 6.401e+05, M = 7.3940e-01, solves 27/26/35
+f = 2.451758e+04  |g| =  3.696e+05  CG  1 boundary rho   0.999 th 1.00 Delta 5.91e-01
+  U = 2.451758e+04, |g| = 3.696e+05, M = 7.3940e-01, solves 28/27/36
+f = 2.451749e+04  |g| =  6.954e+04  CG  1 boundary rho   0.999 th 1.00 Delta 5.91e-01
+  U = 2.451749e+04, |g| = 6.954e+04, M = 7.3940e-01, solves 29/28/37
+f = 2.451744e+04  |g| =  8.700e+04  CG  2 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451744e+04, |g| = 8.700e+04, M = 7.3941e-01, solves 30/29/39
+f = 2.451737e+04  |g| =  1.728e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451737e+04, |g| = 1.728e+05, M = 7.3941e-01, solves 31/30/40
+f = 2.451714e+04  |g| =  3.779e+05  CG  1 boundary rho   1.000 th 1.00 Delta 5.91e-01
+  U = 2.451714e+04, |g| = 3.779e+05, M = 7.3939e-01, solves 32/31/41
+Round 1: inflation 1.889, 30 iterations (flag 1), M(a_MAP) = 7.3939e-01 = 1.878 M_noise, |a_MAP - a_true|/|a_true| = 9.089e-02
+Eigenvalues of the prior-preconditioned data Hessian: max 1.13e+09, 17 of 26 above 1
+Solves: 32 forward, 31 adjoint, 67 Hv
+Saved /home/robindymer/Kod/adjoint-inversion/bayes/results/highres_map_m151_mp26_eta0.02.mat

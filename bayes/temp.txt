@@ -1,0 +1,2 @@
+nohup matlab -batch "m=151; m_p=26; resume=true; maxIter=30; run_highres_map" > highres_map_laptop.log 2>&1 &
+tail -f highres_map_laptop.log      # Ctrl-C stops following the log; the job keeps running
