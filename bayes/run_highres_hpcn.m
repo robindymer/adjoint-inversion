@@ -16,6 +16,7 @@ eta = 0.02;
 if ~exist('nIter', 'var'), nIter = 1000; end
 if ~exist('s', 'var'), s = 1; end
 if ~exist('seed', 'var'), seed = 1; end
+if ~exist('nAdapt', 'var'), nAdapt = 0; end   % > 0: adapt s towards 25 % acceptance (burn-in)
 
 resDir = fullfile(bayesDir, 'results');
 L = load(fullfile(resDir, sprintf('highres_map_m%d_mp%d_eta%g.mat', m, m_p, eta)), ...
@@ -33,7 +34,7 @@ while ~isfinite(post.U(a0))
 end
 
 opts.ref = struct('mu', aMap, 'R', RH);
-opts.nAdapt = 0;
+opts.nAdapt = nAdapt;
 opts.rs = rs;
 opts.saveEvery = 10;
 opts.saveFile = fullfile(resDir, sprintf('hpcn_highres_m%d_mp%d_eta%g_s%g_seed%d.mat', m, m_p, eta, s, seed));
