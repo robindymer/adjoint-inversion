@@ -1,2 +1,24 @@
 nohup matlab -batch "m=151; m_p=26; resume=true; maxIter=30; run_highres_map" > highres_map_laptop.log 2>&1 &
 tail -f highres_map_laptop.log      # Ctrl-C stops following the log; the job keeps running
+///////////////////
+# keep the run-1 chains, if they exist here
+mkdir -p results/highres_run1 logs
+mv results/*_highres_m151_*seed*.mat results/highres_run1/ 2>/dev/null
+
+# 4 seeds × 3 samplers, all in the background
+for s in 1 2 3 4; do
+  for r in hpcn mala hmc; do
+    nohup matlab -batch "maxNumCompThreads(2); m=151; m_p=26; seed=$s; run_highres_$r" \
+      > logs/highres_${r}_seed$s.log 2>&1 &
+  done
+done
+# Bigger budget
+for s in 1 2 3 4; do
+  nohup matlab -batch "maxNumCompThreads(2); m=151; m_p=26; seed=$s; nIter=3000; run_highres_hpcn" > logs/highres_hpcn_seed$s.log 2>&1 &
+  nohup matlab -batch "maxNumCompThreads(2); m=151; m_p=26; seed=$s; nIter=1500; nAdapt=100; run_highres_mala" > logs/highres_mala_seed$s.log 2>&1 &
+  nohup matlab -batch "maxNumCompThreads(2); m=151; m_p=26; seed=$s; nIter=300; nAdapt=40; run_highres_hmc" > logs/highres_hmc_seed$s.log 2>&1 &
+done
+
+for f in logs/highres_*.log; do echo "$f: $(tail -n1 $f)"; done
+
+for f in logs/highres_*.log; do echo "== $f"; tail -n 5 "$f"; done; echo "running: $(pgrep -f run_highres | wc -l)"
