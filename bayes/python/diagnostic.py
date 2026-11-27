@@ -8,6 +8,7 @@ R hat, effective sample sizes, and a verification against a known answer" - chap
 See Figure 4.18 for inspiration.
 """
 from glob import glob
+import re
 import os
 import sys
 
@@ -80,12 +81,16 @@ def main(pattern, burn_in=None):
     ok = rhat_a.max() < 1.01 and rhat_U < 1.01 and ess_a.min() > 400 and ess_U > 400
     print(f"Rhat < 1.01 and ESS > 400 for U and all nodes: {'yes' if ok else 'NO'}")
 
+    # Checkpoint-only runs lack aTrue, aMap and H: take them from the MAP/Hessian file of the setup
+    if "aTrue" not in runs[0]:
+        hr = re.search(r"highres_m(\d+)_mp(\d+)_eta([\d.]+?)_", os.path.basename(files[0]))
+        ref = f"highres_map_m{hr[1]}_mp{hr[2]}_eta{hr[3]}.mat" if hr else "hessian_m36_eta0.02.mat"
+        R = loadmat(os.path.join(os.path.dirname(files[0]), ref), squeeze_me=True)
+        for key in ("aTrue", "aMap", "H"):
+            runs[0][key] = R[key]
+
     # Posterior summaries
-    if "aTrue" in runs[0]:
-        a_true = runs[0]["aTrue"]
-    else:   # checkpoint-only runs (stopped before the final save)
-        a_true = loadmat(os.path.join(os.path.dirname(files[0]), "hessian_m36_eta0.02.mat"),
-                         squeeze_me=True)["aTrue"]
+    a_true = runs[0]["aTrue"]
 
     samples = A.reshape(-1, m_p)
     print(samples.size) # 4 * 1000 * 26
