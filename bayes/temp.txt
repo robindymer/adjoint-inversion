@@ -22,3 +22,10 @@ done
 for f in logs/highres_*.log; do echo "$f: $(tail -n1 $f)"; done
 
 for f in logs/highres_*.log; do echo "== $f"; tail -n 5 "$f"; done; echo "running: $(pgrep -f run_highres | wc -l)"
+
+## For running inverse crime that actually converges
+cd ~/Kod/adjoint-inversion/bayes
+for s in 1 2 3 4; do
+  nohup matlab -batch "nIter=1200; nAdapt=100; seed=$s; run('run_laplace_mala.m')" > mala_seed$s.log 2>&1 &
+  nohup matlab -batch "nIter=1200; nAdapt=50; nLeap=5; seed=$s; run('run_laplace_hmc.m')" > hmc_seed$s.log 2>&1 &
+done
