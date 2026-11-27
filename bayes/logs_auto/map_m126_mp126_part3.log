@@ -1,0 +1,26 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+High-res noisy data: m = 126, m_p = 126, sigma0 = 4.001e-02 (eta = 0.02), dt_d = 0.01, N = 52800
+  M_noise = 3.9367e-01 (sigma0^2 dt_d N/2 = 4.2264e-01), M(a_true nodes) = 8.7785e-01, inflation = 1.000
+Resuming from /home/robindymer/Kod/adjoint-inversion/bayes/results/highres_map_m126_mp126_eta0.02.mat with inflation 1.000
+f = 4.935599e+04  |g| =  1.543e+03  init
+  U = 4.935599e+04, |g| = 1.543e+03, M = 7.8945e-01, solves 2/1/0  init
+f = 4.921098e+04  |g| =  1.433e+05  CG  8 boundary rho   0.978 th 1.00 Delta 3.73e+00
+  U = 4.921098e+04, |g| = 1.433e+05, M = 7.8713e-01, solves 3/2/8  CG  8 boundary rho   0.978 th 1.00 Delta 3.73e+00
+f = 4.919319e+04  |g| =  1.113e+05  CG  1 boundary rho   1.006 th 1.00 Delta 1.49e+01
+  U = 4.919319e+04, |g| = 1.113e+05, M = 7.8685e-01, solves 4/3/9  CG  1 boundary rho   1.006 th 1.00 Delta 1.49e+01
+f = 4.918178e+04  |g| =  7.734e+03  CG  5 boundary rho   1.063 th 1.00 Delta 5.97e+01
+  U = 4.918178e+04, |g| = 7.734e+03, M = 7.8666e-01, solves 5/4/14  CG  5 boundary rho   1.063 th 1.00 Delta 5.97e+01
+f = 4.908257e+04  |g| =  1.903e+05  CG  5 boundary rho   0.913 th 1.00 Delta 2.39e+02
+  U = 4.908257e+04, |g| = 1.903e+05, M = 7.8507e-01, solves 6/5/19  CG  5 boundary rho   0.913 th 1.00 Delta 2.39e+02
+f = 4.894617e+04  |g| =  1.954e+05  CG  7 boundary rho   1.074 th 1.00 Delta 9.56e+02
+  U = 4.894617e+04, |g| = 1.954e+05, M = 7.8284e-01, solves 7/6/26  CG  7 boundary rho   1.074 th 1.00 Delta 9.56e+02
+f = 4.877534e+04  |g| =  2.009e+05  CG 11 conv     rho   1.060 th 1.00 Delta 9.56e+02
+  U = 4.877534e+04, |g| = 2.009e+05, M = 7.7992e-01, solves 8/7/37  CG 11 conv     rho   1.060 th 1.00 Delta 9.56e+02
+f = 4.861151e+04  |g| =  9.936e+04  CG 12 conv     rho   1.040 th 1.00 Delta 9.56e+02
+  U = 4.861151e+04, |g| = 9.936e+04, M = 7.7677e-01, solves 9/8/49  CG 12 conv     rho   1.040 th 1.00 Delta 9.56e+02

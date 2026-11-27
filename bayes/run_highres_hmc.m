@@ -14,13 +14,14 @@ if ~exist('nLeap', 'var'), nLeap = 5; end
 if ~exist('nAdapt', 'var'), nAdapt = 20; end
 if ~exist('eps0', 'var'), eps0 = 0.3; end   % ~ (pi/2)/nLeap in whitened coordinates; adapted
 if ~exist('seed', 'var'), seed = 1; end
+if ~exist('gammaFactor', 'var'), gammaFactor = 1; end   % prior, see highres_prior.m
 
 resDir = fullfile(bayesDir, 'results');
-L = load(fullfile(resDir, sprintf('highres_map_m%d_mp%d_eta%g.mat', m, m_p, eta)), ...
+[prior, tag] = highres_prior(m_p, gammaFactor);
+L = load(fullfile(resDir, sprintf('highres_map_m%d_mp%d_eta%g%s.mat', m, m_p, eta, tag)), ...
     'aMap', 'H', 'inflation');
 aMap = L.aMap; H = L.H;
 [prob, noise, aTrue] = setup_highres_problem(m, m_p, eta, L.inflation);
-prior = smoothness_prior(m_p);
 post = posterior(prob, noise, prior);
 
 RH = chol(H);
@@ -34,7 +35,7 @@ opts.ref = struct('mu', aMap, 'R', RH);
 opts.nAdapt = nAdapt;
 opts.rs = rs;
 opts.saveEvery = 5;
-opts.saveFile = fullfile(resDir, sprintf('hmc_highres_m%d_mp%d_eta%g_L%d_seed%d.mat', m, m_p, eta, nLeap, seed));
+opts.saveFile = fullfile(resDir, sprintf('hmc_highres_m%d_mp%d_eta%g%s_L%d_seed%d.mat', m, m_p, eta, tag, nLeap, seed));
 start = 'laplace';
 chain = hmc(post, a0, nIter, eps0, nLeap, opts);
 save(opts.saveFile, 'chain', 'aTrue', 'aMap', 'H', 'noise', 'm', 'm_p', 'start', 'seed', 'nLeap');

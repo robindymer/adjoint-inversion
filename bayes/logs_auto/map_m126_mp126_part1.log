@@ -1,0 +1,54 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+High-res noisy data: m = 126, m_p = 126, sigma0 = 4.001e-02 (eta = 0.02), dt_d = 0.01, N = 52800
+  M_noise = 3.9367e-01 (sigma0^2 dt_d N/2 = 4.2264e-01), M(a_true nodes) = 8.7785e-01, inflation = 1.000
+Warm start from /home/robindymer/Kod/adjoint-inversion/bayes/results/highres_map_m151_mp26_eta0.02.mat
+f = 6.316096e+05  |g| =  2.086e+07  init
+  U = 6.316096e+05, |g| = 2.086e+07, M = 1.0111e+01, solves 2/1/0  init
+rejected: CG  1 conv     rho  -0.681 th 1.00 Delta 3.68e-02, f_trial = 1.676890e+06
+f = 6.566543e+04  |g| =  2.435e+06  CG  1 boundary rho   0.843 th 1.00 Delta 1.47e-01
+  U = 6.566543e+04, |g| = 2.435e+06, M = 1.0502e+00, solves 4/3/1  CG  1 boundary rho   0.843 th 1.00 Delta 1.47e-01
+f = 6.563546e+04  |g| =  2.410e+06  CG  1 boundary rho   1.000 th 1.00 Delta 5.89e-01
+  U = 6.563546e+04, |g| = 2.410e+06, M = 1.0498e+00, solves 5/4/2  CG  1 boundary rho   1.000 th 1.00 Delta 5.89e-01
+f = 6.560374e+04  |g| =  2.384e+06  CG  1 boundary rho   1.000 th 1.00 Delta 2.36e+00
+  U = 6.560374e+04, |g| = 2.384e+06, M = 1.0493e+00, solves 6/5/3  CG  1 boundary rho   1.000 th 1.00 Delta 2.36e+00
+f = 6.548033e+04  |g| =  2.279e+06  CG  1 boundary rho   1.000 th 1.00 Delta 9.42e+00
+  U = 6.548033e+04, |g| = 2.279e+06, M = 1.0473e+00, solves 7/6/4  CG  1 boundary rho   1.000 th 1.00 Delta 9.42e+00
+f = 6.504223e+04  |g| =  1.859e+06  CG  1 boundary rho   1.000 th 1.00 Delta 3.77e+01
+  U = 6.504223e+04, |g| = 1.859e+06, M = 1.0403e+00, solves 8/7/5  CG  1 boundary rho   1.000 th 1.00 Delta 3.77e+01
+f = 6.418234e+04  |g| =  1.718e+05  CG  1 boundary rho   0.996 th 1.00 Delta 1.12e+02
+  U = 6.418234e+04, |g| = 1.718e+05, M = 1.0265e+00, solves 9/8/6  CG  1 boundary rho   0.996 th 1.00 Delta 1.12e+02
+f = 6.407484e+04  |g| =  4.187e+04  CG  2 boundary rho   1.000 th 1.00 Delta 1.12e+02
+  U = 6.407484e+04, |g| = 4.187e+04, M = 1.0248e+00, solves 10/9/8  CG  2 boundary rho   1.000 th 1.00 Delta 1.12e+02
+f = 5.585009e+04  |g| =  9.028e+05  CG  1 boundary rho   0.546 th 1.00 Delta 1.12e+02
+  U = 5.585009e+04, |g| = 9.028e+05, M = 8.9311e-01, solves 11/10/9  CG  1 boundary rho   0.546 th 1.00 Delta 1.12e+02
+f = 5.273076e+04  |g| =  2.602e+05  CG  3 boundary rho   1.135 th 1.00 Delta 1.12e+02
+  U = 5.273076e+04, |g| = 2.602e+05, M = 8.4318e-01, solves 12/11/12  CG  3 boundary rho   1.135 th 1.00 Delta 1.12e+02
+f = 5.236457e+04  |g| =  3.930e+04  CG  2 conv     rho   1.004 th 1.00 Delta 1.12e+02
+  U = 5.236457e+04, |g| = 3.930e+04, M = 8.3733e-01, solves 13/12/14  CG  2 conv     rho   1.004 th 1.00 Delta 1.12e+02
+f = 5.232653e+04  |g| =  1.737e+03  CG  5 boundary rho   0.986 th 1.00 Delta 1.12e+02
+  U = 5.232653e+04, |g| = 1.737e+03, M = 8.3672e-01, solves 14/13/19  CG  5 boundary rho   0.986 th 1.00 Delta 1.12e+02
+rejected: CG  5 boundary rho  -2.492 th 0.89 Delta 2.49e+01, f_trial = 5.730236e+04
+f = 5.141085e+04  |g| =  8.327e+05  CG  1 boundary rho   0.786 th 1.00 Delta 9.95e+01
+  U = 5.141085e+04, |g| = 8.327e+05, M = 8.2213e-01, solves 16/15/24  CG  1 boundary rho   0.786 th 1.00 Delta 9.95e+01
+f = 5.056226e+04  |g| =  2.424e+05  CG  5 boundary rho   1.147 th 1.00 Delta 1.12e+02
+  U = 5.056226e+04, |g| = 2.424e+05, M = 8.0860e-01, solves 17/16/29  CG  5 boundary rho   1.147 th 1.00 Delta 1.12e+02
+f = 5.023650e+04  |g| =  4.408e+05  CG  3 conv     rho   0.982 th 1.00 Delta 1.12e+02
+  U = 5.023650e+04, |g| = 4.408e+05, M = 8.0340e-01, solves 18/17/32  CG  3 conv     rho   0.982 th 1.00 Delta 1.12e+02
+f = 5.018245e+04  |g| =  5.832e+03  CG  2 conv     rho   1.023 th 1.00 Delta 1.12e+02
+  U = 5.018245e+04, |g| = 5.832e+03, M = 8.0254e-01, solves 19/18/34  CG  2 conv     rho   1.023 th 1.00 Delta 1.12e+02
+f = 5.017200e+04  |g| =  2.572e+04  CG  5 boundary rho   0.995 th 1.00 Delta 1.12e+02
+  U = 5.017200e+04, |g| = 2.572e+04, M = 8.0238e-01, solves 20/19/39  CG  5 boundary rho   0.995 th 1.00 Delta 1.12e+02
+f = 4.985693e+04  |g| =  1.461e+05  CG  3 conv     rho   0.994 th 1.00 Delta 1.12e+02
+  U = 4.985693e+04, |g| = 1.461e+05, M = 7.9736e-01, solves 21/20/42  CG  3 conv     rho   0.994 th 1.00 Delta 1.12e+02
+f = 4.985134e+04  |g| =  7.104e+02  CG  2 conv     rho   1.002 th 1.00 Delta 1.12e+02
+  U = 4.985134e+04, |g| = 7.104e+02, M = 7.9727e-01, solves 22/21/44  CG  2 conv     rho   1.002 th 1.00 Delta 1.12e+02
+f = 4.984901e+04  |g| =  2.138e+03  CG  5 boundary rho   1.000 th 1.00 Delta 1.12e+02
+  U = 4.984901e+04, |g| = 2.138e+03, M = 7.9723e-01, solves 23/22/49  CG  5 boundary rho   1.000 th 1.00 Delta 1.12e+02
+f = 4.950873e+04  |g| =  2.775e+05  CG  5 boundary rho   0.941 th 1.00 Delta 1.12e+02
+  U = 4.950873e+04, |g| = 2.775e+05, M = 7.9188e-01, solves 24/23/54  CG  5 boundary rho   0.941 th 1.00 Delta 1.12e+02

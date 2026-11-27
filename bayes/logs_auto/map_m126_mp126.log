@@ -1,0 +1,18 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+High-res noisy data: m = 126, m_p = 126, sigma0 = 4.001e-02 (eta = 0.02), dt_d = 0.01, N = 52800
+  M_noise = 3.9367e-01 (sigma0^2 dt_d N/2 = 4.2264e-01), M(a_true nodes) = 8.7785e-01, inflation = 1.000
+Resuming from /home/robindymer/Kod/adjoint-inversion/bayes/results/highres_map_m126_mp126_eta0.02.mat with inflation 2.000
+f = 2.435136e+04  |g| =  4.968e+04  init
+  U = 2.435136e+04, |g| = 4.968e+04, M = 7.7677e-01, solves 2/1/0  init
+f = 2.433802e+04  |g| =  8.948e+04  CG  9 conv     rho   1.037 th 1.00 Delta 1.00e+03
+  U = 2.433802e+04, |g| = 8.948e+04, M = 7.7635e-01, solves 3/2/9  CG  9 conv     rho   1.037 th 1.00 Delta 1.00e+03
+f = 2.433196e+04  |g| =  8.195e+03  CG  2 conv     rho   1.131 th 1.00 Delta 1.00e+03
+  U = 2.433196e+04, |g| = 8.195e+03, M = 7.7615e-01, solves 4/3/11  CG  2 conv     rho   1.131 th 1.00 Delta 1.00e+03
+f = 2.432547e+04  |g| =  3.661e+04  CG  5 boundary rho   0.945 th 1.00 Delta 4.00e+03
+  U = 2.432547e+04, |g| = 3.661e+04, M = 7.7594e-01, solves 5/4/16  CG  5 boundary rho   0.945 th 1.00 Delta 4.00e+03

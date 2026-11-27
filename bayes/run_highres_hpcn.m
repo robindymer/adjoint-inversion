@@ -16,14 +16,15 @@ eta = 0.02;
 if ~exist('nIter', 'var'), nIter = 1000; end
 if ~exist('s', 'var'), s = 1; end
 if ~exist('seed', 'var'), seed = 1; end
+if ~exist('gammaFactor', 'var'), gammaFactor = 1; end   % prior, see highres_prior.m
 if ~exist('nAdapt', 'var'), nAdapt = 0; end   % > 0: adapt s towards 25 % acceptance (burn-in)
 
 resDir = fullfile(bayesDir, 'results');
-L = load(fullfile(resDir, sprintf('highres_map_m%d_mp%d_eta%g.mat', m, m_p, eta)), ...
+[prior, tag] = highres_prior(m_p, gammaFactor);
+L = load(fullfile(resDir, sprintf('highres_map_m%d_mp%d_eta%g%s.mat', m, m_p, eta, tag)), ...
     'aMap', 'H', 'inflation');
 aMap = L.aMap; H = L.H;
 [prob, noise, aTrue] = setup_highres_problem(m, m_p, eta, L.inflation);
-prior = smoothness_prior(m_p);
 post = posterior(prob, noise, prior);
 
 RH = chol(H);
@@ -37,7 +38,7 @@ opts.ref = struct('mu', aMap, 'R', RH);
 opts.nAdapt = nAdapt;
 opts.rs = rs;
 opts.saveEvery = 10;
-opts.saveFile = fullfile(resDir, sprintf('hpcn_highres_m%d_mp%d_eta%g_s%g_seed%d.mat', m, m_p, eta, s, seed));
+opts.saveFile = fullfile(resDir, sprintf('hpcn_highres_m%d_mp%d_eta%g%s_s%g_seed%d.mat', m, m_p, eta, tag, s, seed));
 start = 'laplace';
 chain = pcn(post, a0, nIter, s, opts);
 save(opts.saveFile, 'chain', 'aTrue', 'aMap', 'H', 'noise', 'm', 'm_p', 's', 'start', 'seed');

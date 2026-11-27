@@ -7,6 +7,7 @@
 %   M_noise = 1/2 sum_r int (d_noisy - d_clean)^2 dt  ~  sigma^2 dt_d N / 2.
 % Model error is negligible if M_model << M_noise.
 % Set ms and m_p before calling, e.g. matlab -batch "ms=[36 51]; m_p=101; discretization_error"
+% (outName: result file name, default discretization_error_mp<m_p>.mat)
 
 bayesDir = fileparts(mfilename('fullpath'));
 codeDir = fullfile(fileparts(bayesDir), 'adjoint_rate_state_inversion');
@@ -59,4 +60,5 @@ for i = 1:numel(ms)
     fprintf('m = %4d: M_model = %.4e, M_model/M_noise = %.3f, forward solve %.0f s\n', ...
         m, M, M/Mnoise, tFwd);
 end
-save(fullfile(bayesDir, 'results', sprintf('discretization_error_mp%d.mat', m_p)), 'ms', 'res', 'Mnoise', 'nz');
+if ~exist('outName', 'var'), outName = sprintf('discretization_error_mp%d.mat', m_p); end
+save(fullfile(bayesDir, 'results', outName), 'ms', 'res', 'Mnoise', 'nz');

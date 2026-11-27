@@ -13,7 +13,8 @@
 % prob       InvProblem: prob.f(a) misfit, prob.fg(a) misfit and gradient, prob.Hv(a,V)
 % noise      struct with eta, sigma0, inflation, sigma (inflated, used by posterior.m), dt_d,
 %            N (data used: receivers x samples), Mnoise (misfit of the pure noise with the
-%            solver's time quadrature, i.e. the discrepancy target without model error)
+%            solver's time quadrature, i.e. the discrepancy target without model error),
+%            Mtrue (misfit of aTrue, i.e. noise + model error)
 % aTrue      true a sampled at the m_p nodes (for plots only; the data were made with a sharp step)
 function [prob, noise, aTrue] = setup_highres_problem(m, m_p, eta, inflation)
     bayesDir = fileparts(mfilename('fullpath'));
@@ -77,6 +78,7 @@ function [prob, noise, aTrue] = setup_highres_problem(m, m_p, eta, inflation)
         noise.Mnoise = noise.Mnoise + 0.5*((dNoisy{r}(T) - dClean{r}(T)).^2)*optObj.Ht;
     end
     noise.MnoiseFormula = noise.sigma0^2*noise.dt_d*noise.N/2;
+    noise.Mtrue = Mtrue;   % misfit of a_true at the nodes: noise + model error
 
     fprintf(['High-res noisy data: m = %d, m_p = %d, sigma0 = %.3e (eta = %g), dt_d = %g, N = %d\n' ...
         '  M_noise = %.4e (sigma0^2 dt_d N/2 = %.4e), M(a_true nodes) = %.4e, inflation = %.3f\n'], ...

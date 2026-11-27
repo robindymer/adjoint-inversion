@@ -13,13 +13,14 @@ if ~exist('nIter', 'var'), nIter = 500; end
 if ~exist('nAdapt', 'var'), nAdapt = 50; end
 if ~exist('h0', 'var'), h0 = 0.5; end    % whitened coordinates; adapted
 if ~exist('seed', 'var'), seed = 1; end
+if ~exist('gammaFactor', 'var'), gammaFactor = 1; end   % prior, see highres_prior.m
 
 resDir = fullfile(bayesDir, 'results');
-L = load(fullfile(resDir, sprintf('highres_map_m%d_mp%d_eta%g.mat', m, m_p, eta)), ...
+[prior, tag] = highres_prior(m_p, gammaFactor);
+L = load(fullfile(resDir, sprintf('highres_map_m%d_mp%d_eta%g%s.mat', m, m_p, eta, tag)), ...
     'aMap', 'H', 'inflation');
 aMap = L.aMap; H = L.H;
 [prob, noise, aTrue] = setup_highres_problem(m, m_p, eta, L.inflation);
-prior = smoothness_prior(m_p);
 post = posterior(prob, noise, prior);
 
 RH = chol(H);
@@ -33,7 +34,7 @@ opts.ref = struct('mu', aMap, 'R', RH);
 opts.nAdapt = nAdapt;
 opts.rs = rs;
 opts.saveEvery = 10;
-opts.saveFile = fullfile(resDir, sprintf('mala_highres_m%d_mp%d_eta%g_seed%d.mat', m, m_p, eta, seed));
+opts.saveFile = fullfile(resDir, sprintf('mala_highres_m%d_mp%d_eta%g%s_seed%d.mat', m, m_p, eta, tag, seed));
 start = 'laplace';
 chain = mala(post, a0, nIter, h0, opts);
 save(opts.saveFile, 'chain', 'aTrue', 'aMap', 'H', 'noise', 'm', 'm_p', 'start', 'seed');

@@ -1,0 +1,33 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+High-res noisy data: m = 126, m_p = 126, sigma0 = 4.001e-02 (eta = 0.02), dt_d = 0.01, N = 52800
+  M_noise = 3.9367e-01 (sigma0^2 dt_d N/2 = 4.2264e-01), M(a_true nodes) = 8.7785e-01, inflation = 1.000
+GSBL: beta = 0.5, vartheta = 2.00e-09, warm start from /home/robindymer/Kod/adjoint-inversion/bayes/results/highres_map_m126_mp126_eta0.02.mat (inflation 2.000)
+f = 2.438308e+04  |g| =  2.144e+04  init
+rejected: CG 10 boundary rho  -0.063 th 1.00 Delta 4.31e-01, f_trial = 2.438528e+04
+f = 2.437099e+04  |g| =  2.304e+04  CG  7 boundary rho   1.063 th 1.00 Delta 1.73e+00
+f = 2.435966e+04  |g| =  4.759e+04  CG  1 boundary rho   0.961 th 1.00 Delta 6.90e+00
+f = 2.433472e+04  |g| =  7.207e+04  CG  2 boundary rho   1.027 th 1.00 Delta 2.76e+01
+f = 2.431201e+04  |g| =  2.585e+04  CG  6 conv     rho   1.245 th 1.00 Delta 2.76e+01
+Outer 1: inflation 2.000, 5 iterations (flag 1), M(a_MAP) = 1.967 M_noise, |da|/|a| = 1.26e-02, 9 increments > 1e-3, |a_MAP - a_true|/|a_true| = 8.251e-02, solves 7/6/19
+f = 2.473348e+04  |g| =  2.639e+04  init
+f = 2.472876e+04  |g| =  1.339e+05  CG  9 conv     rho   0.243 th 1.00 Delta 1.86e-01
+f = 2.472617e+04  |g| =  1.251e+05  CG  1 boundary rho   1.001 th 1.00 Delta 7.43e-01
+f = 2.472232e+04  |g| =  1.128e+05  CG  1 boundary rho   1.000 th 1.00 Delta 2.97e+00
+f = 2.470897e+04  |g| =  5.830e+04  CG  1 boundary rho   1.001 th 1.00 Delta 1.19e+01
+f = 2.469834e+04  |g| =  1.601e+04  CG  3 conv     rho   1.271 th 1.00 Delta 1.19e+01
+Outer 2: inflation 1.967, 5 iterations (flag 1), M(a_MAP) = 1.964 M_noise, |da|/|a| = 8.65e-03, 9 increments > 1e-3, |a_MAP - a_true|/|a_true| = 8.538e-02, solves 13/12/34
+f = 2.473254e+04  |g| =  1.610e+04  init
+rejected: CG 11 boundary rho -17.975 th 1.00 Delta 4.22e-01, f_trial = 2.548509e+04
+f = 2.472733e+04  |g| =  9.956e+04  CG  7 boundary rho   0.375 th 1.00 Delta 4.22e-01
+f = 2.472246e+04  |g| =  7.830e+04  CG  1 boundary rho   1.011 th 1.00 Delta 1.69e+00
+f = 2.470776e+04  |g| =  8.251e+04  CG  1 boundary rho   0.999 th 1.00 Delta 6.74e+00
+f = 2.468517e+04  |g| =  5.896e+04  CG  1 boundary rho   1.108 th 1.00 Delta 2.70e+01
+Outer 3: inflation 1.964, 5 iterations (flag 1), M(a_MAP) = 1.962 M_noise, |da|/|a| = 6.58e-03, 8 increments > 1e-3, |a_MAP - a_true|/|a_true| = 8.444e-02, solves 19/18/48
+f = 2.472558e+04  |g| =  5.917e+04  init
+f = 2.470475e+04  |g| =  5.374e+04  CG  7 conv     rho   1.290 th 1.00 Delta 1.64e+00

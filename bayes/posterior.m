@@ -17,7 +17,11 @@ function post = posterior(prob, noise, prior)
     post.Phi = @Phi;
     post.U = @(a) Phi(a) - prior.logp(a);
     post.Ug = @Ug;
-    post.Uhv = @(a, V) c*prob.Hv(a, V) + prior.P*V;
+    if isfield(prior, 'hv')   % non-Gaussian prior, e.g. tv_prior.m
+        post.Uhv = @(a, V) c*prob.Hv(a, V) + prior.hv(a, V);
+    else
+        post.Uhv = @(a, V) c*prob.Hv(a, V) + prior.P*V;
+    end
 
     function phi = Phi(a)
         phi = c*prob.f(a);

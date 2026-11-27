@@ -1,0 +1,40 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+High-res noisy data: m = 201, m_p = 201, sigma0 = 4.001e-02 (eta = 0.02), dt_d = 0.01, N = 52800
+  M_noise = 3.9367e-01 (sigma0^2 dt_d N/2 = 4.2264e-01), M(a_true nodes) = 5.4497e-01, inflation = 1.244
+[  2087s] it    10  U 2.4739e+04  h 1.05e+00  acc. rate (last 10) 0.60
+[  4262s] it    20  U 2.4725e+04  h 5.83e-01  acc. rate (last 10) 0.30
+[  6470s] it    30  U 2.4734e+04  h 5.45e-01  acc. rate (last 10) 0.60
+[  8687s] it    40  U 2.4706e+04  h 6.10e-01  acc. rate (last 10) 0.70
+[ 10915s] it    50  U 2.4700e+04  h 5.49e-01  acc. rate (last 10) 0.40
+[ 13177s] it    60  U 2.4716e+04  h 5.49e-01  acc. rate (last 10) 0.20
+[ 15392s] it    70  U 2.4707e+04  h 5.49e-01  acc. rate (last 10) 0.40
+[ 17598s] it    80  U 2.4705e+04  h 5.49e-01  acc. rate (last 10) 0.50
+[ 19838s] it    90  U 2.4707e+04  h 5.49e-01  acc. rate (last 10) 0.60
+[ 21974s] it   100  U 2.4710e+04  h 5.49e-01  acc. rate (last 10) 0.50
+[ 24195s] it   110  U 2.4699e+04  h 5.49e-01  acc. rate (last 10) 0.40
+[ 26409s] it   120  U 2.4697e+04  h 5.49e-01  acc. rate (last 10) 0.20
+[ 28615s] it   130  U 2.4693e+04  h 5.49e-01  acc. rate (last 10) 0.10
+[ 30812s] it   140  U 2.4705e+04  h 5.49e-01  acc. rate (last 10) 0.20
+[ 32845s] it   150  U 2.4699e+04  h 5.49e-01  acc. rate (last 10) 0.40
+[ 34612s] it   160  U 2.4720e+04  h 5.49e-01  acc. rate (last 10) 0.60
+[ 36729s] it   170  U 2.4709e+04  h 5.49e-01  acc. rate (last 10) 0.30
+[ 38910s] it   180  U 2.4707e+04  h 5.49e-01  acc. rate (last 10) 0.10
+[ 41099s] it   190  U 2.4706e+04  h 5.49e-01  acc. rate (last 10) 0.40
+[ 43805s] it   200  U 2.4693e+04  h 5.49e-01  acc. rate (last 10) 0.40
+[ 46511s] it   210  U 2.4718e+04  h 5.49e-01  acc. rate (last 10) 0.70
+[ 49235s] it   220  U 2.4711e+04  h 5.49e-01  acc. rate (last 10) 0.70
+[ 51926s] it   230  U 2.4713e+04  h 5.49e-01  acc. rate (last 10) 0.60
+[ 54634s] it   240  U 2.4712e+04  h 5.49e-01  acc. rate (last 10) 0.10
+[ 57374s] it   250  U 2.4699e+04  h 5.49e-01  acc. rate (last 10) 0.20
+[ 59426s] it   260  U 2.4715e+04  h 5.49e-01  acc. rate (last 10) 0.40
+[ 61198s] it   270  U 2.4703e+04  h 5.49e-01  acc. rate (last 10) 0.40
+[ 62977s] it   280  U 2.4702e+04  h 5.49e-01  acc. rate (last 10) 0.40
+[ 64750s] it   290  U 2.4707e+04  h 5.49e-01  acc. rate (last 10) 0.40
+[ 66528s] it   300  U 2.4726e+04  h 5.49e-01  acc. rate (last 10) 0.60
+Final h = 5.49e-01, acceptance rate after burn-in = 0.39, 300 forward + 300 adjoint solves in 66528 s

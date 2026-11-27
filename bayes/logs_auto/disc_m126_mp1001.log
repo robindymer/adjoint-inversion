@@ -1,0 +1,25 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+Noise: sigma = 4.001e-02, dt_d = 0.01, 88 of 357 receivers, N = 52800, sigma^2 dt_d N/2 = 4.2264e-01, M_noise (trapz) = 4.2136e-01
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+{Error using assert
+Assertion failed.
+
+Error in AntiplaneShear2DRSFrictionOpt (line 94)
+        assert(m_p <= m);
+        ^^^^^^^^^^^^^^^^
+Error in discretization_error (line 43)
+    tmp = AntiplaneShear2DRSFrictionOpt(trueParset, {'a'}, order);
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+} 

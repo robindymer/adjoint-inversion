@@ -1,0 +1,16 @@
+PSD = 1.0086
+input alpha=0.01 calculated alpha=0.016787
+ratio=0.59568
+Number of receivers: 88
+Receiver spacing: 2
+Number of receivers: 88
+Receiver spacing: 2
+High-res noisy data: m = 126, m_p = 126, sigma0 = 4.001e-02 (eta = 0.02), dt_d = 0.01, N = 52800
+  M_noise = 3.9367e-01 (sigma0^2 dt_d N/2 = 4.2264e-01), M(a_true nodes) = 8.7785e-01, inflation = 2.000
+[   704s] it    10  U 2.4377e+04  h 3.93e-01  acc. rate (last 10) 0.40
+[  1405s] it    20  U 2.4360e+04  h 2.58e-01  acc. rate (last 10) 0.50
+[  2107s] it    30  U 2.4343e+04  h 2.64e-01  acc. rate (last 10) 0.60
+[  2802s] it    40  U 2.4342e+04  h 2.45e-01  acc. rate (last 10) 0.60
+[  3506s] it    50  U 2.4341e+04  h 2.21e-01  acc. rate (last 10) 0.20
+[  4203s] it    60  U 2.4338e+04  h 2.21e-01  acc. rate (last 10) 0.70
+[  4878s] it    70  U 2.4341e+04  h 2.21e-01  acc. rate (last 10) 0.40
